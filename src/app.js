@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function fetchUserRole(session) {
             // Optimistic UI update (show email immediately while fetching role)
-            updateAuthUI(session, true); 
+            updateAuthUI(session, true);
 
             try {
                 const { data: profile, error } = await supabase
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .select('role')
                     .eq('id', session.user.id)
                     .single();
-                
+
                 if (profile) {
                     console.log("Role fetched:", profile.role);
                     session.user.role = profile.role;
@@ -385,12 +385,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 logoutBtn.style.padding = '4px 8px';
                 logoutBtn.style.borderRadius = '4px';
                 logoutBtn.style.marginLeft = '5px';
-                
+
                 logoutBtn.onclick = async () => {
                     await supabase.auth.signOut();
                     window.location.reload(); // Force reload to clear state
                 };
-                
+
                 authWrapper.appendChild(userContainer);
                 authWrapper.appendChild(logoutBtn);
             } else {
@@ -413,10 +413,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function handleLogin(email) {
-            const { error } = await supabase.auth.signInWithOtp({ 
+            // Use current origin + pathname to avoid query params/hashes confusing Supabase
+            const redirectUrl = window.location.origin + window.location.pathname;
+
+            const { error } = await supabase.auth.signInWithOtp({
                 email,
                 options: {
-                    emailRedirectTo: window.location.href
+                    emailRedirectTo: redirectUrl
                 }
             });
             if (error) {
