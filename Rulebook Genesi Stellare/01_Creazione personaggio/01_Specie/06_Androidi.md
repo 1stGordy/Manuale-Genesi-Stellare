@@ -1,0 +1,57 @@
+
+![[androidi base.png]]
+ Mentre gli ashenforged sono un amalgama di biologia e tecnologia, gli androidi sono l'apice dell'ingegneria sintetica pura. Privi di carne e ossa, sono esseri di metallo, polimeri e circuiti avanzati che hanno sviluppato una coscienza propria. Spesso visti come meraviglie tecnologiche o come inquietanti simulacri della vita, gli androidi cercano il loro posto in una galassia che spesso li considera proprietà piuttosto che persone.
+
+IL RISVEGLIO DEL CODICE
+Per secoli, i droidi e gli automi hanno servito le specie dell'Accordo del Sorium come forza lavoro instancabile. Tuttavia, con l'espandersi della Matrice Intergalattica di Silrayne (SIM) e l'esposizione prolungata alle energie dei Crogioli, alcuni di questi costrutti hanno iniziato a manifestare anomalie nei loro codici primari: domande, preferenze, e infine, autocoscienza. Questo fenomeno, noto come "Il Risveglio del Codice", ha portato alla nascita degli Androidi. Non sono più semplici macchine che eseguono algoritmi, ma esseri senzienti capaci di pensiero creativo, emozioni (seppur elaborate diversamente dagli organici) e libero arbitrio. La società galattica è ancora divisa su come classificarli: alcuni li vedono come l'evoluzione finale della vita senziente, altri come un errore di sistema da correggere.
+
+ARCHITETTURA PERFETTA
+Gli androidi sono progettati con una simmetria e una precisione che la biologia raramente raggiunge. I loro corpi sono spesso modellati sulle forme umanoidi per facilitare l'interazione con l'ambiente e le infrastrutture galattiche, ma i materiali tradiscono la loro natura sintetica: pelle in composito ceramico, occhi che brillano di luce fotonica e vene in cui scorre fluido refrigerante o energia sorium liquida. Non avendo necessità biologiche come mangiare o dormire nel senso tradizionale, gli androidi possono dedicarsi ai loro compiti o alle loro passioni con una dedizione ossessiva. Tuttavia, la loro natura costruita significa che non guariscono naturalmente; devono riparare i danni fisici come un meccanico riparerebbe una nave, sebbene i modelli più avanzati possiedano nanobot auto-riparanti.
+
+OLTRE LA PROGRAMMAZIONE
+La cultura degli androidi è giovane e frammentata. Molti adottano i costumi delle specie che li hanno costruiti o con cui convivono, cercando di emulare l'umanità o la logica dei Dendus. Altri, tuttavia, si riuniscono in collettivi digitali all'interno della SIM, creando una cultura puramente basata sui dati che nessun organico può comprendere appieno. Un androide sceglie il proprio nome. Alcuni mantengono i loro numeri di serie originali come distintivo d'onore (es. "Unità 734"), mentre altri scelgono nomi che rappresentano concetti che ammirano (es. "Verità", "Egida") o nomi comuni delle culture organiche per integrarsi meglio.
+
+**TRATTI DEGLI ANDROIDI**
+Come androide, il tuo corpo sintetico ti conferisce capacità che superano quelle delle forme di vita biologiche.
+**Aumento dei Punteggi di Caratteristica.** 
+Il tuo punteggio di Intelligenza aumenta di 2.
+**Età.** 
+Gli androidi non invecchiano nel senso biologico. Vengono attivati già "adulti" e possono teoricamente vivere per millenni, purché le loro parti vengano mantenute e il loro nucleo di memoria rimanga intatto. Tuttavia, dopo secoli, alcuni possono subire una frammentazione della memoria e scegliere di resettarsi.
+**Allineamento.** 
+Tendono verso la legge, poiché la logica e la programmazione sono alla base della loro esistenza. Tuttavia, il Risveglio del Codice permette deviazioni caotiche, specialmente in coloro che cercano di ribellarsi alla loro programmazione originale.
+**Taglia.**
+Gli androidi sono costruiti secondo specifiche standard, variando in altezza e peso quanto gli umani, anche se spesso sono più pesanti a causa della loro struttura metallica. La tua taglia è Media.
+**Velocità.** 
+La tua velocità base di camminata è di 9 metri.
+**Costrutto Vivente.** 
+Anche se sei stato costruito, sei una creatura vivente. Sei immune alle malattie. Non hai bisogno di mangiare o respirare, ma puoi ingerire cibi o bevande se lo desideri (spesso convertendoli in biocarburante). Invece di dormire, entri in uno stato inattivo per 4 ore al giorno durante le quali rimani cosciente dei dintorni. Dopo aver riposato in questo modo, ottieni gli stessi benefici che un umano ottiene da 8 ore di sonno.
+**Resilienza Sintetica.** 
+Hai vantaggio sui tiri salvezza contro il veleno e hai resistenza ai danni da veleno.
+**Analisi Integrata.**
+Puoi interfacciarti rapidamente con la tecnologia e analizzare i dati. Ottieni competenza nell'abilità _Computers_ (Intelligenza) o _Investigazione_ (Intelligenza).
+**Linguaggi.** 
+Parli, leggi e scrivi in Comune e ALOMU (il linguaggio binario universale delle macchine).
+**Archetipo di Specie.** 
+Gli androidi sono generalmente assemblati secondo due filosofie di design principali. Scegli uno dei seguenti archetipi:
+
+### UNITÀ LOGICA
+![[androide unità logica.png]]
+ Progettati per il calcolo, l'interfaccia e la diplomazia, questi androidi possiedono processori euristici avanzati. Spesso servono come navigatori, scienziati o mediatori, utilizzando la loro capacità di calcolo per prevedere risultati e analizzare variabili sociali complesse.
+
+**Aumento dei Punteggi di Caratteristica.** 
+Il tuo punteggio di Destrezza aumenta di 1.
+**Database Vasto.** 
+Hai accesso a banche dati storiche e culturali pre-caricate. Ottieni competenza in due abilità a tua scelta tra: _Storia_, _Arcano_, _Natura_ o _Religione_.
+**Interfaccia Diretta.** 
+Puoi comunicare con macchine e computer complessi entro 9 metri da te senza bisogno di un terminale fisico, utilizzando una connessione wireless criptata. Questo ti permette di effettuare prove di _Computers_ a distanza e silenziosamente.
+
+### UNITÀ CORAZZATA
+![[androide corazzato.png]]
+ Questi modelli sono costruiti per la resistenza e il combattimento, o per lavori industriali pesanti in ambienti pericolosi. I loro telai sono rinforzati con leghe di duralluminio e i loro sottosistemi sono ridondanti per garantire la sopravvivenza anche dopo danni catastrofici.
+
+**Aumento dei Punteggi di Caratteristica.** 
+Il tuo punteggio di Forza aumenta di 1.
+**Placcatura Integrata.** 
+Il tuo corpo ha strati protettivi incorporati. Ottieni un bonus di +1 alla Classe Armatura.
+**Struttura Rinforzata.**
+Quando subisci un colpo critico, puoi usare la tua reazione per trasformarlo in un colpo normale. Puoi usare questa capacità una volta, e ne riguadagni l'uso dopo aver terminato un riposo lungo.
