@@ -257,5 +257,157 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // --- Supabase Integration ---
+        const SUPABASE_URL = 'https://tmqfxsjjffvdkwzpkysn.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtcWZ4c2pqZmZ2ZGt3enBreXNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2OTM3MDEsImV4cCI6MjA4MDI2OTcwMX0.Bb559AxjxIpTp-Aj4Div3j0LBcAdNGsoZjZ-AcZvOOg';
+
+        let supabase = null;
+
+        // Inject Login Modal HTML
+        const modalHTML = `
+            <div id="login-modal">
+                <div class="login-box">
+                    <h3>ACCESSO ARCANUM</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted)">Inserisci la tua email per ricevere il Magic Link.</p>
+                    <input type="email" id="login-email" placeholder="nome@esempio.com">
+                    <div style="display: flex; justify-content: center;">
+                        <button class="login-btn-confirm" id="login-confirm">INVIA LINK</button>
+                        <button class="login-btn-cancel" id="login-cancel">ANNULLA</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        const loginModal = document.getElementById('login-modal');
+        const loginEmailInput = document.getElementById('login-email');
+        const loginConfirmBtn = document.getElementById('login-confirm');
+        const loginCancelBtn = document.getElementById('login-cancel');
+
+        if (loginCancelBtn) {
+            loginCancelBtn.addEventListener('click', () => {
+                loginModal.classList.remove('open');
+            });
+        }
+
+        if (loginConfirmBtn) {
+            loginConfirmBtn.addEventListener('click', () => {
+                const email = loginEmailInput.value;
+                if (email) {
+                    handleLogin(email);
+                    loginModal.classList.remove('open');
+                }
+            });
+        }
+
+        if (window.supabase) {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            console.log("Supabase initialized");
+
+            // Listen for Auth Changes (Fixes Login Loop)
+            supabase.auth.onAuthStateChange((event, session) => {
+                console.log("Auth Event:", event, session);
+                if (session) {
+                    fetchUserRole(session);
+                } else {
+                    updateAuthUI(null);
+                }
+            });
+
+        } else {
+            console.warn("Supabase SDK not loaded");
+            const footer = document.querySelector('.sidebar-footer');
+            if (footer) {
+                const authBtn = document.createElement('button');
+                authBtn.textContent = '⚠️ No Cloud';
+                footer.appendChild(authBtn);
+            }
+        }
+
+        async function fetchUserRole(session) {
+            try {
+                const { data: profile, error } = await supabase
+                    .from('profiles')
+                    .select('role')
+                    .eq('id', session.user.id)
+                    .single();
+
+                if (profile) {
+                    session.user.role = profile.role;
+                } else {
+                    session.user.role = 'player';
+                }
+            } catch (err) {
+                console.error("Error fetching role:", err);
+                session.user.role = 'player';
+            }
+            updateAuthUI(session);
+        }
+
+        function updateAuthUI(session) {
+            const footer = document.querySelector('.sidebar-footer');
+            if (!footer) return;
+
+            const existingBtn = document.getElementById('auth-btn');
+            if (existingBtn) existingBtn.remove();
+
+            const authWrapper = document.createElement('div');
+            authWrapper.id = 'auth-btn';
+            authWrapper.style.display = 'flex';
+            authWrapper.style.alignItems = 'center';
+            authWrapper.style.marginLeft = '10px';
+
+            if (session) {
+                const roleBadge = document.createElement('span');
+                roleBadge.textContent = session.user.role === 'gm' ? '👑 GM' : '👤 Player';
+                roleBadge.style.fontSize = '0.8rem';
+                roleBadge.style.marginRight = '8px';
+                roleBadge.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
+                roleBadge.title = session.user.email;
+
+                const logoutBtn = document.createElement('button');
+                logoutBtn.textContent = '🚪';
+                logoutBtn.title = 'Logout';
+                logoutBtn.style.background = 'none';
+                logoutBtn.style.border = '1px solid var(--border-color)';
+                logoutBtn.style.color = 'var(--text-color)';
+                logoutBtn.style.cursor = 'pointer';
+                logoutBtn.style.padding = '2px 6px';
+                logoutBtn.style.borderRadius = '4px';
+
+                logoutBtn.onclick = async () => {
+                    await supabase.auth.signOut();
+                };
+
+                authWrapper.appendChild(roleBadge);
+                authWrapper.appendChild(logoutBtn);
+            } else {
+                const loginBtn = document.createElement('button');
+                loginBtn.textContent = '🔑 Login';
+                loginBtn.onclick = () => {
+                    loginModal.classList.add('open');
+                };
+                authWrapper.appendChild(loginBtn);
+            }
+            footer.appendChild(authWrapper);
+        }
+
+        async function handleLogin(email) {
+            const { error } = await supabase.auth.signInWithOtp({
+                email,
+                options: {
+                    emailRedirectTo: window.location.href // Redirect back to current page
+                }
+            });
+            if (error) {
+                alert('Errore: ' + error.message);
+            } else {
+                alert('Controlla la tua email! Clicca sul Magic Link per entrare.');
+            }
+        }
+
+    } catch (error) {
+        alert("Errore Critico JS: " + error.message);
+        console.error(error);
     }
 });
