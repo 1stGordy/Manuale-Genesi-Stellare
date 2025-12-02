@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<button id="mobile-menu-btn" aria-label="Menu">☰</button>
+<div id="mobile-overlay"></div>
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h1>Arcanum</h1>
+    </div>
+    <div class="search-container-sidebar">
+        <input type="text" id="sidebar-search" placeholder="Cerca...">
+    </div>
+    <div id="nav-tree">
+        <!-- Sidebar content injected via JS -->
+    </div>
+    <div class="sidebar-footer">
+        <button id="theme-toggle">🌙</button>
+    </div>
+</nav>
+
+<main id="main-content">
+    <div id="content-area">
+        <h1 class="page-title">01_Meccaniche avanzate</h1>
+        <div class="markdown-content">
+            <h1>Capitolo 6: Opzioni di Personalizzazione</h1>
+<p>Anche con tutti i diversi elementi e opzioni disponibili per costruire e far avanzare il tuo personaggio, ci sono regole opzionali aggiuntive che possono arricchire ulteriormente l'esperienza. Iintegriamo le regole per <strong>Multiclasse</strong> e <strong>Talenti</strong>, adattandole alle nuove classi e specie introdotte.</p>
+<hr />
+<h2>Multiclasse</h2>
+<p>Il multiclasse ti permette di guadagnare livelli in più classi. Farlo ti permette di mescolare le abilità di quelle classi per realizzare un concetto di personaggio che potrebbe non essere riflesso in una delle opzioni di classe standard</p>
+<p>Con questa regola, hai l'opzione di guadagnare un livello in una nuova classe ogni volta che avanzi di livello, invece di guadagnare un livello nella tua classe attuale. I tuoi livelli in tutte le tue classi sono sommati insieme per determinare il tuo livello del personaggio. Ad esempio, se hai tre livelli in Melder e due in Guerriero, sei un personaggio di 5° livello </p>
+<h3>Prerequisiti</h3>
+<p>Per qualificarti per una nuova classe, devi soddisfare i prerequisiti di punteggio di caratteristica sia per la tua classe attuale che per quella nuova</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Classe</th>
+<th style="text-align: left;">Punteggio di Caratteristica Minimo (13)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ingegnere</strong></td>
+<td style="text-align: left;">Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Melder</strong></td>
+<td style="text-align: left;">Intelligenza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Specialista</strong></td>
+<td style="text-align: left;">Destrezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guerriero</strong></td>
+<td style="text-align: left;">Forza o Destrezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mistico</strong> <em>(Custom)</em></td>
+<td style="text-align: left;">Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cavaliere Solare</strong> <em>(Custom)</em></td>
+<td style="text-align: left;">Forza o Destrezza E Carisma</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paradosso</strong> <em>(Custom)</em></td>
+<td style="text-align: left;">Carisma</td>
+</tr>
+</tbody>
+</table>
+<h3>Punti Esperienza</h3>
+<p>Il costo in punti esperienza per guadagnare un livello è sempre basato sul tuo livello totale del personaggio, non sul tuo livello in una particolare classe</p>
+<h3>Punti Ferita e Dadi Vita</h3>
+<p>Guadagni i punti ferita dalla tua nuova classe come descritto per i livelli successivi al 1°. Guadagni i punti ferita di 1° livello per una classe solo quando sei un personaggio di 1° livello <br />
+Sommi insieme i Dadi Vita concessi da tutte le tue classi per formare la tua riserva di Dadi Vita. Se i Dadi Vita sono dello stesso tipo, puoi semplicemente raggrupparli. Se sono diversi, tienine traccia separatamente </p>
+<h3>Bonus di Competenza</h3>
+<p>Il tuo bonus di competenza è sempre basato sul tuo livello totale del personaggio</p>
+<h3>Competenze del Multiclasse</h3>
+<p>Quando guadagni il tuo primo livello in una classe diversa dalla tua classe iniziale, guadagni solo alcune delle competenze iniziali della nuova classe</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Classe</th>
+<th style="text-align: left;">Competenze Guadagnate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ingegnere</strong></td>
+<td style="text-align: left;">Armature leggere, armature medie, armi semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Melder</strong></td>
+<td style="text-align: left;">Nessuna</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Specialista</strong></td>
+<td style="text-align: left;">Armature leggere, una abilità dalla lista di classe, strumenti da infiltrazione</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guerriero</strong></td>
+<td style="text-align: left;">Armature leggere, armature medie, scudi, armi semplici, armi marziali</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mistico</strong></td>
+<td style="text-align: left;">Armature leggere, scudi, armi semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cavaliere Solare</strong></td>
+<td style="text-align: left;">Armature leggere, armature medie, scudi, armi semplici, armi marziali</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paradosso</strong></td>
+<td style="text-align: left;">Armature leggere, armi semplici</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Talenti</h2>
+<p>Un talento rappresenta una capacità o un'area di competenza che conferisce a un personaggio capacità speciali. Incarna addestramento, esperienza e abilità oltre a ciò che fornisce una classe </p>
+<p>A certi livelli, la tua classe ti dà il privilegio <strong>Aumento dei Punteggi di Caratteristica</strong>. Usando la regola opzionale dei talenti, puoi rinunciare a prendere quel privilegio per prendere invece un talento a tua scelta </p>
+<blockquote>
+<p>[!tip] Integrazione Specie e Classi<br />
+Di seguito sono riportati nuovi talenti progettati per interagire con le specie aliene e le classi introdotte, per espandere le opzioni del manuale base.</p>
+</blockquote>
+<h3>Talenti Generali e Razziali</h3>
+<h4>Carica Corazzata (Requisito: Vesk)</h4>
+<p>Sfrutti la tua massa e la tua armatura naturale per travolgere i nemici.<br />
+* Aumenta il tuo punteggio di Forza o Costituzione di 1, fino a un massimo di 20.<br />
+* Quando usi l'azione di Scatto, puoi effettuare un attacco in mischia come azione bonus alla fine del movimento. Se colpisci e il bersaglio è della tua taglia o inferiore, viene gettato prono.</p>
+<h4>Mente Logica Avanzata (Requisito: Androide o Ingegnere)</h4>
+<p>Hai ottimizzato i tuoi processi mentali per resistere alle intrusioni e calcolare variabili in combattimento.<br />
+* Aumenta il tuo punteggio di Intelligenza di 1, fino a un massimo di 20.<br />
+* Hai vantaggio sui Tiri Salvezza su Intelligenza.<br />
+* Una volta per riposo breve, puoi aggiungere il tuo modificatore di Intelligenza a un Tiro per Colpire o a un Tiro Salvezza su Destrezza.</p>
+<h4>Agilità a Quattro Braccia (Requisito: Talandri)</h4>
+<p>Hai padroneggiato la coordinazione delle tue braccia secondarie.<br />
+* Aumenta il tuo punteggio di Destrezza di 1, fino a un massimo di 20.<br />
+* Puoi ricaricare o scambiare armi come interazione gratuita (invece di usare un'azione o parte del movimento).<br />
+* Hai vantaggio sulle prove di Forza (Atletica) per arrampicarti e sulle prove di Destrezza (Rapidità di Mano).</p>
+<h4>Eredità della Resistenza (Requisito: Pahtra o Ysoki)</h4>
+<p>La tua gente è sopravvissuta a guerre o condizioni dure.<br />
+* Aumenta il tuo punteggio di Costituzione di 1, fino a un massimo di 20.<br />
+* Quando tiri un Dado Vita per recuperare punti ferita, puoi ritirare il dado e devi usare il nuovo risultato.<br />
+* Hai vantaggio sui Tiri Salvezza contro malattie e veleni.</p>
+<h4>Protocollo di Sintonizzazione (Requisito: Cavaliere Solare o Melder)</h4>
+<p>La tua connessione con le forze cosmiche è più profonda della media.<br />
+* Impari un Talento Prime aggiuntivo dalla lista della tua classe.<br />
+* <strong>Cavaliere Solare:</strong> Puoi cambiare la tua <em>Sintonizzazione Stellare</em> come reazione quando subisci danni.<br />
+* <strong>Melder:</strong> I tuoi Punti Talento massimi aumentano di 2.</p>
+<h4>Ancora Temporale (Requisito: Paradosso)</h4>
+<p>Sei diventato un punto fisso nel flusso del tempo.<br />
+* Aumenta il tuo punteggio di Carisma di 1, fino a un massimo di 20.<br />
+* Non puoi essere sorpreso finché sei cosciente.<br />
+* Se fallisci un tiro salvezza contro un effetto che ti sposterebbe o ti teletrasporterebbe contro la tua volontà, puoi usare la tua reazione per riuscire automaticamente.</p>
+<h4>Sintonia dello Sciame (Requisito: Mistico - Connessione Empatica)</h4>
+<p>La tua rete mentale è più vasta e rapida.<br />
+* Il raggio della tua telepatia e dei benefici del Legame Spirituale aumenta di 9 metri.<br />
+* Quando una creatura legata subisce danni psichici, puoi usare la tua reazione per dimezzare quei danni, condividendo il dolore attraverso la rete (subisci danni pari alla metà di quelli prevenuti).</p>
+<hr />
+<h3>Regole per i Talenti</h3>
+<ul>
+<li>Puoi prendere ogni talento solo una volta, a meno che la descrizione non dica diversamente</li>
+<li>Devi soddisfare qualsiasi prerequisito specificato in un talento per prenderlo. Se perdi un prerequisito, non puoi usare quel talento finché non lo riguadagni </li>
+</ul>
+        </div>
+    </div>
+</main>
+</div>
+
+<script>
+    // Inject sidebar data from build process
+    window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": []}}};
+    window.SITE_ROOT = "../../";
+</script>
+<script src="../../search_data.js?v=2"></script>
+<script src="../../app.js?v=2"></script>
+</body>
+
+</html>
