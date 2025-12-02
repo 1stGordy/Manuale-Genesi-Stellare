@@ -124,6 +124,32 @@ document.addEventListener('DOMContentLoaded', () => {
     window.onpopstate = () => {
         navigateTo(window.location.href);
     };
+
+    // Mobile Menu Logic
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    function toggleMobileMenu() {
+        sidebar.classList.toggle('open');
+        mobileOverlay.classList.toggle('open');
+    }
+
+    function closeMobileMenu() {
+        sidebar.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+    }
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close menu when clicking a link on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && e.target.closest('.nav-item')) {
+            closeMobileMenu();
+        }
+    });
 });
 
 function renderSidebar(data, container) {

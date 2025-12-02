@@ -253,22 +253,62 @@ body {
 }
 
 /* Mobile Responsiveness */
+#mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 200;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    backdrop-filter: blur(5px);
+}
+
+#mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    backdrop-filter: blur(2px);
+}
+
 @media (max-width: 768px) {
     #app-container {
         flex-direction: column;
     }
 
+    #mobile-menu-btn {
+        display: block;
+    }
+
     #sidebar {
-        position: absolute;
+        position: fixed;
         height: 100%;
         transform: translateX(-100%);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+        width: 80%;
+        max-width: 300px;
     }
 
     #sidebar.open {
         transform: translateX(0);
     }
 
+    #mobile-overlay.open {
+        display: block;
+    }
+
     #content-area {
-        padding: 20px;
+        padding: 60px 20px 20px 20px;
+        /* Top padding for menu button */
     }
 }
