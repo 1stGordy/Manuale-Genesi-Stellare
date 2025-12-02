@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     try {
         console.log("App started");
-        // alert("App Caricata! Se vedi questo messaggio, il codice funziona."); // Debug
 
         const navTree = document.getElementById('nav-tree');
         const contentArea = document.getElementById('content-area');
         const sidebar = document.getElementById('sidebar');
 
         // Calculate Absolute App Root at startup
-        // This ensures we always resolve links correctly regardless of current "virtual" URL
         const APP_BASE_URL = new URL(window.SITE_ROOT, window.location.href).href;
 
         // Render Sidebar
@@ -25,15 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // SPA Navigation Interception
         document.body.addEventListener('click', (e) => {
             const link = e.target.closest('a');
-            // Only intercept internal links that are not hash links
             if (link && link.href && !link.href.includes('#') && link.origin === window.location.origin) {
-                // Check if it's a file protocol link
                 if (window.location.protocol === 'file:') {
-                    // Allow navigation, but we need to ensure we don't break relative paths for the NEXT page load
-                    // if we were to do a full reload. 
-                    // But for SPA, we just fetch.
+                    // Allow navigation for file protocol
                 }
-
                 e.preventDefault();
                 navigateTo(link.href);
             }
@@ -69,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             results.forEach(res => {
                 const link = document.createElement('a');
-                // Resolve path against APP_BASE_URL
                 link.href = new URL(res.path, APP_BASE_URL).href;
                 link.className = 'nav-item';
                 link.textContent = res.title;
@@ -92,13 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         contentArea.innerHTML = newContent;
                         document.title = newTitle;
                         window.history.pushState({}, newTitle, url);
-
                         highlightCurrentPage();
-
                         contentArea.style.opacity = '1';
                         window.scrollTo(0, 0);
-
-                        // Close mobile menu if open
                         if (window.innerWidth <= 768) {
                             closeMobileMenu();
                         }
@@ -110,10 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         function highlightCurrentPage() {
             document.querySelectorAll('.nav-item').forEach(link => {
                 link.classList.remove('active');
-                // Compare decoded absolute URLs
                 if (decodeURIComponent(link.href) === decodeURIComponent(window.location.href)) {
                     link.classList.add('active');
-                    // Expand parents
                     let parent = link.parentElement;
                     while (parent && parent.id !== 'nav-tree') {
                         if (parent.classList.contains('nav-folder')) {
@@ -151,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileOverlay.addEventListener('click', closeMobileMenu);
         }
 
-        // Helper to render sidebar
         function renderSidebar(data, container) {
             const keys = Object.keys(data).sort((a, b) => {
                 if (a === '__files__') return 1;
@@ -163,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (key === '__files__') {
                     data[key].forEach(file => {
                         const link = document.createElement('a');
-                        // Resolve path against APP_BASE_URL
                         link.href = new URL(file.path, APP_BASE_URL).href;
                         link.className = 'nav-item';
                         link.textContent = file.name;
@@ -172,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     const folder = document.createElement('div');
                     folder.className = 'nav-folder';
-
                     const title = document.createElement('div');
                     title.className = 'nav-folder-title';
                     title.textContent = key;
@@ -180,18 +163,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         e.stopPropagation();
                         folder.classList.toggle('open');
                     };
-
                     const content = document.createElement('div');
                     content.className = 'nav-folder-content';
-
                     folder.appendChild(title);
                     folder.appendChild(content);
                     container.appendChild(folder);
-
                     renderSidebar(data[key], content);
                 }
             });
         }
+
         // --- Dice Roller Logic ---
         const diceToggleBtn = document.getElementById('dice-toggle-btn');
         const dicePanel = document.getElementById('dice-panel');
@@ -226,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 const result = Math.floor(Math.random() * sides) + 1;
-
                 if (diceAnim) {
                     diceAnim.classList.remove('rolling');
                     diceAnim.style.display = 'none';
@@ -235,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     diceValueDisplay.style.display = 'block';
                     diceValueDisplay.textContent = result;
                 }
-
                 addToLog(sides, result);
             }, 600);
         }
@@ -244,13 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!diceLog) return;
             const li = document.createElement('li');
             const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
             let resultClass = 'roll-val';
             if (sides === 20 && result === 20) resultClass = 'crit-success';
             if (sides === 20 && result === 1) resultClass = 'crit-fail';
-
             li.innerHTML = `<span>${time} - d${sides}</span> <span class="${resultClass}">${result}</span>`;
-
             diceLog.prepend(li);
             if (diceLog.children.length > 20) {
                 diceLog.removeChild(diceLog.lastChild);
@@ -304,9 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("Supabase initialized");
 
-            // Listen for Auth Changes (Fixes Login Loop)
             supabase.auth.onAuthStateChange((event, session) => {
-                console.log("Auth Event:", event, session);
                 if (session) {
                     fetchUserRole(session);
                 } else {
@@ -326,12 +300,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function fetchUserRole(session) {
             try {
-                const { data: profile, error } = await supabase
+                const { data: profile } = await supabase
                     .from('profiles')
                     .select('role')
                     .eq('id', session.user.id)
                     .single();
-
+                
                 if (profile) {
                     session.user.role = profile.role;
                 } else {
@@ -363,8 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 roleBadge.style.fontSize = '0.8rem';
                 roleBadge.style.marginRight = '8px';
                 roleBadge.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
-                roleBadge.title = session.user.email;
-
+                
                 const logoutBtn = document.createElement('button');
                 logoutBtn.textContent = '🚪';
                 logoutBtn.title = 'Logout';
@@ -374,11 +347,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 logoutBtn.style.cursor = 'pointer';
                 logoutBtn.style.padding = '2px 6px';
                 logoutBtn.style.borderRadius = '4px';
-
+                
                 logoutBtn.onclick = async () => {
                     await supabase.auth.signOut();
                 };
-
+                
                 authWrapper.appendChild(roleBadge);
                 authWrapper.appendChild(logoutBtn);
             } else {
@@ -393,10 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function handleLogin(email) {
-            const { error } = await supabase.auth.signInWithOtp({
+            const { error } = await supabase.auth.signInWithOtp({ 
                 email,
                 options: {
-                    emailRedirectTo: window.location.href // Redirect back to current page
+                    emailRedirectTo: window.location.href
                 }
             });
             if (error) {
