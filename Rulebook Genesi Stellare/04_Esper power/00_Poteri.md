@@ -18,7 +18,7 @@ I **Talenti** sono poteri manipolati direttamente attraverso il corpo dell'esper
 Le **Tecniche** sono metodi praticati di manipolazione che richiedono strumenti, armi o impianti di Sorium. Questo processo è noto come **Forgiatura**.
 * **Utilizzatori:** Ingegnere, Cacciatori, Sentinelle.
 * **Specie Affini:** Androidi, Ysoki, Ashenforged.
-* **Preparazione:** A differenza dei talenti che sono spesso innati o "chiamati", le tecniche devono essere preparate e configurate nel *Rig* dell'esper.
+* **Preparazione:** A differenza dei talenti che sono spesso innati o "chiamati", le tecniche devono essere preparate e configurate nel *Rig* dell'esper. (salti tot turni per prepararti)
 
 ---
 
@@ -49,10 +49,6 @@ I Canalizzatori (Melder, Mistici, Paradossi) usano una riserva di **Punti Talent
 
 ### Slot Tecnici (Per Forgiatori)
 Gli Ingegneri usano **Slot Tecnici** simili agli slot incantesimo tradizionali. Spendi uno slot del grado appropriato (o superiore) per attivare la tecnica.
-
-### Potenziare i Poteri (*Upcasting*)
-* **Tecniche:** Se usi uno slot di grado superiore, la tecnica assume quel grado.
-* **Talenti:** Puoi spendere **2 Punti Talento extra** per ogni grado superiore a quello base.
 
 ---
 
