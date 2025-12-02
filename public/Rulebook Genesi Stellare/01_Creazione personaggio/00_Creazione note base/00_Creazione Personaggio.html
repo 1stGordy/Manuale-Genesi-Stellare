@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00_Creazione Personaggio - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">00_Creazione Personaggio</h1>
+                <div class="markdown-content">
+                    <p>La prima cosa che devi fare è creare il tuo personaggio.<br />
+Questo personaggio è una rappresentazione di una persona che immagini e progetti per prendere parte all'ambientazione Costruisci questa persona da zero, creando la sua origine, personalità e retroscena. Questi sono combinati con le statistiche di gioco che definiscono come il personaggio interagisce con il resto dell'universo.</p>
+<p>I passaggi seguenti sono qui per aiutarti a progettare e costruire facilmente un personaggio che puoi usare in qualsiasi avventura o scenario <br />
+Alcuni di questi passaggi si riferiscono anche a un capitolo corrispondente che spiega più completamente tutte le opzioni disponibili.</p>
+<p>Tutte le informazioni del tuo personaggio sono registrate su una scheda del personaggio, che viene utilizzata anche per tracciare le abilità, i modificatori, le capacità e gli avanzamenti del personaggio nel gioco. Assicurati di avere una scheda del personaggio pronta quando inizi a costruire il tuo personaggio.</p>
+<h2>1. CREA UN CONCETTO</h2>
+<p>Quando crei un personaggio, la prima cosa da considerare è il tipo di persona che stai cercando di creare. Il tuo personaggio è un guerriero eroico, uno specialista astuto, un ingegnere pieno di risorse o un melder che modella l'energia? </p>
+<p>Facendo un passo avanti, forse il tuo specialista è un agente addestrato che è esperto nell'uso di gadget e strumenti high-tech, o il tuo tecnico è un meccanico prodigio che si concentra sull'operare macchine e droni.<br />
+Il tuo guerriero è un pistolero tiratore scelto o un commando pesantemente corazzato? Il tuo personaggio è umano?<br />
+Forse preferiresti essere un promethean geneticamente potenziato o un eldori spiritualmente risvegliato?</p>
+<p>Dovresti anche considerare chi è il tuo personaggio personalmente e cosa lo fa scattare. Che tipo di persona è? Da dove viene? Quali sono i suoi obiettivi? Non devi rispondere a tutte queste domande specificamente. Potresti avere domande diverse in mente. Più completo è il tuo concetto, più facile è costruire il tuo personaggio. </p>
+<hr />
+<h2>2.SCEGLI UNA SPECIE</h2>
+<p>Ci sono molte diverse forme di vita nell'universo, definite in una varietà di specie galattiche.<br />
+Scegliere la specie del tuo personaggio stabilisce gran parte del suo aspetto fisico, così come i tratti specifici che rappresentano le caratteristiche culturali ed ereditarie del personaggio.</p>
+<p>Tra gli Esper, ci sono nove specie prominenti capaci di impugnare il potere di un Crogiolo.<br />
+Ognuna di queste ha le proprie varianti classificate come archetipi di specie.</p>
+<p>Scegliere una specie garantisce al tuo personaggio l'accesso alla competenza in certe abilità e attrezzature, sensi potenziati come la capacità di vedere in spettri di luce scarsa e infrarossi, così come altre abilità speciali uniche per quella particolare specie. Ogni specie modifica anche i punteggi di caratteristica del tuo personaggio, che saranno coperti separatamente</p>
+<p>Dai un'occhiata a ogni specie per trovare la scelta migliore per il concetto del tuo personaggio.<br />
+Alcune possono anche avere tratti che possono essere benefici per la tua classe del personaggio.<br />
+I tratti di un eldori lunare, per esempio, sarebbero estremamente utili per un Melder, mentre i tratti di un promethean sangue di fuoco potrebbero beneficiare un guerriero o uno specialista. <br />
+Fai riferimento a <a href="../../../Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html" class="internal-link" data-link="00_Specie introduzione">00_Specie introduzione</a></p>
+<hr />
+<h2>3.SCEGLI UNA CLASSE</h2>
+<p>Ogni personaggio giocante è considerato un Esper, ognuno appartenente a una particolare classe.<br />
+La tua scelta di classe ti garantisce una moltitudine di abilità e capacità note come privilegi di classe.<br />
+Queste abilità definiscono le diverse cose che il tuo personaggio può fare, le tattiche che impieghi in qualsiasi scenario dato e il modo unico in cui incanali i tuoi poteri esper. </p>
+<p>Ogni classe è coperta in dettaglio in seguito. Il tuo personaggio inizia al 1° livello in quella classe del personaggio. Registra il tuo livello, bonus, competenze e privilegi forniti dalla tua classe al 1° livello sulla tua scheda del personaggio. </p>
+<h3><strong>LIVELLI E AVANZAMENTO</strong></h3>
+<p>A meno che il tuo GM non permetta diversamente, il tuo personaggio di solito inizierà al 1° livello, segnandoti come un pioniere alle prime armi nell'universo, che sta appena iniziando a capire come controllare e padroneggiare le proprie abilità.</p>
+<p>Man mano che completi missioni e superi ostacoli, il tuo personaggio guadagnerà punti esperienza (PE).<br />
+Una volta che raggiungi una certa quantità di PE, il tuo personaggio guadagnerà un livello di esperienza, aprendo nuovi benefici e opzioni per quella classe.<br />
+Ogni livello aggiuntivo richiede una quantità maggiore di PE. Se stai iniziando a un livello più alto, assicurati di registrare l'importo minimo di PE richiesto per quel livello sulla tua scheda.</p>
+<h3><strong>BONUS DI COMPETENZA</strong></h3>
+<p>Ogni classe avrà un bonus di competenza che è elencato nella tabella nella descrizione della tua classe.<br />
+Un personaggio di 1° livello, indipendentemente dalla classe, inizia con un bonus di competenza di +2. </p>
+<p>Questo bonus si applica a un ampio numero di cose che il tuo personaggio fa in cui è considerato competente.<br />
+Esempi di competenza in cui il bonus si applicherebbe sarebbero:<br />
+• Prove di caratteristica con abilità o strumenti in cui sei competente<br />
+• Tiri per colpire con armi o tipi di armi in cui sei competente <br />
+• Tiri per colpire effettuati con i tuoi poteri esper<br />
+• Tiri salvezza in cui sei competente<br />
+• CD dei tiri salvezza richiesti per resistere ai tuoi poteri esper </p>
+<p>Le tue competenze in armi e tiri salvezza sono determinate dalla tua classe.<br />
+La tua classe definisce anche alcune delle tue competenze in abilità e strumenti.<br />
+La tua specie e il tuo background possono anche fornirti competenze aggiuntive.</p>
+<p>Segna le competenze fornite dalla tua specie e classe sulla tua scheda del personaggio.<br />
+Per le abilità e i tiri salvezza, dovresti vedere un cerchio accanto a ogni voce sulla tua scheda.<br />
+Riempi quel cerchio se sei competente in una di queste come nota per quando stai finalizzando il tuo personaggio.</p>
+<h3><strong>PUNTI FERITA E DADI VITA</strong></h3>
+<p>Ogni personaggio ha punti ferita (pf), che definiscono la loro robustezza e sopravvivenza quando in combattimento o altre situazioni minacciose.<br />
+I dadi vita del tuo personaggio determinano quanti punti ferita ha il tuo personaggio.<br />
+Il tipo di dadi vita che hai è definito dalla tua classe. </p>
+<p>Un personaggio di 1° livello inizia con 1 dado vita. Fai riferimento alla tua classe per il tipo di dado vita che hai. Il tuo personaggio inizia con un numero di punti ferita pari al numero massimo disponibile sul tuo dado vita. Ad esempio, un Ingegnere, che usa un d8 per il suo dado vita, inizia automaticamente con 8 punti ferita. Questa quantità è indicata come il tuo massimo dei punti ferita. Potresti guadagnare un aumento al tuo massimo dei pf a seconda dei tuoi punteggi di caratteristica.</p>
+<h3>**GENERARE PUNTI CARATTERISTICA</h3>
+<p>Ci sono due metodi comunemente usati per generare i punteggi di caratteristica.</p>
+<p><strong>IL METODO DEL TIRO</strong><br />
+Questo metodo ti permette di generare casualmente i tuoi punteggi di caratteristica. Tira quattro dadi a sei facce (4d6).<br />
+Somma i tre dadi più alti e registra quel numero su un foglio di carta da appunti.<br />
+Ripeti questo passaggio cinque volte finché non hai un totale di sei numeri.</p>
+<p><strong>METODO DEI PUNTI CARATTERISTICA</strong> <br />
+Questo metodo ti permette di costruire i tuoi punteggi di caratteristica individualmente dal basso verso l'alto.<br />
+Inizi con sei punteggi, ognuno con un valore di 8.<br />
+Hai poi 27 punti che puoi spendere per aumentare quei sei punteggi.</p>
+<p><strong>ASSEGNARE I TUOI PUNTEGGI</strong> <br />
+Indipendentemente dal metodo che scegli, assegna ciascuno dei tuoi sei numeri a una caratteristica come desiderato.<br />
+Ricorda di tenere a mente la tua classe e il concetto del personaggio quando lo fai.<br />
+Dopo che ciò è fatto, applica i bonus ai punteggi di caratteristica forniti dalla tua specie per determinare i tuoi punteggi finali. </p>
+<p>Dopo aver assegnato e aggiustato i tuoi punteggi di caratteristica, usa la tabella Punteggi di Caratteristica e Modificatori per determinare i tuoi modificatori di caratteristica.<br />
+Registra ogni modificatore sulla tua scheda accanto al punteggio di caratteristica corrispondente.<br />
+Questi modificatori verranno citati spesso quando si effettuano prove di caratteristica così come quando si calcolano le abilità e i benefici del tuo personaggio.</p>
+<p>Inoltre, presta attenzione al tuo modificatore di caratteristica Costituzione. Poiché hai già calcolato i tuoi punti ferita, applica il tuo modificatore di costituzione al tuo massimo dei punti ferita.</p>
+<p><strong>PUNTEGGI DI CARATTERISTICA E MODIFICATORI</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Punteggio</th>
+<th>Modificatore</th>
+<th>Punteggio</th>
+<th>Modificatore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>-5</td>
+<td>16-17</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>2-3</td>
+<td>-4</td>
+<td>18-19</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>4-5</td>
+<td>-3</td>
+<td>20-21</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>6-7</td>
+<td>-2</td>
+<td>22-23</td>
+<td>+6</td>
+</tr>
+<tr>
+<td>8-9</td>
+<td>-1</td>
+<td>24-25</td>
+<td>+7</td>
+</tr>
+<tr>
+<td>10-11</td>
+<td>0</td>
+<td>26-27</td>
+<td>+8</td>
+</tr>
+<tr>
+<td>12-13</td>
+<td>+1</td>
+<td>28-29</td>
+<td>+9</td>
+</tr>
+<tr>
+<td>14-15</td>
+<td>+2</td>
+<td>30</td>
+<td>+10</td>
+</tr>
+</tbody>
+</table>
+<h2>4. BACKGROUND E DESCRIZIONE</h2>
+<p>Ora è il momento di definire il background del tuo personaggio, che descrive la sua origine, come potrebbe essere la sua personalità.<br />
+Insieme al tuo background, seleziona un Tratto della Personalità.<br />
+Un ideale è qualcosa in cui credi fortemente.<br />
+Il legame del tuo personaggio è qualcosa o qualcuno che tiene caro sopra ogni altra cosa.<br />
+Ogni personalità ha anche un difetto, un vizio o debolezza nella tua personalità che potrebbe essere sfruttato a un certo punto.<br />
+Annota tutti questi sulla tua scheda del personaggio, insieme alle competenze nelle abilità e ai benefici che derivano dal tuo background.</p>
+<h3><strong>ALLINEAMENTO</strong></h3>
+<p>L'allineamento del tuo personaggio riflette i suoi atteggiamenti morali e personali. È una combinazione di un livello di principi morali (buono, malvagio o neutrale) e la tua visione sociale in termini di ordine e regolamentazione (legale, caotico o neutrale).<br />
+Ogni allineamento rappresenta un'ampia gamma di personalità e dovrebbe essere usato come strumento per sviluppare l'identità del tuo personaggio.<br />
+Non è una restrizione o da usare come un modo per limitare come desideri interpretare il tuo personaggio.</p>
+<p><strong>DESCRIVERE IL TUO PERSONAGGIO</strong> <br />
+Infine, se non l'hai già fatto, dai un nome al tuo personaggio e arricchisci il suo aspetto generale.<br />
+Usa la tua descrizione razziale e i punteggi di caratteristica per guidarti nel mettere tutto insieme.<br />
+Un personaggio con un'alta Forza sarà probabilmente grande o muscoloso, mentre la sua costituzione definirebbe quanto appare sano o malaticcio.<br />
+Un alto Carisma darebbe loro una presenza imponente o un sorriso affascinante dove un personaggio con un basso Carisma può apparire sfacciato o estremamente timido.</p>
+<h2>5.SELEZIONA IL TUO EQUIPAGGIAMENTO</h2>
+<p>Il tuo equipaggiamento iniziale è determinato dalla tua classe e dal tuo background. Fai riferimento a questi per le tue armi, armature e attrezzatura.<br />
+Fai le tue selezioni e registrale sulla tua scheda del personaggio.<br />
+Tutti questi oggetti sono dettagliati nella sezione <a href="../../../Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html" class="internal-link" data-link="00_Equipaggiamento">00_Equipaggiamento</a></p>
+<p>In alternativa, puoi scegliere di non prendere l'equipaggiamento iniziale e acquistare il tuo con un importo iniziale di denaro determinato dalla tua classe del personaggio. Fai riferimento a <a href="../../../Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html" class="internal-link" data-link="00_Equipaggiamento">00_Equipaggiamento</a></p>
+<p><strong>MODIFICATORI DELL'ARMA</strong><br />
+Elenca ogni arma che il tuo personaggio impugna sulla tua scheda e calcola i modificatori per quando attacchi con l'arma così come il danno che infliggi quando il tuo tiro per colpire ha successo. <br />
+Per effettuare un attacco con la tua arma, tiri un d20, aggiungi il modificatore di caratteristica appropriato, e poi aggiungi il tuo bonus di competenza se sei competente in quell'arma.<br />
+Armi da mischia come lame, clave e bastoni, usano il tuo <strong>modificatore di Forza</strong> per i tiri per colpire e per i danni.<br />
+Armi a distanza come pistole, granate e shuriken, usano il tuo <strong>modificatore di Destrezza</strong> per i tiri per colpire e per i danni.<br />
+Ci sono alcune armi da mischia che possono anche essere lanciate.<br />
+Ci sono anche alcune che hanno la proprietà "accurata" (finesse) che ti permette di usare invece il tuo modificatore di Destrezza per gli attacchi.<br />
+Queste proprietà sono specifiche per quelle armi e sono coperte nella sezione<a href="../../../Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html" class="internal-link" data-link="02_Armi">02_Armi</a></p>
+<p><strong>CLASSE ARMATURA</strong> <br />
+La Classe Armatura (CA) è un valore che riflette quanto bene il tuo personaggio può difendersi in combattimento.<br />
+È una combinazione del tuo modificatore di Destrezza, della tua armatura e di modificatori speciali che possono provenire da attrezzatura o poteri esper.<br />
+Senza alcuna attrezzatura, la CA base del tuo personaggio è uguale a 10 + il suo modificatore di Destrezza.<br />
+Il tuo personaggio può anche avere armature e attrezzature definite dalla tua classe del personaggio che forniscono protezione aggiuntiva fintanto che il tuo personaggio è competente nell'armatura che sta indossando.<br />
+Prendi nota dei bonus alla CA concessi dall'armatura o dall'attrezzatura protettiva del tuo personaggio e calcola la tua CA totale <br />
+Fai riferimento a <a href="../../../Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html" class="internal-link" data-link="01_Armature">01_Armature</a></p>
+<h2>6.FINALIZZA IL TUO PERSONAGGIO</h2>
+<p>A questo punto, dovresti avere la maggior parte delle informazioni vitali compilate sulla tua scheda.<br />
+Assicurati di aver incluso tutte le informazioni personali, l'aspetto, i tratti, la storia, ecc. del tuo personaggio.<br />
+Inoltre, ora che la specie, la classe e il background del tuo personaggio sono stati tutti stabiliti, puoi registrare alcuni attributi del personaggio che ottengono bonus da tutti e tre. </p>
+<p><strong>ABILITÀ</strong> <br />
+Ogni abilità sulla tua scheda del personaggio ha un modificatore di caratteristica corrispondente.<br />
+Ad esempio, Astrofisica usa il modificatore di Intelligenza mentre Meccanica usa il modificatore di Saggezza.<br />
+Registra questi modificatori accanto all'abilità corrispondente poiché saranno usati per tutte le tue prove di abilità.</p>
+<p>Per le abilità in cui sei competente, definite dai benefici della tua specie, classe o background, aggiungerai anche il tuo bonus di competenza al modificatore di caratteristica per quelle abilità.<br />
+Quindi, un personaggio di 1° livello con una Destrezza di 16 che è competente nell'abilità Furtività aggiungerebbe il suo bonus di competenza +2 al suo modificatore di Destrezza +3 per un bonus di abilità totale di +5 al suo tiro ogni volta che fa uso di quell'abilità. <br />
+È importante ricordare che anche se potresti non essere competente in un'abilità, non significa che non puoi usare l'abilità.<br />
+Ogni abilità è posseduta da ogni personaggio. Essere competente riflette la pratica estesa o l'attitudine del tuo personaggio nell'uso di un'abilità.<br />
+La Percezione Passiva del tuo personaggio è uguale a 10 + il tuo bonus di abilità Percezione.</p>
+<p><strong>TIRI SALVEZZA E TIRO SALVEZZA RAFFICA</strong><br />
+Come le abilità, i tiri salvezza hanno ciascuno il loro modificatore di caratteristica corrispondente.<br />
+Registra ognuno, aggiungendo il tuo bonus di competenza per i tiri salvezza in cui sei competente come definito dalla tua classe del personaggio.<br />
+Il tiro salvezza raffica del tuo personaggio riflette la sua capacità di evitare di subire danni dalla proprietà fuoco a raffica delle armi automatiche.<br />
+A meno che non sia modificato dalla tua classe o equipaggiamento, è uguale al bonus del tiro salvezza su Destrezza del tuo personaggio. </p>
+<h2>OLTRE IL 1° LIVELLO</h2>
+<p>Man mano che il tuo personaggio va in avventure e supera sfide, lui o lei guadagna esperienza, rappresentata dai punti esperienza.<br />
+Un personaggio che raggiunge un totale di punti esperienza specificato avanza in capacità. Questo avanzamento è chiamato guadagnare un livello. <br />
+Quando il tuo personaggio guadagna un livello, la sua classe spesso concede privilegi aggiuntivi, come dettagliato nella descrizione della classe.<br />
+Alcuni di questi privilegi ti permettono di aumentare i tuoi punteggi di caratteristica, aumentando due punteggi di 1 ciascuno o aumentando un punteggio di 2. Non puoi aumentare un punteggio di caratteristica sopra 20. Inoltre, il bonus di competenza di ogni personaggio aumenta a certi livelli. </p>
+<p>Ogni volta che guadagni un livello, guadagni 1 Dado Vita aggiuntivo.<br />
+Tira quel Dado Vita, aggiungi il tuo modificatore di Costituzione al tiro, e aggiungi il totale al tuo massimo dei punti ferita. In alternativa, puoi usare il valore fisso mostrato nella voce della tua classe, che è il risultato medio del tiro di dado (arrotondato per eccesso). </p>
+<p>La tabella Avanzamento del Personaggio riassume i PE di cui hai bisogno per avanzare nei livelli dal livello 1 al livello 10, e il bonus di competenza per un personaggio di quel livello.<br />
+Consulta le informazioni nella descrizione della classe del tuo personaggio per vedere quali altri miglioramenti ottieni a ogni livello. </p>
+<p><strong>AVANZAMENTO DEL PERSONAGGIO</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Punti Esperienza</th>
+<th>Livello</th>
+<th>Bonus di Competenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>300</td>
+<td>2</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>900</td>
+<td>3</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>2.700</td>
+<td>4</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>6.500</td>
+<td>5</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>14.000</td>
+<td>6</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>23.000</td>
+<td>7</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>34.000</td>
+<td>8</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>48.000</td>
+<td>9</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>64.000</td>
+<td>10</td>
+<td>+4</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

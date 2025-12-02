@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_Specialista - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">03_Specialista</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h2>Specialista</h2>
+<p>Anche nel gioiello splendente dell'Accordo del Sorium, esistono le ombre. Gli specialisti lavorano la loro arte tra le società giudiziarie del Nucleo e le ombre del sottobosco galattico. Uno specialista si affida alla propria abilità esperta e all'istinto per superare gli ostacoli. Possono essere trovati a lavorare ovunque, dal trasportare merci tra loschi covi di contrabbando all'essere un agente segreto in difesa del proprio governo.</p>
+<h3>Veloci e Precisi</h3>
+<p>Piuttosto che concentrarsi sulla forza bruta, gli specialisti combattono usando velocità, abilità e precisione per eliminare i loro nemici. Usano spesso armi piccole e facilmente occultabili e gadget controllati da impianti che permettono loro di sfruttare le debolezze del nemico.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<blockquote>
+<p>[!info] Statistiche Base<br />
+<strong>Punti Ferita</strong><br />
+* <strong>Dadi Vita:</strong> 1d8 per livello da specialista<br />
+* <strong>PF al 1° Livello:</strong> 8 + il tuo modificatore di Costituzione<br />
+* <strong>PF ai Livelli Successivi:</strong> 1d8 (o 5) + il tuo modificatore di Costituzione</p>
+<p><strong>Competenze</strong><br />
+* <strong>Armature:</strong> Leggere<br />
+* <strong>Armi:</strong> Semplici, autopistola, lama lunga, lama corta, sciabola<br />
+* <strong>Strumenti:</strong> Strumenti da Infiltrazione<br />
+* <strong>Tiri Salvezza:</strong> Destrezza, Intelligenza<br />
+* <strong>Abilità:</strong> Quattro a scelta tra Acrobazia, Atletica, Computer, Inganno, Intuizione, Intimidire, Investigazione, Percezione, Persuasione, Rapidità di Mano e Furtività</p>
+</blockquote>
+<h4>Equipaggiamento Iniziale</h4>
+<ul>
+<li>(a) una sciabola o (b) una pistola leggera con 15 colpi</li>
+<li>(a) una pistola leggera con 15 colpi o (b) una lama corta</li>
+<li>(a) uno zaino da agente o (b) uno zaino da esploratore</li>
+<li>(a) Giacca Corazzata, due coltelli da combattimento e strumenti da infiltrazione</li>
+</ul>
+<hr />
+<h3>Tabella: Lo Specialista</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Colpo Destro</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">1d6</td>
+<td style="text-align: left;">Attitudine Naturale, Colpo Destro, ID Shadownet</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">1d6</td>
+<td style="text-align: left;">Azione Scaltra</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2d6</td>
+<td style="text-align: left;">Archetipo dello Specialista</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3d6</td>
+<td style="text-align: left;">Schivata Prodigiosa</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3d6</td>
+<td style="text-align: left;">Attitudine Naturale (miglioramento)</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4d6</td>
+<td style="text-align: left;">Elusione</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5d6</td>
+<td style="text-align: left;">Privilegio Archetipo</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<h4>Attitudine Naturale (<em>Natural Aptitude</em>)</h4>
+<p>Al 1° livello, scegli due competenze nelle abilità o strumenti. Il tuo bonus di competenza è raddoppiato per le prove che usano quelle competenze. Al 6° livello, ne scegli altre due.</p>
+<h4>Colpo Destro (<em>Deft Strike</em>)</h4>
+<p>Una volta per turno, puoi infliggere <strong>1d6 danni extra</strong> a una creatura colpita se hai vantaggio al tiro per colpire. L'attacco deve usare un'arma accurata (<em>finesse</em>) o a distanza. Non serve vantaggio se un nemico del bersaglio è entro 1,5m da esso e tu non hai svantaggio.</p>
+<h4>ID Shadownet</h4>
+<p>Hai un avatar online nello Shadownet, un sottobosco segreto della Matrice Intergalattica di Silrayne (SIM). Puoi decodificare messaggi segreti, commerciare segreti e accedere al mercato nero.</p>
+<h4>Azione Scaltra (<em>Cunning Action</em>)</h4>
+<p>Dal 2° livello, puoi usare un'<strong>azione bonus</strong> in ogni tuo turno per Scattare, Disimpegnarsi o Nascondersi.</p>
+<h4>Archetipo dello Specialista</h4>
+<p>Al 3° livello scegli un archetipo (Infiltrato, Operativo, Artificio).</p>
+<h4>Schivata Prodigiosa (<em>Uncanny Dodge</em>)</h4>
+<p>Dal 5° livello, quando un attaccante che puoi vedere ti colpisce, puoi usare la tua <strong>reazione</strong> per dimezzare i danni.</p>
+<h4>Elusione (<em>Evasion</em>)</h4>
+<p>Dal 7° livello, quando sei soggetto a un effetto che permette un TS su Destrezza per dimezzare i danni, non subisci danni se superi il TS e solo la metà se fallisci.</p>
+<hr />
+<h2>Archetipi dello Specialista</h2>
+<h3>Infiltrato</h3>
+<p><img src="../../../assets/specialista%20infiltrato.png" alt="specialista infiltrato.png" loading="lazy" class="content-image"><br />
+Focalizzato su infiltrazione, investigazione e acquisizione sottile.<br />
+* <strong>Mani Veloci (3° liv):</strong> Puoi usare l'azione bonus di Azione Scaltra per prove di Rapidità di Mano, usare strumenti da infiltrazione o usare un oggetto.<br />
+* <strong>Leggero come una Piuma (3° liv):</strong> Puoi usare Acrobazia per scalare. Scalare non costa movimento extra. Salti basati su Destrezza.<br />
+* <strong>Maestria Furtiva (9° liv):</strong> Vantaggio a Furtività se ti muovi non più di metà velocità.</p>
+<h3>Operativo</h3>
+<p><img src="../../../assets/Specialista%20operativo.png" alt="Specialista operativo.png" loading="lazy" class="content-image"><br />
+Addestrato nell'arte della sorpresa, dello spionaggio e dell'assassinio.<br />
+* <strong>Addestrato nell'Arte (3° liv):</strong> Scegli un talento prime tra <em>analizzare il dispositivo</em>, <em>messaggio mentale</em>, <em>lama protonica</em> o <em>dispositivo di attivazione</em>. Competenza kit camuffamento e un altro kit (falsario, hacker o gioco).<br />
+* <strong>Colpo Vitale (3° liv):</strong> Vantaggio agli attacchi contro creature che non hanno ancora agito. I colpi contro creature sorprese sono critici.<br />
+* <strong>Identità Falsificata (9° liv):</strong> Puoi creare false identità perfette con tempo e denaro.</p>
+<h3>Artificio (<em>Artifice</em>)</h3>
+<p><img src="../../../assets/Specialista%20artificio.png" alt="Specialista artificio.png" loading="lazy" class="content-image"><br />
+Specializzato nell'uso di impianti e dispositivi sorium per generare effetti esper.<br />
+* <strong>Difesa Sensoriale (3° liv):</strong> Se colpisci in mischia, il bersaglio non può farti attacchi di opportunità per il resto del turno.<br />
+* <strong>Talenti Esper (3° liv):</strong> Impari talenti dalla lista Melder (domini chiaroveggenza, metafase, psicogenico). Usi <strong>Intelligenza</strong> come caratteristica. Hai Punti Talento dedicati (vedi tabella specifica nel manuale per la progressione).<br />
+* <strong>Smorzatore Gravitazionale (9° liv):</strong> Muovi 1,5m extra su terreno difficile. Vantaggio ai TS contro cadere prono.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

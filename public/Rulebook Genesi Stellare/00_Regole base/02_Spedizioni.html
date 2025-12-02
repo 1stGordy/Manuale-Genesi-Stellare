@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_Spedizioni - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">02_Spedizioni</h1>
+                <div class="markdown-content">
+                    <p>Questo capitolo copre le basi delle attività quotidiane di un esper, dalle regole riguardanti il movimento alle diverse sfide nell'interazione sociale. Ci sono anche regole per le attività "fuori servizio" per quando il tuo personaggio ha tempo libero, così come regole per il riposo e la guarigione.</p>
+<hr />
+<h2>Tempo</h2>
+<p>Nelle situazioni in cui tenere traccia del passare del tempo è importante, il GM determina il tempo richiesto da un compito. Il GM potrebbe usare una scala temporale diversa a seconda del contesto:</p>
+<ul>
+<li><strong>Esplorazione (Dungeon/Navi):</strong> Scala di <strong>minuti</strong>. Ci vuole circa un minuto per muoversi furtivamente lungo un corridoio o controllare una porta.</li>
+<li><strong>Città o Terre Selvagge:</strong> Scala di <strong>ore</strong>. Attraversare una città o camminare verso una guglia aliena distante richiede ore.</li>
+<li><strong>Viaggi Lunghi:</strong> Scala di <strong>giorni</strong>. Viaggiare tra pianeti o sistemi stellari.</li>
+<li><strong>Combattimento:</strong> Scala di <strong>round</strong>. Ogni round rappresenta <strong>6 secondi</strong>.</li>
+</ul>
+<hr />
+<h2>Movimento</h2>
+<p>Nuotare attraverso un condotto di scarico, muoversi furtivamente nel corridoio di una stazione, correre accanto a un trasporto in movimento—tutti i tipi di movimento giocano un ruolo chiave.</p>
+<h3>Velocità</h3>
+<p>Ogni personaggio e mostro ha una velocità, che è la distanza in metri che può percorrere camminando in 1 round (6 secondi).<br />
+* <strong>30 feet (Standard)</strong> $\approx$ <strong>9 metri</strong>.</p>
+<h3>Ritmo di Viaggio</h3>
+<p>Mentre viaggia, un gruppo può muoversi a un ritmo normale, rapido o lento.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Ritmo</th>
+<th style="text-align: left;">Minuto</th>
+<th style="text-align: left;">Ora</th>
+<th style="text-align: left;">Giorno</th>
+<th style="text-align: left;">Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Rapido</strong></td>
+<td style="text-align: left;">120 metri</td>
+<td style="text-align: left;">6 km</td>
+<td style="text-align: left;">48 km</td>
+<td style="text-align: left;">Penalità di -5 ai punteggi passivi di Saggezza (Percezione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Normale</strong></td>
+<td style="text-align: left;">90 metri</td>
+<td style="text-align: left;">4,5 km</td>
+<td style="text-align: left;">36 km</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lento</strong></td>
+<td style="text-align: left;">60 metri</td>
+<td style="text-align: left;">3 km</td>
+<td style="text-align: left;">27 km</td>
+<td style="text-align: left;">In grado di usare la furtività.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!warning] Marcia Forzata<br />
+La tabella assume 8 ore di viaggio al giorno. Per ogni ora oltre le 8, ogni personaggio deve superare un TS su Costituzione (CD 10 + 1 per ogni ora oltre le 8) o subire un livello di <strong>indebolimento</strong> (<em>exhaustion</em>).</p>
+</blockquote>
+<h3>Terreno Difficile</h3>
+<p>Corridoi pieni di detriti, rovine contorte, foreste dense o paludi tossiche sono considerati terreno difficile.<br />
+Muoversi in terreno difficile costa il doppio: <strong>ogni 1,5 metri di movimento costa 3 metri di velocità</strong>.</p>
+<h3>Tipi Speciali di Movimento</h3>
+<h4>Scalare, Nuotare e Strisciare</h4>
+<p>Costa 1 metro extra per ogni metro percorso (2 metri extra in terreno difficile), a meno che tu non abbia una velocità di scalata o nuoto. Il GM potrebbe richiedere una prova di Forza (Atletica) per superfici difficili o acque agitate.</p>
+<h4>Saltare</h4>
+<ul>
+<li><strong>Salto in Lungo:</strong> Copri una distanza in metri pari al tuo <strong>Punteggio di Forza x 0,3</strong> se prendi una rincorsa di almeno 3 metri. Da fermo, salti solo la metà di quella distanza.</li>
+<li><strong>Salto in Alto:</strong> Salti in aria un numero di metri pari a <strong>(3 + Modificatore Forza) x 0,3</strong> con rincorsa di 3 metri. Da fermo, la metà.</li>
+</ul>
+<blockquote>
+<p>[!tip] Gravità Alternativa<br />
+* <strong>Bassa Gravità:</strong> Raddoppia la distanza di salto e la capacità di trasporto.<br />
+* <strong>Alta Gravità:</strong> Dimezza la distanza di salto e la capacità di trasporto. Muoversi conta come terreno difficile.<br />
+* <strong>Gravità Zero:</strong> Vedi Capitolo 9.</p>
+</blockquote>
+<hr />
+<h2>L'Ambiente</h2>
+<h3>Cadere</h3>
+<p>Una creatura subisce <strong>1d6 danni contundenti per ogni 3 metri</strong> di caduta, fino a un massimo di 20d6. La creatura atterra prona, a meno che non eviti il danno.</p>
+<h3>Soffocare</h3>
+<ul>
+<li><strong>Trattenere il fiato:</strong> Minuti pari a <strong>1 + Modificatore Costituzione</strong> (minimo 30 secondi).</li>
+<li><strong>Soffocamento:</strong> Quando finisce il fiato, sopravvivi per un numero di <strong>round</strong> pari al Modificatore Costituzione (minimo 1). All'inizio del turno successivo, scendi a 0 PF e stai morendo.</li>
+</ul>
+<h3>Visione e Luce</h3>
+<ul>
+<li><strong>Luce Intensa:</strong> Visione normale.</li>
+<li><strong>Luce Fioca (Ombre):</strong> Area leggermente oscurata. Svantaggio alle prove di Saggezza (Percezione) basate sulla vista.</li>
+<li><strong>Oscurità:</strong> Area pesantemente oscurata. Condizione <em>Accecato</em>.</li>
+</ul>
+<h4>Sensi Speciali</h4>
+<ul>
+<li><strong>Scurovisione:</strong> Vedi nell'oscurità come se fosse luce fioca (solo in scala di grigi). Raggio tipico: 18 metri.</li>
+<li><strong>Infravisione:</strong> Vedi le firme termiche nell'oscurità (anche attraverso pareti sottili non schermate).</li>
+<li><strong>Vista Cieca (<em>Blindsight</em>):</strong> Percepire senza vista (es. ecolocalizzazione).</li>
+<li><strong>Vista Vera (<em>Truesight</em>):</strong> Vedere attraverso illusioni, oscurità magica, invisibilità e mutaforma.</li>
+</ul>
+<h3>Cibo e Acqua</h3>
+<ul>
+<li><strong>Cibo:</strong> Serve <strong>0,5 kg</strong> di cibo al giorno. Puoi resistere senza cibo per <strong>3 + Mod. Costituzione</strong> giorni. Oltre quel limite, subisci un livello di indebolimento al giorno.</li>
+<li><strong>Acqua:</strong> Servono circa <strong>4 litri</strong> d'acqua al giorno (8 litri se fa caldo). Bere metà acqua richiede un TS Costituzione CD 15 o indebolimento. Meno di metà causa indebolimento automatico.</li>
+</ul>
+<hr />
+<h2>Interazione Sociale</h2>
+<p>Le interazioni sociali hanno due aspetti principali: interpretazione (<em>roleplaying</em>) e prove di caratteristica.</p>
+<ul>
+<li><strong>Interpretazione Descrittiva:</strong> Descrivi cosa fa e dice il tuo personaggio ("Galen sputa per terra e insulta l'eldori").</li>
+<li><strong>Interpretazione Attiva:</strong> Parli con la voce del tuo personaggio e ne imiti i gesti.</li>
+</ul>
+<h3>Risultati e Prove</h3>
+<p>Il GM usa le tue azioni per determinare come reagisce un PNG (Personaggio Non Giocante).<br />
+* <strong>Carisma (Persuasione):</strong> Per agire in buona fede, stringere amicizie o seguire l'etichetta.<br />
+* <strong>Carisma (Inganno):</strong> Per nascondere la verità, ingannare o usare travestimenti.<br />
+* <strong>Carisma (Intimidire):</strong> Per minacciare o usare l'ostilità.</p>
+<hr />
+<h2>Riposo</h2>
+<p>Gli avventurieri non possono combattere tutto il giorno; hanno bisogno di riposo per recuperare.</p>
+<h3>Riposo Breve</h3>
+<p>Un periodo di almeno <strong>1 ora</strong> di attività leggera (mangiare, bere, curare ferite).<br />
+* Puoi spendere uno o più <strong>Dadi Vita</strong>. Per ogni dado speso, tira il dado e aggiungi il Mod. Costituzione. Recuperi quei PF.</p>
+<h3>Riposo Lungo</h3>
+<p>Un periodo di almeno <strong>8 ore</strong> (6 di sonno, 2 di attività leggera).<br />
+* Recuperi <strong>tutti i Punti Ferita</strong> persi.<br />
+* Recuperi metà dei tuoi <strong>Dadi Vita</strong> totali (minimo 1).<br />
+* Non puoi beneficiare di più di un riposo lungo in 24 ore.</p>
+<hr />
+<h2>Tra le Avventure</h2>
+<h3>Spese per lo Stile di Vita</h3>
+<p>Tra un'avventura e l'altra, paghi per mantenere un certo tenore di vita (cibo, alloggio, manutenzione equipaggiamento).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Stile di Vita</th>
+<th style="text-align: left;">Costo/Giorno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Vagabondo</td>
+<td style="text-align: left;">0 cu</td>
+</tr>
+<tr>
+<td style="text-align: left;">Occupante Abusivo</td>
+<td style="text-align: left;">10 cu</td>
+</tr>
+<tr>
+<td style="text-align: left;">Povero</td>
+<td style="text-align: left;">20 cu</td>
+</tr>
+<tr>
+<td style="text-align: left;">Modesto</td>
+<td style="text-align: left;">30 cu</td>
+</tr>
+<tr>
+<td style="text-align: left;">Confortevole</td>
+<td style="text-align: left;">50 cu</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lusso</td>
+<td style="text-align: left;">75 cu</td>
+</tr>
+</tbody>
+</table>
+<h3>Attività di Downtime (Tempo Libero)</h3>
+<p>Puoi spendere i giorni tra le avventure per svolgere compiti specifici.</p>
+<ul>
+<li><strong>Artigianato (<em>Crafting</em>):</strong> Puoi creare oggetti se hai la competenza negli strumenti giusti. Puoi produrre fino a <strong>50 cu</strong> di valore di mercato al giorno (spendendo metà del valore in materiali grezzi).</li>
+<li><strong>Praticare una Professione:</strong> Puoi lavorare per mantenere uno stile di vita Modesto senza pagare, o Confortevole se sei membro di un'organizzazione.</li>
+<li><strong>Recuperare:</strong> Dopo 3 giorni di riposo, puoi fare un TS Costituzione CD 15 per guarire da malattie o veleni persistenti.</li>
+<li><strong>Ricerca:</strong> Spendendo <strong>50 cu</strong> al giorno più spese vive, puoi cercare informazioni, decodificare dati o trovare contatti.</li>
+<li><strong>Addestramento:</strong> Puoi imparare un nuovo linguaggio o competenza in uno strumento. Richiede <strong>250 giorni</strong> e <strong>10 cu</strong> al giorno per pagare un istruttore.</li>
+</ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../search_data.js?v=4"></script>
+    <script src="../../app.js?v=4"></script>
+</body>
+
+</html>

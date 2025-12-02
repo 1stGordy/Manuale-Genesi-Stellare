@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Ashenforged - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">01_Ashenforged</h1>
+                <div class="markdown-content">
+                    <p><img src="../../../assets/Ashenforged%20base.png" alt="Ashenforged base.png" loading="lazy" class="content-image"><br />
+Dati vita senza anima ma imbevuti di grande scopo, gli ashenforged sono una delle più grandi conquiste dalla scoperta dei Crogioli.  Non più l'unione generata per la guerra per la quale erano stati progettati, sono diventati invece un simbolo di progresso per i loro creatori e rappresentanti di uno scopo più grande. </p>
+<p>ENIGMI DELLA SCIENZA<br />
+Durante gli esperimenti iniziali all'interno dei nuclei dei Crogioli, i dendus scoprirono la capacità di infondere intelligenza artificiale in una forma fisica.<br />
+I cervelli, e talvolta altri organi e parti dei defunti, venivano posti in un guscio bio-ingegnerizzato, poi modificati con la fusione di sorium usando una sostanza simile alla cenere che si raccoglie sulla superficie del Crogiolo. Le forme umanoidi risultanti portavano una varietà di tratti fisici a seconda dell'aspetto precedente della forma di vita.  Sebbene i dendus avessero potuto creare forme completamente artificiali, fondere frammenti dei defunti in una forma bio-ingegnerizzata forniva loro due vantaggi unici.<br />
+Primo, anche senza i ricordi specifici del loro passato, un ashenforged si adatta rapidamente, in grado di richiamare piccole parti del suo sé precedente come se fosse memoria muscolare.<br />
+La seconda scoperta, più interessante, è che alcuni ashenforged possono sintonizzarsi con il sorium e raggiungere l'Esper Genesis, il potere di impugnare e manipolare le forze della creazione.<br />
+I dendus ignorano perché questo sia il caso, ma hanno molteplici teorie spesso discusse all'interno dei loro circoli. A parte la loro forma umanoide, gli ashenforged portano alcuni aspetti fisici minori dei loro sé precedenti.<br />
+Questo potrebbe essere qualsiasi cosa, da orecchie a punta/crespate, piccole code o dita allungate. Tutti gli ashenforged hanno la stessa pelle color grigio.<br />
+I loro colori degli occhi variano tra blu metallici e viola. </p>
+<h3>FORGIATI IN GUERRA</h3>
+<p>Durante il conflitto Nesieve durato un decennio, i dendus si allearono con gli eldori per prevenire la loro distruzione per mano della spietata invasione lorendi.<br />
+Crearono gli ashenforged per supportare e difendere le loro forze contro probabilità schiaccianti.<br />
+Dopo che il conflitto finì, i dendus continuarono il loro lavoro di bio-ingegneria, creando ashenforged che avrebbero invece servito come emissari, lavoratori, guardie ed esploratori.<br />
+Come ex schiavi loro stessi, i dendus non credono nella servitù forzata.<br />
+E così, a ogni ashenforged viene dato uno scopo di base dal quale decidono il proprio percorso. </p>
+<h4><strong>TRATTI DEGLI ASHENFORGED</strong></h4>
+<p>Come ashenforged, sei dotato di un numero di tratti che sono infusi dentro di te alla creazione.<br />
+<strong>Aumento dei Punteggi di Caratteristica</strong> <br />
+Il tuo punteggio di Costituzione aumenta di 2. <br />
+<strong>Età.</strong> <br />
+Gli ashenforged maturano mentalmente entro i primi cinque anni. Molto spesso vivono altri 40-50 anni prima che il loro corpo decada. <br />
+<strong>Allineamento.</strong> <br />
+La maggior parte degli ashenforged sono legali, cresciuti con il loro percorso e scopo scelto come priorità sopra la maggior parte delle altre cose.<br />
+<strong>Taglia.</strong> <br />
+L'altezza di un ashenforged può variare, di solito tra 1,80 e 2,30 metri. La tua taglia è Media. <strong>Velocità.</strong><br />
+La tua velocità base di camminata è di 9 metri<br />
+<strong>Scurovisione.</strong> <br />
+Come ashenforged, sei dotato della capacità di vedere bene in luoghi fiocamente illuminati e bui.<br />
+Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca.<br />
+Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. <br />
+<strong>Resilienza.</strong> <br />
+Hai vantaggio sui tiri salvezza contro veleno e malattie e sei resistente ai danni da veleno. <strong>Addestramento Artigiano.</strong> <br />
+Ottieni competenza in uno strumento a tua scelta dalla seguente lista: strumenti da fabbro, strumenti da meccanico, utensili da cucina, strumenti da sarto. <br />
+<strong>Linguaggi</strong>.<br />
+Parli, leggi e scrivi Comune, Dendusi e un altro linguaggio a tua scelta.<br />
+Gli ashenforged spesso tendono a imparare rapidamente la lingua del loro sé precedente. </p>
+<p><strong>Archetipi di Specie.</strong> <br />
+Scegli uno dei seguenti archetipi generali:</p>
+<h3>CEREBRALE</h3>
+<p><img src="../../../assets/Ashenforged%20cerebrale.png" alt="Ashenforged cerebrale.png" loading="lazy" class="content-image"><br />
+Come uno dei Cerebrali, sei incline alla scoperta e alla perseveranza dai molti pericoli della galassia.<br />
+Molti Cerebrali tendono a viaggiare lontano da casa per imparare e crescere in qualcosa di più grande. </p>
+<p><strong>Aumento dei Punteggi di Caratteristica.</strong> <br />
+Il tuo punteggio di Saggezza aumenta di 1.<br />
+<strong>Robustezza.</strong> <br />
+Il tuo massimo dei punti ferita aumenta di 1 e aumenta anche di 1 ogni volta che guadagni un livello. </p>
+<h3>SOMATICO</h3>
+<p><img src="../../../assets/Ashenforged%20somatico.png" alt="Ashenforged somatico.png" loading="lazy" class="content-image"><br />
+Costruito per imprese fisiche, sei abituato a compiti ardui in ambienti difficili.<br />
+I Somatici tendono a prendere una grande quantità di orgoglio nelle loro realizzazioni e spesso tendono a proteggere coloro di statura più piccola. </p>
+<p><strong>Aumento dei Punteggi di Caratteristica.</strong> <br />
+Il tuo punteggio di Forza aumenta di 1.<br />
+<strong>Armatura Naturale.</strong><br />
+Quando non indossi armatura, la tua CA è 12 + il tuo modificatore di Destrezza.<br />
+Puoi usare l'armatura naturale per determinare la tua CA se l'armatura che indossi ti lascerebbe con una CA inferiore.<br />
+I benefici di uno scudo si applicano normalmente mentre usi la tua armatura naturale.<br />
+Inoltre, non soffri le penalità al movimento o alle prove di furtività associate all'indossare armature medie o pesanti.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_Armi - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">02_Armi</h1>
+                <div class="markdown-content">
+                    <h2>Armi</h2>
+<p>La tabella delle Armi mostra le armi più comuni usate, il loro prezzo, peso, danno e proprietà.</p>
+<h3>Proprietà delle Armi</h3>
+<ul>
+<li><strong>Munizioni:</strong> Devi avere munizioni per sparare. Ogni attacco ne consuma una.</li>
+<li><strong>Fuoco a Raffica (Burst Fire):</strong> Puoi fare un normale attacco a bersaglio singolo o spruzzare un cubo di 3 metri (10-foot cube) entro la gittata normale dell'arma. Ogni creatura nell'area deve superare un TS su Destrezza (CD = 8 + bonus competenza + mod Dex) o subire il danno dell'arma. Non aggiungi modificatori di caratteristica al danno della raffica. Consuma munizioni pari al numero tra parentesi.</li>
+<li><strong>Esplosiva:</strong> Il danno conta sia come fuoco che come il tipo listato. Se il bersaglio non ha armatura (o PSD), subisce il doppio dei dadi di danno sul colpo iniziale.</li>
+<li><strong>Accurata (Finesse):</strong> Usi Forza o Destrezza per tiro per colpire e danni.</li>
+<li><strong>Pesante:</strong> Le creature Piccole hanno svantaggio ai tiri per colpire.</li>
+<li><strong>Alta Velocità (High-Velocity):</strong> Spara proiettili ad alta velocità alimentati a sorium. Non serve ricaricare a meno che non si usi il Fuoco a Raffica. Se usata contro un bersaglio senza armatura/PSD, infligge un dado di danno extra e critica con 19-20.</li>
+<li><strong>Leggera:</strong> Ideale per combattere con due armi.</li>
+<li><strong>Portata (Reach):</strong> Aggiunge 1,5m alla tua portata.</li>
+<li><strong>Rinculo (Recoil):</strong> Indica il bonus di Forza minimo richiesto per usare l'arma senza penalità. Se non soddisfatto, non aggiungi il mod Dex a tiro per colpire/danni. Se il rinculo supera la tua Forza di 2 o più, hai anche svantaggio al tiro per colpire.</li>
+<li><strong>Ricarica:</strong> Puoi sparare solo un colpo per azione/reazione a causa del tempo di caricamento.</li>
+<li><strong>Speciale:</strong> Vedi regole specifiche.</li>
+<li><strong>Lancio:</strong> Puoi lanciare l'arma.</li>
+<li><strong>Due Mani:</strong> Richiede due mani per l'uso.</li>
+<li><strong>Versatile:</strong> Può essere usata a una o due mani.</li>
+</ul>
+<h3>Tabella delle Armi</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Costo</th>
+<th style="text-align: left;">Danno</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Peso</th>
+<th style="text-align: left;">Proprietà</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ARMI SEMPLICI DA MISCHIA</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Clava</td>
+<td style="text-align: left;">1 cu</td>
+<td style="text-align: left;">1d4 contundente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Leggera</td>
+</tr>
+<tr>
+<td style="text-align: left;">Coltello da Combattimento</td>
+<td style="text-align: left;">20 cu</td>
+<td style="text-align: left;">1d4 perforante</td>
+<td style="text-align: left;">6/18m</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Accurata, leggera, lancio</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ascia a Mano</td>
+<td style="text-align: left;">50 cu</td>
+<td style="text-align: left;">1d6 tagliente</td>
+<td style="text-align: left;">6/18m</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Leggera, lancio</td>
+</tr>
+<tr>
+<td style="text-align: left;">Manganello Metallico</td>
+<td style="text-align: left;">20 cu</td>
+<td style="text-align: left;">1d6 contundente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lancia</td>
+<td style="text-align: left;">25 cu</td>
+<td style="text-align: left;">1d6 perforante</td>
+<td style="text-align: left;">6/18m</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">Lancio, versatile (1d8)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bastone</td>
+<td style="text-align: left;">10 cu</td>
+<td style="text-align: left;">1d6 contundente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">4 lb.</td>
+<td style="text-align: left;">Versatile (1d8)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Guanti Potenziati</td>
+<td style="text-align: left;">20 cu</td>
+<td style="text-align: left;">1d4 contundente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Leggera</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lame da Polso</td>
+<td style="text-align: left;">10 cu</td>
+<td style="text-align: left;">1d4 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Accurata, leggera</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ARMI SEMPLICI A DISTANZA</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Pistola, leggera</td>
+<td style="text-align: left;">200 cu</td>
+<td style="text-align: left;">1d6 perforante</td>
+<td style="text-align: left;">15/45m</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Adattabile, munizioni, leggera, ricarica (15)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fucile, corto</td>
+<td style="text-align: left;">250 cu</td>
+<td style="text-align: left;">1d8 perforante</td>
+<td style="text-align: left;">21/63m</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">Munizioni, ricarica (6)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lama da Lancio</td>
+<td style="text-align: left;">2 cu</td>
+<td style="text-align: left;">1d4 perforante</td>
+<td style="text-align: left;">9/27m</td>
+<td style="text-align: left;">1/4 lb.</td>
+<td style="text-align: left;">Accurata, lancio</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ARMI MARZIALI DA MISCHIA</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Bastone Energetico</td>
+<td style="text-align: left;">150 cu</td>
+<td style="text-align: left;">1d6 contundente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Portata, raffica di energia, 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lama da Avambraccio</td>
+<td style="text-align: left;">250 cu</td>
+<td style="text-align: left;">1d6 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Accurata, leggera</td>
+</tr>
+<tr>
+<td style="text-align: left;">Falcione (Glaive)</td>
+<td style="text-align: left;">200 cu</td>
+<td style="text-align: left;">1d10 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">6 lb.</td>
+<td style="text-align: left;">Pesante, portata, 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Grandblade (Spadone)</td>
+<td style="text-align: left;">500 cu</td>
+<td style="text-align: left;">2d6 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">6 lb.</td>
+<td style="text-align: left;">Pesante, 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Grande Ascia</td>
+<td style="text-align: left;">300 cu</td>
+<td style="text-align: left;">1d12 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">7 lb.</td>
+<td style="text-align: left;">Pesante, 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lama Lunga</td>
+<td style="text-align: left;">150 cu</td>
+<td style="text-align: left;">1d8 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">Versatile (1d10)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Frusta Microfilamento</td>
+<td style="text-align: left;">250 cu</td>
+<td style="text-align: left;">1d6 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Accurata, portata</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sciabola</td>
+<td style="text-align: left;">200 cu</td>
+<td style="text-align: left;">1d8 tagliente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">Accurata</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lama Corta</td>
+<td style="text-align: left;">100 cu</td>
+<td style="text-align: left;">1d6 perforante</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Accurata, leggera</td>
+</tr>
+<tr>
+<td style="text-align: left;">Martello da Guerra</td>
+<td style="text-align: left;">150 cu</td>
+<td style="text-align: left;">1d8 contundente</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">Versatile (1d10)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ARMI MARZIALI A DISTANZA</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Arco Composito</td>
+<td style="text-align: left;">400 cu</td>
+<td style="text-align: left;">1d6 perforante</td>
+<td style="text-align: left;">30/120m</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Munizioni, 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pistola, braccio</td>
+<td style="text-align: left;">500 cu</td>
+<td style="text-align: left;">1d6 perforante</td>
+<td style="text-align: left;">9/36m</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Munizioni (6), ricarica</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pistola, auto</td>
+<td style="text-align: left;">250 cu</td>
+<td style="text-align: left;">1d6 perforante</td>
+<td style="text-align: left;">18/90m</td>
+<td style="text-align: left;">2 lb.</td>
+<td style="text-align: left;">Alta Velocità, raffica (2)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pistola, pesante</td>
+<td style="text-align: left;">400 cu</td>
+<td style="text-align: left;">1d8 perforante</td>
+<td style="text-align: left;">15/75m</td>
+<td style="text-align: left;">3 lb.</td>
+<td style="text-align: left;">Alta Velocità, raffica (2), rinculo (1)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fucile, auto</td>
+<td style="text-align: left;">300 cu</td>
+<td style="text-align: left;">1d10 perforante</td>
+<td style="text-align: left;">24/120m</td>
+<td style="text-align: left;">5 lb.</td>
+<td style="text-align: left;">Alta Velocità, raffica (3), rinculo (1), 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fucile, pesante</td>
+<td style="text-align: left;">500 cu</td>
+<td style="text-align: left;">2d6 perforante</td>
+<td style="text-align: left;">30/150m</td>
+<td style="text-align: left;">8 lb.</td>
+<td style="text-align: left;">Alta Velocità, raffica (3), pesante, rinculo (2), 2 mani</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fucile, cecchino</td>
+<td style="text-align: left;">800 cu</td>
+<td style="text-align: left;">2d8 perforante</td>
+<td style="text-align: left;">90/600m</td>
+<td style="text-align: left;">8 lb.</td>
+<td style="text-align: left;">Alta Velocità, pesante, 2 mani, speciale</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fucile a Pompa</td>
+<td style="text-align: left;">250 cu</td>
+<td style="text-align: left;">1d8 perforante</td>
+<td style="text-align: left;">9/27m</td>
+<td style="text-align: left;">7 lb.</td>
+<td style="text-align: left;">Ricarica, 2 mani, speciale</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GRANATE</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Frammentazione</td>
+<td style="text-align: left;">100 cu</td>
+<td style="text-align: left;">2d4 speciale</td>
+<td style="text-align: left;">6m raggio</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Esplosiva, lancio, speciale</td>
+</tr>
+<tr>
+<td style="text-align: left;">EMP</td>
+<td style="text-align: left;">120 cu</td>
+<td style="text-align: left;">Speciale</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Lancio, speciale</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gas</td>
+<td style="text-align: left;">200 cu</td>
+<td style="text-align: left;">1d6 veleno</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Lancio, speciale</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fosforo</td>
+<td style="text-align: left;">500 cu</td>
+<td style="text-align: left;">1d6 fuoco</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Esplosiva, lancio, speciale</td>
+</tr>
+<tr>
+<td style="text-align: left;">Stordente</td>
+<td style="text-align: left;">300 cu</td>
+<td style="text-align: left;">Speciale</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1 lb.</td>
+<td style="text-align: left;">Lancio, speciale</td>
+</tr>
+</tbody>
+</table>
+<h3>Armi Speciali</h3>
+<ul>
+<li><strong>Pistola da braccio:</strong> Montata sul braccio, non deve essere impugnata.</li>
+<li><strong>Fucile a Pompa:</strong> Spara in un cono di 9m a un bersaglio. Usa regole Raffica per altri nel raggio. Critico su 19-20 entro 3m.</li>
+<li><strong>Fucile da Cecchino:</strong> Richiede azione di attacco + azione bonus. Distanza minima 12m (svantaggio se più vicino). Critico su 19-20. Se prono o con supporto, riduce rinculo a 1.</li>
+</ul>
+<h3>Granate</h3>
+<p>Lancio con prova di Forza (Atletica). CD varia in base alla distanza (20ft=CD10, 60ft=CD16). Raggio di esplosione 4,5m (15 ft). TS Destrezza CD 14 per dimezzare.<br />
+* <strong>Frammentazione:</strong> Danni fisici.<br />
+* <strong>EMP:</strong> Nessun danno ai viventi. Paralizza costrutti/automi (TS Int CD 12). Disabilita elettronica non schermata.<br />
+* <strong>Gas:</strong> Nube tossica. Danno + condizione avvelenato.<br />
+* <strong>Fosforo:</strong> Incendiaria. Danno continuo 1d8 fuoco finché non spento.<br />
+* <strong>Stordente:</strong> Nessun danno. TS Dex o poi TS Cost CD 13 o stordito.</p>
+<hr />
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../search_data.js?v=4"></script>
+    <script src="../../app.js?v=4"></script>
+</body>
+
+</html>

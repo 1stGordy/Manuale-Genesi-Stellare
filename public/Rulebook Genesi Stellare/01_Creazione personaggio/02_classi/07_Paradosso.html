@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_Paradosso - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">07_Paradosso</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h1>Il Paradosso</h1>
+<p>Uno strano evento paradossale ha alterato per sempre la tua esistenza, e ora la tua mente opera su frequenze che trascendono la realtà singolare. Non sei più vincolato al "qui e ora"; la tua coscienza esplora le infinite possibilità del multiverso, intravedendo linee temporali alternative dove gli eventi si sono svolti diversamente.</p>
+<p>Crei campi di distorsione che sovvertono le leggi della fisica, permettendoti di lanciare potenti magie esperiche che confondono i nemici o proteggono gli alleati. Per mantenere la tua sanità mentale in questo vortice di possibilità infinite, hai imparato a concentrarti su un'Ancora: un ricordo vivido, un concetto filosofico o un oggetto fisico che ti ricorda chi sei veramente in questa specifica linea temporale.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<blockquote>
+<p>[!info] Statistiche Base<br />
+<strong>Punti Ferita</strong><br />
+* <strong>Dadi Vita:</strong> 1d6 per livello da Paradosso<br />
+* <strong>PF al 1° Livello:</strong> 6 + il tuo modificatore di Costituzione<br />
+* <strong>PF ai Livelli Successivi:</strong> 1d6 (o 4) + il tuo modificatore di Costituzione</p>
+<p><strong>Competenze</strong><br />
+* <strong>Armature:</strong> Leggere<br />
+* <strong>Armi:</strong> Armi semplici<br />
+* <strong>Strumenti:</strong> Nessuno<br />
+* <strong>Tiri Salvezza:</strong> Intelligenza, Carisma<br />
+* <strong>Abilità:</strong> Due a scelta tra Astrofisica, Inganno, Intuizione, Investigazione, Percezione e Storia</p>
+</blockquote>
+<h4>Equipaggiamento Iniziale</h4>
+<p>Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal background:<br />
+* (a) una pistola leggera e 20 colpi o (b) un bastone semplice<br />
+* (a) uno zaino da studioso o (b) uno zaino da esploratore<br />
+* Un'Ancora di Realtà (un piccolo oggetto, un monile o un datapad con un vecchio file)<br />
+* Giacca Corazzata</p>
+<hr />
+<h3>Tabella: Il Paradosso</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Talenti Prime</th>
+<th style="text-align: center;">Punti Talento</th>
+<th style="text-align: center;">Grado Max Talento</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Canalizzazione, Ancora di Realtà, Visione Multiversale</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Campo di Distorsione, Spostamento Paradigmatico</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Manipolazione delle Probabilità</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Sovrapposizione Temporale</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Privilegio Paradigma</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Ancoraggio Saldo</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Privilegio Paradigma</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<h4>Canalizzazione (<em>Channeling</em>)</h4>
+<p>Attingi alle energie del multiverso per manifestare i tuoi poteri.</p>
+<ul>
+<li><strong>Talenti Prime:</strong> Al 1° livello conosci 3 talenti prime.</li>
+<li><strong>Talenti Conosciuti:</strong> Al 1° livello impari 5 talenti di Grado 1 dalla lista dei poteri del Paradosso (che include principalmente talenti dai domini <em>Metafase</em>, <em>Cinesi</em> e <em>Psicogenico</em>).</li>
+<li><strong>Punti Talento:</strong> Hai una riserva di punti talento mostrata nella tabella. Recuperi tutti i punti dopo un riposo lungo.</li>
+<li><strong>Caratteristica da Canalizzazione:</strong> Usi il <strong>Carisma</strong>, poiché imponi la tua volontà sulla realtà per decidere quale versione degli eventi si manifesta.<ul>
+<li><strong>CD Tiro Salvezza:</strong> 8 + Bonus Comp. + Mod. Carisma</li>
+<li><strong>Mod. Attacco:</strong> Bonus Comp. + Mod. Carisma</li>
+</ul>
+</li>
+<li><strong>Imparare Nuovi Talenti:</strong> Ogni volta che guadagni un livello, impari due nuovi talenti.</li>
+</ul>
+<h4>Ancora di Realtà (<em>Reality Anchor</em>)</h4>
+<p>Al 1° livello, definisci la tua Ancora. Può essere un oggetto fisico (un orologio rotto, una foto) o un concetto mentale su cui mediti.<br />
+Fintanto che la tua Ancora è sulla tua persona (o nella tua mente), hai vantaggio sui Tiri Salvezza per resistere agli effetti che ti porterebbero in un altro piano di esistenza, ti bandirebbero o altererebbero la tua memoria.<br />
+Inoltre, puoi usare la tua Ancora come focus per i tuoi poteri esper.</p>
+<h4>Visione Multiversale</h4>
+<p>Al 1° livello, puoi percepire brevemente linee temporali alternative. Come azione, puoi ottenere vantaggio a una prova di abilità o a un tiro per colpire visualizzando un risultato in cui hai successo. Puoi usare questo privilegio un numero di volte pari al tuo modificatore di Carisma (minimo 1). Recuperi gli usi dopo un riposo lungo.</p>
+<h4>Campo di Distorsione (<em>Distortion Field</em>)</h4>
+<p>Al 2° livello, impari a sovrapporre realtà alternative all'ambiente circostante. Come azione bonus, puoi creare un'aura di distorsione visibile che si estende per 4,5 metri (15 piedi) da te. L'aura dura 1 minuto, finché non sei inabile o finché non la dissolvi.<br />
+Mentre il campo è attivo, lo spazio entro 4,5 metri da te è considerato terreno difficile per le creature ostili. Inoltre, ottieni benefici specifici basati sul tuo Paradigma.<br />
+Puoi usare questo privilegio due volte per riposo breve o lungo.</p>
+<h4>Spostamento Paradigmatico</h4>
+<p>Al 2° livello, scegli quale tipo di realtà alternativa tendi a manifestare: <strong>Paradigma della Catastrofe</strong> o <strong>Paradigma dell'Utopia</strong>. La tua scelta ti garantisce privilegi al 2°, 6° e 10° livello.</p>
+<h4>Manipolazione delle Probabilità</h4>
+<p>Al 3° livello, quando una creatura che puoi vedere entro 18 metri da te effettua un tiro per colpire, una prova di abilità o un tiro salvezza, puoi usare la tua reazione e spendere 2 Punti Talento per tirare 1d4 e applicare il risultato come bonus o penalità al tiro della creatura (a tua scelta). Devi scegliere di usare questa capacità prima di sapere se il tiro ha avuto successo o meno.</p>
+<h4>Sovrapposizione Temporale</h4>
+<p>Al 5° livello, quando attivi il tuo <em>Campo di Distorsione</em>, puoi scegliere di diventare parzialmente intangibile, vibrando tra le realtà. Fino all'inizio del tuo prossimo turno, i tiri per colpire contro di te hanno svantaggio.</p>
+<hr />
+<h2>Paradigmi (Paradigms)</h2>
+<h3>Paradigma della Catastrofe</h3>
+<p><img src="../../../assets/Paradigma%20della%20catastrofe.png" alt="Paradigma della catastrofe.png" loading="lazy" class="content-image"><br />
+Visualizzi linee temporali apocalittiche dove tutto è andato storto, portando quel caos nel presente per danneggiare i tuoi nemici.</p>
+<p><strong>Terreno Ostile (2° Livello)</strong><br />
+Quando il tuo <em>Campo di Distorsione</em> è attivo, qualsiasi nemico che inizia il suo turno nell'aura o vi entra per la prima volta in un turno subisce danni psichici pari al tuo bonus di competenza. L'ambiente intorno a te sembra sgretolarsi, bruciare o congelare (un effetto puramente illusorio ma doloroso).</p>
+<p><strong>Frattura della Realtà (6° Livello)</strong><br />
+Puoi spendere 3 Punti Talento come azione per aprire una micro-frattura in un punto entro 18 metri. Ogni creatura in un raggio di 3 metri dalla frattura deve superare un TS su Destrezza o subire 4d6 danni da forza e essere gettata prona, mentre la gravità e la fisica momentaneamente collassano.</p>
+<h3>Paradigma dell'Utopia</h3>
+<p><img src="../../../assets/Paradigma%20dell%27utopia.png" alt="Paradigma dell'utopia.png" loading="lazy" class="content-image"><br />
+Visualizzi realtà perfette, dove la tecnologia non fallisce mai e la biologia è ottimizzata, usando queste visioni per proteggere e migliorare.</p>
+<p><strong>Rifugio Sicuro (2° Livello)</strong><br />
+Quando il tuo <em>Campo di Distorsione</em> è attivo, tu e gli alleati all'interno dell'aura ottenete resistenza a un tipo di danno a tua scelta (acido, freddo, fuoco, fulmine o tuono), che scegli quando attivi il campo. L'ambiente sembra diventare più pulito, luminoso e geometricamente perfetto.</p>
+<p><strong>Negazione del Fallimento (6° Livello)</strong><br />
+Quando un alleato entro 9 metri da te fallisce un Tiro Salvezza, puoi usare la tua reazione e spendere 3 Punti Talento per permettergli di ritirare il dado. Deve usare il nuovo risultato. Stai letteralmente riscrivendo un momento sfortunato con uno migliore proveniente da una timeline alternativa.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>
