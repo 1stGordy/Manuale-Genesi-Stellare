@@ -280,10 +280,23 @@ document.addEventListener('DOMContentLoaded', () => {
             supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("Supabase initialized");
 
-            supabase.auth.onAuthStateChange((event, session) => {
+            // Check session immediately on load
+            supabase.auth.getSession().then(({ data: { session } }) => {
                 if (session) {
+                    console.log("Session found on load:", session);
                     fetchUserRole(session);
                 } else {
+                    console.log("No session on load");
+                    updateAuthUI(null);
+                }
+            });
+
+            // Listen for Auth Changes
+            supabase.auth.onAuthStateChange((event, session) => {
+                console.log("Auth Event:", event, session);
+                if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+                    if (session) fetchUserRole(session);
+                } else if (event === 'SIGNED_OUT') {
                     updateAuthUI(null);
                 }
             });
@@ -299,26 +312,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function fetchUserRole(session) {
+            // Optimistic UI update (show email immediately while fetching role)
+            updateAuthUI(session, true); 
+
             try {
-                const { data: profile } = await supabase
+                const { data: profile, error } = await supabase
                     .from('profiles')
                     .select('role')
                     .eq('id', session.user.id)
                     .single();
                 
                 if (profile) {
+                    console.log("Role fetched:", profile.role);
                     session.user.role = profile.role;
                 } else {
+                    console.warn("Profile not found, defaulting to player");
                     session.user.role = 'player';
                 }
             } catch (err) {
                 console.error("Error fetching role:", err);
                 session.user.role = 'player';
             }
-            updateAuthUI(session);
+            // Final UI update with role
+            updateAuthUI(session, false);
         }
 
-        function updateAuthUI(session) {
+        function updateAuthUI(session, loading = false) {
             const footer = document.querySelector('.sidebar-footer');
             if (!footer) return;
 
@@ -330,14 +349,32 @@ document.addEventListener('DOMContentLoaded', () => {
             authWrapper.style.display = 'flex';
             authWrapper.style.alignItems = 'center';
             authWrapper.style.marginLeft = '10px';
+            authWrapper.style.fontSize = '0.8rem';
 
             if (session) {
-                const roleBadge = document.createElement('span');
-                roleBadge.textContent = session.user.role === 'gm' ? '👑 GM' : '👤 Player';
-                roleBadge.style.fontSize = '0.8rem';
-                roleBadge.style.marginRight = '8px';
-                roleBadge.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
-                
+                const userContainer = document.createElement('div');
+                userContainer.style.display = 'flex';
+                userContainer.style.flexDirection = 'column';
+                userContainer.style.marginRight = '8px';
+                userContainer.style.lineHeight = '1.2';
+
+                const emailSpan = document.createElement('span');
+                emailSpan.textContent = session.user.email;
+                emailSpan.style.color = 'var(--text-color)';
+                emailSpan.style.fontWeight = 'bold';
+
+                const roleSpan = document.createElement('span');
+                if (loading) {
+                    roleSpan.textContent = 'Caricamento...';
+                    roleSpan.style.color = 'var(--text-muted)';
+                } else {
+                    roleSpan.textContent = session.user.role === 'gm' ? '👑 GM' : '👤 Player';
+                    roleSpan.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
+                }
+
+                userContainer.appendChild(emailSpan);
+                userContainer.appendChild(roleSpan);
+
                 const logoutBtn = document.createElement('button');
                 logoutBtn.textContent = '🚪';
                 logoutBtn.title = 'Logout';
@@ -345,18 +382,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 logoutBtn.style.border = '1px solid var(--border-color)';
                 logoutBtn.style.color = 'var(--text-color)';
                 logoutBtn.style.cursor = 'pointer';
-                logoutBtn.style.padding = '2px 6px';
+                logoutBtn.style.padding = '4px 8px';
                 logoutBtn.style.borderRadius = '4px';
+                logoutBtn.style.marginLeft = '5px';
                 
                 logoutBtn.onclick = async () => {
                     await supabase.auth.signOut();
+                    window.location.reload(); // Force reload to clear state
                 };
                 
-                authWrapper.appendChild(roleBadge);
+                authWrapper.appendChild(userContainer);
                 authWrapper.appendChild(logoutBtn);
             } else {
                 const loginBtn = document.createElement('button');
                 loginBtn.textContent = '🔑 Login';
+                loginBtn.style.background = 'var(--accent-color)';
+                loginBtn.style.color = 'var(--bg-color)';
+                loginBtn.style.border = 'none';
+                loginBtn.style.padding = '5px 10px';
+                loginBtn.style.borderRadius = '4px';
+                loginBtn.style.cursor = 'pointer';
+                loginBtn.style.fontWeight = 'bold';
+
                 loginBtn.onclick = () => {
                     loginModal.classList.add('open');
                 };
