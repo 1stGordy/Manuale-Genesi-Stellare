@@ -141,11 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const keys = Object.keys(data).sort((a, b) => {
                 if (a === '__files__') return 1;
                 if (b === '__files__') return -1;
-                return a.localeCompare(b);
+                return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
             });
 
             keys.forEach(key => {
                 if (key === '__files__') {
+                    // Sort files naturally
+                    data[key].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
+
                     data[key].forEach(file => {
                         const link = document.createElement('a');
                         link.href = new URL(file.path, APP_BASE_URL).href;
