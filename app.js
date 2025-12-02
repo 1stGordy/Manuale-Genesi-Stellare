@@ -249,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>ACCESSO ARCANUM</h3>
                     <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted)">Inserisci la tua email per ricevere il Magic Link.</p>
                     <input type="email" id="login-email" placeholder="nome@esempio.com">
+                    <div id="login-status" style="margin-bottom: 10px; font-size: 0.8rem; color: var(--accent-color); min-height: 1.2em;"></div>
                     <div style="display: flex; justify-content: center;">
                         <button class="login-btn-confirm" id="login-confirm">INVIA LINK</button>
                         <button class="login-btn-cancel" id="login-cancel">ANNULLA</button>
@@ -416,25 +417,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function handleLogin(email) {
             const btn = document.getElementById('login-confirm');
+            const statusDiv = document.getElementById('login-status');
             const originalText = btn.textContent;
-            btn.textContent = 'Inviando...';
+
+            btn.textContent = '...';
             btn.disabled = true;
+            statusDiv.textContent = "Inizializzazione...";
 
-            // Use current origin + pathname to avoid query params/hashes confusing Supabase
-            const redirectUrl = window.location.origin + window.location.pathname;
+            try {
+                // Use current origin + pathname
+                const redirectUrl = window.location.origin + window.location.pathname;
+                statusDiv.textContent = "Connessione a Supabase...";
 
-            const { error } = await supabase.auth.signInWithOtp({
-                email,
-                options: {
-                    emailRedirectTo: redirectUrl
-                }
-            });
+                // Create a timeout promise
+                const timeout = new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error("Timeout richiesta (10s)")), 10000)
+                );
 
-            if (error) {
-                alert('Errore: ' + error.message);
-                btn.textContent = originalText;
-                btn.disabled = false;
-            } else {
+                // Race between login and timeout
+                const { error } = await Promise.race([
+                    supabase.auth.signInWithOtp({
+                        email,
+                        options: { emailRedirectTo: redirectUrl }
+                    }),
+                    timeout
+                ]);
+
+                if (error) throw error;
+
+                statusDiv.textContent = "Fatto!";
+
                 // Replace modal content with success message
                 const loginBox = document.querySelector('.login-box');
                 loginBox.innerHTML = `
@@ -446,9 +458,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 document.getElementById('close-after-login').addEventListener('click', () => {
                     document.getElementById('login-modal').classList.remove('open');
-                    // Restore modal content after a delay (optional, but good for next time)
                     setTimeout(() => window.location.reload(), 500);
                 });
+
+            } catch (err) {
+                console.error(err);
+                statusDiv.textContent = "Errore: " + err.message;
+                statusDiv.style.color = "red";
+                btn.textContent = originalText;
+                btn.disabled = false;
             }
         }
 
