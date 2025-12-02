@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="it">
 
-<button id="mobile-menu-btn" aria-label="Menu">☰</button>
-<div id="mobile-overlay"></div>
-<nav id="sidebar">
-    <div class="sidebar-header">
-        <h1>Arcanum</h1>
-    </div>
-    <div class="search-container-sidebar">
-        <input type="text" id="sidebar-search" placeholder="Cerca...">
-    </div>
-    <div id="nav-tree">
-        <!-- Sidebar content injected via JS -->
-    </div>
-    <div class="sidebar-footer">
-        <button id="theme-toggle">🌙</button>
-    </div>
-</nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_Pahtra - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=3">
+</head>
 
-<main id="main-content">
-    <div id="content-area">
-        <h1 class="page-title">08_Pahtra</h1>
-        <div class="markdown-content">
-            <p><img src="../../../assets/Pathra%20base.png" alt="Pathra base.png" loading="lazy" class="content-image"><br />
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">08_Pahtra</h1>
+                <div class="markdown-content">
+                    <p><img src="../../../assets/Pathra%20base.png" alt="Pathra base.png" loading="lazy" class="content-image"><br />
  Eleganti, letali e ferocemente indipendenti, i Pahtra sono una specie di umanoidi felini provenienti dal sistema stellare Vesk, recentemente integrato nell'Accordo del Sorium. Famosi per i loro riflessi fulminei e la loro cultura che non distingue tra l'arte della guerra e l'arte della musica, i Pahtra sono spiriti competitivi che hanno appena spezzato le catene di una lunga occupazione militare. Ora liberi, vagano per la galassia ansiosi di provare il loro valore e di assicurarsi che nessuno possa mai più dominarli.</p>
 <p>IL RITMO DELLA RESISTENZA<br />
 Per generazioni, il mondo natale dei Pahtra è stato sotto il tallone oppressivo delle forze di invasione (spesso identificate con i Lorendi o signori della guerra indipendenti). Durante questo periodo buio, i Pahtra non potevano portare armi apertamente, così trasformarono la loro cultura in uno strumento di ribellione. La musica e la danza divennero forme di addestramento al combattimento: una ballata poteva nascondere istruzioni tattiche, e una danza rituale era in realtà una sequenza di tecniche di disarmo. Quando le loro capacità esper latenti iniziarono a manifestarsi, i Pahtra impararono a intessere il potere del Sorium nelle loro voci, creando canzoni capaci di frantumare la pietra o ispirare coraggio. La loro recente liberazione non è stata un dono, ma una vittoria conquistata con le unghie e con i denti, e ogni Pahtra porta questa fierezza nel cuore.</p>
@@ -72,18 +86,18 @@ Il tuo punteggio di Carisma aumenta di 1.<br />
 Ottieni l'uso del talento <em>Sonic Burst</em> (Esplosione Sonica) come talento Prime (a volontà). La tua caratteristica di canalizzazione per questo talento è il Carisma.<br />
 <strong>Ispirazione Musicale.</strong> <br />
 Ottieni competenza nell'abilità <em>Intrattenere</em> o in uno strumento musicale a tua scelta.</p>
-        </div>
+                </div>
+            </div>
+        </main>
     </div>
-</main>
-</div>
 
-<script>
-    // Inject sidebar data from build process
-    window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": []}}};
-    window.SITE_ROOT = "../../../";
-</script>
-<script src="../../../search_data.js?v=2"></script>
-<script src="../../../app.js?v=2"></script>
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": []}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="../../../search_data.js?v=3"></script>
+    <script src="../../../app.js?v=3"></script>
 </body>
 
 </html>
