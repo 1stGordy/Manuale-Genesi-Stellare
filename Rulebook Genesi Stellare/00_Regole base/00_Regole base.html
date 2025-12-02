@@ -62,7 +62,71 @@
             <div id="content-area">
                 <h1 class="page-title">00_Regole base</h1>
                 <div class="markdown-content">
-                    <p><strong>REGOLE DI GIOCO</strong> <br />
+                    <!DOCTYPE html>
+                    <html lang="it">
+
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>00_Regole base - Arcanum</title>
+                        <link rel="preconnect" href="https://fonts.googleapis.com">
+                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                        <link
+                            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+                            rel="stylesheet">
+                        <link rel="stylesheet" href="../../style.css?v=4">
+                    </head>
+
+                    <body>
+                        <div id="app-container">
+                            <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+                            <div id="mobile-overlay"></div>
+                            <nav id="sidebar">
+                                <div class="sidebar-header">
+                                    <h1>Arcanum</h1>
+                                </div>
+                                <div class="search-container-sidebar">
+                                    <input type="text" id="sidebar-search" placeholder="Cerca...">
+                                </div>
+                                <div id="nav-tree">
+                                    <!-- Sidebar content injected via JS -->
+                                </div>
+                                <div class="sidebar-footer">
+                                    <button id="theme-toggle">🌙</button>
+                                </div>
+                            </nav>
+
+                            <!-- Dice Roller UI -->
+                            <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+                            <div id="dice-panel">
+                                <div class="dice-header">
+                                    <h3>Sala dei Dadi</h3>
+                                    <button id="close-dice-btn">×</button>
+                                </div>
+                                <div class="dice-controls">
+                                    <button class="dice-btn" data-sides="4">d4</button>
+                                    <button class="dice-btn" data-sides="6">d6</button>
+                                    <button class="dice-btn" data-sides="8">d8</button>
+                                    <button class="dice-btn" data-sides="10">d10</button>
+                                    <button class="dice-btn" data-sides="12">d12</button>
+                                    <button class="dice-btn" data-sides="20">d20</button>
+                                    <button class="dice-btn" data-sides="100">d100</button>
+                                </div>
+                                <div id="dice-result-area">
+                                    <div id="dice-animation">🎲</div>
+                                    <div id="dice-value">-</div>
+                                </div>
+                                <div class="dice-history">
+                                    <h4>Cronologia</h4>
+                                    <ul id="dice-log"></ul>
+                                </div>
+                            </div>
+
+                            <main id="main-content">
+                                <div id="content-area">
+                                    <h1 class="page-title">00_Regole base</h1>
+                                    <div class="markdown-content">
+                                        <p><strong>REGOLE DI GIOCO</strong> <br />
 Genesi Stellare utilizza le regole della 5a Edizione (5E). Ogni gioco 5E segue un flusso base dettagliato nei seguenti passaggi:</p>
 <ol>
 <li>
@@ -208,18 +272,19 @@ rifarsi a <a href="../../Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.h
 <hr />
 <h2>Gli Esper e i Crogioli</h2>
 <p>Sparsi attraverso le galassie, i Crogioli sono resti di un'epoca che precede qualsiasi altra nella storia conosciuta. Spesso delle dimensioni di piccole lune, nessun Crogiolo è identico a un altro, sebbene condividano somiglianze. Ognuno è sferico nella forma complessiva. Le loro superfici sono spesso metalliche nell'aspetto ma sembrano organiche nella consistenza. Dormienti da un'epoca passata, molti di essi si sono attivati negli ultimi mille anni, cambiando per sempre la galassia e le vite di tutti i suoi abitanti. Sotto la superficie di un Crogiolo ci sono lunghe diramazioni di tunnel che portano al suo nucleo, dove il Sorium può essere raccolto. Il Sorium è un materiale senza classificazione. La sua composizione chimica cambia costantemente, può assumere le proprietà di qualsiasi elemento e può essere indotto a cambiare stati molecolari con concentrazione e focus. L'aspetto primario del Sorium è come fonte di energia grezza che può essere usata per alimentare qualsiasi dispositivo adattato per funzionare con esso. Qualsiasi cosa, da un impianto di illuminazione a un incrociatore da battaglia, può usarlo come fonte di energia se propriamente adattato. Dopo generazioni di raccolta del Sorium, gli esseri hanno iniziato a mostrare abilità straordinarie. Terra, Fuoco, Vento, Acqua, Spazio, Tempo e Gravità - tutte queste forze della creazione sono diventate visibili e malleabili per coloro in grado di incanalare questo potere attraverso se stessi. Questi esseri sono diventati legati ai Crogioli, in grado di comunicare con essi in modi che nessun altro essere potrebbe comprendere. Sono conosciuti in tutta la galassia come gli Esper. Ogni persona viene colpita in modo diverso quando raggiunge l'Esper Genesis. A seconda della loro origine o specie, il processo può influenzarli sia fisicamente che psicologicamente. Alcuni esper imparano a incanalare queste energie attraverso i loro corpi, mentre altri manipolano il sorium in impianti o dispositivi per alimentare i loro poteri. Indipendentemente da come sono connessi a questa ambientazione, ogni personaggio giocante è dotato di rare abilità e potenziato con la volontà di plasmare il proprio destino così come il destino di tutti coloro con cui i loro percorsi potrebbero incrociarsi.</p>
-                </div>
-            </div>
-        </main>
-    </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
 
-    <script>
-        // Inject sidebar data from build process
-        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
-        window.SITE_ROOT = "../../";
-    </script>
-    <script src="../../search_data.js?v=4"></script>
-    <script src="../../app.js?v=4"></script>
-</body>
+                        <script>
+                            // Inject sidebar data from build process
+                            window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+                            window.SITE_ROOT = "../../";
+                        </script>
+                        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+                        <script src="../../search_data.js?v=4"></script>
+                        <script src="../../app.js?v=4"></script>
+                    </body>
 
-</html>
+                    </html>

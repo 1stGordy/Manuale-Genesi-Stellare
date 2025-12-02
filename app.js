@@ -183,4 +183,134 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // --- Dice Roller Logic ---
+    const diceToggleBtn = document.getElementById('dice-toggle-btn');
+    const dicePanel = document.getElementById('dice-panel');
+    const closeDiceBtn = document.getElementById('close-dice-btn');
+    const diceBtns = document.querySelectorAll('.dice-btn');
+    const diceValueDisplay = document.getElementById('dice-value');
+    const diceAnim = document.getElementById('dice-animation');
+    const diceLog = document.getElementById('dice-log');
+
+    function toggleDicePanel() {
+        if (dicePanel) dicePanel.classList.toggle('open');
+    }
+
+    if (diceToggleBtn) diceToggleBtn.addEventListener('click', toggleDicePanel);
+    if (closeDiceBtn) closeDiceBtn.addEventListener('click', toggleDicePanel);
+
+    if (diceBtns) {
+        diceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const sides = parseInt(btn.getAttribute('data-sides'));
+                rollDice(sides);
+            });
+        });
+    }
+
+    function rollDice(sides) {
+        if (diceValueDisplay) diceValueDisplay.style.display = 'none';
+        if (diceAnim) {
+            diceAnim.classList.add('rolling');
+            diceAnim.style.display = 'block';
+        }
+
+        setTimeout(() => {
+            const result = Math.floor(Math.random() * sides) + 1;
+            
+            if (diceAnim) {
+                diceAnim.classList.remove('rolling');
+                diceAnim.style.display = 'none';
+            }
+            if (diceValueDisplay) {
+                diceValueDisplay.style.display = 'block';
+                diceValueDisplay.textContent = result;
+            }
+
+            addToLog(sides, result);
+        }, 600);
+    }
+
+    function addToLog(sides, result) {
+        if (!diceLog) return;
+        const li = document.createElement('li');
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
+        let resultClass = 'roll-val';
+        if (sides === 20 && result === 20) resultClass = 'crit-success';
+        if (sides === 20 && result === 1) resultClass = 'crit-fail';
+
+        li.innerHTML = `<span>${time} - d${sides}</span> <span class="${resultClass}">${result}</span>`;
+        
+        diceLog.prepend(li);
+        if (diceLog.children.length > 20) {
+            diceLog.removeChild(diceLog.lastChild);
+        }
+    }
+
+    // --- Supabase Integration ---
+    const SUPABASE_URL = 'https://tmqfxsjjffvdkwzpkysn.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtcWZ4c2pqZmZ2ZGt3enBreXNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2OTM3MDEsImV4cCI6MjA4MDI2OTcwMX0.Bb559AxjxIpTp-Aj4Div3j0LBcAdNGsoZjZ-AcZvOOg';
+    
+    let supabase = null;
+    if (window.supabase) {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        console.log("Supabase initialized");
+        
+        // Check Session
+        checkSession();
+    }
+
+    async function checkSession() {
+        const { data: { session } } = await supabase.auth.getSession();
+        updateAuthUI(session);
+    }
+
+    function updateAuthUI(session) {
+        const footer = document.querySelector('.sidebar-footer');
+        if (!footer) return;
+
+        // Remove existing auth btn if any
+        const existingBtn = document.getElementById('auth-btn');
+        if (existingBtn) existingBtn.remove();
+
+        const authBtn = document.createElement('button');
+        authBtn.id = 'auth-btn';
+        authBtn.style.marginLeft = '10px';
+        
+        if (session) {
+            authBtn.textContent = '👤 Profilo';
+            authBtn.onclick = () => {
+                alert(`Loggato come: ${session.user.email}`);
+                // Future: Open Profile Modal
+            };
+            
+            const logoutBtn = document.createElement('button');
+            logoutBtn.textContent = '🚪';
+            logoutBtn.title = 'Logout';
+            logoutBtn.style.marginLeft = '5px';
+            logoutBtn.onclick = async () => {
+                await supabase.auth.signOut();
+                window.location.reload();
+            };
+            footer.appendChild(logoutBtn);
+        } else {
+            authBtn.textContent = '🔑 Login';
+            authBtn.onclick = () => {
+                const email = prompt("Inserisci la tua email per il Magic Link:");
+                if (email) handleLogin(email);
+            };
+        }
+        footer.appendChild(authBtn);
+    }
+
+    async function handleLogin(email) {
+        const { error } = await supabase.auth.signInWithOtp({ email });
+        if (error) {
+            alert('Errore: ' + error.message);
+        } else {
+            alert('Controlla la tua email per il link di accesso!');
+        }
+    }
+
 });
