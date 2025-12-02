@@ -48,11 +48,11 @@ def scan_vault(root_dir):
         dirs[:] = [d for d in dirs if d not in IGNORE_DIRS and not d.startswith('.')]
         
         # Check if current root is within an allowed directory
-        rel_root = os.path.relpath(root, root_dir)
-        if rel_root == '.':
-            # At root, only traverse into allowed dirs
-            dirs[:] = [d for d in dirs if d in ALLOWED_DIRS]
-            continue
+        # rel_root = os.path.relpath(root, root_dir)
+        # if rel_root == '.':
+        #     # At root, only traverse into allowed dirs
+        #     dirs[:] = [d for d in dirs if d in ALLOWED_DIRS]
+        #     continue
         
         # If we are not in an allowed dir (and not at root), skip
         # (The logic above handles the entry into allowed dirs, so we just need to ensure we don't traverse out? 
