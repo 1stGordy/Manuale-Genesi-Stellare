@@ -281,6 +281,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function checkSession() {
             const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                // Fetch Profile to get Role
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('role')
+                    .eq('id', session.user.id)
+                    .single();
+
+                session.user.role = profile ? profile.role : 'player';
+            }
             updateAuthUI(session);
         }
 
@@ -292,34 +302,47 @@ document.addEventListener('DOMContentLoaded', () => {
             const existingBtn = document.getElementById('auth-btn');
             if (existingBtn) existingBtn.remove();
 
-            const authBtn = document.createElement('button');
-            authBtn.id = 'auth-btn';
-            authBtn.style.marginLeft = '10px';
+            const authWrapper = document.createElement('div');
+            authWrapper.id = 'auth-btn';
+            authWrapper.style.display = 'flex';
+            authWrapper.style.alignItems = 'center';
+            authWrapper.style.marginLeft = '10px';
 
             if (session) {
-                authBtn.textContent = '👤 Profilo';
-                authBtn.onclick = () => {
-                    alert(`Loggato come: ${session.user.email}`);
-                    // Future: Open Profile Modal
-                };
+                const roleBadge = document.createElement('span');
+                roleBadge.textContent = session.user.role === 'gm' ? '👑 GM' : '👤 Player';
+                roleBadge.style.fontSize = '0.8rem';
+                roleBadge.style.marginRight = '8px';
+                roleBadge.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
+                roleBadge.title = session.user.email;
 
                 const logoutBtn = document.createElement('button');
                 logoutBtn.textContent = '🚪';
                 logoutBtn.title = 'Logout';
-                logoutBtn.style.marginLeft = '5px';
+                logoutBtn.style.background = 'none';
+                logoutBtn.style.border = '1px solid var(--border-color)';
+                logoutBtn.style.color = 'var(--text-color)';
+                logoutBtn.style.cursor = 'pointer';
+                logoutBtn.style.padding = '2px 6px';
+                logoutBtn.style.borderRadius = '4px';
+
                 logoutBtn.onclick = async () => {
                     await supabase.auth.signOut();
                     window.location.reload();
                 };
-                footer.appendChild(logoutBtn);
+
+                authWrapper.appendChild(roleBadge);
+                authWrapper.appendChild(logoutBtn);
             } else {
-                authBtn.textContent = '🔑 Login';
-                authBtn.onclick = () => {
+                const loginBtn = document.createElement('button');
+                loginBtn.textContent = '🔑 Login';
+                loginBtn.onclick = () => {
                     const email = prompt("Inserisci la tua email per il Magic Link:");
                     if (email) handleLogin(email);
                 };
+                authWrapper.appendChild(loginBtn);
             }
-            footer.appendChild(authBtn);
+            footer.appendChild(authWrapper);
         }
 
         async function handleLogin(email) {
