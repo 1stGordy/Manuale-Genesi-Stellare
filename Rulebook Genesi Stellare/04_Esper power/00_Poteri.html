@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00_Poteri - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">00_Poteri</h1>
+                <div class="markdown-content">
+                    <h1>Poteri Esper</h1>
+<p>Attingendo dalle infinite energie cosmiche dei Crogioli, la natura straordinaria degli esper permette loro di imbrigliare queste forze e scatenarle per produrre una varietà di effetti sorprendenti. Questo capitolo fornisce le regole per l'uso dei poteri esper.</p>
+<hr />
+<h2>Aspetti dei Poteri</h2>
+<p>Un potere esper è la capacità innata di imbrigliare l'energia e modellarla o convertirla. A seconda della specializzazione dell'esper, i poteri vengono esercitati in due forme diverse.</p>
+<h3>Talenti e Canalizzazione (<em>Channeling</em>)</h3>
+<p>I <strong>Talenti</strong> sono poteri manipolati direttamente attraverso il corpo dell'esper. Questa abilità è nota come <strong>Canalizzazione</strong>.<br />
+* <strong>Utilizzatori:</strong> Melder, <strong>Mistico</strong>, <strong>Paradosso</strong>, <strong>Cavaliere Solare</strong>.<br />
+* <strong>Specie Affini:</strong> Eldori, Talandri, Pahtra (Cantori).<br />
+* <strong>Restrizione Armatura:</strong> A causa della concentrazione mentale richiesta, devi essere competente nell'armatura che indossi per attivare un talento. Senza competenza, l'interferenza è troppa.</p>
+<h3>Tecniche e Forgiatura (<em>Forging</em>)</h3>
+<p>Le <strong>Tecniche</strong> sono metodi praticati di manipolazione che richiedono strumenti, armi o impianti di Sorium. Questo processo è noto come <strong>Forgiatura</strong>.<br />
+* <strong>Utilizzatori:</strong> Ingegnere, Cacciatori, Sentinelle.<br />
+* <strong>Specie Affini:</strong> Androidi, Ysoki, Ashenforged.<br />
+* <strong>Preparazione:</strong> A differenza dei talenti che sono spesso innati o "chiamati", le tecniche devono essere preparate e configurate nel <em>Rig</em> dell'esper.</p>
+<hr />
+<h2>Meccaniche di Gioco</h2>
+<h3>Gradi dei Poteri</h3>
+<p>Ogni potere ha un grado da 0 a 5.<br />
+* <strong>Prime (Grado 0):</strong> Poteri semplici che possono essere usati a volontà senza costo.<br />
+* <strong>Grado 1-5:</strong> Poteri più potenti che richiedono dispendio di risorse.</p>
+<h3>Punti Talento (Per Canalizzatori)</h3>
+<p>I Canalizzatori (Melder, Mistici, Paradossi) usano una riserva di <strong>Punti Talento</strong> basata sul livello di classe. Ogni volta che attivi un talento di Grado 1 o superiore, spendi punti. Recuperi tutti i punti dopo un <strong>Riposo Lungo</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Grado Talento</th>
+<th style="text-align: center;">Costo Punti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!danger] Violazione del Limite (<em>Limit Breach</em>)<br />
+Se non hai abbastanza punti, puoi tentare di forzare un talento (fino al tuo grado massimo conosciuto).<br />
+1. Devi superare un <strong>TS su Costituzione</strong> (CD 10 + Grado del Talento).<br />
+2. <strong>Successo:</strong> Il talento si attiva.<br />
+3. <strong>Fallimento:</strong> Il talento fallisce, perdi i punti rimanenti e subisci <strong>1 livello di Indebolimento</strong> (<em>Exhaustion</em>).<br />
+Puoi tentare questo rischio 2 volte ogni 24 ore.</p>
+</blockquote>
+<h3>Slot Tecnici (Per Forgiatori)</h3>
+<p>Gli Ingegneri usano <strong>Slot Tecnici</strong> simili agli slot incantesimo tradizionali. Spendi uno slot del grado appropriato (o superiore) per attivare la tecnica.</p>
+<h3>Potenziare i Poteri (<em>Upcasting</em>)</h3>
+<ul>
+<li><strong>Tecniche:</strong> Se usi uno slot di grado superiore, la tecnica assume quel grado.</li>
+<li><strong>Talenti:</strong> Puoi spendere <strong>2 Punti Talento extra</strong> per ogni grado superiore a quello base.</li>
+</ul>
+<hr />
+<h2>Usare i Poteri</h2>
+<h3>Tempo di Attivazione</h3>
+<ul>
+<li><strong>Azione:</strong> La maggior parte dei poteri richiede un'azione standard.</li>
+<li><strong>Azione Bonus:</strong> Molto veloci (es. <em>Colpo Infuso</em> del Cavaliere Solare).</li>
+<li><strong>Reazione:</strong> Risposta istantanea (es. <em>Counter Form</em>).</li>
+</ul>
+<h3>Gittata (<em>Range</em>)</h3>
+<p>Le distanze sono misurate in metri.<br />
+* <strong>Personale (Self):</strong> Influenza solo l'esper o è il punto di origine di un'area (cono/linea).<br />
+* <strong>Contatto (Touch):</strong> Devi toccare il bersaglio.<br />
+* <strong>Distanza:</strong> Es. 18 metri, 36 metri.</p>
+<h3>Durata e Concentrazione</h3>
+<p>Alcuni poteri richiedono <strong>Concentrazione</strong>. Se perdi la concentrazione, il potere termina.<br />
+La concentrazione si rompe se:<br />
+1. Attivi un altro potere che richiede concentrazione.<br />
+2. Subisci danni e fallisci un <strong>TS su Costituzione</strong> (CD 10 o metà del danno subito, quale dei due è più alto).<br />
+3. Sei inabile o muori.</p>
+<hr />
+<h2>Aree di Effetto</h2>
+<p>Le aree sono tradotte in metri per facilità d'uso sulla griglia tattica (1 quadretto = 1,5m).</p>
+<ul>
+<li><strong>Cono:</strong> Si estende dall'esper. La larghezza in un dato punto è uguale alla distanza dall'origine.</li>
+<li><strong>Cubo:</strong> Un volume cubico. L'origine è su una faccia.</li>
+<li><strong>Cilindro:</strong> Un cerchio che si estende in altezza.</li>
+<li><strong>Linea:</strong> Un raggio stretto (solitamente largo 1,5m).</li>
+<li><strong>Sfera:</strong> Si estende da un punto di origine in tutte le direzioni.</li>
+</ul>
+<hr />
+<h2>Liste dei Poteri (Per Classe)</h2>
+<blockquote>
+<p>[!tip] Integrazione Nuove Classi<br />
+* <strong>Mistico:</strong> Usa principalmente la lista dei talenti del Melder, con focus sui domini <em>Alterazione</em> (cura) e <em>Psicogenico</em> (mente), più poteri unici di classe.<br />
+* <strong>Paradosso:</strong> Usa talenti <em>Metafase</em> (spazio-tempo) e <em>Cinesi</em> (gravità/forza).<br />
+* <strong>Cavaliere Solare:</strong> Usa talenti <em>Elementali</em> (Fuoco/Luce) e <em>Cinesi</em> (Gravità).</p>
+</blockquote>
+<h3>Tecniche dell'Ingegnere</h3>
+<p><strong>Tecniche Prime (Grado 0)</strong><br />
+* Acid Spray (Spruzzo Acido)<br />
+* Amplify Ability (Amplificare Abilità)<br />
+* Electric Surge (Impulso Elettrico)<br />
+* Gamma Vision (Visione Gamma)<br />
+* Sonic Burst (Esplosione Sonica)<br />
+* Stabilize (Stabilizzare)<br />
+* Trigger Device (Attivare Dispositivo)</p>
+<p><strong>Grado 1</strong><br />
+* Barrier (Barriera)<br />
+* Field Salve (Unguento da Campo - Cura)<br />
+* Laser Blast (Colpo Laser)<br />
+* Mend (Riparare)<br />
+* Sensory Boost (Potenziamento Sensoriale)<br />
+* Sensory Jammer (Jammer Sensoriale)<br />
+* Trauma (Danno necrotico)</p>
+<p><strong>Grado 2</strong><br />
+* Assault Drone (Drone d'Assalto)<br />
+* Bolster (Rinforzare - PF Temporanei)<br />
+* Enhance Weapon (Potenziare Arma)<br />
+* Paralyzer (Paralizzante)<br />
+* Plasma Blade (Lama al Plasma)<br />
+* Quick Repair (Riparazione Rapida)</p>
+<p><strong>Grado 3</strong><br />
+* Attack Pattern (Schema d'Attacco - Droni)<br />
+* Impact Zone (Zona d'Impatto - Granata forza)<br />
+* Major Field Salve (Cura di massa minore)<br />
+* Resuscitate (Rianimare - Revivify tecnologico)</p>
+<p><strong>Grado 4</strong><br />
+* Basic Construct (Costrutto Base)<br />
+* Plasma Orb (Sfera al Plasma)<br />
+* Stealth Sentry (Sentinella Furtiva)</p>
+<p><strong>Grado 5</strong><br />
+* Incinerate (Incenerire - Raggio orbitale)<br />
+* Mass Mend (Riparazione di Massa - Cura potente)<br />
+* Revive (Riportare in Vita)</p>
+<hr />
+<h3>Talenti del Melder (e Classi Affini)</h3>
+<p><strong>Talenti Prime (Grado 0)</strong><br />
+* Aegis (Egida - Resistenza fisica)<br />
+* Blast Point (Punto Esplosivo - Fuoco)<br />
+* Dark Conduit (Condotto Oscuro - Necrotico)<br />
+* Force Bolt (Dardo di Forza)<br />
+* Intuitive Aim (Mira Intuitiva)<br />
+* Mental Missive (Messaggio Mentale)<br />
+* Proton Blade (Lama Protonica)<br />
+* Push (Spinta Telecinetica)<br />
+* Renew (Rinnovare - Riparazione minore)</p>
+<p><strong>Grado 1</strong><br />
+* Alter Appearance (Alterare Aspetto)<br />
+* Arctic Lash (Frusta Artica)<br />
+* Bastion (Bastione - Scudo reattivo)<br />
+* Beguile (Ammaliare)<br />
+* Concussive Force (Forza Concussiva - Area forza/prono)<br />
+* Distortion (Distorsione - Danno forza singolo)<br />
+* Fire Lance (Lancia di Fuoco)<br />
+* Illusory Form (Forma Illusoria)<br />
+* Phase Step (Passo Fasico - Teletrasporto breve)<br />
+* Primal Fear (Paura Primordiale)</p>
+<p><strong>Grado 2</strong><br />
+* Blur (Sfocatura)<br />
+* Clean Zone (Zona Pulita - Rimuove veleni/gas)<br />
+* Eclipse (Eclissi - Oscurità)<br />
+* Gravity Sphere (Sfera Gravitazionale - Controllo area)<br />
+* Invisibility (Invisibilità - <em>Obfuscate</em>)<br />
+* Levitate (Levitazione)<br />
+* Light Beam (Raggio di Luce)<br />
+* Mind Spike (Onda Psichica)</p>
+<p><strong>Grado 3</strong><br />
+* Celerity (Celerità - Haste)<br />
+* Flame Blast (Esplosione di Fiamme - Palla di fuoco)<br />
+* Fly (Volare)<br />
+* Singularity (Singolarità - Buco nero portatile)<br />
+* Unravel Effect (Disfare Effetto - Counterspell/Dispel)</p>
+<p><strong>Grado 4</strong><br />
+* Gravity Well (Pozzo Gravitazionale)<br />
+* Portal (Portale Dimensionale)<br />
+* Superior Aegis (Egida Superiore)</p>
+<p><strong>Grado 5</strong><br />
+* Domination (Dominazione Mentale)<br />
+* Force Field (Campo di Forza - Muro invalicabile)<br />
+* Warp Helix (Elica di Distorsione - Danno massiccio forza)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "02_Equipaggiamento": {"__files__": [{"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}, "01_Creazione personaggio": {"__files__": [], "02_classi": {"__files__": [{"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}]}, "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}]}}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}]}}};
+        window.SITE_ROOT = "../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../search_data.js?v=4"></script>
+    <script src="../../app.js?v=4"></script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_Solariano - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">06_Solariano</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h1>Cavaliere Solare</h1>
+<p>Sei un canale vivente per le forze stellari del cosmo. I poteri della gravità (Gravitone) e della luce (Fotone) rappresentano gli estremi di queste forze primordiali e tu hai imparato a sintonizzarti con esse, danzando sul filo del rasoio tra la singolarità del buco nero e l'esplosione della supernova. Come agente di questo ciclo cosmico, manifesti equipaggiamenti fatti di pura energia stellare e usi la tua connessione per potenziarli. Attraverso la meditazione e la pratica, sblocchi rivelazioni che ti permettono di piegare lo spazio e bruciare i nemici.</p>
+<p>I Cavalieri Solari sono guardiani dell'equilibrio cosmico. Alcuni servono come protettori di sistemi stellari remoti, altri come crociati contro l'oscurità del Vuoto, usando la luce delle stelle come arma e scudo.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<blockquote>
+<p>[!info] Statistiche Base<br />
+<strong>Punti Ferita</strong><br />
+* <strong>Dadi Vita:</strong> 1d10 per livello da cavaliere solare<br />
+* <strong>PF al 1° Livello:</strong> 10 + il tuo modificatore di Costituzione<br />
+* <strong>PF ai Livelli Successivi:</strong> 1d10 (o 6) + il tuo modificatore di Costituzione</p>
+<p><strong>Competenze</strong><br />
+* <strong>Armature:</strong> Leggere, medie, scudi<br />
+* <strong>Armi:</strong> Armi semplici, armi marziali<br />
+* <strong>Strumenti:</strong> Nessuno<br />
+* <strong>Tiri Salvezza:</strong> Costituzione, Carisma<br />
+* <strong>Abilità:</strong> Due a scelta tra Astrofisica, Atletica, Intimidire, Intuizione, Percezione e Sopravvivenza</p>
+</blockquote>
+<h4>Equipaggiamento Iniziale</h4>
+<p>Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal background:<br />
+* (a) un'arma marziale o (b) un'arma semplice<br />
+* (a) armatura da truppa media o (b) armatura leggera<br />
+* (a) una pistola leggera e 20 colpi o (b) due lame da lancio<br />
+* (a) uno zaino da esploratore<br />
+* Un cristallo stellare (Focus Esper)</p>
+<hr />
+<h3>Tabella: Il Cavaliere Solare</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Rivelazioni Conosciute</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">Manifestazione Solare, Sintonizzazione Stellare</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Rivelazioni Stellari</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Ordine Siderale</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Attacco Extra</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Rivelazione Stellare, Privilegio Ordine</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Equilibrio Cosmico</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Poteri Zenit (Rivelazioni Superiori)</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Privilegio Ordine</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<h4>Manifestazione Solare</h4>
+<p>Al 1° livello, hai imparato a formare la materia stellare in un equipaggiamento fisico. Scegli una delle seguenti manifestazioni. Puoi cambiare la tua manifestazione ogni volta che guadagni un livello in questa classe.</p>
+<ul>
+<li><strong>Arma Solare:</strong> Come azione bonus, puoi creare nella tua mano libera un'arma da mischia fatta di energia stellare solida (può apparire come una lama di luce, un martello gravitazionale, ecc.). L'arma conta come un'arma marziale con cui sei competente. Infligge 1d8 danni (versatile 1d10) e il tipo di danno è radiante o forza (a tua scelta al momento della creazione). L'arma scompare se lasciata cadere per più di 1 minuto o se la dissolvi (nessuna azione). Al 6° livello, l'arma conta come magica ai fini di superare le resistenze.</li>
+<li><strong>Armatura Solare:</strong> Come azione bonus, il tuo corpo viene avvolto da un alone di energia protettiva. Mentre non indossi armature pesanti e non usi uno scudo, la tua Classe Armatura è pari a 13 + il tuo modificatore di Destrezza. L'armatura emette luce fioca in un raggio di 3 metri. Inoltre, ottieni resistenza ai danni da freddo e fuoco mentre l'armatura è attiva.</li>
+</ul>
+<h4>Sintonizzazione Stellare (<em>Stellar Attunement</em>)</h4>
+<p>Al 1° livello, ottieni la capacità di sintonizzarti con le forze opposte del cosmo: Gravitone e Fotone. All'inizio del tuo turno in combattimento, o come azione bonus, puoi entrare in uno stato di sintonizzazione. La sintonizzazione dura 1 minuto, finché non cadi privo di sensi o finché non la termini (nessuna azione).</p>
+<ul>
+<li><strong>Modo Fotone:</strong> Sei infuso con il potere delle stelle. Mentre sei in questo modo, quando colpisci una creatura con un attacco in mischia o un potere di classe, infliggi <strong>1d4 danni da fuoco</strong> aggiuntivi. Questo bonus aumenta a 1d6 al 5° livello, 1d8 al 10° livello e 1d10 al 15° livello.</li>
+<li><strong>Modo Gravitone:</strong> Diventi un'ancora di gravità. Mentre sei in questo modo, ottieni un bonus di <strong>+1 alla CA</strong>. Inoltre, lo spazio entro 1,5 metri (5 ft) da te è considerato terreno difficile per le creature ostili.</li>
+</ul>
+<h4>Rivelazioni Stellari</h4>
+<p>Al 2° livello, impari a incanalare l'energia cosmica in tecniche specifiche chiamate Rivelazioni. Impari due rivelazioni dalla lista sottostante. Ne impari di aggiuntive man mano che sali di livello.<br />
+Per attivare una Rivelazione, devi usare un'azione (o azione bonus, come specificato) e, a volte, essere in una specifica Sintonizzazione.<br />
+* <strong>CD del Tiro Salvezza:</strong> 8 + Bonus Comp. + Modificatore di <strong>Carisma</strong>.</p>
+<p><strong>Esempi di Rivelazioni (Grado Base):</strong><br />
+* <strong>Esplosione Supernova (Modo Fotone):</strong> <em>Azione.</em> Ogni creatura entro 3 metri da te deve effettuare un TS su Destrezza. Subisce 2d6 danni radianti se fallisce, o la metà se riesce.<br />
+* <strong>Attrazione del Buco Nero (Modo Gravitone):</strong> <em>Azione Bonus.</em> Scegli una creatura entro 9 metri. Deve superare un TS su Forza o essere trascinata fino a 4,5 metri verso di te.<br />
+* <strong>Scatto Stellare (Qualsiasi Modo):</strong> <em>Azione Bonus.</em> Puoi muoverti fino a 9 metri volando. Devi terminare il movimento su una superficie solida o cadi. Durante questo movimento, non provochi attacchi di opportunità.<br />
+* <strong>Bagliore Accecante (Modo Fotone):</strong> <em>Reazione</em> quando vieni attaccato. L'attaccante deve superare un TS su Costituzione o essere accecato fino alla fine del suo turno.</p>
+<h4>Ordine Siderale</h4>
+<p>Al 3° livello, ti impegni in un ordine filosofico che privilegia un aspetto del ciclo. Scegli tra l'<strong>Ordine dell'Eclissi</strong> (focalizzato sulla gravità e il controllo) o l'<strong>Ordine della Corona</strong> (focalizzato sulla luce e il danno).</p>
+<h4>Aumento dei Punteggi di Caratteristica</h4>
+<p>Quando raggiungi il 4° livello, e di nuovo all'8°, 12°, 16° e 19° livello, puoi aumentare un punteggio di caratteristica di 2, o due punteggi di 1.</p>
+<h4>Attacco Extra</h4>
+<p>Dal 5° livello, puoi attaccare due volte invece di una quando usi l'azione Attacco.</p>
+<h4>Equilibrio Cosmico</h4>
+<p>Dal 7° livello, passare da un estremo all'altro ti fortifica. Quando cambi la tua Sintonizzazione Stellare da Fotone a Gravitone (o viceversa) durante il combattimento, recuperi punti ferita pari al tuo modificatore di Carisma + il tuo livello da Cavaliere Solare. Puoi usare questo beneficio un numero di volte pari al tuo bonus di competenza per riposo lungo.</p>
+<h4>Poteri Zenit</h4>
+<p>Al 9° livello, la tua comprensione del cosmo ti permette di scatenare poteri devastanti quando la tua sintonizzazione raggiunge il picco.<br />
+Se hai mantenuto la stessa sintonizzazione per almeno 3 round consecutivi, puoi usare una Rivelazione Zenit (come <em>Singolarità</em> o <em>Tempesta Solare</em>) che colpisce un'area vasta. Dopo aver usato un potere Zenit, la tua sintonizzazione termina immediatamente.</p>
+<hr />
+<h2>Ordini Siderali</h2>
+<h3>Ordine della Corona (Order of the Corona)</h3>
+<p><img src="../../../assets/Solariano%20corona.png" alt="Solariano corona.png" loading="lazy" class="content-image"><br />
+I cavalieri di questo ordine abbracciano la furia delle stelle. Sono distruttori luminosi, che bruciano le impurità della galassia.</p>
+<ul>
+<li><strong>Arma Radiante (3° liv):</strong> Se hai scelto l'Arma Solare, essa infligge danni da fuoco aggiuntivi pari al tuo modificatore di Carisma. Se hai scelto l'Armatura Solare, qualsiasi creatura che ti colpisci in mischia subisce danni da fuoco pari al tuo modificatore di Carisma.</li>
+<li><strong>Anima del Sole (6° liv):</strong> Ottieni resistenza ai danni radianti e da fuoco. I tuoi attacchi ignorano la resistenza ai danni da fuoco.</li>
+</ul>
+<h3>Ordine dell'Eclissi (Order of the Eclipse)</h3>
+<p><img src="../../../assets/Solariano%20eclissi.png" alt="Solariano eclissi.png" loading="lazy" class="content-image"><br />
+Questi cavalieri studiano il vuoto e l'inevitabilità della gravità. Sono tank inarrestabili e controllori del campo di battaglia.</p>
+<ul>
+<li><strong>Peso del Mondo (3° liv):</strong> Quando sei in Modo Gravitone, se colpisci una creatura con la tua Arma Solare (o un attacco in mischia se hai l'Armatura), la velocità della creatura è ridotta di 3 metri fino al suo prossimo turno.</li>
+<li><strong>Guscio di Eventi (6° liv):</strong> Ottieni resistenza ai danni da forza e necrotici. Inoltre, hai vantaggio sui tiri salvezza per evitare di essere spostato o gettato prono contro la tua volontà.</li>
+</ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [], "Rulebook Genesi Stellare": {"__files__": [{"name": "03_Lore e mondo", "path": "Rulebook Genesi Stellare/03_Lore e mondo.html"}], "02_Equipaggiamento": {"__files__": [{"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}, "01_Creazione personaggio": {"__files__": [], "02_classi": {"__files__": [{"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}]}, "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}]}}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>
