@@ -274,7 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const email = loginEmailInput.value;
                 if (email) {
                     handleLogin(email);
-                    loginModal.classList.remove('open');
                 }
             });
         }
@@ -416,6 +415,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function handleLogin(email) {
+            const btn = document.getElementById('login-confirm');
+            const originalText = btn.textContent;
+            btn.textContent = 'Inviando...';
+            btn.disabled = true;
+
             // Use current origin + pathname to avoid query params/hashes confusing Supabase
             const redirectUrl = window.location.origin + window.location.pathname;
 
@@ -425,10 +429,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     emailRedirectTo: redirectUrl
                 }
             });
+
             if (error) {
                 alert('Errore: ' + error.message);
+                btn.textContent = originalText;
+                btn.disabled = false;
             } else {
-                alert('Controlla la tua email! Clicca sul Magic Link per entrare.');
+                // Replace modal content with success message
+                const loginBox = document.querySelector('.login-box');
+                loginBox.innerHTML = `
+                    <h3 style="color: #4CAF50;">Link Inviato! 🚀</h3>
+                    <p style="margin: 20px 0; color: var(--text-color);">Controlla la tua email (e lo spam).</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Clicca sul Magic Link per entrare.</p>
+                    <button class="login-btn-confirm" id="close-after-login" style="width: 100%; margin-top: 10px;">CHIUDI</button>
+                `;
+
+                document.getElementById('close-after-login').addEventListener('click', () => {
+                    document.getElementById('login-modal').classList.remove('open');
+                    // Restore modal content after a delay (optional, but good for next time)
+                    setTimeout(() => window.location.reload(), 500);
+                });
             }
         }
 
