@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("App started");
+    // alert("App Caricata! Se vedi questo messaggio, il codice funziona."); // Debug
+
     const navTree = document.getElementById('nav-tree');
     const contentArea = document.getElementById('content-area');
     const sidebar = document.getElementById('sidebar');
@@ -217,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             const result = Math.floor(Math.random() * sides) + 1;
-            
+
             if (diceAnim) {
                 diceAnim.classList.remove('rolling');
                 diceAnim.style.display = 'none';
@@ -235,13 +238,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!diceLog) return;
         const li = document.createElement('li');
         const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        
+
         let resultClass = 'roll-val';
         if (sides === 20 && result === 20) resultClass = 'crit-success';
         if (sides === 20 && result === 1) resultClass = 'crit-fail';
 
         li.innerHTML = `<span>${time} - d${sides}</span> <span class="${resultClass}">${result}</span>`;
-        
+
         diceLog.prepend(li);
         if (diceLog.children.length > 20) {
             diceLog.removeChild(diceLog.lastChild);
@@ -251,20 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Supabase Integration ---
     const SUPABASE_URL = 'https://tmqfxsjjffvdkwzpkysn.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtcWZ4c2pqZmZ2ZGt3enBreXNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2OTM3MDEsImV4cCI6MjA4MDI2OTcwMX0.Bb559AxjxIpTp-Aj4Div3j0LBcAdNGsoZjZ-AcZvOOg';
-    
-    let supabase = null;
-    if (window.supabase) {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        console.log("Supabase initialized");
-        
-        // Check Session
-        checkSession();
-    }
-
-    async function checkSession() {
-        const { data: { session } } = await supabase.auth.getSession();
-        updateAuthUI(session);
-    }
 
     function updateAuthUI(session) {
         const footer = document.querySelector('.sidebar-footer');
@@ -277,14 +266,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const authBtn = document.createElement('button');
         authBtn.id = 'auth-btn';
         authBtn.style.marginLeft = '10px';
-        
+
         if (session) {
             authBtn.textContent = '👤 Profilo';
             authBtn.onclick = () => {
                 alert(`Loggato come: ${session.user.email}`);
                 // Future: Open Profile Modal
             };
-            
+
             const logoutBtn = document.createElement('button');
             logoutBtn.textContent = '🚪';
             logoutBtn.title = 'Logout';
