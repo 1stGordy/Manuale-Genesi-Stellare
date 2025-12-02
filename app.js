@@ -3,35 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentArea = document.getElementById('content-area');
     const sidebar = document.getElementById('sidebar');
 
+    // Calculate Absolute App Root at startup
+    // This ensures we always resolve links correctly regardless of current "virtual" URL
+    const APP_BASE_URL = new URL(window.SITE_ROOT, window.location.href).href;
+
     // Render Sidebar
     renderSidebar(window.SIDEBAR_DATA, navTree);
 
     // Highlight current page
-    // We need to match the current path. 
-    // window.location.pathname might be absolute file path.
-    // Let's try to match by filename if possible or fuzzy match.
-    const currentUrl = window.location.href;
-    const allLinks = document.querySelectorAll('.nav-item');
-
-    allLinks.forEach(link => {
-        // Compare absolute URLs to handle relative paths correctly
-        // We use decodeURIComponent to handle encoded spaces in URLs (e.g. %20 vs space)
-        try {
-            if (decodeURIComponent(link.href) === decodeURIComponent(window.location.href)) {
-                link.classList.add('active');
-                // Expand parents
-                let parent = link.parentElement;
-                while (parent && parent.id !== 'nav-tree') {
-                    if (parent.classList.contains('nav-folder')) {
-                        parent.classList.add('open');
-                    }
-                    parent = parent.parentElement;
-                }
-            }
-        } catch (e) {
-            console.error("Error matching links:", e);
-        }
-    });
+    highlightCurrentPage();
 
     // SPA Navigation Interception
     document.body.addEventListener('click', (e) => {
@@ -40,10 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (link && link.href && !link.href.includes('#') && link.origin === window.location.origin) {
             // Check if it's a file protocol link
             if (window.location.protocol === 'file:') {
-                // For file protocol, we can't easily use fetch() to get other files due to CORS/security
-                // unless we are careful. But usually file:// fetch is blocked.
-                // So for file protocol, we should just let the browser navigate normally.
-                return;
+                // Allow navigation, but we need to ensure we don't break relative paths for the NEXT page load
+                // if we were to do a full reload. 
+                // But for SPA, we just fetch.
             }
 
             e.preventDefault();
@@ -53,15 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Search Functionality
     const searchInput = document.getElementById('sidebar-search');
-    // Load from global variable (injected via search_data.js)
     let searchIndex = window.SEARCH_INDEX || [];
 
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
         if (query.length < 2) {
-            // Restore tree
             navTree.innerHTML = '';
             renderSidebar(window.SIDEBAR_DATA, navTree);
+            highlightCurrentPage();
             return;
         }
 
@@ -82,11 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         results.forEach(res => {
             const link = document.createElement('a');
-            // res.path is relative to root. We need to make it relative to current page?
-            // Or just absolute?
-            // If we are at root, res.path is fine.
-            // If we are deep, we need window.SITE_ROOT + res.path
-            link.href = window.SITE_ROOT + res.path;
+            // Resolve path against APP_BASE_URL
+            link.href = new URL(res.path, APP_BASE_URL).href;
             link.className = 'nav-item';
             link.textContent = res.title;
             navTree.appendChild(link);
@@ -102,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newContent = doc.getElementById('content-area').innerHTML;
                 const newTitle = doc.title;
 
-                // Fade out
                 contentArea.style.opacity = '0';
 
                 setTimeout(() => {
@@ -110,15 +84,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.title = newTitle;
                     window.history.pushState({}, newTitle, url);
 
-                    // Update active link
-                    document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active'));
-                    // Re-highlight logic...
+                    highlightCurrentPage();
 
-                    // Fade in
                     contentArea.style.opacity = '1';
                     window.scrollTo(0, 0);
+
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        closeMobileMenu();
+                    }
                 }, 200);
-            });
+            })
+            .catch(err => console.error("Navigation error:", err));
+    }
+
+    function highlightCurrentPage() {
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.classList.remove('active');
+            // Compare decoded absolute URLs
+            if (decodeURIComponent(link.href) === decodeURIComponent(window.location.href)) {
+                link.classList.add('active');
+                // Expand parents
+                let parent = link.parentElement;
+                while (parent && parent.id !== 'nav-tree') {
+                    if (parent.classList.contains('nav-folder')) {
+                        parent.classList.add('open');
+                    }
+                    parent = parent.parentElement;
+                }
+            }
+        });
     }
 
     window.onpopstate = () => {
@@ -139,59 +134,53 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileOverlay.classList.remove('open');
     }
 
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', toggleMobileMenu);
+    if (mobileBtn && sidebar && mobileOverlay) {
+        mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
         mobileOverlay.addEventListener('click', closeMobileMenu);
     }
 
-    // Close menu when clicking a link on mobile
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 && e.target.closest('.nav-item')) {
-            closeMobileMenu();
-        }
-    });
+    // Helper to render sidebar
+    function renderSidebar(data, container) {
+        const keys = Object.keys(data).sort((a, b) => {
+            if (a === '__files__') return 1;
+            if (b === '__files__') return -1;
+            return a.localeCompare(b);
+        });
+
+        keys.forEach(key => {
+            if (key === '__files__') {
+                data[key].forEach(file => {
+                    const link = document.createElement('a');
+                    // Resolve path against APP_BASE_URL
+                    link.href = new URL(file.path, APP_BASE_URL).href;
+                    link.className = 'nav-item';
+                    link.textContent = file.name;
+                    container.appendChild(link);
+                });
+            } else {
+                const folder = document.createElement('div');
+                folder.className = 'nav-folder';
+
+                const title = document.createElement('div');
+                title.className = 'nav-folder-title';
+                title.textContent = key;
+                title.onclick = (e) => {
+                    e.stopPropagation();
+                    folder.classList.toggle('open');
+                };
+
+                const content = document.createElement('div');
+                content.className = 'nav-folder-content';
+
+                folder.appendChild(title);
+                folder.appendChild(content);
+                container.appendChild(folder);
+
+                renderSidebar(data[key], content);
+            }
+        });
+    }
 });
-
-function renderSidebar(data, container) {
-    // Sort keys: folders first, then files
-    const keys = Object.keys(data).sort((a, b) => {
-        if (a === '__files__') return 1;
-        if (b === '__files__') return -1;
-        return a.localeCompare(b);
-    });
-
-    keys.forEach(key => {
-        if (key === '__files__') {
-            data[key].forEach(file => {
-                const link = document.createElement('a');
-                // file.path is relative to public root. 
-                // We need to prepend SITE_ROOT to make it relative to current page
-                link.href = window.SITE_ROOT + file.path;
-                link.className = 'nav-item';
-                link.textContent = file.name;
-                container.appendChild(link);
-            });
-        } else {
-            // It's a folder
-            const folder = document.createElement('div');
-            folder.className = 'nav-folder';
-
-            const title = document.createElement('div');
-            title.className = 'nav-folder-title';
-            title.textContent = key;
-            title.onclick = (e) => {
-                e.stopPropagation();
-                folder.classList.toggle('open');
-            };
-
-            const content = document.createElement('div');
-            content.className = 'nav-folder-content';
-
-            folder.appendChild(title);
-            folder.appendChild(content);
-            container.appendChild(folder);
-
-            renderSidebar(data[key], content);
-        }
-    });
-}
