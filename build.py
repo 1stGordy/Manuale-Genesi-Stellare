@@ -6,11 +6,16 @@ import json
 import stat
 
 # Configuration
-VAULT_ROOT = os.path.dirname(os.getcwd()) # Parent of web-guide
+# Determine Root: If we are in 'web-guide' (local dev), look up. Otherwise (GitHub Actions), look here.
+if os.path.basename(os.getcwd()) == 'web-guide':
+    VAULT_ROOT = os.path.dirname(os.getcwd())
+else:
+    VAULT_ROOT = os.getcwd()
+
 OUTPUT_DIR = os.path.join(os.getcwd(), 'public')
 TEMPLATE_PATH = os.path.join(os.getcwd(), 'src', 'template.html')
 ASSETS_DIR_NAME = 'immagini' # Name of the assets folder in Obsidian
-IGNORE_DIRS = {'.obsidian', 'web-guide', '.git', '.gemini', '.agent'}
+IGNORE_DIRS = {'.obsidian', 'web-guide', '.git', '.gemini', '.agent', '.github', 'public', 'src', 'build', 'dist'}
 ALLOWED_DIRS = ['Rulebook Genesi Stellare'] # Only these directories will be included
 
 # Helper to handle permission errors on Windows
