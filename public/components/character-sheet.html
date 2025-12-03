@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Personaggio - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- Sidebar will be injected by app.js if we were using the full build, 
+             but for a standalone component we might need a placeholder or just focus on the content.
+             For now, we keep the structure compatible with app.js navigation. -->
+
+        <nav id="sidebar" style="display:none;"> <!-- Hidden for standalone view, or handled by app.js -->
+            <div id="nav-tree"></div>
+        </nav>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">Scheda Personaggio</h1>
+
+                <div class="character-sheet-container">
+
+                    <!-- Header: Info Generali -->
+                    <div class="cs-section cs-header">
+                        <div class="cs-input-group">
+                            <label>Nome Personaggio</label>
+                            <input type="text" id="char-name" placeholder="Nome Eroe">
+                        </div>
+                        <div class="cs-input-group">
+                            <label>Razza</label>
+                            <input type="text" id="char-race" placeholder="Es. Umano">
+                        </div>
+                        <div class="cs-input-group">
+                            <label>Classe</label>
+                            <select id="class-selector">
+                                <option value="">Seleziona Classe...</option>
+                                <option value="warrior">Guerriero</option>
+                                <option value="mage">Mago</option>
+                                <option value="rogue">Ladro</option>
+                                <option value="cleric">Chierico</option>
+                            </select>
+                        </div>
+                        <div class="cs-input-group short">
+                            <label>Livello</label>
+                            <input type="number" id="char-level" value="1" min="1" max="20">
+                        </div>
+                    </div>
+
+                    <!-- Main Grid -->
+                    <div class="cs-grid">
+
+                        <!-- Colonna 1: Attributi -->
+                        <div class="cs-col attributes-col">
+                            <h3>Attributi</h3>
+                            <div class="attribute-box">
+                                <label>FOR</label>
+                                <input type="number" id="attr-str" value="10">
+                                <span class="mod" id="mod-str">+0</span>
+                            </div>
+                            <div class="attribute-box">
+                                <label>DES</label>
+                                <input type="number" id="attr-dex" value="10">
+                                <span class="mod" id="mod-dex">+0</span>
+                            </div>
+                            <div class="attribute-box">
+                                <label>COS</label>
+                                <input type="number" id="attr-con" value="10">
+                                <span class="mod" id="mod-con">+0</span>
+                            </div>
+                            <div class="attribute-box">
+                                <label>INT</label>
+                                <input type="number" id="attr-int" value="10">
+                                <span class="mod" id="mod-int">+0</span>
+                            </div>
+                            <div class="attribute-box">
+                                <label>SAG</label>
+                                <input type="number" id="attr-wis" value="10">
+                                <span class="mod" id="mod-wis">+0</span>
+                            </div>
+                            <div class="attribute-box">
+                                <label>CAR</label>
+                                <input type="number" id="attr-cha" value="10">
+                                <span class="mod" id="mod-cha">+0</span>
+                            </div>
+                        </div>
+
+                        <!-- Colonna 2: Vitali & Combat -->
+                        <div class="cs-col vitals-col">
+                            <div class="vitals-row">
+                                <div class="vital-box big-vital">
+                                    <label>Classe Armatura</label>
+                                    <input type="number" id="val-ac" value="10">
+                                </div>
+                                <div class="vital-box big-vital">
+                                    <label>Iniziativa</label>
+                                    <input type="number" id="val-init" value="0">
+                                </div>
+                                <div class="vital-box big-vital">
+                                    <label>Velocità</label>
+                                    <input type="number" id="val-speed" value="9m">
+                                </div>
+                            </div>
+
+                            <div class="hp-box">
+                                <div class="hp-header">
+                                    <label>Punti Ferita</label>
+                                    <div class="hp-inputs">
+                                        <input type="number" id="hp-current" placeholder="Attuali">
+                                        <span>/</span>
+                                        <input type="number" id="hp-max" placeholder="Max">
+                                    </div>
+                                </div>
+                                <div class="hp-bar-container">
+                                    <div class="hp-bar" style="width: 100%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Powers Section (Dynamic) -->
+                            <div class="cs-section powers-section">
+                                <h3>Poteri & Abilità</h3>
+                                <div id="powers-container">
+                                    <p class="placeholder-text">Seleziona una classe per vedere i poteri.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Colonna 3: Inventario & Note -->
+                        <div class="cs-col inventory-col">
+                            <h3>Equipaggiamento</h3>
+                            <div class="inventory-list">
+                                <div class="inv-item">
+                                    <input type="text" placeholder="Oggetto">
+                                    <input type="number" class="qty" value="1">
+                                </div>
+                                <div class="inv-item">
+                                    <input type="text" placeholder="Oggetto">
+                                    <input type="number" class="qty" value="1">
+                                </div>
+                                <div class="inv-item">
+                                    <input type="text" placeholder="Oggetto">
+                                    <input type="number" class="qty" value="1">
+                                </div>
+                                <!-- Add more via JS -->
+                            </div>
+
+                            <h3>Note</h3>
+                            <textarea id="char-notes" placeholder="Note, background, quest..."></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../search_data.js"></script>
+    <script src="../../rules_data.js"></script>
+    <script src="../../app.js"></script>
+</body>
+
+</html>

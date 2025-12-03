@@ -198,6 +198,15 @@ def main():
     # Copy static assets (css, js)
     shutil.copy2(os.path.join(os.getcwd(), 'src', 'style.css'), os.path.join(OUTPUT_DIR, 'style.css'))
     shutil.copy2(os.path.join(os.getcwd(), 'src', 'app.js'), os.path.join(OUTPUT_DIR, 'app.js'))
+    shutil.copy2(os.path.join(os.getcwd(), 'src', 'rules_data.js'), os.path.join(OUTPUT_DIR, 'rules_data.js'))
+
+    # Copy components directory
+    components_src = os.path.join(os.getcwd(), 'src', 'components')
+    if os.path.exists(components_src):
+        components_dst = os.path.join(OUTPUT_DIR, 'components')
+        if os.path.exists(components_dst):
+             shutil.rmtree(components_dst)
+        shutil.copytree(components_src, components_dst)
     
     # Generate default index.html if missing
     index_path = os.path.join(OUTPUT_DIR, 'index.html')
