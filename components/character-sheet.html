@@ -10,163 +10,166 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css">
+    <!-- Corrected Path: ../style.css -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <div id="app-container">
-        <!-- Sidebar will be injected by app.js if we were using the full build, 
-             but for a standalone component we might need a placeholder or just focus on the content.
-             For now, we keep the structure compatible with app.js navigation. -->
+        <nav id="sidebar" style="display:none;"></nav>
 
-        <nav id="sidebar" style="display:none;"> <!-- Hidden for standalone view, or handled by app.js -->
-            <div id="nav-tree"></div>
-        </nav>
+        <main id="main-content" class="cs-v3-main">
+            <div class="cs-v3-container">
 
-        <main id="main-content">
-            <div id="content-area">
-                <h1 class="page-title">Scheda Personaggio</h1>
-
-                <div class="character-sheet-container">
-
-                    <!-- Header: Info Generali -->
-                    <div class="cs-section cs-header">
-                        <div class="cs-input-group">
-                            <label>Nome Personaggio</label>
-                            <input type="text" id="char-name" placeholder="Nome Eroe">
-                        </div>
-                        <div class="cs-input-group">
-                            <label>Razza</label>
-                            <input type="text" id="char-race" placeholder="Es. Umano">
-                        </div>
-                        <div class="cs-input-group">
-                            <label>Classe</label>
-                            <select id="class-selector">
-                                <option value="">Seleziona Classe...</option>
-                                <option value="warrior">Guerriero</option>
-                                <option value="mage">Mago</option>
-                                <option value="rogue">Ladro</option>
-                                <option value="cleric">Chierico</option>
+                <!-- Hero Header -->
+                <div class="cs-v3-hero">
+                    <div class="cs-v3-identity">
+                        <input type="text" id="char-name" class="cs-v3-name-input" placeholder="NOME EROE">
+                        <div class="cs-v3-sub-identity">
+                            <select id="char-species" class="cs-v3-select">
+                                <option value="">Specie...</option>
                             </select>
+                            <select id="char-class" class="cs-v3-select">
+                                <option value="">Classe...</option>
+                            </select>
+                            <span class="cs-v3-level-badge">LV <input type="number" id="char-level" value="1" min="1"
+                                    max="20"></span>
                         </div>
-                        <div class="cs-input-group short">
-                            <label>Livello</label>
-                            <input type="number" id="char-level" value="1" min="1" max="20">
+                    </div>
+                </div>
+
+                <!-- Vitals (HP, XP) -->
+                <div class="cs-v3-vitals">
+                    <!-- HP -->
+                    <div class="cs-v3-bar-group">
+                        <div class="cs-v3-bar-label">
+                            <span>PUNTI FERITA</span>
+                            <div class="cs-v3-hp-controls">
+                                <input type="number" id="hp-current" value="0" placeholder="Curr"> / <span
+                                    id="hp-max-display">0</span>
+                                <span class="cs-v3-temp-hp">TEMP: <input type="number" id="hp-temp" value="0"></span>
+                            </div>
+                        </div>
+                        <div class="cs-v3-bar-track">
+                            <div id="hp-bar-fill" class="cs-v3-bar-fill hp-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <!-- XP -->
+                    <div class="cs-v3-bar-group">
+                        <div class="cs-v3-bar-label">
+                            <span>ESPERIENZA</span>
+                            <span id="xp-display">0 / 300</span>
+                        </div>
+                        <div class="cs-v3-bar-track">
+                            <div id="xp-bar-fill" class="cs-v3-bar-fill xp-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Strip (Scrollable) -->
+                <div class="cs-v3-stats-strip">
+                    <div class="stat-box">
+                        <label>FOR</label>
+                        <input type="number" id="attr-str" value="10">
+                        <span id="mod-str" class="stat-mod">+0</span>
+                    </div>
+                    <div class="stat-box">
+                        <label>DES</label>
+                        <input type="number" id="attr-dex" value="10">
+                        <span id="mod-dex" class="stat-mod">+0</span>
+                    </div>
+                    <div class="stat-box">
+                        <label>COS</label>
+                        <input type="number" id="attr-con" value="10">
+                        <span id="mod-con" class="stat-mod">+0</span>
+                    </div>
+                    <div class="stat-box">
+                        <label>INT</label>
+                        <input type="number" id="attr-int" value="10">
+                        <span id="mod-int" class="stat-mod">+0</span>
+                    </div>
+                    <div class="stat-box">
+                        <label>SAG</label>
+                        <input type="number" id="attr-wis" value="10">
+                        <span id="mod-wis" class="stat-mod">+0</span>
+                    </div>
+                    <div class="stat-box">
+                        <label>CAR</label>
+                        <input type="number" id="attr-cha" value="10">
+                        <span id="mod-cha" class="stat-mod">+0</span>
+                    </div>
+                </div>
+
+                <!-- Secondary Stats (AC, Init, Speed) -->
+                <div class="cs-v3-secondary-stats">
+                    <div class="sec-stat-box">
+                        <label>CA</label>
+                        <input type="number" id="val-ac" value="10">
+                    </div>
+                    <div class="sec-stat-box">
+                        <label>INIT</label>
+                        <input type="number" id="val-init" value="0">
+                    </div>
+                    <div class="sec-stat-box">
+                        <label>VEL</label>
+                        <input type="text" id="val-speed" value="9m">
+                    </div>
+                </div>
+
+                <!-- Content Area (Tabs) -->
+                <div class="cs-v3-content">
+
+                    <!-- Powers Tab (Active by default) -->
+                    <div id="tab-powers" class="cs-v3-tab-content active">
+                        <div class="power-filters">
+                            <button class="filter-btn active" data-filter="all">Tutti</button>
+                            <button class="filter-btn" data-filter="0">Grado 0</button>
+                            <button class="filter-btn" data-filter="1">Grado 1</button>
+                            <button class="filter-btn" data-filter="2">Grado 2+</button>
+                        </div>
+                        <div id="powers-container" class="powers-grid">
+                            <!-- Powers injected here by JS -->
+                            <div class="placeholder-text">Seleziona una classe per vedere i poteri.</div>
                         </div>
                     </div>
 
-                    <!-- Main Grid -->
-                    <div class="cs-grid">
-
-                        <!-- Colonna 1: Attributi -->
-                        <div class="cs-col attributes-col">
-                            <h3>Attributi</h3>
-                            <div class="attribute-box">
-                                <label>FOR</label>
-                                <input type="number" id="attr-str" value="10">
-                                <span class="mod" id="mod-str">+0</span>
-                            </div>
-                            <div class="attribute-box">
-                                <label>DES</label>
-                                <input type="number" id="attr-dex" value="10">
-                                <span class="mod" id="mod-dex">+0</span>
-                            </div>
-                            <div class="attribute-box">
-                                <label>COS</label>
-                                <input type="number" id="attr-con" value="10">
-                                <span class="mod" id="mod-con">+0</span>
-                            </div>
-                            <div class="attribute-box">
-                                <label>INT</label>
-                                <input type="number" id="attr-int" value="10">
-                                <span class="mod" id="mod-int">+0</span>
-                            </div>
-                            <div class="attribute-box">
-                                <label>SAG</label>
-                                <input type="number" id="attr-wis" value="10">
-                                <span class="mod" id="mod-wis">+0</span>
-                            </div>
-                            <div class="attribute-box">
-                                <label>CAR</label>
-                                <input type="number" id="attr-cha" value="10">
-                                <span class="mod" id="mod-cha">+0</span>
-                            </div>
+                    <!-- Inventory Tab -->
+                    <div id="tab-inventory" class="cs-v3-tab-content">
+                        <div class="inventory-list">
+                            <div class="inv-item"><input type="text" placeholder="Oggetto"><input type="number"
+                                    class="qty" value="1"></div>
+                            <div class="inv-item"><input type="text" placeholder="Oggetto"><input type="number"
+                                    class="qty" value="1"></div>
+                            <div class="inv-item"><input type="text" placeholder="Oggetto"><input type="number"
+                                    class="qty" value="1"></div>
+                            <div class="inv-item"><input type="text" placeholder="Oggetto"><input type="number"
+                                    class="qty" value="1"></div>
+                            <div class="inv-item"><input type="text" placeholder="Oggetto"><input type="number"
+                                    class="qty" value="1"></div>
                         </div>
-
-                        <!-- Colonna 2: Vitali & Combat -->
-                        <div class="cs-col vitals-col">
-                            <div class="vitals-row">
-                                <div class="vital-box big-vital">
-                                    <label>Classe Armatura</label>
-                                    <input type="number" id="val-ac" value="10">
-                                </div>
-                                <div class="vital-box big-vital">
-                                    <label>Iniziativa</label>
-                                    <input type="number" id="val-init" value="0">
-                                </div>
-                                <div class="vital-box big-vital">
-                                    <label>Velocità</label>
-                                    <input type="number" id="val-speed" value="9m">
-                                </div>
-                            </div>
-
-                            <div class="hp-box">
-                                <div class="hp-header">
-                                    <label>Punti Ferita</label>
-                                    <div class="hp-inputs">
-                                        <input type="number" id="hp-current" placeholder="Attuali">
-                                        <span>/</span>
-                                        <input type="number" id="hp-max" placeholder="Max">
-                                    </div>
-                                </div>
-                                <div class="hp-bar-container">
-                                    <div class="hp-bar" style="width: 100%;"></div>
-                                </div>
-                            </div>
-
-                            <!-- Powers Section (Dynamic) -->
-                            <div class="cs-section powers-section">
-                                <h3>Poteri & Abilità</h3>
-                                <div id="powers-container">
-                                    <p class="placeholder-text">Seleziona una classe per vedere i poteri.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Colonna 3: Inventario & Note -->
-                        <div class="cs-col inventory-col">
-                            <h3>Equipaggiamento</h3>
-                            <div class="inventory-list">
-                                <div class="inv-item">
-                                    <input type="text" placeholder="Oggetto">
-                                    <input type="number" class="qty" value="1">
-                                </div>
-                                <div class="inv-item">
-                                    <input type="text" placeholder="Oggetto">
-                                    <input type="number" class="qty" value="1">
-                                </div>
-                                <div class="inv-item">
-                                    <input type="text" placeholder="Oggetto">
-                                    <input type="number" class="qty" value="1">
-                                </div>
-                                <!-- Add more via JS -->
-                            </div>
-
-                            <h3>Note</h3>
-                            <textarea id="char-notes" placeholder="Note, background, quest..."></textarea>
-                        </div>
-
                     </div>
+
+                    <!-- Notes Tab -->
+                    <div id="tab-notes" class="cs-v3-tab-content">
+                        <textarea id="char-notes" placeholder="Note, background, quest..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation -->
+                <div class="cs-v3-nav">
+                    <button class="cs-v3-nav-btn active" data-target="tab-powers">POTERI</button>
+                    <button class="cs-v3-nav-btn" data-target="tab-inventory">BORSA</button>
+                    <button class="cs-v3-nav-btn" data-target="tab-notes">NOTE</button>
                 </div>
 
             </div>
         </main>
     </div>
 
-    <!-- Scripts -->
-    <script src="../../search_data.js"></script>
-    <script src="../../rules_data.js"></script>
-    <script src="../../app.js"></script>
+    <!-- Scripts with Corrected Paths -->
+    <script src="../rules_data.js"></script>
+    <script src="../character_logic.js"></script>
+    <script src="../app.js"></script>
 </body>
 
 </html>
