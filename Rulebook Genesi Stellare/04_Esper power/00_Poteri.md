@@ -25,20 +25,24 @@ Le **Tecniche** sono metodi praticati di manipolazione che richiedono strumenti,
 ## Meccaniche di Gioco
 
 ### Gradi dei Poteri
-Ogni potere ha un grado da 0 a 5.
+Ogni potere ha un grado da 0 a 9
 * **Prime (Grado 0):** Poteri semplici che possono essere usati a volontà senza costo.
-* **Grado 1-5:** Poteri più potenti che richiedono dispendio di risorse.
+* **Grado 1-9:** Poteri più potenti che richiedono dispendio di risorse.
 
 ### Punti Talento (Per Canalizzatori)
 I Canalizzatori (Melder, Mistici, Paradossi) usano una riserva di **Punti Talento** basata sul livello di classe. Ogni volta che attivi un talento di Grado 1 o superiore, spendi punti. Recuperi tutti i punti dopo un **Riposo Lungo**.
 
 | Grado Talento | Costo Punti |
-| :---: | :---: |
-| 1 | 2 |
-| 2 | 3 |
-| 3 | 5 |
-| 4 | 6 |
-| 5 | 7 |
+| :-----------: | :---------: |
+|       1       |      2      |
+|       2       |      3      |
+|       3       |      5      |
+|       4       |      6      |
+|       5       |      7      |
+|       6       |      8      |
+|       7       |      9      |
+|       8       |     10      |
+|       9       |     11      |
 
 > [!danger] Violazione del Limite (*Limit Breach*)
 > Se non hai abbastanza punti, puoi tentare di forzare un talento (fino al tuo grado massimo conosciuto).
