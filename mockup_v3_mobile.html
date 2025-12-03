@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheda Personaggio V3 - Mobile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* --- SIMULATION STYLES --- */
+        body {
+            background: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            background: #0b0d17;
+            border: 16px solid #111;
+            border-radius: 36px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 24px;
+            background: #111;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 1000;
+        }
+
+        /* --- CORE STYLES --- */
+        :root {
+            --bg-color: #0b0d17;
+            --text-color: #e0e6ed;
+            --text-muted: #94a3b8;
+            --accent-color: #00f3ff;
+            --accent-glow: rgba(0, 243, 255, 0.4);
+            --secondary-accent: #d900ff;
+            --border-color: rgba(0, 243, 255, 0.2);
+            --font-header: 'Orbitron', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* --- MOBILE V3 LAYOUT --- */
+        .cs-m-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+            background: #0b0d17;
+        }
+
+        /* Hero Header with Art Background */
+        .cs-m-hero {
+            height: 250px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #0b0d17 100%),
+                url('https://i.pinimg.com/736x/2e/c3/37/2ec33758066551b92095f9c43d925529.jpg') no-repeat center top;
+            background-size: cover;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .cs-m-name {
+            font-family: var(--font-header);
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px #000;
+            margin: 0;
+        }
+
+        .cs-m-class {
+            font-size: 0.9rem;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        /* Stats Strip */
+        .cs-m-stats-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cs-m-stats-strip::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cs-m-stat-circle {
+            flex: 0 0 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .cs-m-stat-label {
+            font-size: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .cs-m-stat-val {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Bars Section */
+        .cs-m-bars {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cs-m-bar-row {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .cs-m-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .cs-m-bar-track {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .cs-m-bar-fill {
+            height: 100%;
+        }
+
+        .hp-fill {
+            background: linear-gradient(90deg, #8b0000, #ff0000);
+            width: 80%;
+        }
+
+        .xp-fill {
+            background: linear-gradient(90deg, #4b0082, #9400d3);
+            width: 40%;
+        }
+
+        .temp-hp-input {
+            background: rgba(217, 0, 255, 0.2);
+            border: 1px solid var(--secondary-accent);
+            color: #fff;
+            width: 40px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Content */
+        .cs-m-content {
+            padding: 15px;
+        }
+
+        .cs-m-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .cs-m-card h4 {
+            color: var(--accent-color);
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+        }
+
+        .cs-m-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Bottom Nav */
+        .cs-m-nav {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            background: #0b0d17;
+            padding-bottom: 20px;
+            /* Safe area */
+        }
+
+        .cs-m-nav-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 15px 0;
+            font-family: var(--font-header);
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .cs-m-nav-btn.active {
+            color: var(--accent-color);
+            border-top: 2px solid var(--accent-color);
+            background: rgba(0, 243, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="cs-m-container">
+
+            <!-- Hero -->
+            <div class="cs-m-hero">
+                <h1 class="cs-m-name">SHADOWHEART</h1>
+                <span class="cs-m-class">Chierico Lv.3</span>
+            </div>
+
+            <!-- Vitals -->
+            <div class="cs-m-bars">
+                <div class="cs-m-bar-row">
+                    <div class="cs-m-bar-label">
+                        <span>HP (28/35)</span>
+                        <span>TEMP: <input type="number" class="temp-hp-input" value="5"></span>
+                    </div>
+                    <div class="cs-m-bar-track">
+                        <div class="cs-m-bar-fill hp-fill"></div>
+                    </div>
+                </div>
+                <div class="cs-m-bar-row">
+                    <div class="cs-m-bar-label"><span>XP (1200/3000)</span></div>
+                    <div class="cs-m-bar-track">
+                        <div class="cs-m-bar-fill xp-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Scroll -->
+            <div class="cs-m-stats-strip">
+                <div class="cs-m-stat-circle"><span class="cs-m-stat-label">FOR</span><span
+                        class="cs-m-stat-val">12</span></div>
+                <div class="cs-m-stat-circle"><span class="cs-m-stat-label">DES</span><span
+                        class="cs-m-stat-val">14</span></div>
+                <div class="cs-m-stat-circle"><span class="cs-m-stat-label">COS</span><span
+                        class="cs-m-stat-val">14</span></div>
+                <div class="cs-m-stat-circle"><span class="cs-m-stat-label">INT</span><span
+                        class="cs-m-stat-val">10</span></div>
+                <div class="cs-m-stat-circle"><span class="cs-m-stat-label">SAG</span><span
+                        class="cs-m-stat-val">16</span></div>
+                <div class="cs-m-stat-circle"><span class="cs-m-stat-label">CAR</span><span
+                        class="cs-m-stat-val">10</span></div>
+            </div>
+
+            <!-- Content -->
+            <div class="cs-m-content">
+                <div class="cs-m-card">
+                    <h4>Benedizione</h4>
+                    <p>+1d4 ai tiri per colpire e TS.</p>
+                </div>
+                <div class="cs-m-card">
+                    <h4>Cura Ferite</h4>
+                    <p>Recupera 1d8 + Mod HP.</p>
+                </div>
+                <div class="cs-m-card">
+                    <h4>Fiamma Sacra</h4>
+                    <p>1d8 danni radiosi.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="cs-m-nav">
+                <button class="cs-m-nav-btn active">POTERI</button>
+                <button class="cs-m-nav-btn">BORSA</button>
+                <button class="cs-m-nav-btn">NOTE</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
