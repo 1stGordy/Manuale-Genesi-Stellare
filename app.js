@@ -470,6 +470,217 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // --- Character Sheet Logic ---
+        function initCharacterSheet() {
+            const classSelector = document.getElementById('class-selector');
+            const powersContainer = document.getElementById('powers-container');
+
+            if (classSelector && powersContainer) {
+                console.log("Character Sheet detected");
+
+                classSelector.addEventListener('change', (e) => {
+                    const selectedClass = e.target.value;
+                    updatePowers(selectedClass, powersContainer);
+                });
+            }
+        }
+
+        function updatePowers(className, container) {
+            container.innerHTML = '';
+
+            if (!className) {
+                container.innerHTML = '<p class="placeholder-text">Seleziona una classe per vedere i poteri.</p>';
+                return;
+            }
+
+            if (!window.RULES_DATA || !window.RULES_DATA.classes) {
+                container.innerHTML = '<p class="placeholder-text" style="color:red">Errore: Dati regole mancanti.</p>';
+                return;
+            }
+
+            const classData = window.RULES_DATA.classes[className];
+            if (!classData) {
+                container.innerHTML = '<p class="placeholder-text">Nessun potere trovato per questa classe.</p>';
+                return;
+            }
+
+            classData.powers.forEach(power => {
+                const powerCard = document.createElement('div');
+                powerCard.className = 'power-card';
+                powerCard.style.background = 'rgba(0, 243, 255, 0.05)';
+                powerCard.style.border = '1px solid var(--border-color)';
+                powerCard.style.padding = '10px';
+                powerCard.style.marginBottom = '10px';
+                powerCard.style.borderRadius = '4px';
+
+                const title = document.createElement('strong');
+                title.style.color = 'var(--accent-color)';
+                title.textContent = power.name;
+
+                const type = document.createElement('span');
+                type.style.fontSize = '0.7rem';
+                type.style.marginLeft = '10px';
+                type.style.padding = '2px 6px';
+                type.style.borderRadius = '4px';
+                type.style.background = 'rgba(255, 255, 255, 0.1)';
+                type.textContent = power.type.toUpperCase();
+
+                const desc = document.createElement('p');
+                desc.style.fontSize = '0.9rem';
+                desc.style.marginTop = '5px';
+                desc.style.marginBottom = '0';
+                desc.style.color = 'var(--text-muted)';
+                desc.textContent = power.desc;
+
+                powerCard.appendChild(title);
+                powerCard.appendChild(type);
+                powerCard.appendChild(desc);
+                container.appendChild(powerCard);
+            });
+        }
+
+        // Initialize on load if present
+        initCharacterSheet();
+
+        // Re-initialize after navigation
+        const originalNavigateTo = navigateTo;
+        // We can't easily override the internal navigateTo, but we can hook into the end of it
+        // Since navigateTo is defined inside the scope, we need to modify the navigateTo function itself or the place where it's called.
+        // But wait, navigateTo is defined above. I can't modify it easily from here without rewriting the whole file.
+        // However, I can use a MutationObserver to detect content changes!
+
+        const observer = new MutationObserver((mutations) => {
+            if (document.getElementById('class-selector')) {
+                // Check if listener is already attached? 
+                // Simplest is to just re-run init, but avoid duplicate listeners.
+                // Actually, if the element is replaced, the listener is gone, so we MUST re-attach.
+                initCharacterSheet();
+            }
+        });
+
+        // --- Save/Load Logic ---
+        async function saveCharacter() {
+            if (!supabase) return alert("Database non connesso!");
+
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) return alert("Devi essere loggato per salvare!");
+
+            const charData = {
+                name: document.getElementById('char-name')?.value,
+                race: document.getElementById('char-race')?.value,
+                class: document.getElementById('class-selector')?.value,
+                level: document.getElementById('char-level')?.value,
+                stats: {
+                    str: document.getElementById('attr-str')?.value,
+                    dex: document.getElementById('attr-dex')?.value,
+                    con: document.getElementById('attr-con')?.value,
+                    int: document.getElementById('attr-int')?.value,
+                    wis: document.getElementById('attr-wis')?.value,
+                    cha: document.getElementById('attr-cha')?.value
+                },
+                vitals: {
+                    hp_current: document.getElementById('hp-current')?.value,
+                    hp_max: document.getElementById('hp-max')?.value,
+                    ac: document.getElementById('val-ac')?.value
+                },
+                notes: document.getElementById('char-notes')?.value
+            };
+
+            const { error } = await supabase
+                .from('characters')
+                .upsert({
+                    user_id: session.user.id,
+                    data: charData,
+                    updated_at: new Date()
+                });
+
+            if (error) {
+                console.error(error);
+                alert("Errore salvataggio: " + error.message);
+            } else {
+                alert("Personaggio salvato! 💾");
+            }
+        }
+
+        async function loadCharacter() {
+            if (!supabase) return;
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) return;
+
+            const { data, error } = await supabase
+                .from('characters')
+                .select('data')
+                .eq('user_id', session.user.id)
+                .single();
+
+            if (data && data.data) {
+                const d = data.data;
+                if (document.getElementById('char-name')) document.getElementById('char-name').value = d.name || '';
+                if (document.getElementById('char-race')) document.getElementById('char-race').value = d.race || '';
+                if (document.getElementById('class-selector')) {
+                    document.getElementById('class-selector').value = d.class || '';
+                    // Trigger change event to update powers
+                    document.getElementById('class-selector').dispatchEvent(new Event('change'));
+                }
+                if (document.getElementById('char-level')) document.getElementById('char-level').value = d.level || 1;
+
+                if (d.stats) {
+                    if (document.getElementById('attr-str')) document.getElementById('attr-str').value = d.stats.str || 10;
+                    if (document.getElementById('attr-dex')) document.getElementById('attr-dex').value = d.stats.dex || 10;
+                    if (document.getElementById('attr-con')) document.getElementById('attr-con').value = d.stats.con || 10;
+                    if (document.getElementById('attr-int')) document.getElementById('attr-int').value = d.stats.int || 10;
+                    if (document.getElementById('attr-wis')) document.getElementById('attr-wis').value = d.stats.wis || 10;
+                    if (document.getElementById('attr-cha')) document.getElementById('attr-cha').value = d.stats.cha || 10;
+                }
+
+                if (d.vitals) {
+                    if (document.getElementById('hp-current')) document.getElementById('hp-current').value = d.vitals.hp_current || '';
+                    if (document.getElementById('hp-max')) document.getElementById('hp-max').value = d.vitals.hp_max || '';
+                    if (document.getElementById('val-ac')) document.getElementById('val-ac').value = d.vitals.ac || 10;
+                }
+
+                if (document.getElementById('char-notes')) document.getElementById('char-notes').value = d.notes || '';
+
+                console.log("Personaggio caricato");
+            }
+        }
+
+        // Add buttons to UI if Character Sheet is present
+        function addSaveLoadButtons() {
+            const header = document.querySelector('.cs-header');
+            if (header && !document.getElementById('save-btn')) {
+                const btnGroup = document.createElement('div');
+                btnGroup.style.display = 'flex';
+                btnGroup.style.gap = '10px';
+                btnGroup.style.marginLeft = 'auto';
+
+                const saveBtn = document.createElement('button');
+                saveBtn.id = 'save-btn';
+                saveBtn.textContent = '💾 Salva';
+                saveBtn.className = 'dice-btn'; // Reuse existing style
+                saveBtn.onclick = saveCharacter;
+
+                const loadBtn = document.createElement('button');
+                loadBtn.textContent = '📂 Carica';
+                loadBtn.className = 'dice-btn';
+                loadBtn.onclick = loadCharacter;
+
+                btnGroup.appendChild(saveBtn);
+                btnGroup.appendChild(loadBtn);
+                header.appendChild(btnGroup);
+
+                // Auto-load on init
+                loadCharacter();
+            }
+        }
+
+        // Hook into initCharacterSheet
+        const originalInit = initCharacterSheet;
+        initCharacterSheet = function () {
+            originalInit();
+            addSaveLoadButtons();
+        };
+
     } catch (error) {
         alert("Errore Critico JS: " + error.message);
         console.error(error);
