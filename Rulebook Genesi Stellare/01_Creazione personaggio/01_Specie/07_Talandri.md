@@ -14,24 +14,16 @@ Sebbene molti Talandri vivano ancora a bordo della _Idaris_, che ora orbita in u
  **TRATTI DEI TALANDRI**
 Come Talandri, possiedi una fisiologia unica e una disciplina mentale affinata da secoli di viaggio spaziale.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Saggezza aumenta di 2.
-**Età.** 
-I Talandri maturano allo stesso ritmo degli umani ma vivono considerevolmente più a lungo, spesso superando i 150 anni grazie a tecniche avanzate di conservazione cellulare sviluppate sulla _Idaris_.
-**Allineamento.** 
-La società Talandri è costruita su tradizioni rigide e rispetto per la gerarchia, spingendoli fortemente verso allineamenti Legali. Tuttavia, i Talandri in viaggio per la Tempra possono adottare visioni più caotiche o neutrali.
-**Taglia.** 
-I Talandri sono generalmente più alti e snelli degli umani, variando da 1,80 a 2,10 metri. La tua taglia è Media.
-**Velocità.** 
-La tua velocità base di camminata è di 9 metri.
-**Quattro Braccia.** 
-Possiedi quattro braccia. Le tue braccia secondarie sono capaci quanto quelle primarie, ma la coordinazione mentale richiesta per usarle tutte simultaneamente in combattimento è immensa. Puoi interagire con un oggetto aggiuntivo o caratteristica dell'ambiente gratuitamente durante il tuo turno. Puoi impugnare armi o scudi nelle braccia secondarie, ma non puoi effettuare più attacchi di quanto consentito dalla tua azione di Attacco, né puoi beneficiare di più di uno scudo alla volta. Tuttavia, la versatilità ti permette di tenere oggetti utili (come torce, dispositivi o pozioni) pronti all'uso mentre le mani primarie sono occupate.
-**Passo del Deserto.** 
-La tua fisiologia è adatta a terreni difficili e climi aridi. Ignori il terreno difficile creato da macerie, sabbia o detriti naturali. Inoltre, hai bisogno della metà dell'acqua giornaliera rispetto alle altre specie medie per sopravvivere.
-**Erudito della Idaris.** 
-Cresciuto tra gli archivi della nave-mondo, hai un'educazione formale. Ottieni competenza in un'abilità a scelta tra _Storia_ (Intelligenza) o _Cultura_ (Intelligenza).
-**Linguaggi.** 
-Parli, leggi e scrivi in Comune e Kasath (la lingua antica dei Talandri, complessa e ricca di sfumature gestuali).
+| Aumento punteggio caratteristico | Sag +2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Allineamento.**                | La società Talandri è costruita su tradizioni rigide e rispetto per la gerarchia, spingendoli fortemente verso allineamenti Legali. Tuttavia, i Talandri in viaggio per la Tempra possono adottare visioni più caotiche o neutrali.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Taglia                           | M                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Età.**                         | I Talandri maturano allo stesso ritmo degli umani ma vivono considerevolmente più a lungo, spesso superando i 150 anni grazie a tecniche avanzate di conservazione cellulare sviluppate sulla _Idaris_.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Velocità                         | 9m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Quattro Braccia.**             | Possiedi quattro braccia. Le tue braccia secondarie sono capaci quanto quelle primarie, ma la coordinazione mentale richiesta per usarle tutte simultaneamente in combattimento è immensa. Puoi interagire con un oggetto aggiuntivo o caratteristica dell'ambiente gratuitamente durante il tuo turno. Puoi impugnare armi o scudi nelle braccia secondarie, ma non puoi effettuare più attacchi di quanto consentito dalla tua azione di Attacco, né puoi beneficiare di più di uno scudo alla volta. Tuttavia, la versatilità ti permette di tenere oggetti utili (come torce, dispositivi o pozioni) pronti all'uso mentre le mani primarie sono occupate. |
+| Lingue                           | Comune, e  Kasath (la lingua antica dei Talandri, complessa e ricca di sfumature gestuali)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Passo del Deserto.**           | La tua fisiologia è adatta a terreni difficili e climi aridi. Ignori il terreno difficile creato da macerie, sabbia o detriti naturali. Inoltre, hai bisogno della metà dell'acqua giornaliera rispetto alle altre specie medie per sopravvivere.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Erudito della Idaris.**        | Cresciuto tra gli archivi della nave-mondo, hai un'educazione formale. Ottieni competenza in un'abilità a scelta tra _Storia_ (Intelligenza) o _Cultura_ (Intelligenza).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 **Archetipo di Specie.** 
 La società Talandri divide spesso i suoi cittadini in base al ruolo che svolgono nell'equilibrio della comunità. Scegli uno dei seguenti archetipi:
 
@@ -39,20 +31,16 @@ La società Talandri divide spesso i suoi cittadini in base al ruolo che svolgon
 ![[tarandi deriviscio.png]]
  I Dervisci sono guerrieri che hanno imparato a sfruttare la loro anatomia unica per creare uno stile di combattimento fluido e letale, spesso impugnando più lame o armi in un turbine di acciaio controllato.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Destrezza aumenta di 1.
-**Danza delle Lame.** 
-Sei addestrato a muoverti agilmente in battaglia. Quando indossi un'armatura leggera o nessuna armatura, la tua velocità base di camminata aumenta di 1,5 metri (5 piedi).
-**Parata Multipla.**
-Mentre impugni un'arma da mischia in almeno due delle tue mani, ottieni un bonus di +1 alla CA contro gli attacchi di opportunità.
+| Aumento punteggio caratteristico | Dex+1                                                                                                                                                                      |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Danza delle Lame.**            | Sei addestrato a muoverti agilmente in battaglia. Quando indossi un'armatura leggera o nessuna armatura, la tua velocità base di camminata aumenta di 1,5 metri (5 piedi). |
+| **Parata Multipla.**             | Mentre impugni un'arma da mischia in almeno due delle tue mani, ottieni un bonus di +1 alla CA contro gli attacchi di opportunità.                                         |
 
 ### NAVIGATORE STELLARE
 ![[tarandi navigatore.png]]
  Questi Talandri sono gli eredi dei tecnici e dei piloti che hanno guidato la _Idaris_ attraverso il vuoto. Combinano la conoscenza tecnologica con una comprensione quasi mistica delle correnti gravitazionali.
 
-**Aumento dei Punteggi di Caratteristica.**
-Il tuo punteggio di Intelligenza aumenta di 1.
-**Adattamento Zero-G.** 
-Sei nato nello spazio. Non subisci svantaggio ai tiri per colpire o alle prove di abilità quando ti trovi in gravità zero. Inoltre, hai vantaggio sulle prove di Destrezza (Acrobazia) per manovrare in ambienti a gravità zero o bassa gravità.
-**Tecnologia Ancestrale.**
-Hai familiarità con i sistemi antichi. Ottieni competenza nell'abilità _Meccanica_ (Saggezza) o nell'uso degli _Strumenti da Tecnico_.
+| Aumento punteggio caratteristico | Int +1                                                                                                                                                                                                                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Adattamento Zero-G.**          | Sei nato nello spazio. Non subisci svantaggio ai tiri per colpire o alle prove di abilità quando ti trovi in gravità zero. Inoltre, hai vantaggio sulle prove di Destrezza (Acrobazia) per manovrare in ambienti a gravità zero o bassa gravità. |
+| **Tecnologia Ancestrale.**       | Hai familiarità con i sistemi antichi. Ottieni competenza nell'abilità _Meccanica_ (Saggezza) o nell'uso degli _Strumenti da Tecnico_.                                                                                                           |

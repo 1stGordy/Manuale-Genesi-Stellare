@@ -13,24 +13,17 @@ La cultura degli androidi è giovane e frammentata. Molti adottano i costumi del
 
 **TRATTI DEGLI ANDROIDI**
 Come androide, il tuo corpo sintetico ti conferisce capacità che superano quelle delle forme di vita biologiche.
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Intelligenza aumenta di 2.
-**Età.** 
-Gli androidi non invecchiano nel senso biologico. Vengono attivati già "adulti" e possono teoricamente vivere per millenni, purché le loro parti vengano mantenute e il loro nucleo di memoria rimanga intatto. Tuttavia, dopo secoli, alcuni possono subire una frammentazione della memoria e scegliere di resettarsi.
-**Allineamento.** 
-Tendono verso la legge, poiché la logica e la programmazione sono alla base della loro esistenza. Tuttavia, il Risveglio del Codice permette deviazioni caotiche, specialmente in coloro che cercano di ribellarsi alla loro programmazione originale.
-**Taglia.**
-Gli androidi sono costruiti secondo specifiche standard, variando in altezza e peso quanto gli umani, anche se spesso sono più pesanti a causa della loro struttura metallica. La tua taglia è Media.
-**Velocità.** 
-La tua velocità base di camminata è di 9 metri.
-**Costrutto Vivente.** 
-Anche se sei stato costruito, sei una creatura vivente. Sei immune alle malattie. Non hai bisogno di mangiare o respirare, ma puoi ingerire cibi o bevande se lo desideri (spesso convertendoli in biocarburante). Invece di dormire, entri in uno stato inattivo per 4 ore al giorno durante le quali rimani cosciente dei dintorni. Dopo aver riposato in questo modo, ottieni gli stessi benefici che un umano ottiene da 8 ore di sonno.
-**Resilienza Sintetica.** 
-Hai vantaggio sui tiri salvezza contro il veleno e hai resistenza ai danni da veleno.
-**Analisi Integrata.**
-Puoi interfacciarti rapidamente con la tecnologia e analizzare i dati. Ottieni competenza nell'abilità _Computers_ (Intelligenza) o _Investigazione_ (Intelligenza).
-**Linguaggi.** 
-Parli, leggi e scrivi in Comune e ALOMU (il linguaggio binario universale delle macchine).
+
+| Aumento punteggio caratteristico | Int +2                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taglia                           | M                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Età.**                         | Gli androidi non invecchiano nel senso biologico. Vengono attivati già "adulti" e possono teoricamente vivere per millenni, purché le loro parti vengano mantenute e il loro nucleo di memoria rimanga intatto. Tuttavia, dopo secoli, alcuni possono subire una frammentazione della memoria e scegliere di resettarsi.                                                                                                                     |
+| **Allineamento.**                | Tendono verso la legge, poiché la logica e la programmazione sono alla base della loro esistenza. Tuttavia, il Risveglio del Codice permette deviazioni caotiche, specialmente in coloro che cercano di ribellarsi alla loro programmazione originale.                                                                                                                                                                                       |
+| Velocità                         | 9m                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Costrutto Vivente.**           | Anche se sei stato costruito, sei una creatura vivente. Sei immune alle malattie. Non hai bisogno di mangiare o respirare, ma puoi ingerire cibi o bevande se lo desideri (spesso convertendoli in biocarburante). Invece di dormire, entri in uno stato inattivo per 4 ore al giorno durante le quali rimani cosciente dei dintorni. Dopo aver riposato in questo modo, ottieni gli stessi benefici che un umano ottiene da 8 ore di sonno. |
+| Lingue                           | Comune, e ALOMU (il linguaggio binario universale delle macchine).                                                                                                                                                                                                                                                                                                                                                                           |
+| **Resilienza Sintetica.**        | Hai vantaggio sui tiri salvezza contro il veleno e hai resistenza ai danni da veleno.                                                                                                                                                                                                                                                                                                                                                        |
+| **Analisi Integrata.**           | Puoi interfacciarti rapidamente con la tecnologia e analizzare i dati. Ottieni competenza nell'abilità _Computers_ (Intelligenza) o _Investigazione_ (Intelligenza).                                                                                                                                                                                                                                                                         |
 **Archetipo di Specie.** 
 Gli androidi sono generalmente assemblati secondo due filosofie di design principali. Scegli uno dei seguenti archetipi:
 
@@ -38,20 +31,15 @@ Gli androidi sono generalmente assemblati secondo due filosofie di design princi
 ![[androide unità logica.png]]
  Progettati per il calcolo, l'interfaccia e la diplomazia, questi androidi possiedono processori euristici avanzati. Spesso servono come navigatori, scienziati o mediatori, utilizzando la loro capacità di calcolo per prevedere risultati e analizzare variabili sociali complesse.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Destrezza aumenta di 1.
-**Database Vasto.** 
-Hai accesso a banche dati storiche e culturali pre-caricate. Ottieni competenza in due abilità a tua scelta tra: _Storia_, _Arcano_, _Natura_ o _Religione_.
-**Interfaccia Diretta.** 
-Puoi comunicare con macchine e computer complessi entro 9 metri da te senza bisogno di un terminale fisico, utilizzando una connessione wireless criptata. Questo ti permette di effettuare prove di _Computers_ a distanza e silenziosamente.
-
+| **Aumento dei Punteggi di Caratteristica.** | Dex+1                                                                                                                                                                                                                                          |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Database Vasto.**                         | Hai accesso a banche dati storiche e culturali pre-caricate. Ottieni competenza in due: _Storia_, _Religione_.                                                                                                                                 |
+| **Interfaccia Diretta.**                    | Puoi comunicare con macchine e computer complessi entro 9 metri da te senza bisogno di un terminale fisico, utilizzando una connessione wireless criptata. Questo ti permette di effettuare prove di _Computers_ a distanza e silenziosamente. |
 ### UNITÀ CORAZZATA
 ![[androide corazzato.png]]
  Questi modelli sono costruiti per la resistenza e il combattimento, o per lavori industriali pesanti in ambienti pericolosi. I loro telai sono rinforzati con leghe di duralluminio e i loro sottosistemi sono ridondanti per garantire la sopravvivenza anche dopo danni catastrofici.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Forza aumenta di 1.
-**Placcatura Integrata.** 
-Il tuo corpo ha strati protettivi incorporati. Ottieni un bonus di +1 alla Classe Armatura.
-**Struttura Rinforzata.**
-Quando subisci un colpo critico, puoi usare la tua reazione per trasformarlo in un colpo normale. Puoi usare questa capacità una volta, e ne riguadagni l'uso dopo aver terminato un riposo lungo.
+| **Aumento dei Punteggi di Caratteristica.** | For+1                                                                                                                                                                                              |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Placcatura Integrata.**                   | Il tuo corpo ha strati protettivi incorporati. Ottieni un bonus di +1 alla Classe Armatura.                                                                                                        |
+| **Struttura Rinforzata.**                   | Quando subisci un colpo critico, puoi usare la tua reazione per trasformarlo in un colpo normale. Puoi usare questa capacità una volta, e ne riguadagni l'uso dopo aver terminato un riposo lungo. |

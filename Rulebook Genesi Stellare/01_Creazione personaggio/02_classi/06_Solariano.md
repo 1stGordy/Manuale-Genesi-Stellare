@@ -12,18 +12,17 @@ I Cavalieri Solari sono guardiani dell'equilibrio cosmico. Alcuni servono come p
 
 ### Privilegi di Classe
 
-> [!info] Statistiche Base
-> **Punti Ferita**
-> * **Dadi Vita:** 1d10 per livello da cavaliere solare
-> * **PF al 1° Livello:** 10 + il tuo modificatore di Costituzione
-> * **PF ai Livelli Successivi:** 1d10 (o 6) + il tuo modificatore di Costituzione
->
-> **Competenze**
-> * **Armature:** Leggere, medie, scudi
-> * **Armi:** Armi semplici, armi marziali
-> * **Strumenti:** Nessuno
-> * **Tiri Salvezza:** Costituzione, Carisma
-> * **Abilità:** Due a scelta tra Astrofisica, Atletica, Intimidire, Intuizione, Percezione e Sopravvivenza
+| Caratteristica               | Descrizione                                                                                 |
+| :--------------------------- | :------------------------------------------------------------------------------------------ |
+| **Dadi Vita**                | 1d10 per livello da cavaliere solare                                                        |
+| **PF al 1° Livello**         | 10 + il tuo modificatore di Costituzione                                                    |
+| **PF ai Livelli Successivi** | 1d10 (o 6) + il tuo modificatore di Costituzione per livello dopo il 1°                     |
+| Competenze                   |                                                                                             |
+| **Armature**                 | Leggere, Medie, Scudi                                                                       |
+| **Armi**                     | Armi semplici, Armi marziali                                                                |
+| **Strumenti**                | Nessuno                                                                                     |
+| **Tiri Salvezza**            | Costituzione, Carisma                                                                       |
+| **Abilità**                  | Due a scelta tra: Astrofisica, Atletica, Intimidire, Intuizione, Percezione e Sopravvivenza |
 
 #### Equipaggiamento Iniziale
 Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal background:
@@ -37,61 +36,46 @@ Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal backgro
 
 ### Tabella: Il Cavaliere Solare
 
-| Livello | Bonus Comp. | Rivelazioni Conosciute | Privilegi |
-|:---:|:---:|:---:|:---|
-| 1° | +2 | - | Manifestazione Solare, Sintonizzazione Stellare |
-| 2° | +2 | 2 | Rivelazioni Stellari |
-| 3° | +2 | 2 | Ordine Siderale |
-| 4° | +2 | 2 | Aumento Punteggi Caratteristica |
-| 5° | +3 | 3 | Attacco Extra |
-| 6° | +3 | 3 | Rivelazione Stellare, Privilegio Ordine |
-| 7° | +3 | 4 | Equilibrio Cosmico |
-| 8° | +3 | 4 | Aumento Punteggi Caratteristica |
-| 9° | +4 | 5 | Poteri Zenit (Rivelazioni Superiori) |
-| 10° | +4 | 5 | Privilegio Ordine |
+| Livello | Bonus Comp. | Rivelazioni Conosciute | Grado max | Privilegi                                                       |
+| :-----: | :---------: | :--------------------: | --------- | :-------------------------------------------------------------- |
+|   1°    |     +2      |           -            | 0         | Manifestazione Solare, Sintonizzazione Stellare                 |
+|   2°    |     +2      |           2            | 1         | Rivelazioni Stellari                                            |
+|   3°    |     +2      |           2            | 1         | Ordine Siderale                                                 |
+|   4°    |     +2      |           2            | 2         | Aumento Punteggi Caratteristica                                 |
+|   5°    |     +3      |           3            | 2         | Attacco Extra                                                   |
+|   6°    |     +3      |           3            | 3         | Rivelazione Stellare, Privilegio Ordine                         |
+|   7°    |     +3      |           4            | 3         | Equilibrio Cosmico                                              |
+|   8°    |     +3      |           4            | 4         | Aumento Punteggi Caratteristica                                 |
+|   9°    |     +4      |           5            | 4         | Manifestazione Solare, Sintonizzazione Stellare (aumento di 1d) |
+|   10°   |     +4      |           5            | 5         | Privilegio Ordine                                               |
+|   11°   |     +4      |           6            | 6         |                                                                 |
+|   12°   |     +4      |           6            | 6         | Aumento Punteggi Caratteristica                                 |
+|   13°   |     +5      |           7            | 7         | Manifestazione Solare, Sintonizzazione Stellare (aumento di 2d) |
+|   14°   |     +5      |           7            | 7         |                                                                 |
+|   15°   |     +5      |           8            | 7         |                                                                 |
+|   16°   |     +5      |           8            | 8         | Aumento Punteggi Caratteristica                                 |
+|   17°   |     +6      |           8            | 8         | Manifestazione Solare, Sintonizzazione Stellare (aumento di 3d) |
+|   18°   |     +6      |           9            | 8         |                                                                 |
+|   19°   |     +6      |           9            | 9         | Aumento Punteggi Caratteristica                                 |
+|   20°   |     +6      |           10           | 9         | Poteri Zenit                                                    |
 
 ---
-
 ### Caratteristiche di Classe
 
-#### Manifestazione Solare
-Al 1° livello, hai imparato a formare la materia stellare in un equipaggiamento fisico. Scegli una delle seguenti manifestazioni. Puoi cambiare la tua manifestazione ogni volta che guadagni un livello in questa classe.
-
-* **Arma Solare:** Come azione bonus, puoi creare nella tua mano libera un'arma da mischia fatta di energia stellare solida (può apparire come una lama di luce, un martello gravitazionale, ecc.). L'arma conta come un'arma marziale con cui sei competente. Infligge 1d8 danni (versatile 1d10) e il tipo di danno è radiante o forza (a tua scelta al momento della creazione). L'arma scompare se lasciata cadere per più di 1 minuto o se la dissolvi (nessuna azione). Al 6° livello, l'arma conta come magica ai fini di superare le resistenze.
-* **Armatura Solare:** Come azione bonus, il tuo corpo viene avvolto da un alone di energia protettiva. Mentre non indossi armature pesanti e non usi uno scudo, la tua Classe Armatura è pari a 13 + il tuo modificatore di Destrezza. L'armatura emette luce fioca in un raggio di 3 metri. Inoltre, ottieni resistenza ai danni da freddo e fuoco mentre l'armatura è attiva.
-
-#### Sintonizzazione Stellare (*Stellar Attunement*)
-Al 1° livello, ottieni la capacità di sintonizzarti con le forze opposte del cosmo: Gravitone e Fotone. All'inizio del tuo turno in combattimento, o come azione bonus, puoi entrare in uno stato di sintonizzazione. La sintonizzazione dura 1 minuto, finché non cadi privo di sensi o finché non la termini (nessuna azione).
-
-* **Modo Fotone:** Sei infuso con il potere delle stelle. Mentre sei in questo modo, quando colpisci una creatura con un attacco in mischia o un potere di classe, infliggi **1d4 danni da fuoco** aggiuntivi. Questo bonus aumenta a 1d6 al 5° livello, 1d8 al 10° livello e 1d10 al 15° livello.
-* **Modo Gravitone:** Diventi un'ancora di gravità. Mentre sei in questo modo, ottieni un bonus di **+1 alla CA**. Inoltre, lo spazio entro 1,5 metri (5 ft) da te è considerato terreno difficile per le creature ostili.
-
-#### Rivelazioni Stellari
-Al 2° livello, impari a incanalare l'energia cosmica in tecniche specifiche chiamate Rivelazioni. Impari due rivelazioni dalla lista sottostante. Ne impari di aggiuntive man mano che sali di livello.
-Per attivare una Rivelazione, devi usare un'azione (o azione bonus, come specificato) e, a volte, essere in una specifica Sintonizzazione.
-* **CD del Tiro Salvezza:** 8 + Bonus Comp. + Modificatore di **Carisma**.
-
-**Esempi di Rivelazioni (Grado Base):**
-* **Esplosione Supernova (Modo Fotone):** *Azione.* Ogni creatura entro 3 metri da te deve effettuare un TS su Destrezza. Subisce 2d6 danni radianti se fallisce, o la metà se riesce.
-* **Attrazione del Buco Nero (Modo Gravitone):** *Azione Bonus.* Scegli una creatura entro 9 metri. Deve superare un TS su Forza o essere trascinata fino a 4,5 metri verso di te.
-* **Scatto Stellare (Qualsiasi Modo):** *Azione Bonus.* Puoi muoverti fino a 9 metri volando. Devi terminare il movimento su una superficie solida o cadi. Durante questo movimento, non provochi attacchi di opportunità.
-* **Bagliore Accecante (Modo Fotone):** *Reazione* quando vieni attaccato. L'attaccante deve superare un TS su Costituzione o essere accecato fino alla fine del suo turno.
-
-#### Ordine Siderale
-Al 3° livello, ti impegni in un ordine filosofico che privilegia un aspetto del ciclo. Scegli tra l'**Ordine dell'Eclissi** (focalizzato sulla gravità e il controllo) o l'**Ordine della Corona** (focalizzato sulla luce e il danno).
-
-#### Aumento dei Punteggi di Caratteristica
-Quando raggiungi il 4° livello, e di nuovo all'8°, 12°, 16° e 19° livello, puoi aumentare un punteggio di caratteristica di 2, o due punteggi di 1.
-
-#### Attacco Extra
-Dal 5° livello, puoi attaccare due volte invece di una quando usi l'azione Attacco.
-
-#### Equilibrio Cosmico
-Dal 7° livello, passare da un estremo all'altro ti fortifica. Quando cambi la tua Sintonizzazione Stellare da Fotone a Gravitone (o viceversa) durante il combattimento, recuperi punti ferita pari al tuo modificatore di Carisma + il tuo livello da Cavaliere Solare. Puoi usare questo beneficio un numero di volte pari al tuo bonus di competenza per riposo lungo.
-
-#### Poteri Zenit
-Al 9° livello, la tua comprensione del cosmo ti permette di scatenare poteri devastanti quando la tua sintonizzazione raggiunge il picco.
-Se hai mantenuto la stessa sintonizzazione per almeno 3 round consecutivi, puoi usare una Rivelazione Zenit (come *Singolarità* o *Tempesta Solare*) che colpisce un'area vasta. Dopo aver usato un potere Zenit, la tua sintonizzazione termina immediatamente.
+| Livello | Privilegio                   | Descrizione                                                                                                                                                                                                                                                            |
+| :------ | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1°**  | **Manifestazione Solare**    | Scegli una forma fisica per la tua energia:<br>• **Arma Solare:** Azione bonus per creare arma marziale (1d8/1d10, radiante o forza). Magica dal 6° liv.<br>• **Armatura Solare:** Azione bonus per alone protettivo. CA = 13 + Des. Resistenza freddo/fuoco. Luce 3m. |
+| **1°**  | **Sintonizzazione Stellare** | Attivi un modo (durata 1 min):<br>• **Modo Fotone:** +1d4 danni fuoco in mischia (aumenta a 1d6 al 5°, 1d8 al 10°, 1d10 al 15°).<br>• **Modo Gravitone:** +1 CA e terreno difficile entro 1,5m per i nemici.                                                           |
+| **2°**  | **Rivelazioni Stellari**     | Impari a usare poteri cosmici (vedi Lista Rivelazioni).<br>**CD Tiro Salvezza:** 8 + Bonus Comp. + Mod. Carisma.                                                                                                                                                       |
+| **3°**  | **Ordine Siderale**          | Scegli un Ordine filosofico: **Ordine dell'Eclissi** o **Ordine della Corona**.                                                                                                                                                                                        |
+| **4°**  | **Aumento Caratteristica**   | Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).                                                                                                                                                                                                      |
+| **5°**  | **Attacco Extra**            | Puoi attaccare due volte invece di una quando usi l'azione Attacco.                                                                                                                                                                                                    |
+| **7°**  | **Equilibrio Cosmico**       | Quando cambi Sintonizzazione (Fotone ↔ Gravitone) in combattimento, recuperi **PF = Mod. Carisma + Livello**. Usi: Bonus Competenza per riposo lungo.                                                                                                                  |
+| **8°**  | **Aumento Caratteristica**   | Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).                                                                                                                                                                                                      |
+| **12°** | **Aumento Caratteristica**   | Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).                                                                                                                                                                                                      |
+| **16°** | **Aumento Caratteristica**   | Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).                                                                                                                                                                                                      |
+| **19°** | **Aumento Caratteristica**   | Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).                                                                                                                                                                                                      |
+| **20°** | **Poteri Zenit**             | Se mantieni la stessa sintonizzazione per **3 round**, puoi usare una **Rivelazione Zenit** (Grado 9) come azione bonus. Dopo l'uso, la sintonizzazione termina.                                                                                                       |
 
 ---
 
@@ -101,376 +85,119 @@ Se hai mantenuto la stessa sintonizzazione per almeno 3 round consecutivi, puoi 
 ![[Solariano corona.png]]
 I cavalieri di questo ordine abbracciano la furia delle stelle. Sono distruttori luminosi, che bruciano le impurità della galassia.
 
-* **Arma Radiante (3° liv):** Se hai scelto l'Arma Solare, essa infligge danni da fuoco aggiuntivi pari al tuo modificatore di Carisma. Se hai scelto l'Armatura Solare, qualsiasi creatura che ti colpisci in mischia subisce danni da fuoco pari al tuo modificatore di Carisma.
-* **Anima del Sole (6° liv):** Ottieni resistenza ai danni radianti e da fuoco. I tuoi attacchi ignorano la resistenza ai danni da fuoco.
+| Livello | Privilegio         | Descrizione                                                                                                                                                                                            |
+| :------ | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **3°**  | **Arma Radiante**  | • **Se hai Arma Solare:** Infligge danni da fuoco extra pari al tuo **Mod. Carisma**.<br>• **Se hai Armatura Solare:** Chi ti colpisce in mischia subisce danni da fuoco pari al tuo **Mod. Carisma**. |
+| **6°**  | **Anima del Sole** | Ottieni resistenza ai danni **Radianti** e da **Fuoco**. I tuoi attacchi ignorano la resistenza ai danni da fuoco dei nemici.                                                                          |
 
 ### Ordine dell'Eclissi (Order of the Eclipse)
 ![[Solariano eclissi.png]]
 Questi cavalieri studiano il vuoto e l'inevitabilità della gravità. Sono tank inarrestabili e controllori del campo di battaglia.
 
-* **Peso del Mondo (3° liv):** Quando sei in Modo Gravitone, se colpisci una creatura con la tua Arma Solare (o un attacco in mischia se hai l'Armatura), la velocità della creatura è ridotta di 3 metri fino al suo prossimo turno.
-* **Guscio di Eventi (6° liv):** Ottieni resistenza ai danni da forza e necrotici. Inoltre, hai vantaggio sui tiri salvezza per evitare di essere spostato o gettato prono contro la tua volontà.
+| Livello | Privilegio           | Descrizione                                                                                                                                                                         |
+| :------ | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **3°**  | **Peso del Mondo**   | Mentre sei in **Modo Gravitone**: Se colpisci una creatura con l'Arma Solare (o in mischia se hai l'Armatura), la sua velocità è ridotta di **3 metri** fino al suo prossimo turno. |
+| **6°**  | **Guscio di Eventi** | Ottieni resistenza ai danni da **Forza** e **Necrotici**. Hai vantaggio ai TS per evitare di essere spostato o gettato prono.                                                       |
+
 ---
 # Poteri Esper
 
-**Caratteristica di Lancio:** Carisma
-**Tipo di Potere:** Rivelazioni (Canalizzazione Stellare)
+| **Caratteristica di Lancio:** | Carisma                               |
+| ----------------------------- | ------------------------------------- |
+| Tipo di Potere                | Rivelazioni (Canalizzazione Stellare) |
 
 Il Solariano è un guerriero mistico che funge da condotto per le energie fondamentali delle stelle: la luce e il calore (Fotone) e la gravità e il vuoto (Gravitone). Le sue *Rivelazioni* sono manifestazioni fisiche di queste forze. Alcune Rivelazioni sono più efficaci se il Solariano è in un determinato stato di **Sintonizzazione** (Fotone o Gravitone), ma possono essere usate indipendentemente salvo diversa indicazione.
 
 ---
-
-## Grado 0 (Rivelazioni Prime)
-*Questi poteri possono essere usati a volontà.*
-
-### Attrazione Minore
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 9 metri
-* **Durata:** Istantanea
-Crei un micro-pozzo gravitazionale su un oggetto non indossato o trasportato entro la gittata. L'oggetto vola immediatamente nella tua mano libera. Se usato su una creatura, questa deve superare un TS su Forza o essere tirata di 1,5 metri verso di te.
-
-### Colpo Stellare
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 1,5 metri (Mischia)
-* **Durata:** Istantanea
-Come parte dell'azione usata per lanciare questo potere, effettua un attacco in mischia con un'arma contro una creatura entro la gittata. Se colpisci, il bersaglio subisce gli effetti normali dell'attacco e un alone di gravità lo avvolge: se il bersaglio si muove volontariamente prima dell'inizio del tuo prossimo turno, subisce **1d8 danni da forza** e il potere termina.
-*Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).*
-
-### Fiamma Sacra (Variante Stellare)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Istantanea
-Una radianza simile a una fiamma discende su una creatura che puoi vedere entro la gittata. Il bersaglio deve superare un TS su Destrezza o subire **1d8 danni radianti**. Il bersaglio non ottiene benefici dalla copertura per questo tiro salvezza.
-*Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).*
-
-### Luce Guida
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Tocco
-* **Durata:** 1 ora
-Tocchi un oggetto. Fino alla fine dell'incantesimo, l'oggetto emette luce intensa in un raggio di 6 metri e luce fioca per altri 6 metri. La luce può essere colorata a tua scelta (solitamente oro o blu). Se copri l'oggetto con qualcosa di opaco, la luce viene bloccata.
-
-### Resistenza
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Tocco
-* **Durata:** Concentrazione, fino a 1 minuto
-Tocchi una creatura consenziente. Una volta prima che l'incantesimo termini, il bersaglio può tirare un d4 e aggiungere il numero ottenuto a un tiro salvezza a sua scelta.
-
-### Stabilità Gravitazionale
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale
-* **Durata:** 1 minuto
-Aumenti la tua densità personale. Hai vantaggio sulle prove di Forza e sui Tiri Salvezza per evitare di essere spostato, spinto o gettato a terra prono contro la tua volontà.
-
----
-
-## Grado 1
-
-### Assorbire Elementi
-* **Tempo di Attivazione:** 1 reazione (quando subisci danni da acido, freddo, fuoco, fulmine o tuono)
-* **Gittata:** Personale
-* **Durata:** 1 round
-Il tuo campo stellare cattura parte dell'energia in arrivo. Hai resistenza al tipo di danno scatenante fino all'inizio del tuo prossimo turno. Inoltre, la prima volta che colpisci con un attacco in mischia nel tuo prossimo turno, il bersaglio subisce **1d6 danni extra** dello stesso tipo.
-
-### Armatura di Agathys (Variante Vuoto)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale
-* **Durata:** 1 ora
-Una forza spettrale di vuoto e gelo ti circonda. Ottieni **5 Punti Ferita Temporanei**. Se una creatura ti colpisce con un attacco in mischia mentre hai questi punti ferita, subisce **5 danni da freddo**.
-*A Gradi Superiori:* +5 PF e +5 danni per ogni grado extra.
-
-### Attrazione del Buco Nero
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** 9 metri
-* **Durata:** Istantanea
-Generi un'improvvisa singolarità dietro un nemico. Scegli una creatura entro la gittata. Deve superare un TS su Forza o essere trascinata in linea retta fino a 4,5 metri verso di te. Se termina questo movimento entro 1,5 metri da te, puoi effettuare un attacco in mischia contro di essa come parte della stessa azione bonus.
-
-### Dardo Guida
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 36 metri
-* **Durata:** 1 round
-Un lampo di luce stellare si dirige verso una creatura. Effettua un attacco a distanza di canalizzazione. Se colpisce, il bersaglio subisce **4d6 danni radianti** e il prossimo tiro per colpire effettuato contro questo bersaglio prima della fine del tuo prossimo turno ha vantaggio, grazie alla luce fioca che contorna il bersaglio.
-*A Gradi Superiori:* +1d6 danni per ogni grado extra.
-
-### Duello Compulsivo
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** 9 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Tenti di costringere una creatura a ingaggiare combattimento con te usando la gravità per ostacolare i suoi movimenti verso altri. Il bersaglio deve effettuare un TS su Saggezza. Se fallisce, ha svantaggio ai tiri per colpire contro creature diverse da te e deve effettuare un TS su Saggezza ogni volta che tenta di muoversi in uno spazio che sia a più di 9 metri da te; se fallisce, il suo movimento termina.
-
-### Esplosione Supernova
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale (raggio 3 metri)
-* **Durata:** Istantanea
-Rilasci un'ondata di energia fotonica. Ogni creatura entro 3 metri da te deve effettuare un TS su Destrezza. Subisce **2d6 danni radianti** se fallisce, o la metà se riesce.
-* **Sintonizzazione Fotone:** Il raggio aumenta a 4,5 metri.
-*A Gradi Superiori:* +1d6 danni per ogni grado extra.
-
-### Mani Brucianti (Variante Solare)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale (cono di 4,5 metri)
-* **Durata:** Istantanea
-Mentre tieni le mani con i pollici uniti, una sottile lastra di fiamme solari scaturisce dai tuoi polpastrelli. Ogni creatura in un cono di 4,5 metri deve effettuare un TS su Destrezza. Una creatura subisce **3d6 danni da fuoco** se fallisce il tiro, o la metà se lo supera.
-
-### Punizione Divina (Solare)
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** Concentrazione, fino a 1 minuto
-La prossima volta che colpisci una creatura con un attacco con un'arma in mischia durante la durata dell'incantesimo, l'arma divampa di intensità stellare. L'attacco infligge **2d6 danni radianti** extra al bersaglio. Se il bersaglio è un non morto o un netherant, subisce invece **2d8 danni radianti** extra.
-*A Gradi Superiori:* +1d6 (o +1d8) danni per ogni grado extra.
-
-### Scudo della Fede (Scudo Gravitazionale)
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** 18 metri
-* **Durata:** Concentrazione, fino a 10 minuti
-Un campo di gravità distorce lo spazio attorno a una creatura a tua scelta entro gittata. Il bersaglio ottiene un bonus di **+2 alla CA** per la durata.
-
----
-
-## Grado 2
-
-### Arma Magica (Arma Stellare)
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Tocco
-* **Durata:** Concentrazione, fino a 1 ora
-Tocchi un'arma non magica. Fino alla fine dell'incantesimo, quell'arma diventa un'arma magica con un bonus di +1 ai tiri per colpire e ai danni.
-
-### Bagliore Accecante
-* **Tempo di Attivazione:** 1 reazione (quando vieni attaccato)
-* **Gittata:** 18 metri
-* **Durata:** Istantanea
-Quando una creatura entro 18 metri che puoi vedere ti attacca, puoi interporre un flash di luce improvviso. L'attaccante deve superare un TS su Costituzione o essere **Accecato** fino alla fine del suo turno, imponendo svantaggio all'attacco scatenante.
-
-### Blocca Persone (Presa Gravitazionale)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Scegli un umanoide che puoi vedere entro la gittata. La gravità locale aumenta drasticamente intorno a lui. Il bersaglio deve superare un TS su Saggezza o essere **Paralizzato** per la durata. Alla fine di ogni suo turno, il bersaglio può effettuare un altro TS su Saggezza. Se ha successo, l'effetto termina.
-*A Gradi Superiori:* Puoi bersagliare una creatura aggiuntiva per ogni grado extra.
-
-### Oscurità
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Concentrazione, fino a 10 minuti
-Oscurità magica si diffonde da un punto a tua scelta entro gittata per riempire una sfera con raggio di 4,5 metri. La scurovisione non può penetrare questa oscurità e nessuna luce non magica può illuminarla.
-* **Sintonizzazione Gravitone:** L'area è considerata terreno difficile a causa della pressione gravitazionale.
-
-### Passo Brumoso (Salto Quantico)
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** Istantanea
-Ti circondi di una nebbia argentata e ti teletrasporti fino a 9 metri in uno spazio libero che puoi vedere.
-
-### Punizione Marchiante
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** Concentrazione, fino a 1 minuto
-La prossima volta che colpisci una creatura con un attacco con un'arma in mischia, l'attacco infligge **2d6 danni radianti** extra. Se il bersaglio è invisibile, l'invisibilità termina e non può diventare invisibile per la durata. Inoltre, il bersaglio emette luce fioca in un raggio di 1,5 metri e i tiri per colpire contro di esso non hanno svantaggio se l'attaccante non può vederlo.
-
-### Raggio Rovente
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 36 metri
-* **Durata:** Istantanea
-Crei tre raggi di fuoco e li scagli contro bersagli entro la gittata. Puoi scagliarli contro un bersaglio o contro diversi. Effettua un attacco a distanza di canalizzazione per ogni raggio. Se colpisce, il bersaglio subisce **2d6 danni da fuoco**.
-*A Gradi Superiori:* Crei un raggio aggiuntivo per ogni grado extra.
-
-### Scatto Stellare
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** 1 round
-Ti propelli usando l'energia cosmica. Ottieni una velocità di volo di 9 metri fino alla fine del turno. Se non atterri su una superficie solida alla fine del movimento, cadi. Questo movimento non provoca attacchi di opportunità.
-
----
-
-## Grado 3
-
-### Campo di Densità
-* **Tempo di Attivazione:** 1 reazione (quando subisci danni)
-* **Gittata:** Personale
-* **Durata:** Istantanea
-Aumenti istantaneamente la tua massa e densità molecolare. Riduci i danni subiti dall'attacco scatenante di un ammontare pari al tuo **Livello da Solariano + Modificatore di Carisma**.
-
-### Lama del Sole
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 1,5 metri
-* **Durata:** Istantanea
-Esegui un attacco in mischia con la tua arma (o Arma Solare). Se colpisci, il bersaglio subisce i danni normali dell'arma più **3d8 danni da fuoco** aggiuntivi e prende fuoco. Una creatura che ha preso fuoco subisce 1d6 danni da fuoco all'inizio di ogni suo turno finché qualcuno non usa un'azione per spegnere le fiamme.
-
-### Lentezza (Pozzo Gravitazionale)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 36 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Alteri il tempo e la gravità attorno a un massimo di sei creature a tua scelta in un cubo di 12 metri. Ogni bersaglio deve superare un TS su Saggezza o essere influenzato. Una creatura influenzata ha velocità dimezzata, subisce una penalità di -2 alla CA e ai TS su Destrezza, e non può usare reazioni. Nel suo turno, può usare solo un'azione o un'azione bonus, non entrambe.
-
-### Luce Diurna
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** 1 ora
-Una sfera di luce di 18 metri di raggio si diffonde da un punto a tua scelta. La luce è luce intensa e diffonde luce fioca per altri 18 metri. Questa luce è luce solare e dissolve qualsiasi oscurità magica creata da incantesimi di grado 3 o inferiore.
-
-### Muro di Vento (Muro Gravitazionale)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 36 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Crei un muro di aria e gravità compressa. Il muro è lungo fino a 15 metri, alto 4,5 metri e spesso 30 cm. Il muro blocca nebbie e gas. Le creature volanti e i proiettili piccoli non possono attraversarlo.
-
-### Palla di Fuoco (Esplosione Solare)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 45 metri
-* **Durata:** Istantanea
-Un lampo luminoso scatta dal tuo dito e poi fiorisce in un'esplosione di fiamme. Ogni creatura in una sfera di 6 metri di raggio deve effettuare un TS su Destrezza. Subisce **8d6 danni da fuoco** se fallisce, o la metà se riesce.
-
-### Punizione Accecante
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** Concentrazione, fino a 1 minuto
-La prossima volta che colpisci una creatura con un attacco con un'arma in mischia, infliggi **3d8 danni radianti** extra. Il bersaglio deve superare un TS su Costituzione o essere **Accecato** fino al termine dell'incantesimo.
-
-### Volare
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Tocco
-* **Durata:** Concentrazione, fino a 10 minuti
-Manipoli la gravità attorno a una creatura. Il bersaglio ottiene una velocità di volo di 18 metri per la durata.
-
----
-
-## Grado 4
-
-### Esilio
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Tenti di inviare una creatura in un altro piano di esistenza (o nel vuoto spaziale). Il bersaglio deve superare un TS su Carisma. Se fallisce, viene esiliato. Se la creatura è nativa del piano in cui ti trovi, viene inviata in una semi-dimensione innocua e ricompare quando l'incantesimo finisce. Se è extra-planare, viene rispedita al suo piano natale.
-
-### Gravità Nera (Tentacoli Neri)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 27 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Tentacoli di materia oscura e gravità riempiono un quadrato di 6 metri a terra. L'area è terreno difficile. Quando una creatura entra nell'area o inizia il turno lì, deve superare un TS su Destrezza o subire **3d6 danni contundenti** ed essere **Trattenuta**. Una creatura trattenuta subisce 3d6 danni all'inizio di ogni suo turno.
-
-### Muro di Fuoco (Barriera Solare)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 36 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Crei un muro di fuoco su una superficie solida. Il muro è opaco e dura per la durata. Quando il muro appare, ogni creatura nella sua area deve effettuare un TS su Destrezza, subendo **5d8 danni da fuoco** se fallisce, o la metà se riesce. Un lato del muro infligge 5d8 danni da fuoco a chi termina il turno entro 3 metri o entra nel muro.
-
-### Punizione Vacillante
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** Concentrazione, fino a 1 minuto
-Il tuo prossimo attacco in mischia infligge **4d6 danni psichici** extra. Il bersaglio deve superare un TS su Saggezza o avere svantaggio ai tiri per colpire e alle prove di abilità, e non può usare reazioni, fino alla fine del suo prossimo turno.
-
-### Schiacciamento Gravitazionale
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Istantanea
-Scegli un punto entro la gittata. Un cilindro di gravità opprimente (raggio 6m, altezza 12m) schiaccia l'area dall'alto verso il basso. Le creature all'interno devono fare un TS su Forza. Fallimento: subiscono **4d8 danni da forza** e cadono **Prone**. Successo: metà danni e non prone. L'area diventa terreno difficile fino all'inizio del tuo prossimo turno.
-
-### Scudo di Fuoco (Manto Stellare)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale
-* **Durata:** 10 minuti
-Fiamme sottili ti avvolgono. Emetti luce. Scegli tra scudo caldo (resistenza al freddo) o freddo (resistenza al fuoco). Quando una creatura ti colpisce con un attacco in mischia, subisce **2d8 danni** (fuoco o freddo a seconda della scelta).
-
----
-
-## Grado 5
-
-### Cerchio di Potere
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale (raggio 9 metri)
-* **Durata:** Concentrazione, fino a 10 minuti
-Energia divina (o stellare) irradia da te in un'aura di 9 metri. Fino alla fine dell'incantesimo, tu e le creature amichevoli nell'aura avete vantaggio ai tiri salvezza contro incantesimi e altri effetti magici. Inoltre, se una creatura supera un tiro salvezza per dimezzare i danni, non ne subisce nessuno.
-
-### Colpo Infuocato (Colonna Solare)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Istantanea
-Una colonna verticale di fuoco divino ruggisce verso il basso. Ogni creatura in un cilindro di 3 metri di raggio e 12 metri di altezza deve effettuare un TS su Destrezza. Subisce **4d6 danni da fuoco** e **4d6 danni radianti** se fallisce, o la metà se riesce.
-
-### Esplosione Coronale
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 45 metri
-* **Durata:** Istantanea
-Simuli l'esplosione della superficie di una stella. Una sfera di fuoco di 6 metri di raggio esplode. TS Destrezza: **8d6 danni da fuoco**. Se sei in **Sintonizzazione Fotone**, l'area diventa 9 metri e i danni ignorano la resistenza al fuoco.
-
-### Muro di Forza (Muro Gravitonico)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 36 metri
-* **Durata:** Concentrazione, fino a 10 minuti
-Un muro invisibile di forza appare in un punto a tua scelta. È indistruttibile e impedisce il passaggio fisico e magico. Può essere una sfera o una superficie piatta.
-
-### Punizione Bandente
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** Concentrazione, fino a 1 minuto
-Il tuo prossimo attacco infligge **5d10 danni da forza** extra. Se l'attacco riduce il bersaglio a 50 Punti Ferita o meno, lo bandisci (come per l'incantesimo *Esilio*).
-
-### Telecinesi (Manipolazione Gravitazionale)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Concentrazione, fino a 10 minuti
-Usi la gravità per manipolare oggetti o creature. Puoi muovere un oggetto fino a 450 kg o trattenere una creatura (contesa tra la tua Caratteristica di Lancio e la Forza della creatura).
-
----
-
-## Grado 6
-
-### Raggio Solare
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale (Linea di 18 metri)
-* **Durata:** Concentrazione, fino a 1 minuto
-Un raggio di luce brillante scaturisce dalla tua mano. Ogni creatura in una linea larga 1,5 metri e lunga 18 metri deve effettuare un TS su Costituzione. Subisce **6d8 danni radianti** e viene **Accecata** se fallisce. Metà danni e non accecata se riesce. Puoi usare la tua azione nei turni successivi per creare una nuova linea.
-
-### Singolarità Solare
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 18 metri
-* **Durata:** Concentrazione, fino a 1 minuto
-Crei un punto di gravità infinita (buco nero) in un raggio di 9 metri. L'area è oscurità magica e terreno difficile. Le creature che iniziano il turno lì devono superare un TS su Forza o subire **10d6 danni da forza** ed essere trascinate al centro.
-
----
-
-## Grado 7
-
-### Forma di Luce Pura
-* **Tempo di Attivazione:** 1 azione bonus
-* **Gittata:** Personale
-* **Durata:** 1 minuto
-Il tuo corpo si trasforma in pura energia fotonica. Ottieni resistenza a tutti i danni non magici, una velocità di volo di 18 metri, e puoi attraversare creature e oggetti (subisci danni se termini il turno dentro un oggetto). Qualsiasi creatura che ti tocca o ti colpisce in mischia subisce **2d8 danni radianti**.
-
-### Tempesta di Fuoco
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 45 metri
-* **Durata:** Istantanea
-Una tempesta di fogli di fiamma ruggisce nell'area. Scegli fino a dieci cubi di 3 metri entro la gittata. Ogni creatura nell'area deve effettuare un TS su Destrezza, subendo **7d10 danni da fuoco** se fallisce.
-
----
-
-## Grado 8
-
-### Esplosione Solare
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 45 metri
-* **Durata:** Istantanea
-Luce brillante esplode in un raggio di 18 metri. Ogni creatura deve effettuare un TS su Costituzione. Subisce **12d6 danni radianti** ed è **Accecata** per 1 minuto se fallisce. I non morti subiscono danni massimizzati.
-
-### Orizzonte degli Eventi
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** Personale (aura di 18 metri)
-* **Durata:** Concentrazione, fino a 10 minuti
-Crei un campo gravitazionale estremo intorno a te. Nessuna creatura può avvicinarsi o allontanarsi da te, né teletrasportarsi dentro o fuori l'aura, senza superare un TS su Carisma. Le creature nemiche nell'aura hanno la velocità dimezzata.
-
----
-
-## Grado 9
-
-### Sciame di Meteore (Bombardamento Orbitale)
-* **Tempo di Attivazione:** 1 azione
-* **Gittata:** 1,5 km
-* **Durata:** Istantanea
-Evochi quattro sfere infuocate o meteoriti dallo spazio che colpiscono il terreno. Ogni sfera ha un raggio di 12 metri. Le creature nell'area devono superare un TS su Destrezza o subire **20d6 danni da fuoco** e **20d6 danni contundenti**.
-
-### Supernova Totale
-* **Tempo di Attivazione:** 1 azione (richiede 3 turni di carica in Modo Fotone)
-* **Gittata:** Personale (raggio 30 metri)
-* **Durata:** Istantanea
-Sacrifichi tutta la tua energia per un'esplosione cataclismica. Ogni creatura entro 30 metri (inclusi gli alleati, ma puoi escluderne un numero pari al tuo Mod. Carisma) deve fare un TS su Destrezza. Fallimento: **20d6 danni da fuoco** + **20d6 danni radianti**. Successo: metà danni. Dopo l'uso, la tua sintonizzazione termina e subisci 1 livello di indebolimento.
+#### Grado 0 (Rivelazioni Prime)
+_Questi poteri possono essere usati a volontà._
+
+| Nome                         | Tempo di attivazione | Gittata             | Durata                          | Descrizione                                                                                                                                                                                                                                                                                                                                                    |
+| :--------------------------- | :------------------- | :------------------ | :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Attrazione Minore**        | 1 azione             | 9 metri             | Istantanea                      | Crei un micro-pozzo gravitazionale su un oggetto non indossato o trasportato entro la gittata. L'oggetto vola immediatamente nella tua mano libera. Se usato su una creatura, questa deve superare un TS su Forza o essere tirata di 1,5 metri verso di te.                                                                                                    |
+| **Colpo Stellare**           | 1 azione             | 1,5 metri (Mischia) | Istantanea                      | _(Parte dell'attacco)_ Effettua un attacco in mischia. Se colpisci, il bersaglio subisce gli effetti normali e un alone di gravità lo avvolge: se il bersaglio si muove volontariamente prima dell'inizio del tuo prossimo turno, subisce **1d8 danni da forza** e il potere termina.<br>_Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8)._ |
+| **Fiamma Sacra (Stellare)**  | 1 azione             | 18 metri            | Istantanea                      | Una radianza simile a una fiamma discende su una creatura che puoi vedere entro la gittata. Il bersaglio deve superare un TS su Destrezza o subire **1d8 danni radianti**. Il bersaglio non ottiene benefici dalla copertura per questo tiro salvezza.<br>_Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8)._                                |
+| **Luce Guida**               | 1 azione             | Tocco               | 1 ora                           | Tocchi un oggetto. Fino alla fine dell'incantesimo, l'oggetto emette luce intensa in un raggio di 6 metri e luce fioca per altri 6 metri. La luce può essere colorata a tua scelta. Se copri l'oggetto, la luce viene bloccata.                                                                                                                                |
+| **Resistenza**               | 1 azione             | Tocco               | Concentrazione, fino a 1 minuto | Tocchi una creatura consenziente. Una volta prima che l'incantesimo termini, il bersaglio può tirare un d4 e aggiungere il numero ottenuto a un tiro salvezza a sua scelta.                                                                                                                                                                                    |
+| **Stabilità Gravitazionale** | 1 azione             | Personale           | 1 minuto                        | Aumenti la tua densità personale. Hai vantaggio sulle prove di Forza e sui Tiri Salvezza per evitare di essere spostato, spinto o gettato a terra prono contro la tua volontà.                                                                                                                                                                                 |
+
+#### Grado 1
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Armatura di Agathys (Vuoto)** | 1 azione | Personale | 1 ora | Una forza spettrale di vuoto e gelo ti circonda. Ottieni **5 Punti Ferita Temporanei**. Se una creatura ti colpisce con un attacco in mischia mentre hai questi punti ferita, subisce **5 danni da freddo**.<br>_A Gradi Superiori: +5 PF e +5 danni per ogni grado extra._ |
+| **Assorbire Elementi** | 1 reazione | Personale | 1 round | _(Quando subisci danni elementali)_ Il tuo campo stellare cattura energia. Hai resistenza al tipo di danno scatenante fino al prossimo turno. Inoltre, il tuo primo attacco in mischia successivo infligge **1d6 danni extra** dello stesso tipo. |
+| **Attrazione del Buco Nero** | 1 azione bonus | 9 metri | Istantanea | Generi un'improvvisa singolarità dietro un nemico. Scegli una creatura entro la gittata. Deve superare un TS su Forza o essere trascinata in linea retta fino a 4,5 metri verso di te. Se termina questo movimento entro 1,5 metri da te, puoi attaccarla in mischia come parte della stessa azione bonus. |
+| **Dardo Guida** | 1 azione | 36 metri | 1 round | Un lampo di luce stellare si dirige verso una creatura. Attacco a distanza. Colpisce per **4d6 danni radianti** e il prossimo tiro per colpire contro il bersaglio ha vantaggio.<br>_A Gradi Superiori: +1d6 danni per ogni grado extra._ |
+| **Duello Compulsivo** | 1 azione bonus | 9 metri | Concentrazione, fino a 1 minuto | Costringi una creatura a combattere te. TS Saggezza. Se fallisce, ha svantaggio agli attacchi contro altri e deve fare TS Saggezza per allontanarsi oltre 9 metri da te. |
+| **Esplosione Supernova** | 1 azione | Personale (3m) | Istantanea | Rilasci un'ondata di energia fotonica. Ogni creatura entro 3 metri da te deve effettuare un TS su Destrezza. Subisce **2d6 danni radianti** (metà se salva).<br>_**Sintonizzazione Fotone:** Il raggio aumenta a 4,5 metri.<br>A Gradi Superiori: +1d6 danni per ogni grado extra._ |
+| **Mani Brucianti (Solare)** | 1 azione | Personale (cono 4,5m) | Istantanea | Una sottile lastra di fiamme solari scaturisce dalle mani. Ogni creatura nel cono deve effettuare un TS su Destrezza. Subisce **3d6 danni da fuoco** (metà se salva). |
+| **Punizione Divina (Solare)** | 1 azione bonus | Personale | Concentrazione, fino a 1 minuto | Il tuo prossimo attacco in mischia infligge **2d6 danni radianti** extra. Se il bersaglio è un non morto o un netherant, subisce invece **2d8 danni radianti** extra.<br>_A Gradi Superiori: +1d6 (o +1d8) danni per ogni grado extra._ |
+| **Scudo della Fede (Gravità)** | 1 azione bonus | 18 metri | Concentrazione, fino a 10 minuti | Un campo di gravità distorce lo spazio attorno a una creatura a tua scelta entro gittata. Il bersaglio ottiene un bonus di **+2 alla CA** per la durata. |
+
+#### Grado 2
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Arma Magica (Stellare)** | 1 azione bonus | Tocco | Concentrazione, fino a 1 ora | Tocchi un'arma non magica. Fino alla fine dell'incantesimo, quell'arma diventa un'arma magica con un bonus di +1 ai tiri per colpire e ai danni. |
+| **Bagliore Accecante** | 1 reazione | 18 metri | Istantanea | _(Quando vieni attaccato)_ Interponi un flash di luce. L'attaccante deve superare un TS su Costituzione o essere **Accecato** fino alla fine del suo turno, imponendo svantaggio all'attacco. |
+| **Blocca Persone (Presa)** | 1 azione | 18 metri | Concentrazione, fino a 1 minuto | La gravità aumenta attorno a un umanoide. TS Saggezza o viene **Paralizzato**. TS ripetibile ogni turno.<br>_A Gradi Superiori: +1 bersaglio per ogni grado extra._ |
+| **Oscurità** | 1 azione | 18 metri | Concentrazione, fino a 10 minuti | Oscurità magica riempie una sfera di 4,5 metri. Blocca scurovisione e luce non magica.<br>_**Sintonizzazione Gravitone:** L'area è terreno difficile._ |
+| **Passo Brumoso (Salto)** | 1 azione bonus | Personale | Istantanea | Ti teletrasporti fino a 9 metri in uno spazio libero che puoi vedere. |
+| **Punizione Marchiante** | 1 azione bonus | Personale | Concentrazione, fino a 1 minuto | Il tuo prossimo attacco infligge **2d6 danni radianti** extra. Se il bersaglio è invisibile, diventa visibile ed emette luce fioca. Non può diventare invisibile. |
+| **Raggio Rovente** | 1 azione | 36 metri | Istantanea | Crei tre raggi di fuoco. Attacco a distanza per ognuno. **2d6 danni da fuoco** per colpo.<br>_A Gradi Superiori: +1 raggio per ogni grado extra._ |
+| **Scatto Stellare** | 1 azione bonus | Personale | 1 round | Ottieni una velocità di volo di 9 metri fino alla fine del turno. Se non atterri, cadi. Non provoca attacchi di opportunità. |
+
+#### Grado 3
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Campo di Densità** | 1 reazione | Personale | Istantanea | _(Quando subisci danni)_ Aumenti la tua densità. Riduci i danni subiti di un ammontare pari al tuo **Livello da Solariano + Modificatore di Carisma**. |
+| **Lama del Sole** | 1 azione | 1,5 metri | Istantanea | Attacco in mischia. Se colpisci, aggiungi **3d8 danni da fuoco** e il bersaglio prende fuoco (1d6 danni/turno finché non spento). |
+| **Lentezza (Pozzo Grav.)** | 1 azione | 36 metri | Concentrazione, fino a 1 minuto | Alterazione temporale in un cubo di 12m. Fino a 6 creature fanno TS Saggezza. Fallimento: velocità dimezzata, -2 CA/TS Des, no reazioni, solo 1 azione/turno. |
+| **Luce Diurna** | 1 azione | 18 metri | 1 ora | Sfera di luce solare di 18m raggio. Dissolve oscurità magica di grado 3 o inferiore. |
+| **Muro di Vento (Gravità)** | 1 azione | 36 metri | Concentrazione, fino a 1 minuto | Muro di gravità compressa (15m lungh, 4,5m alt). Blocca nebbie, gas, creature volanti e proiettili piccoli. |
+| **Palla di Fuoco (Solare)** | 1 azione | 45 metri | Istantanea | Esplosione in sfera di 6m. TS Destrezza: **8d6 danni da fuoco** (metà se salva). |
+| **Punizione Accecante** | 1 azione bonus | Personale | Concentrazione, fino a 1 minuto | Il prossimo attacco infligge **3d8 danni radianti** extra. TS Costituzione o bersaglio **Accecato**. |
+| **Volare** | 1 azione | Tocco | Concentrazione, fino a 10 minuti | Manipoli la gravità attorno a una creatura. Il bersaglio ottiene una velocità di volo di 18 metri per la durata. |
+
+#### Grado 4
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Esilio** | 1 azione | 18 metri | Concentrazione, fino a 1 minuto | Invii una creatura in un altro piano o nel vuoto. TS Carisma. Se nativa, va in una semi-dimensione temporanea. Se extra-planare, torna a casa. |
+| **Gravità Nera** | 1 azione | 27 metri | Concentrazione, fino a 1 minuto | Area di 6m a terra (terreno difficile). TS Destrezza o **3d6 danni contundenti** e **Trattenuto**. 3d6 danni ogni turno. |
+| **Muro di Fuoco (Solare)** | 1 azione | 36 metri | Concentrazione, fino a 1 minuto | Muro di fuoco opaco. Chi attraversa o sta vicino subisce **5d8 danni da fuoco** (TS Destrezza). |
+| **Punizione Vacillante** | 1 azione bonus | Personale | Concentrazione, fino a 1 minuto | Il prossimo attacco infligge **4d6 danni psichici** extra. TS Saggezza o svantaggio a colpire/prove e niente reazioni. |
+| **Schiacciamento Gravitazionale** | 1 azione | 18 metri | Istantanea | Cilindro di gravità (6m raggio). TS Forza. Fallimento: **4d8 danni da forza** e **Prono**. Successo: metà danni. Terreno difficile. |
+| **Scudo di Fuoco (Stellare)** | 1 azione | Personale | 10 minuti | Aura di fiamme (calde o fredde). Emetti luce. Chi ti colpisce in mischia subisce **2d8 danni** (fuoco o freddo). |
+
+#### Grado 5
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cerchio di Potere** | 1 azione | Personale (9m) | Concentrazione, fino a 10 minuti | Aura divina. Vantaggio ai TS contro magia per te e alleati. Se un TS dimezza i danni, invece li annulla completamente. |
+| **Colpo Infuocato** | 1 azione | 18 metri | Istantanea | Colonna di fuoco (3m raggio). TS Destrezza: **4d6 danni da fuoco + 4d6 danni radianti** (metà se salva). |
+| **Esplosione Coronale** | 1 azione | 45 metri | Istantanea | Sfera di fuoco di 6m. TS Destrezza: **8d6 danni da fuoco**.<br>_**Sintonizzazione Fotone:** Raggio 9m e ignora resistenza al fuoco._ |
+| **Muro di Forza** | 1 azione | 36 metri | Concentrazione, fino a 10 minuti | Muro invisibile e indistruttibile. Blocca passaggio fisico e magico. |
+| **Punizione Bandente** | 1 azione bonus | Personale | Concentrazione, fino a 1 minuto | Il prossimo attacco infligge **5d10 danni da forza** extra. Se il bersaglio scende a 50 PF o meno, viene bandito (come _Esilio_). |
+| **Telecinesi** | 1 azione | 18 metri | Concentrazione, fino a 10 minuti | Usi la gravità per manipolare oggetti (450kg) o trattenere creature (Prova contrapposta). |
+
+#### Grado 6
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Raggio Solare** | 1 azione | Personale (Linea 18m) | Concentrazione, fino a 1 minuto | Linea di luce. TS Costituzione: **6d8 danni radianti** e **Accecato**. Puoi ripetere ogni turno. |
+| **Singolarità Solare** | 1 azione | 18 metri | Concentrazione, fino a 1 minuto | Buco nero (9m raggio). Oscurità e terreno difficile. TS Forza all'inizio del turno o **10d6 danni da forza** e trascinamento al centro. |
+
+#### Grado 7
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Forma di Luce Pura** | 1 azione bonus | Personale | 1 minuto | Diventi energia fotonica. Resistenza danni non magici, volo 18m, attraversi oggetti. Chi ti tocca subisce **2d8 radianti**. |
+| **Tempesta di Fuoco** | 1 azione | 45 metri | Istantanea | Dieci cubi di fuoco da 3m. TS Destrezza: **7d10 danni da fuoco**. |
+
+#### Grado 8
+| Nome | Tempo di attivazione | Gittata | Durata | Descrizione |
+| :--- | :--- | :--- | :--- | :--- |
+| **Esplosione Solare** | 1 azione | 45 metri | Istantanea | Luce brillante (18m raggio). TS Costituzione: **12d6 danni radianti** e **Accecato** per 1 minuto. |
+| **Orizzonte degli Eventi** | 1 azione | Personale (18m) | Concentrazione, fino a 10 minuti | Aura gravitazionale. Nessuno può entrare/uscire o teletrasportarsi senza TS Carisma. Nemici hanno velocità dimezzata. |
+
+#### Grado 9
+| Nome                  | Tempo di attivazione | Gittata         | Durata     | Descrizione                                                                                                                                    |
+| :-------------------- | :------------------- | :-------------- | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sciame di Meteore** | 1 azione             | 1,5 km          | Istantanea | Quattro sfere (12m raggio). TS Destrezza: **20d6 fuoco + 20d6 contundenti**.                                                                   |
+| **Supernova Totale**  | 1 azione             | Personale (30m) | Istantanea | _(Richiede 3 turni di carica Fotone)_ Esplosione cataclismica. TS Destrezza: **20d6 fuoco + 20d6 radianti**. Subisci indebolimento dopo l'uso. |

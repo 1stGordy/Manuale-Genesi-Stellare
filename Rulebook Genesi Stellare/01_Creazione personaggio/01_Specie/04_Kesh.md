@@ -21,36 +21,16 @@ Mentre anche i loro anziani non sono sicuri di cosa il loro popolo affronterà u
 TRATTI DEI KESH
 I kesh possiedono vantaggi specifici dovuti alla loro natura adattiva tramandata attraverso le generazioni.
 
-**Aumento dei Punteggi di Caratteristica**. 
-La tua Destrezza aumenta di 2. 
-**Età.** 
-I Kesh impiegano più tempo per raggiungere quella che è considerata "età adulta" per la loro specie, variando tra i 40 e i 50 anni.
-Sono noti per avere una durata di vita vicina ai 500 anni, ma ci sono voci di un piccolo gruppo di kesh che hanno vissuto secoli di più. 
-**Allineamento.** 
-I Kesh sono esploratori prima di tutto. Poiché hanno spesso a che fare con varie specie e culture, molti tendono ad essere neutrali nell'allineamento con una propensione verso il bene. 
-**Taglia.** 
-I Kesh hanno una media tra 1,35 e 1,65 metri di altezza e tendono verso corporature da snelle a leggermente tozze. La tua taglia è Media. 
-**Velocità.**
-La tua velocità base di camminata è di 9 metri 
-**Scurovisione.** 
-Nel corso delle generazioni, i kesh hanno sviluppato la capacità di vedere bene in luoghi fiocamente illuminati e bui.
-Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca.
-Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. 
-**Linguaggi.** 
-Parli, leggi e scrivi Comune, Keshian e un altro linguaggio a tua scelta. 
-**Esploratore Esperto.**
-Sei competente nell'abilità Sopravvivenza. 
-**Alterazione Minore.** 
-Ottieni l'uso del talento alter appearance.
-Puoi usare questo talento una volta, dopo di che devi completare un riposo lungo prima di poterlo usare di nuovo.
-Anche quando usi questa caratteristica, non sei in grado di cambiare il colore naturale nero degli occhi che è nativo di tutti i kesh.
-Al 4° livello, ottieni un uso aggiuntivo di questa caratteristica e puoi estendere la durata per un'ora aggiuntiva.
-Questo aumenta di un uso e di un'ora aggiuntiva di nuovo al 9° livello e al 14° livello.
-Riguadagni tutti gli usi di questa caratteristica quando completi un riposo lungo.
-**Fusione della Memoria.** 
-Ottieni l'uso del potere shared vision.
-Puoi usarlo una volta dopo di che devi completare un riposo lungo prima che possa essere usato di nuovo.
-Carisma è la tua abilità di canalizzazione per questo potere quando usi questa caratteristica. 
+| Aumento punteggio caratteristico | Dex +2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taglia                           | M. I Kesh hanno una media tra 1,35 e 1,65 metri di altezza e tendono verso corporature da snelle a leggermente tozze.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Velocità                         | 9m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Scurovisione                     | 18m. Nel corso delle generazioni, i kesh hanno sviluppato la capacità di vedere bene in luoghi fiocamente illuminati e bui.<br>Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca.<br>Non puoi discernere i colori nell'oscurità, solo sfumature di grigio.                                                                                                                                                                                                                                                                                        |
+| Lingue                           | Comune, Keshian e un altro linguaggio a tua scelta                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Alterazione Minore.**          | Ottieni l'uso del talento alter appearance.<br>Puoi usare questo talento una volta, dopo di che devi completare un riposo lungo prima di poterlo usare di nuovo.<br>Anche quando usi questa caratteristica, non sei in grado di cambiare il colore naturale nero degli occhi che è nativo di tutti i kesh.<br>Al 4° livello, ottieni un uso aggiuntivo di questa caratteristica e puoi estendere la durata per un'ora aggiuntiva.<br>Questo aumenta di un uso e di un'ora aggiuntiva di nuovo al 9° livello e al 14° livello.<br>Riguadagni tutti gli usi di questa caratteristica quando completi un riposo lungo. |
+| **Fusione della Memoria.**       | Ottieni l'uso del potere shared vision.<br>Puoi usarlo una volta dopo di che devi completare un riposo lungo prima che possa essere usato di nuovo.<br>Carisma è la tua abilità di canalizzazione per questo potere quando usi questa caratteristica.                                                                                                                                                                                                                                                                                                                                                               |
+| **Età.**                         | I Kesh impiegano più tempo per raggiungere quella che è considerata "età adulta" per la loro specie, variando tra i 40 e i 50 anni.<br>Sono noti per avere una durata di vita vicina ai 500 anni, ma ci sono voci di un piccolo gruppo di kesh che hanno vissuto secoli di più.                                                                                                                                                                                                                                                                                                                                     |
+| **Allineamento.**                | I Kesh sono esploratori prima di tutto. Poiché hanno spesso a che fare con varie specie e culture, molti tendono ad essere neutrali nell'allineamento con una propensione verso il bene.                                                                                                                                                                                                                                                                                                                                                                                                                            |
 **Archetipi.** 
 Scegli tra uno dei seguenti archetipi.
 
@@ -60,12 +40,10 @@ Come uno dei nati nobili o "Shavnali", hai una profonda comprensione delle altre
 I Nobili kesh sono esploratori galattici; tuttavia, trascorrono la maggior parte del loro tempo su altri pianeti vivendo all'interno delle varie società che abitano questi mondi.
 Spesso servono come emissari e ambasciatori per la loro specie mentre essi stessi imparano ad adattarsi e prosperare in qualsiasi ambiente in cui si trovano. 
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Carisma aumenta di 1.
-**Addestramento alla Sopravvivenza Kesh.** 
-Hai competenza con la lama lunga e il bastone energetico.
-**Linguaggio Aggiuntivo.** 
-Puoi parlare, leggere e scrivere un linguaggio extra a tua scelta. 
+| **Aumento dei Punteggi di Caratteristica.** | Car +1                                                             |
+| ------------------------------------------- | ------------------------------------------------------------------ |
+| **Addestramento alla Sopravvivenza Kesh.**  | Hai competenza con la lama lunga e il bastone energetico.          |
+| **Linguaggio Aggiuntivo.**                  | Puoi parlare, leggere e scrivere un linguaggio extra a tua scelta. |
 
 ### **KESH DELLE STELLE**
 ![[Kesh delle stelle.png]]
@@ -74,9 +52,7 @@ Dove i nati nobili sono principalmente esploratori planetari, tu sei un esperto 
 I Kesh delle Stelle trattano normalmente le loro origini o linee di sangue come secondarie, concentrandosi più sulla loro durata di servizio attraverso le stelle e sugli equipaggi sotto i quali hanno servito.
 Sebbene mantengano i loro nomi di nascita, i nomi sono spesso integrati da un grado o titolo che segna i loro risultati attraverso l'oceano stellare. 
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Intelligenza aumenta di 1.
-**Scienza Spaziale.**
-Puoi aggiungere il tuo bonus di competenza a qualsiasi prova di Intelligenza (Astrofisica), o raddoppiare il tuo bonus di competenza se sei già competente.
-**Addestramento Membro dell'Equipaggio.** 
-Hai competenza con uno strumento artigiano a tua scelta. 
+| **Aumento dei Punteggi di Caratteristica.** | Int +1                                                                                                                                                      |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Scienza Spaziale.**                       | Puoi aggiungere il tuo bonus di competenza a qualsiasi prova di Intelligenza (Astrofisica), o raddoppiare il tuo bonus di competenza se sei già competente. |
+| **Addestramento Membro dell'Equipaggio.**   | Hai competenza con uno strumento artigiano a tua scelta.                                                                                                    |

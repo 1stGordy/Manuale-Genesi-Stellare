@@ -52,14 +52,14 @@ Ogni creatura nell'universo è definita da sei punteggi numerici
 Il numero grande (Punteggio) determina il numero piccolo (Modificatore) che aggiungi ai tiri
 
 | Punteggio | Modificatore |
-| :---: | :---: |
-| 8-9 | -1 |
-| 10-11 | +0 |
-| 12-13 | +1 |
-| 14-15 | +2 |
-| 16-17 | +3 |
-| 18-19 | +4 |
-| 20 | +5 |
+| :-------: | :----------: |
+|    8-9    |      -1      |
+|   10-11   |      +0      |
+|   12-13   |      +1      |
+|   14-15   |      +2      |
+|   16-17   |      +3      |
+|   18-19   |      +4      |
+|    20     |      +5      |
 rifarsi a [[00_Le caratteristiche]]
 
 ---
@@ -87,4 +87,25 @@ Sparsi attraverso le galassie, i Crogioli sono resti di un'epoca che precede qua
 
 ---
 
-## Talenti 
+| **Punti Esperienza** | **Livello** |
+| -------------------- | ----------- |
+| 0                    | 1           |
+| 300                  | 2           |
+| 900                  | 3           |
+| 2.700                | 4           |
+| 6.500                | 5           |
+| 14.000               | 6           |
+| 23.000               | 7           |
+| 34.000               | 8           |
+| 48.000               | 9           |
+| 64.000               | 10          |
+| 85.000               | 11          |
+| 100.000              | 12          |
+| 120.000              | 13          |
+| 140.000              | 14          |
+| 165.000              | 15          |
+| 195.000              | 16          |
+| 225.000              | 17          |
+| 265.000              | 18          |
+| 305.000              | 19          |
+| 355.000              | 20          |
