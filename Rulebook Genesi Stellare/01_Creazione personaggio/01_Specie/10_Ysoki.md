@@ -12,43 +12,32 @@ Nonostante la loro statura, gli Ysoki sono famosi per il loro coraggio, che spes
 
 **TRATTI DEGLI YSOKI**
 Come Ysoki, sei agile, percettivo e pieno di risorse.
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Destrezza aumenta di 2.
-**Età.** 
-Gli Ysoki vivono vite veloci e intense. Raggiungono la maturità a 10 anni e sono considerati anziani a 60. Raramente vivono oltre gli 80 anni.
-**Allineamento.** 
-La loro natura opportunista e la necessità di sopravvivere ai margini della legge li spinge verso allineamenti Caotici o Neutrali. Tuttavia, la loro lealtà al gruppo li rende spesso Caotici Buoni.
-**Taglia.**
-Sei alto tra i 90 cm e il 1,20 m, e pesi circa 35 kg. La tua taglia è Piccola.
-**Velocità.** 
-Nonostante le gambe corte, sei rapido e scattante. La tua velocità base di camminata è di 9 metri 
-**Scurovisione.** 
-Abituato a vivere nei condotti di aerazione, nei ponti inferiori delle navi e nelle città sotterranee, vedi bene al buio. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio.
-**Tasche Guanciali.** 
-Possiedi delle tasche nelle guance che possono contenere oggetti fino a 0,03 metri cubi (1 piede cubo) di volume o fino a 2,5 kg di peso in totale. Puoi trasferire un oggetto dalla mano alla guancia (o viceversa) come interazione gratuita. Mentre hai oggetti nelle guance, la tua voce suona un po' strana, ma puoi parlare e lanciare incantesimi (o usare poteri) che richiedono componenti verbali. Hai vantaggio sulle prove di Destrezza (Rapidità di Mano) per nascondere oggetti nelle tue guance.
-**Moxie (Grinta).** 
-Sei abituato a farti valere contro creature più grandi di te. Hai vantaggio sui tiri salvezza contro l'essere spaventato.
-**Linguaggi.**
-Parli, leggi e scrivi in Comune e Ysoki. La lingua Ysoki è veloce, piena di squittii e gergo tecnico, ideale per trasmettere informazioni complesse rapidamente.
+
+| Aumento punteggio caratteristico | Dex +2                                                                                                                                                                                                                                                                                                               |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taglia                           | S   Sei alto tra i 90 cm e il 1,20 m, e pesi circa 35 k                                                                                                                                                                                                                                                              |
+| **Età.**                         | Gli Ysoki vivono vite veloci e intense. Raggiungono la maturità a 10 anni e sono considerati anziani a 60. Raramente vivono oltre gli 80 anni.                                                                                                                                                                       |
+| **Allineamento.**                | La loro natura opportunista e la necessità di sopravvivere ai margini della legge li spinge verso allineamenti Caotici o Neutrali. Tuttavia, la loro lealtà al gruppo li rende spesso Caotici Buoni.                                                                                                                 |
+| Velocità                         | 9m                                                                                                                                                                                                                                                                                                                   |
+| **Scurovisione.**                | Abituato a vivere nei condotti di aerazione, nei ponti inferiori delle navi e nelle città sotterranee, vedi bene al buio. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. |
+| Lingue                           | Comune, e  Ysoki                                                                                                                                                                                                                                                                                                     |
+| **Tasche Guanciali.**            | Possiedi delle tasche nelle guance che possono contenere oggetti fino a 0,03 metri cubi (1 piede cubo) di volume o fino a 2,5 kg di peso in totale.  Hai vantaggio sulle prove di Destrezza (Rapidità di Mano) per nascondere oggetti nelle tue guance.                                                              |
+| **Grinta.**                      | Sei abituato a farti valere contro creature più grandi di te. Hai vantaggio sui tiri salvezza contro l'essere spaventato.                                                                                                                                                                                            |
 **Archetipo di Specie.** 
 Gli Ysoki tendono a dividersi in coloro che costruiscono e riparano e coloro che esplorano e commerciano. Scegli uno dei seguenti archetipi:
 
 ### INGEGNERE DEI BASSIFONDI
 ![[Ysoki ingegnere.png]] Questi Ysoki sono i maestri del recupero e della tecnologia improvvisata. Cresciuti smontando relitti spaziali o mantenendo in funzione i sistemi vitali di stazioni fatiscenti, sanno che con il giusto pezzo di ricambio (e un po' di nastro adesivo) si può riparare qualsiasi cosa.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Intelligenza aumenta di 1.
-**Manutentore Esperto.** 
-Ottieni competenza nell'abilità _Meccanica_ (Saggezza) o _Computers_ (Intelligenza).
-**Strisciare.** 
-Puoi muoverti attraverso lo spazio di qualsiasi creatura che sia di una taglia più grande della tua. Inoltre, puoi infilarti in passaggi stretti larghi fino a 15 cm senza dover strizzarti (squeeze), mantenendo la tua velocità normale e senza subire svantaggi.
+| Aumento punteggio caratteristico | Int +1                                                                                                                                                                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Manutentore Esperto.**         | Ottieni competenza nell'abilità _Meccanica_ (Saggezza) o _Computers_ (Intelligenza).                                                                                                                                                                                |
+| **Strisciare.**                  | Puoi muoverti attraverso lo spazio di qualsiasi creatura che sia di una taglia più grande della tua. Inoltre, puoi infilarti in passaggi stretti larghi fino a 15 cm senza dover strizzarti (squeeze), mantenendo la tua velocità normale e senza subire svantaggi. |
 
 ### VAGABONDO STELLARE
 ![[Ysoki vagabondo.png]] Questi Ysoki vivono per il viaggio, il commercio e l'arte della persuasione. Sono piloti, contrabbandieri o "facilitatori" che usano il loro fascino e la loro astuzia per ottenere i migliori affari o per uscire da situazioni spinose quando i blaster iniziano a sparare.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Carisma aumenta di 1.
-**Parlantina Sciolta.**
-Ottieni competenza nell'abilità _Persuasione_ o _Inganno_.
-**Sensi Acuti.** 
-Ottieni competenza nell'abilità _Percezione_. I tuoi grandi orecchi e le tue vibrisse ti permettono di notare dettagli che sfuggono ad altri.
+| Aumento punteggio caratteristico | Car +1                                                                                                                                        |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Parlantina Sciolta.**          | Ottieni competenza nell'abilità _Persuasione_ o _Inganno_.                                                                                    |
+| **Sensi Acuti.**                 | Ottieni competenza nell'abilità _Percezione_. I tuoi grandi orecchi e le tue vibrisse ti permettono di notare dettagli che sfuggono ad altri. |

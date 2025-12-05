@@ -13,20 +13,14 @@ Con la loro sopravvivenza evolutiva in gioco, la nuova società di umani evoluti
 TRATTI DEI PROMETHEAN
 I promethean condividono alcuni tratti comuni prima di sottoporsi alla Crisalide.
 
-**Aumento dei Punteggi di Caratteristica:** 
-Il tuo punteggio di Destrezza aumenta di 2. 
-**Età:** 
-I promethean devono ancora scoprire l'equilibrio tra estendere i loro anni e adattare i loro corpi ai rigori della loro nuova casa. Quindi, raggiungono ancora l'età adulta nella loro tarda adolescenza e vivono fino a circa 100 anni. 
-**Allineamento:** 
-Una specie giovane, i Promethean spesso gettano la cautela al vento, spesso pendendo verso un allineamento caotico. Questa, tuttavia è una mera tendenza poiché ci sono ancora Promethean di tutti i tipi di personalità. 
-**Taglia:** 
-Come i loro parenti umani, altezza e peso variano ma mantengono una taglia Media. 
-**Velocità:** 
-La tua velocità base di camminata è di 9 metri
-**Scurovisione:** 
-La maggior parte dei Promethean ottiene questo tratto in giovane età, a volte anche passato attraverso i loro genitori. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio.
-**Linguaggi:** 
-Parli, leggi e scrivi Comune e un altro linguaggio a tua scelta. 
+| Aumento punteggio caratteristico | Dex +2                                                                                                                                                                                                                                                                                                             |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Taglia                           | M                                                                                                                                                                                                                                                                                                                  |
+| **Età:**                         | I promethean devono ancora scoprire l'equilibrio tra estendere i loro anni e adattare i loro corpi ai rigori della loro nuova casa. Quindi, raggiungono ancora l'età adulta nella loro tarda adolescenza e vivono fino a circa 100 anni.                                                                           |
+| Velocità                         | 9m                                                                                                                                                                                                                                                                                                                 |
+| **Allineamento:**                | Una specie giovane, i Promethean spesso gettano la cautela al vento, spesso pendendo verso un allineamento caotico. Questa, tuttavia è una mera tendenza poiché ci sono ancora Promethean di tutti i tipi di personalità.                                                                                          |
+| Scurovisione                     | La maggior parte dei Promethean ottiene questo tratto in giovane età, a volte anche passato attraverso i loro genitori. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. |
+| Lingue                           | Comune, e un altro linguaggio a tua scelta                                                                                                                                                                                                                                                                         |
 **Archetipo.** 
 Scegli uno dei seguenti archetipi, ereditati dopo aver superato la Crisalide nell'età adulta.
 
@@ -38,20 +32,16 @@ In circostanze estremamente rare, il processo della Crisalide produce una forma 
 ![[promethean mezzaluna.png]]
 Come un Promethean della Mezzaluna, sei intellettualmente evoluto. I Mezzaluna costituiscono gran parte degli studiosi e diplomatici su Ondus. Sebbene il colore dei capelli sia molto simile a quello umano, è sempre argento al cuoio capelluto, crescendo nel suo colore naturale oltre il primo pollice o giù di lì. 
 
-**Aumento dei Punteggi di Caratteristica:** 
-Il tuo punteggio di Intelligenza aumenta di 1.
-**Pensiero Logico:** 
-Hai vantaggio sui tiri salvezza contro effetti che alterano la mente e allucinatori causati da tossine o poteri esper.
-**Senso Acuto:** 
-Ottieni competenza nell'abilità Percezione.
+| **Aumento dei Punteggi di Caratteristica:** | Int+1                                                                                                                  |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Pensiero Logico:**                        | Hai vantaggio sui tiri salvezza contro effetti che alterano la mente e allucinatori causati da tossine o poteri esper. |
+| **Senso Acuto:**                            | Ottieni competenza nell'abilità Percezione.                                                                            |
 
 ### **SANGUE DI FUOCO**
 ![[Promethean sangue di fuoco.png]]
 Come uno dei sangue di fuoco, sei fisicamente più duro e più resiliente. I sangue di fuoco tendono ad avere capelli molto spessi che vanno dai marroni profondi ai rossi brillanti. I colori dei loro occhi variano dai normali ai blu e gialli brillanti. 
 
-**Aumento dei Punteggi di Caratteristica:** 
-Il tuo punteggio di Forza aumenta di 1.
-**Resilienza:** 
-Hai vantaggio sui tiri salvezza contro veleno e malattie, e hai resistenza ai danni da veleno.
-**Massimo Sforzo:** 
-Una volta per riposo lungo, puoi raddoppiare il tuo bonus di competenza a qualsiasi prova di abilità Atletica o Acrobazia. Ottieni un uso aggiuntivo di questa abilità al 5° livello, e di nuovo al 9° e 14° livello. 
+| **Aumento dei Punteggi di Caratteristica:** | For +1                                                                                                                                                                                                                |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Resilienza:**                             | Hai vantaggio sui tiri salvezza contro veleno e malattie, e hai resistenza ai danni da veleno.                                                                                                                        |
+| **Massimo Sforzo:**                         | Una volta per riposo lungo, puoi raddoppiare il tuo bonus di competenza a qualsiasi prova di abilità Atletica o Acrobazia. Ottieni un uso aggiuntivo di questa abilità al 5° livello, e di nuovo al 9° e 14° livello. |

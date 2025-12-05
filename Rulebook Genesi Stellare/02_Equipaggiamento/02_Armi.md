@@ -20,47 +20,47 @@ La tabella delle Armi mostra le armi più comuni usate, il loro prezzo, peso, da
 
 ### Tabella delle Armi
 
-| Nome | Costo | Danno | Gittata | Peso | Proprietà |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **ARMI SEMPLICI DA MISCHIA** | | | | | |
-| Clava | 1 cu | 1d4 contundente | — | 2 lb. | Leggera |
-| Coltello da Combattimento | 20 cu | 1d4 perforante | 6/18m | 1 lb. | Accurata, leggera, lancio |
-| Ascia a Mano | 50 cu | 1d6 tagliente | 6/18m | 2 lb. | Leggera, lancio |
-| Manganello Metallico | 20 cu | 1d6 contundente | — | 3 lb. | — |
-| Lancia | 25 cu | 1d6 perforante | 6/18m | 3 lb. | Lancio, versatile (1d8) |
-| Bastone | 10 cu | 1d6 contundente | — | 4 lb. | Versatile (1d8) |
-| Guanti Potenziati | 20 cu | 1d4 contundente | — | 1 lb. | Leggera |
-| Lame da Polso | 10 cu | 1d4 tagliente | — | 1 lb. | Accurata, leggera |
-| **ARMI SEMPLICI A DISTANZA** | | | | | |
-| Pistola, leggera | 200 cu | 1d6 perforante | 15/45m | 1 lb. | Adattabile, munizioni, leggera, ricarica (15) |
-| Fucile, corto | 250 cu | 1d8 perforante | 21/63m | 3 lb. | Munizioni, ricarica (6) |
-| Lama da Lancio | 2 cu | 1d4 perforante | 9/27m | 1/4 lb. | Accurata, lancio |
-| **ARMI MARZIALI DA MISCHIA** | | | | | |
-| Bastone Energetico | 150 cu | 1d6 contundente | — | 2 lb. | Portata, raffica di energia, 2 mani |
-| Lama da Avambraccio | 250 cu | 1d6 tagliente | — | 2 lb. | Accurata, leggera |
-| Falcione (Glaive) | 200 cu | 1d10 tagliente | — | 6 lb. | Pesante, portata, 2 mani |
-| Grandblade (Spadone) | 500 cu | 2d6 tagliente | — | 6 lb. | Pesante, 2 mani |
-| Grande Ascia | 300 cu | 1d12 tagliente | — | 7 lb. | Pesante, 2 mani |
-| Lama Lunga | 150 cu | 1d8 tagliente | — | 3 lb. | Versatile (1d10) |
-| Frusta Microfilamento | 250 cu | 1d6 tagliente | — | 2 lb. | Accurata, portata |
-| Sciabola | 200 cu | 1d8 tagliente | — | 3 lb. | Accurata |
-| Lama Corta | 100 cu | 1d6 perforante | — | 2 lb. | Accurata, leggera |
-| Martello da Guerra | 150 cu | 1d8 contundente | — | 3 lb. | Versatile (1d10) |
-| **ARMI MARZIALI A DISTANZA** | | | | | |
-| Arco Composito | 400 cu | 1d6 perforante | 30/120m | 2 lb. | Munizioni, 2 mani |
-| Pistola, braccio | 500 cu | 1d6 perforante | 9/36m | 1 lb. | Munizioni (6), ricarica |
-| Pistola, auto | 250 cu | 1d6 perforante | 18/90m | 2 lb. | Alta Velocità, raffica (2) |
-| Pistola, pesante | 400 cu | 1d8 perforante | 15/75m | 3 lb. | Alta Velocità, raffica (2), rinculo (1) |
-| Fucile, auto | 300 cu | 1d10 perforante | 24/120m | 5 lb. | Alta Velocità, raffica (3), rinculo (1), 2 mani |
-| Fucile, pesante | 500 cu | 2d6 perforante | 30/150m | 8 lb. | Alta Velocità, raffica (3), pesante, rinculo (2), 2 mani |
-| Fucile, cecchino | 800 cu | 2d8 perforante | 90/600m | 8 lb. | Alta Velocità, pesante, 2 mani, speciale |
-| Fucile a Pompa | 250 cu | 1d8 perforante | 9/27m | 7 lb. | Ricarica, 2 mani, speciale |
-| **GRANATE** | | | | | |
-| Frammentazione | 100 cu | 2d4 speciale | 6m raggio | 1 lb. | Esplosiva, lancio, speciale |
-| EMP | 120 cu | Speciale | — | 1 lb. | Lancio, speciale |
-| Gas | 200 cu | 1d6 veleno | — | 1 lb. | Lancio, speciale |
-| Fosforo | 500 cu | 1d6 fuoco | — | 1 lb. | Esplosiva, lancio, speciale |
-| Stordente | 300 cu | Speciale | — | 1 lb. | Lancio, speciale |
+| Nome                         | Costo  | Danno           | Gittata   | Peso    | Proprietà                                                |
+| :--------------------------- | :----- | :-------------- | :-------- | :------ | :------------------------------------------------------- |
+| **ARMI SEMPLICI DA MISCHIA** |        |                 |           |         |                                                          |
+| Clava                        | 1 cu   | 1d4 contundente | —         | 2 lb.   | Leggera                                                  |
+| Coltello da Combattimento    | 20 cu  | 1d4 perforante  | 6/18m     | 1 lb.   | Accurata, leggera, lancio                                |
+| Ascia a Mano                 | 50 cu  | 1d6 tagliente   | 6/18m     | 2 lb.   | Leggera, lancio                                          |
+| Manganello Metallico         | 20 cu  | 1d6 contundente | —         | 3 lb.   | —                                                        |
+| Lancia                       | 25 cu  | 1d6 perforante  | 6/18m     | 3 lb.   | Lancio, versatile (1d8)                                  |
+| Bastone                      | 10 cu  | 1d6 contundente | —         | 4 lb.   | Versatile (1d8)                                          |
+| Guanti Potenziati            | 20 cu  | 1d4 contundente | —         | 1 lb.   | Leggera                                                  |
+| Lame da Polso                | 10 cu  | 1d4 tagliente   | —         | 1 lb.   | Accurata, leggera                                        |
+| **ARMI SEMPLICI A DISTANZA** |        |                 |           |         |                                                          |
+| Pistola, leggera             | 200 cu | 1d6 perforante  | 15/45m    | 1 lb.   | Adattabile, munizioni, leggera, ricarica (15)            |
+| Fucile, corto                | 250 cu | 1d8 perforante  | 21/63m    | 3 lb.   | Munizioni, ricarica (6)                                  |
+| Lama da Lancio               | 2 cu   | 1d4 perforante  | 9/27m     | 1/4 lb. | Accurata, lancio                                         |
+| **ARMI MARZIALI DA MISCHIA** |        |                 |           |         |                                                          |
+| Bastone Energetico           | 150 cu | 1d6 contundente | —         | 2 lb.   | Portata, raffica di energia, 2 mani                      |
+| Lama da Avambraccio          | 250 cu | 1d6 tagliente   | —         | 2 lb.   | Accurata, leggera                                        |
+| Falcione (Glaive)            | 200 cu | 1d10 tagliente  | —         | 6 lb.   | Pesante, portata, 2 mani                                 |
+| Grandblade (Spadone)         | 500 cu | 2d6 tagliente   | —         | 6 lb.   | Pesante, 2 mani                                          |
+| Grande Ascia                 | 300 cu | 1d12 tagliente  | —         | 7 lb.   | Pesante, 2 mani                                          |
+| Lama Lunga                   | 150 cu | 1d8 tagliente   | —         | 3 lb.   | Versatile (1d10)                                         |
+| Frusta Microfilamento        | 250 cu | 1d6 tagliente   | —         | 2 lb.   | Accurata, portata                                        |
+| Sciabola                     | 200 cu | 1d8 tagliente   | —         | 3 lb.   | Accurata                                                 |
+| Lama Corta                   | 100 cu | 1d6 perforante  | —         | 2 lb.   | Accurata, leggera                                        |
+| Martello da Guerra           | 150 cu | 1d8 contundente | —         | 3 lb.   | Versatile (1d10)                                         |
+| **ARMI MARZIALI A DISTANZA** |        |                 |           |         |                                                          |
+| Arco Composito               | 400 cu | 1d6 perforante  | 30/120m   | 2 lb.   | Munizioni, 2 mani                                        |
+| Pistola, braccio             | 500 cu | 1d6 perforante  | 9/36m     | 1 lb.   | Munizioni (6), ricarica                                  |
+| Pistola, auto                | 250 cu | 1d6 perforante  | 18/90m    | 2 lb.   | Alta Velocità, raffica (2)                               |
+| Pistola, pesante             | 400 cu | 1d8 perforante  | 15/75m    | 3 lb.   | Alta Velocità, raffica (2), rinculo (1)                  |
+| Fucile, auto                 | 300 cu | 1d10 perforante | 24/120m   | 5 lb.   | Alta Velocità, raffica (3), rinculo (1), 2 mani          |
+| Fucile, pesante              | 500 cu | 2d6 perforante  | 30/150m   | 8 lb.   | Alta Velocità, raffica (3), pesante, rinculo (2), 2 mani |
+| Fucile, cecchino             | 800 cu | 2d8 perforante  | 90/600m   | 8 lb.   | Alta Velocità, pesante, 2 mani, speciale                 |
+| Fucile a Pompa               | 250 cu | 1d8 perforante  | 9/27m     | 7 lb.   | Ricarica, 2 mani, speciale                               |
+| **GRANATE**                  |        |                 |           |         |                                                          |
+| Frammentazione               | 100 cu | 2d4 speciale    | 6m raggio | 1 lb.   | Esplosiva, lancio, speciale                              |
+| EMP                          | 120 cu | Speciale        | —         | 1 lb.   | Lancio, speciale                                         |
+| Gas                          | 200 cu | 1d6 veleno      | —         | 1 lb.   | Lancio, speciale                                         |
+| Fosforo                      | 500 cu | 1d6 fuoco       | —         | 1 lb.   | Esplosiva, lancio, speciale                              |
+| Stordente                    | 300 cu | Speciale        | —         | 1 lb.   | Lancio, speciale                                         |
 
 ### Armi Speciali
 * **Pistola da braccio:** Montata sul braccio, non deve essere impugnata.

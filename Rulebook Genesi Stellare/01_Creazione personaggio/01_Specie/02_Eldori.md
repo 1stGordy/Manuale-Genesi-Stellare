@@ -37,23 +37,16 @@ Gli eldori credono che questo cambiamento rappresenti la capacità dell'esper di
 
 #### **TRATTI DEGLI ELDORI**
 Gli eldori condividono alcuni tratti comuni come risultato del loro risveglio spirituale.
-**Aumento dei Punteggi di Caratteristica.** Il tuo punteggio di Carisma aumenta di 2. 
 
-**Età.** 
-Gli Eldori spesso raggiungono l'età adulta tra i 20-25 anni. Possono vivere fino a 300-400 anni. **Allineamento.** 
-Come società prevalentemente pacifica, sono spesso buoni, ma ci sono quelli che cadono in vie malvagie nonostante gli insegnamenti del loro popolo. 
-**Taglia**. 
-Gli Eldori hanno corporature snelle con altezze che variano tra 1,50 e 1,80 metri in media. La tua taglia è Media. 41Velocità. La tua velocità base di camminata è di 9 metri (30 piedi). 
-**Scurovisione.**
-La tua natura intrinseca ti garantisce la capacità di vedere diverse sfumature di luce.
-Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca.
-Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. 
-**Linguaggi.** 
-Parli, leggi e scrivi Comune, Nesieve e un linguaggio aggiuntivo a tua scelta. 
-**Iniziato Esper.** 
-Ottieni l'uso del talento aegis. Al 3° livello, ottieni l'uso del talento innervate.
-Al 5° livello, ottieni l'uso del talento clean zone.
-Questi poteri possono essere usati ciascuno solo una volta e riguadagni tutti gli usi dopo aver terminato un riposo lungo. 
+| Aumento dei Punteggi di Caratteristica | Car+2                                                                                                                                                                                                                                                                                        |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taglia                                 | M. Gli Eldori hanno corporature snelle con altezze che variano tra 1,50 e 1,80 metri in media                                                                                                                                                                                                |
+| Velocità                               | 9m                                                                                                                                                                                                                                                                                           |
+| **Scurovisione.**                      | 18. La tua natura intrinseca ti garantisce la capacità di vedere diverse sfumature di luce.<br>Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca.<br>Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. |
+| Lingue                                 | Comune,Nesieve e un linguaggio aggiuntivo a tua scelta.                                                                                                                                                                                                                                      |
+| **Iniziato Esper.**                    | Ottieni l'uso del talento aegis. Al 3° livello, ottieni l'uso del talento innervate.<br>Al 5° livello, ottieni l'uso del talento clean zone.<br>Questi poteri possono essere usati ciascuno solo una volta e riguadagni tutti gli usi dopo aver terminato un riposo lungo                    |
+| **Età.**                               | Gli Eldori spesso raggiungono l'età adulta tra i 20-25 anni. Possono vivere fino a 300-400 anni.                                                                                                                                                                                             |
+| **Allineamento.**                      | Come società prevalentemente pacifica, sono spesso buoni, ma ci sono quelli che cadono in vie malvagie nonostante gli insegnamenti del loro popolo.                                                                                                                                          |
 **Archetipo di Specie.** 
 Ci sono due origini archetipiche per gli eldori con tratti spesso tramandati dall'eredità sociale. 
 
@@ -62,23 +55,17 @@ Ci sono due origini archetipiche per gli eldori con tratti spesso tramandati dal
 Come uno degli eldori Lunari, sei concentrato sullo sfruttare il potere dall'equilibrio cosmico noto come la Grande Ruota.
 I tuoi poteri si manifestano sotto forma di un'entità spirituale, tramandata come un dono dai tuoi antenati. 
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Intelligenza aumenta di 1.
-**Scurovisione Superiore.** 
-Il tuo raggio di Scurovisione aumenta a 27 metri 
-**Attingere dalla Ruota.** 
-Una volta per riposo lungo, puoi usare la tua azione bonus per invocare il potere della Grande Ruota, garantendoti vantaggio su un singolo tiro per colpire, tiro di abilità o tiro salvezza.
-Scegli il tipo di bonus all'attivazione di questa caratteristica. La debole aura di una ruota runica circonda la tua forma mentre la caratteristica è attiva.
-L'aura è traslucida e non emette luce. Gli effetti di questa caratteristica durano finché il bonus non viene utilizzato o fino alla fine del tuo turno successivo. 
+| Aumento dei Punteggi di Caratteristica | Int+1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Scurovisione Superiore.**            | 27m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Attingere dalla Ruota.**             | Una volta per riposo lungo, puoi usare la tua azione bonus per invocare il potere della Grande Ruota, garantendoti vantaggio su un singolo tiro per colpire, tiro di abilità o tiro salvezza.<br>Scegli il tipo di bonus all'attivazione di questa caratteristica. La debole aura di una ruota runica circonda la tua forma mentre la caratteristica è attiva.<br>L'aura è traslucida e non emette luce. Gli effetti di questa caratteristica durano finché il bonus non viene utilizzato o fino alla fine del tuo turno successivo. |
 
 ### ELDORI SOLARE
 ![[Eldori solare.png]]
 Come uno dei Solari, sei imbevuto della luce della creazione e ti sforzi di proteggere l'equilibrio. 
 
-**Aumento dei Punteggi di Caratteristica.**
-Il tuo punteggio di Saggezza aumenta di 1.
-**Resistenza Innata.** 
-Sei resistente ai danni necrotici e radianti. 
-**Addestramento nelle Armi.** 
-Sei addestrato nell'uso del bastone energetico e della lama lunga. 
+| Aumento dei Punteggi di Caratteristica | Sag+2                                                             |
+| -------------------------------------- | ----------------------------------------------------------------- |
+| Resistenza Innata                      | Sei resistente ai danni necrotici e radianti.                     |
+| **Addestramento nelle Armi.**          | Sei addestrato nell'uso del bastone energetico e della lama lunga |
 
