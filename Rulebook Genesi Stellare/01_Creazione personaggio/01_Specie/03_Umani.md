@@ -30,59 +30,47 @@ La loro testardaggine e convinzione possono anche avvantaggiarli quando formano 
 
 ### TRATTI DEGLI UMANI
 Come umano, possiedi i seguenti tratti.
-**Età.** 
-Gli umani raggiungono l'età adulta nella loro tarda adolescenza e di solito vivono meno di un secolo. 
-**Allineamento.** 
-Gli umani non tendono verso alcun allineamento particolare. Il meglio e il peggio si trovano tra di loro. 
-**Taglia**. 
-Gli umani variano ampiamente in altezza e corporatura, da appena 1,50 metri a ben oltre 1,80 metri.
-Indipendentemente dalla tua posizione in quell'intervallo, la tua taglia è Media.
-**Velocità.** 
-La tua velocità base di camminata è di 9 metri 
-**Linguaggi.** 
-Puoi parlare, leggere e scrivere Comune e Terran. 
+
+| Taglia            | M. Gli umani variano ampiamente in altezza e corporatura, da appena 1,50 metri a ben oltre 1,80 metri.    |
+| ----------------- | --------------------------------------------------------------------------------------------------------- |
+| Velocità          | 9m                                                                                                        |
+| Lingue            | Comune, e Terran.                                                                                         |
+| **Età.**          | Gli umani raggiungono l'età adulta nella loro tarda adolescenza e di solito vivono meno di un secolo.     |
+| **Allineamento.** | Gli umani non tendono verso alcun allineamento particolare. Il meglio e il peggio si trovano tra di loro. |
 **Archetipo.** 
 Generazioni di adattamento e modifica hanno espanso la società umana in diversi archetipi.
 
 ### **UMANO NATO SULLA TERRA**
 Questo è il tipo più comune di umano trovato attraverso la galassia. Sono universalmente adattabili e culturalmente versatili.
 
-**Aumento dei Punteggi di Caratteristica.** 
-I tuoi punteggi di caratteristica aumentano ciascuno di 1
-**Linguaggio.** 
-Puoi parlare, leggere e scrivere un linguaggio aggiuntivo a tua scelta. 
+| **Aumento dei Punteggi di Caratteristica.** | Tutti +1                                                               |
+| ------------------------------------------- | ---------------------------------------------------------------------- |
+| Linguaggio                                  | Puoi parlare, leggere e scrivere un linguaggio aggiuntivo a tua scelta | 
 
 ### **VARIANTE GALATTICA**
 ![[umano normale-galattico.png]]
-**Aumento dei Punteggi di Caratteristica.** 
-Due diversi punteggi di caratteristica a tua scelta aumentano di 1.
-**Abilità.** 
-Ottieni competenza in un'abilità a tua scelta.
-**Talento.** 
-Ottieni un talento a tua scelta. 
+
+| **Aumento dei Punteggi di Caratteristica.** | Due a tua scelta +1                            |
+| ------------------------------------------- | ---------------------------------------------- |
+| **Abilità.**                                | Ottieni competenza in un'abilità a tua scelta. |
+| **Talento.**                                | Ottieni un talento a tua scelta.               |
 
 ### **VARIANTE UTOPICA**
 ![[umano utopico.png]]
 Alcuni umani nascono da generazioni che risiedevano negli insediamenti Utopici che circondavano i cieli della Terra prima del conflitto
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Carisma aumenta di 2 e un altro punteggio di caratteristica a tua scelta aumenta di 1.
-**Abilità.** 
-Ottieni competenza in due abilità a tua scelta.
-**Volitivo.** 
-Hai vantaggio sui tiri salvezza contro l'essere affascinato o spaventato.
-**Linguaggio.** 
-Puoi parlare, leggere e scrivere un linguaggio aggiuntivo a tua scelta. 
+| **Aumento dei Punteggi di Caratteristica.** | Car+2 e un altro punteggio di caratteristica a tua scelta aumenta di 1    |
+| ------------------------------------------- | ------------------------------------------------------------------------- |
+| **Abilità.**                                | Ottieni competenza in due abilità a tua scelta.                           |
+| **Volitivo.**                               | Hai vantaggio sui tiri salvezza contro l'essere affascinato o spaventato. |
+| **Linguaggio.**                             | Puoi parlare, leggere e scrivere un linguaggio aggiuntivo a tua scelta    |
 
 ### **VARIANTE BRUCIATA**
 ![[umano bruciato.png]]
 Alcuni umani hanno ereditato tratti tramandati da coloro che si sono adattati ai climi rigidi dei Seethes.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Costituzione aumenta di 2 e il tuo punteggio di Forza di 1.
-**Muscoloso.** 
-Ottieni competenza in Atletica e un'altra abilità a tua scelta.
-**Addestramento nelle Armi.** 
-Hai competenza a tua scelta con la lama lunga o la pistola automatica.
-**Resiliente.**
-Quando viaggi in condizioni di caldo o freddo estremo, sei in grado di resistere un'ora aggiuntiva per ogni bonus di costituzione prima di richiedere un tiro salvezza per l'esaurimento. 
+| **Aumento dei Punteggi di Caratteristica.** | Cos+2 e For+1                                                                                                                                                                             |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Muscoloso.**                              | Ottieni competenza in Atletica e un'altra abilità a tua scelta.                                                                                                                           |
+| **Addestramento nelle Armi.**               | Hai competenza a tua scelta con la lama lunga o la pistola automatica.                                                                                                                    |
+| **Resiliente.**                             | Quando viaggi in condizioni di caldo o freddo estremo, sei in grado di resistere un'ora aggiuntiva per ogni bonus di costituzione prima di richiedere un tiro salvezza per l'esaurimento. |

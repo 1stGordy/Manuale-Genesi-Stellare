@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_Ysoki - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">10_Ysoki</h1>
+                <div class="markdown-content">
+                    <p><img src="../../../assets/Ysoki%20base.png" alt="Ysoki base.png" loading="lazy" class="content-image"> Un tempo conosciuti con il termine dispregiativo di "ratfolk", gli Ysoki sono una specie di piccoli umanoidi simili a roditori, rinomati per la loro intelligenza acuta, la destrezza manuale e una flessibilità sociale senza pari. Con radici sparse su innumerevoli mondi dell'Arco di Silrayne e oltre, gli Ysoki si sono integrati in quasi ogni società avanzata, lavorando al fianco di specie più grandi come ingegneri, piloti e mediatori. Dalle folle più dense dei mercati di Silrayne Prime ai tunnel di manutenzione più stretti delle stazioni minerarie, uno Ysoki sa sempre come orientarsi. Solo gli sciocchi ignorano il contributo di uno Ysoki in un gruppo!</p>
+<p>LA GRANDE DIASPORA<br />
+A differenza di molte specie che vantano un unico pianeta natale dominante, gli Ysoki sono i figli della diaspora. La storia del loro mondo d'origine è andata perduta nelle nebbie del tempo (o forse cancellata intenzionalmente per proteggere qualche segreto ancestrale), rendendoli veri cittadini della galassia. Questa mancanza di una "patria" centralizzata ha reso gli Ysoki incredibilmente adattabili. Hanno imparato a sopravvivere recuperando e riparando ciò che gli altri scartano. Durante i primi giorni dell'espansione del Sorium, furono gli Ysoki a capire come stabilizzare i vecchi reattori instabili e a mappare le rotte di contrabbando che evitavano le pattuglie dei Lorendi. Per uno Ysoki, "rotto" significa solo "in attesa di miglioramento".</p>
+<p>COMUNITÀ NEI TUNNEL<br />
+La cultura Ysoki è basata sulla famiglia allargata e sul "Mound" (il Cumulo), una rete sociale complessa che collega Ysoki sparsi in diversi sistemi stellari. Sebbene amino l'individualità e il profitto personale, uno Ysoki non lascerà mai un parente (o un amico stretto considerato tale) nei guai. Fisicamente, sono bassi (raramente superano il metro e venti), coperti di pelliccia che varia dal bianco al marrone scuro, con grandi orecchie espressive e code prensili che usano per mantenere l'equilibrio. La loro caratteristica più famosa, tuttavia, sono le tasche guanciali: sacche elastiche nelle guance in cui possono nascondere strumenti, crediti o spuntini, permettendo loro di avere sempre le mani libere per lavorare... o per combattere.</p>
+<p>PICCOLI MA FEROCI<br />
+Nonostante la loro statura, gli Ysoki sono famosi per il loro coraggio, che spesso sfocia nella temerarietà. Sono abituati a essere guardati dall'alto in basso dalle specie più grandi (come i Vesk o gli Ashenforged) e hanno sviluppato una personalità esuberante ("Moxie") per compensare. In combattimento, preferiscono l'agilità e la tecnologia alla forza bruta, utilizzando droni, esplosivi e armi energetiche modificate per livellare il campo di gioco.</p>
+<p><strong>TRATTI DEGLI YSOKI</strong><br />
+Come Ysoki, sei agile, percettivo e pieno di risorse.</p>
+<table>
+<thead>
+<tr>
+<th>Aumento punteggio caratteristico</th>
+<th>Dex +2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Taglia</td>
+<td>S   Sei alto tra i 90 cm e il 1,20 m, e pesi circa 35 k</td>
+</tr>
+<tr>
+<td><strong>Età.</strong></td>
+<td>Gli Ysoki vivono vite veloci e intense. Raggiungono la maturità a 10 anni e sono considerati anziani a 60. Raramente vivono oltre gli 80 anni.</td>
+</tr>
+<tr>
+<td><strong>Allineamento.</strong></td>
+<td>La loro natura opportunista e la necessità di sopravvivere ai margini della legge li spinge verso allineamenti Caotici o Neutrali. Tuttavia, la loro lealtà al gruppo li rende spesso Caotici Buoni.</td>
+</tr>
+<tr>
+<td>Velocità</td>
+<td>9m</td>
+</tr>
+<tr>
+<td><strong>Scurovisione.</strong></td>
+<td>Abituato a vivere nei condotti di aerazione, nei ponti inferiori delle navi e nelle città sotterranee, vedi bene al buio. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio.</td>
+</tr>
+<tr>
+<td>Lingue</td>
+<td>Comune, e  Ysoki</td>
+</tr>
+<tr>
+<td><strong>Tasche Guanciali.</strong></td>
+<td>Possiedi delle tasche nelle guance che possono contenere oggetti fino a 0,03 metri cubi (1 piede cubo) di volume o fino a 2,5 kg di peso in totale.  Hai vantaggio sulle prove di Destrezza (Rapidità di Mano) per nascondere oggetti nelle tue guance.</td>
+</tr>
+<tr>
+<td><strong>Grinta.</strong></td>
+<td>Sei abituato a farti valere contro creature più grandi di te. Hai vantaggio sui tiri salvezza contro l'essere spaventato.</td>
+</tr>
+<tr>
+<td><strong>Archetipo di Specie.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Gli Ysoki tendono a dividersi in coloro che costruiscono e riparano e coloro che esplorano e commerciano. Scegli uno dei seguenti archetipi:</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>INGEGNERE DEI BASSIFONDI</h3>
+<p><img src="../../../assets/Ysoki%20ingegnere.png" alt="Ysoki ingegnere.png" loading="lazy" class="content-image"> Questi Ysoki sono i maestri del recupero e della tecnologia improvvisata. Cresciuti smontando relitti spaziali o mantenendo in funzione i sistemi vitali di stazioni fatiscenti, sanno che con il giusto pezzo di ricambio (e un po' di nastro adesivo) si può riparare qualsiasi cosa.</p>
+<table>
+<thead>
+<tr>
+<th>Aumento punteggio caratteristico</th>
+<th>Int +1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manutentore Esperto.</strong></td>
+<td>Ottieni competenza nell'abilità <em>Meccanica</em> (Saggezza) o <em>Computers</em> (Intelligenza).</td>
+</tr>
+<tr>
+<td><strong>Strisciare.</strong></td>
+<td>Puoi muoverti attraverso lo spazio di qualsiasi creatura che sia di una taglia più grande della tua. Inoltre, puoi infilarti in passaggi stretti larghi fino a 15 cm senza dover strizzarti (squeeze), mantenendo la tua velocità normale e senza subire svantaggi.</td>
+</tr>
+</tbody>
+</table>
+<h3>VAGABONDO STELLARE</h3>
+<p><img src="../../../assets/Ysoki%20vagabondo.png" alt="Ysoki vagabondo.png" loading="lazy" class="content-image"> Questi Ysoki vivono per il viaggio, il commercio e l'arte della persuasione. Sono piloti, contrabbandieri o "facilitatori" che usano il loro fascino e la loro astuzia per ottenere i migliori affari o per uscire da situazioni spinose quando i blaster iniziano a sparare.</p>
+<table>
+<thead>
+<tr>
+<th>Aumento punteggio caratteristico</th>
+<th>Car +1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Parlantina Sciolta.</strong></td>
+<td>Ottieni competenza nell'abilità <em>Persuasione</em> o <em>Inganno</em>.</td>
+</tr>
+<tr>
+<td><strong>Sensi Acuti.</strong></td>
+<td>Ottieni competenza nell'abilità <em>Percezione</em>. I tuoi grandi orecchi e le tue vibrisse ti permettono di notare dettagli che sfuggono ad altri.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

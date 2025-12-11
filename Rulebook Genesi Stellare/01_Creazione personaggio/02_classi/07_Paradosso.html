@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_Paradosso - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">07_Paradosso</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h1>Il Paradosso</h1>
+<p>Uno strano evento paradossale ha alterato per sempre la tua esistenza, e ora la tua mente opera su frequenze che trascendono la realtà singolare. Non sei più vincolato al "qui e ora"; la tua coscienza esplora le infinite possibilità del multiverso, intravedendo linee temporali alternative dove gli eventi si sono svolti diversamente.</p>
+<p>Crei campi di distorsione che sovvertono le leggi della fisica, permettendoti di lanciare potenti magie esperiche che confondono i nemici o proteggono gli alleati. Per mantenere la tua sanità mentale in questo vortice di possibilità infinite, hai imparato a concentrarti su un'Ancora: un ricordo vivido, un concetto filosofico o un oggetto fisico che ti ricorda chi sei veramente in questa specifica linea temporale.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Dadi Vita</strong></td>
+<td style="text-align: left;">1d6 per livello da paradosso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PF al 1° Livello</strong></td>
+<td style="text-align: left;">6 + il tuo modificatore di Costituzione</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PF ai Livelli Successivi</strong></td>
+<td style="text-align: left;">1d6 (o 4) + il tuo modificatore di Costituzione per livello dopo il 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;">Competenze</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armature</strong></td>
+<td style="text-align: left;">Leggere</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armi</strong></td>
+<td style="text-align: left;">Armi semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Strumenti</strong></td>
+<td style="text-align: left;">Nessuno</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tiri Salvezza</strong></td>
+<td style="text-align: left;">Intelligenza, Carisma</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abilità</strong></td>
+<td style="text-align: left;">Due a scelta tra: Astrofisica, Inganno, Intuizione, Investigazione, Percezione e Storia</td>
+</tr>
+</tbody>
+</table>
+<h4>Equipaggiamento Iniziale</h4>
+<p>Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal background:<br />
+* (a) una pistola leggera e 20 colpi o (b) un bastone semplice<br />
+* (a) uno zaino da studioso o (b) uno zaino da esploratore<br />
+* Un'Ancora di Realtà (un piccolo oggetto, un monile o un datapad con un vecchio file)<br />
+* Giacca Corazzata</p>
+<hr />
+<h3>Tabella: Il Paradosso</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Talenti Prime</th>
+<th style="text-align: center;">Punti Talento</th>
+<th style="text-align: center;">Grado Max Talento</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Canalizzazione, Ancora di Realtà, Visione Multiversale</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Campo di Distorsione, Spostamento Paradigmatico</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Manipolazione delle Probabilità</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Sovrapposizione Temporale</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Privilegio Specializzazioni</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Ancoraggio Saldo</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">11°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">73</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Riscrittura immediata</td>
+</tr>
+<tr>
+<td style="text-align: center;">12°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">13°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">83</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">14°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">88</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">94</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Esistenza non lineare</td>
+</tr>
+<tr>
+<td style="text-align: center;">16°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">17°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">107</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">18°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">114</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">19°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">123</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">20°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">133</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Entità quantica</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<h4>Canalizzazione (<em>Channeling</em>)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Dettaglio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Caratteristica Chiave</strong></td>
+<td style="text-align: left;"><strong>Carisma</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CD Tiro Salvezza</strong></td>
+<td style="text-align: left;">8 + Bonus di Competenza + Modificatore di Carisma</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modificatore Attacco</strong></td>
+<td style="text-align: left;">Bonus di Competenza + Modificatore di Carisma</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Risorsa</strong></td>
+<td style="text-align: left;"><strong>Punti Talento</strong> (Recupero: Riposo Lungo)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Talenti Conosciuti</strong></td>
+<td style="text-align: left;"><strong>Livello 1:</strong> 3 Prime + 5 Talenti (Grado 1).<br><strong>Avanzamento:</strong> +2 Talenti ogni volta che sali di livello.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domini Consigliati</strong></td>
+<td style="text-align: left;">Metafase, Cinesi, Psicogenico.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Ancora di Realtà</strong></td>
+<td style="text-align: left;">Scegli un oggetto/concetto come focus. Hai vantaggio ai TS contro l'essere bandito, spostato di piano o alterazione della memoria finché lo possiedi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Visione Multiversale</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Ottieni <strong>Vantaggio</strong> a una prova di abilità o tiro per colpire. Usi: Mod. Carisma per riposo lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Campo di Distorsione</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus:</strong> Aura di 4,5m (15ft). Terreno difficile per i nemici. Conferisce benefici basati sul Paradigma. Durata: 1 min. Usi: 2 per riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Spostamento Paradigmatico</strong></td>
+<td style="text-align: left;">Scegli una specializzazione: <strong>Paradigma della Catastrofe</strong> o <strong>Paradigma dell'Utopia</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Manipolazione Probabilità</strong></td>
+<td style="text-align: left;"><strong>Reazione:</strong> Spendi 2 Punti Talento quando una creatura entro 18m effettua un tiro. Tira <strong>1d4</strong> e applicalo come bonus o penalità (prima di sapere il risultato).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Sovrapposizione Temporale</strong></td>
+<td style="text-align: left;">Quando attivi <em>Campo di Distorsione</em>, diventi parzialmente intangibile. I tiri per colpire contro di te hanno <strong>Svantaggio</strong> fino al tuo prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>11°</strong></td>
+<td style="text-align: left;"><strong>Riscrittura Immediata</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus:</strong> Se fallisci un tiro per colpire o prova abilità nel tuo turno, puoi ritirare il dado (devi usare il nuovo risultato). Usi: Mod. Carisma per riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15°</strong></td>
+<td style="text-align: left;"><strong>Esistenza Non Lineare</strong></td>
+<td style="text-align: left;">• <strong>Immunità Temporale:</strong> Non puoi essere invecchiato o rallentato nel tempo.<br>• <strong>Elusione del Fato (Reazione):</strong> Se vai a 0 PF, spendi 5 Punti Talento per svanire e riapparire al turno successivo con <strong>4d10 + Livello</strong> PF. (1 volta per riposo lungo).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>20°</strong></td>
+<td style="text-align: left;"><strong>Entità Quantica</strong></td>
+<td style="text-align: left;">• Resistenza danni <strong>Forza</strong> e <strong>Psichici</strong>.<br>• Non puoi essere sorpreso e hai Vantaggio all'Iniziativa.<br>• <strong>Collasso:</strong> Una volta per turno, se tiri 9 o meno su un d20, puoi trattarlo come <strong>10</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Paradigmi (Paradigms)</h2>
+<h3>Paradigma della Catastrofe</h3>
+<p><img src="../../../assets/Paradigma%20della%20catastrofe.png" alt="Paradigma della catastrofe.png" loading="lazy" class="content-image"><br />
+Visualizzi linee temporali apocalittiche dove tutto è andato storto, portando quel caos nel presente per danneggiare i tuoi nemici.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Terreno Ostile</strong></td>
+<td style="text-align: left;">Quando il <em>Campo di Distorsione</em> è attivo, i nemici che iniziano il turno o entrano nell'aura subiscono <strong>danni psichici pari al tuo Bonus di Competenza</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Frattura della Realtà</strong></td>
+<td style="text-align: left;"><strong>Azione (3 Punti Talento):</strong> Apri una frattura entro 18m. Creature entro 3m fanno TS Destrezza: <strong>4d6 danni forza</strong> e <strong>Prone</strong> (o metà danni).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Erosione della Volontà</strong></td>
+<td style="text-align: left;">Mentre il tuo <em>Campo di Distorsione</em> è attivo, l'entropia logora la mente dei nemici. Le creature ostili all'interno dell'aura hanno <strong>Svantaggio ai Tiri Salvezza su Intelligenza, Saggezza e Carisma</strong> contro i tuoi poteri da Paradosso.</td>
+</tr>
+</tbody>
+</table>
+<h3>Paradigma dell'Utopia</h3>
+<p><img src="../../../assets/Paradigma%20dell%27utopia.png" alt="Paradigma dell'utopia.png" loading="lazy" class="content-image"><br />
+Visualizzi realtà perfette, dove la tecnologia non fallisce mai e la biologia è ottimizzata, usando queste visioni per proteggere e migliorare.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Rifugio Sicuro</strong></td>
+<td style="text-align: left;">Quando il <em>Campo di Distorsione</em> è attivo, tu e gli alleati nell'aura avete <strong>Resistenza</strong> a un tipo di danno scelto all'attivazione (acido, freddo, fuoco, fulmine, tuono).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Negazione del Fallimento</strong></td>
+<td style="text-align: left;"><strong>Reazione (3 Punti Talento):</strong> Quando un alleato entro 9m fallisce un TS, puoi fargli ritirare il dado (deve usare il nuovo risultato).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Egida del Destino</strong></td>
+<td style="text-align: left;">Mentre il tuo <em>Campo di Distorsione</em> è attivo, la realtà lavora per proteggervi. Tu e gli alleati all'interno dell'aura siete immuni alle condizioni <strong>Spaventato</strong> e <strong>Affascinato</strong>. Inoltre, all'inizio di ogni tuo turno, gli alleati nell'aura guadagnano <strong>PF Temporanei pari al tuo Mod. Carisma</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Il Paradosso: Compendio delle Anomalie</h1>
+<table>
+<thead>
+<tr>
+<th>Caratteristica di Attivazione:</th>
+<th>Carisma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo di Potere</td>
+<td>Talenti (Manipolazione della Realtà, Cronomanzia e Entropia)<br></td>
+</tr>
+</tbody>
+</table>
+<p>Il Paradosso non "lancia incantesimi" nel senso tradizionale. Egli impone la sua volontà sull'universo per selezionare la linea temporale in cui l'evento desiderato si verifica. I suoi poteri appaiono come errori visivi nella realtà: pixel morti, loop temporali, oggetti che si duplicano o svaniscono nel nulla.</p>
+<hr />
+<h4>Grado 0 (Talenti Prime)</h4>
+<p><em>Alterazioni minori della causalità, utilizzabili a volontà.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Déjà Vu</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Costringi una creatura a rivivere mentalmente l'ultimo secondo. Il bersaglio deve superare un TS su Intelligenza o avere svantaggio al primo tiro per colpire che effettua prima dell'inizio del tuo prossimo turno, disorientato dalla ripetizione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Glitch</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Provochi un micro-errore nella realtà attorno a un bersaglio. Una creatura deve superare un TS su Intelligenza o subire <strong>1d8 danni psichici</strong> mentre vede versioni distorte di se stessa. Se fallisce, non può effettuare reazioni fino all'inizio del tuo prossimo turno.<br><em>Il danno aumenta di 1d8 ai livelli 5, 11 e 17.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guida Probabilistica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Tocchi una creatura consenziente e le mostri un breve flash di un futuro possibile in cui ha successo. Il bersaglio può aggiungere 1d4 a una prova di caratteristica a sua scelta prima che la durata termini.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mano Spettrale (Glitch)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Evochi una mano fatta di "rumore bianco" visivo e statico. Può manipolare oggetti (fino a 5 kg), aprire porte o fluttuare. Se la mano viene distrutta, l'oggetto torna istantaneamente alla sua posizione originale.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Manutenzione Temporale</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ripari un oggetto rotto o danneggiato "ricordando" una versione temporale in cui era intatto. Funziona su rotture non più grandi di 30 cm. Puoi anche ripristinare cibo avariato o pulire vestiti istantaneamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo Falso</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Sposti di pochi millisecondi la percezione del terreno di una creatura. Deve superare un TS su Destrezza o cadere Prona, inciampando su un ostacolo che in questa linea temporale non esiste.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sesto Senso Temporale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Percepisci fluttuazioni nel tempo. Sai se un oggetto è stato spostato negli ultimi 10 minuti o se una creatura ha usato poteri di teletrasporto nell'area recentemente.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Armatura di Inerzia</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Uno strato di forza distorta ti avvolge, rallentando i colpi in arrivo. La tua CA diventa <strong>13 + Modificatore Carisma</strong>. L'armatura appare come una leggera sfocatura attorno al tuo corpo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dissonanza Cognitiva</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Sussurri una verità paradossale nella mente di una creatura. Il bersaglio deve effettuare un TS su Saggezza. Se fallisce, subisce <strong>3d6 danni psichici</strong> e deve usare la sua reazione immediatamente per fuggire il più lontano possibile da te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fortuna del Principiante</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Attingi alla fortuna di una timeline in cui sei un guerriero esperto. I tuoi attacchi con armi infliggono <strong>1d4 danni radianti extra</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Proiettili Fantasma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Materializzi tre dardi di energia instabile che colpiscono infallibilmente. Ogni dardo infligge <strong>1d4+1 danni da forza</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Promemoria dal Futuro</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Tocchi un oggetto e ricevi "ricordi" di come usarlo da una tua versione futura. Apprendi le sue proprietà, funzioni, cariche residue e come attivarlo (equivalente a Identificare).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Salto Cronale</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti cancelli dal presente per riapparire istantaneamente altrove. Ti teletrasporti fino a 9 metri in uno spazio libero che puoi vedere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scudo Entropico</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;"><em>(Quando vieni colpito)</em> Fai vibrare la tua esistenza tra due realtà. Fino all'inizio del tuo prossimo turno, hai un bonus di <strong>+5 alla CA</strong>, incluso contro l'attacco scatenante.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Blocca Persone (Stasi)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Congeli un umanoide nel tempo. Il bersaglio è <strong>Paralizzato</strong>. È cosciente ma immobile, come un video in pausa. Può ripetere il TS Saggezza alla fine di ogni suo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frantumare (Shatter)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un punto di frequenza distruttiva che fa vibrare la materia fino a romperla. Ogni creatura in una sfera di 3 metri deve superare un TS Costituzione o subire <strong>3d8 danni da tuono</strong>. I costrutti hanno svantaggio al TS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Immagine Residua</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il tuo corpo lascia scie visive ritardate. Qualsiasi creatura ha svantaggio ai tiri per colpire contro di te, poiché colpisce dove eri una frazione di secondo fa.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riavvolgere Ferita</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Inverti il tempo localizzato su una ferita recente. Una creatura recupera <strong>1d8 + Modificatore Carisma PF</strong>. Funziona anche come riparazione su costrutti e oggetti.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scambio Quantico</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scegli una creatura consenziente (o un oggetto non fissato) entro gittata. Scambiate istantaneamente le posizioni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vedere l'Invisibile</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">I tuoi occhi percepiscono sfasamenti dimensionali. Vedi creature invisibili ed eteree come se fossero circondate da scariche statiche.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Accelerazione (Haste)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Acceleri il flusso temporale di una creatura. Velocità raddoppiata, +2 CA, vantaggio TS Des, azione aggiuntiva limitata. Letargia alla fine.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contro-Realtà</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Interrompi un potere o incantesimo mentre viene lanciato, dichiarando che "in questa timeline non è successo". Automatico per grado 3 o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Decelerazione (Slow)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Rallenti il tempo per un massimo di 6 creature in un cubo di 12 metri. TS Saggezza. Fallimento: velocità dimezzata, -2 CA e TS Destrezza, no reazioni, solo un'azione o bonus.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Intermittenza (Blink)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Alla fine di ogni tuo turno, tira 1d20. Se fai 11+, svanisci in una timeline adiacente (non puoi essere colpito). Riappari all'inizio del tuo prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo Dimensionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti teletrasporti in un punto visibile. Nel punto che lasci, lo spazio collassa con un boato: le creature entro 3 metri subiscono <strong>3d10 danni da tuono</strong> (TS Costituzione dimezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riavvolgimento Tattico</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Quando un alleato viene colpito)</em> Riavvolgi il tempo di un secondo. L'alleato si teletrasporta di 1,5 metri e il danno dell'attacco è dimezzato.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Confusione Temporale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sovrapponi multiple realtà contraddittorie nella mente delle creature in una sfera di 3 metri. TS Saggezza o agiscono casualmente (Confusione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esilio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Spingi una creatura fuori dalla realtà corrente. Se nativa, finisce in una tasca temporale. Se extra-planare, ritorna al suo piano d'origine.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Porta Dimensionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">150 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti teletrasporti (con un passeggero) in un punto preciso entro gittata. Non hai bisogno di vederlo, basta visualizzarlo o descriverlo con coordinate.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera di Stasi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Racchiudi una creatura o oggetto in una sfera di forza scintillante dove il tempo è quasi fermo. Niente passa attraverso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tasca Fuori dal Tempo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Nascondi un oggetto o una creatura consenziente in una piega temporale. Diventa invisibile e intangibile.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ancora Planare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Blocchi una creatura in questa specifica realtà. TS Carisma. Se fallisce, non può usare teletrasporto, viaggi planari o diventare etereo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cerchio di Teletrasporto</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Crei un portale stabile verso un altro cerchio di teletrasporto permanente conosciuto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dominare Persone</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Assumi il controllo delle azioni di un umanoide, come se fossi tu il "giocatore" della sua realtà.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modificare Memoria</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Riscrivi fino a 10 minuti di memoria di una creatura, alterando la sua percezione del passato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Muro di Forza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un pannello o una cupola di forza invisibile ("un muro di pixel solidi") che nulla può attraversare fisicamente.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Contingenza</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">10 giorni</td>
+<td style="text-align: left;">Programmi un potere di grado 5 o inferiore che si attiverà automaticamente su di te quando si verifica una condizione specifica futura.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disintegrare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Acceleri l'entropia di un bersaglio di milioni di anni. TS Destrezza. Fallimento: <strong>10d6 + 40 danni da forza</strong>. Se ridotto a 0 PF, diventa polvere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Globo di Invulnerabilità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (3m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Una barriera sferica respinge le alterazioni esterne. Blocca qualsiasi potere esper di Grado 5 o inferiore lanciato dall'esterno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sguardo del Futuro</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Fissi una creatura. Ogni volta che cerca di attaccarti, deve superare un TS Saggezza o perdere l'attacco, poiché tu hai già visto il colpo.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 7</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Inversione di Gravità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">30 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Inverti la gravità in un cilindro di 15 metri. Creature e oggetti cadono verso l'alto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paradosso Temporale</strong></td>
+<td style="text-align: left;">12 ore</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a dissoluzione</td>
+<td style="text-align: left;">Estrai una versione di te stesso (o di una creatura) da una timeline passata (Simulacro). Ha metà dei PF massimi e non recupera slot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spostamento Planare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Trasporti te e fino a 8 creature su un altro piano di esistenza (o dimensione alternativa/timeline). Richiede un focus.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Teletrasporto di Massa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Trasferisci istantaneamente te stesso e fino a 8 creature consenzienti in un luogo conosciuto sullo stesso piano di esistenza.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 8</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Solare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Evoca la luce di una stella morente in un raggio di 18 metri. <strong>12d6 danni radianti</strong> e cecità permanente (TS Costituzione dimezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Labirinto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Bandi una creatura in un semi-piano labirintico. Ogni round, il bersaglio può tentare una prova di Intelligenza (CD 20) per fuggire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Parola del Potere: Stordire</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Pronunci una parola che sovraccarica il cervello. Se il bersaglio ha meno di 150 PF, è stordito automaticamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vuoto Mentale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">La mente del bersaglio esiste fuori dal flusso del tempo. Immunità ai danni psichici, alla lettura del pensiero e alla divinazione.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 9</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Arresto del Tempo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Fermi il flusso del tempo per tutti tranne te. Ottieni <strong>1d4 + 1 turni consecutivi</strong>. Se interagisci con altri, l'effetto termina.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Desiderio (Trama Cosmica)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Parli all'universo per riscriverlo. Duplichi poteri di grado 8 o crei effetti unici. Causa stress fisico estremo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esecuzione Perfetta</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Il bersaglio vede il futuro immediato (Preveggenza). Non può essere sorpreso e ha Vantaggio su tutto. I nemici hanno Svantaggio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Parola del Potere: Uccidere</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Pronunci una parola che recide il bersaglio dalla linea temporale. Se ha meno di 100 PF, muore istantaneamente senza tiro salvezza.</td>
+</tr>
+<tr>
+<td style="text-align: left;">#### Tecniche Specifiche per Specializzazione Paradosso</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Disponibili solo per i Paradossi che seguono lo specifico paradigma e hanno raggiunto il livello adeguato.</p>
+<h5>Paradigma della Catastrofe</h5>
+<p><em>Poteri esclusivi per chi abbraccia l'inevitabile fine di tutte le cose.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Collasso Strutturale</strong> (Grado 2)</td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scegli un oggetto non magico o una sezione di muro/pavimento. Invecchi il materiale di mille anni in un secondo. L'oggetto si sbriciola. Se usato su un'armatura/arma nemica, la CA si riduce di 2 o i danni diminuiscono.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona Morta</strong> (Grado 5)</td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri (Sfera 6m)</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un'area dove la vita non può esistere. Ogni creatura che inizia il turno nell'area subisce <strong>5d8 danni necrotici</strong>. Le piante avvizziscono. Se una creatura muore qui, non può essere resuscitata se non con <em>Desiderio</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Piaga dell'Entropia</strong> (Grado 7)</td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Infetti una creatura con entropia pura. Il bersaglio ha <strong>vulnerabilità a tutti i danni</strong>. Alla fine di ogni turno, può fare un TS Costituzione per terminare l'effetto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Evento di Estinzione</strong> (Grado 9)</td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">1,5 km</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Simile a <em>Sciame di Meteore</em>, ma evochi frammenti di pianeti distrutti. 4 sfere di impatto (raggio 12m). <strong>20d6 danni da fuoco + 20d6 danni contundenti</strong> per ogni sfera.</td>
+</tr>
+</tbody>
+</table>
+<h5>Paradigma dell'Utopia</h5>
+<p><em>Poteri esclusivi per chi cerca di riscrivere la realtà in una forma perfetta.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Scudo dell'Egida Perfetta</strong> (Grado 3)</td>
+<td style="text-align: left;">1 azione (o reazione)</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Scegli fino a 3 creature. Fino al tuo prossimo turno, sono <strong>immuni a Tutti i Danni</strong> derivanti da una singola fonte a tua scelta (es: il prossimo soffio di drago, la prossima esplosione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guarigione Temporale</strong> (Grado 6)</td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scegli una creatura che ha subito danni nell'ultimo round. Ripristini i suoi PF al valore esatto che avevano all'inizio del suo ultimo turno. Non rimuove condizioni, annulla solo la perdita di PF.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Santuario Eterno</strong> (Grado 8)</td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">- (Raggio 30m)</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">All'interno dell'area, le creature non invecchiano, non hanno fame/sete e le malattie sono sospese. Nessun attacco può essere effettuato all'interno dell'area (blocco automatico o CD altissima).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forma Perfetta</strong> (Grado 9)</td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Il bersaglio diventa la versione ideale di se stesso. Recupera tutti i PF, rimuove tutte le condizioni, ottiene <strong>+4 a tutte le caratteristiche</strong> (max 24) e <strong>resistenza a tutti i danni</strong>.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

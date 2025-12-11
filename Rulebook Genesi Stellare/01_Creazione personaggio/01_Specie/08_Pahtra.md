@@ -13,26 +13,18 @@ Dopo essersi uniti all'Accordo del Sorium, i Pahtra si sono diffusi rapidamente.
 
 **TRATTI DEI PAHTRA**
 Come Pahtra, possiedi sensi acuti, agilità naturale e un'eredità di sopravvivenza.
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Destrezza aumenta di 2.
-**Età.** 
-I Pahtra maturano leggermente più velocemente degli umani, raggiungendo l'età adulta intorno ai 15 anni, e vivono fino a circa 80-90 anni.
-**Allineamento.** 
-Il valore che danno alla libertà personale e la loro recente storia di ribellione li spinge verso allineamenti Caotici. Tendono al Bene o alla Neutralità, difendendo ferocemente la propria autonomia e quella degli altri.
-**Taglia.** 
-Sono snelli e atletici, con un'altezza media che varia da 1,60 a 1,90 metri. La tua taglia è Media.
-**Velocità.** 
-Sei scattante e veloce. La tua velocità base di camminata è di 10,5 metri 
-**Scurovisione.** 
-Hai occhi da predatore, abituati a cacciare nella notte o nella giungla fitta. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio.
-**Sensi Felini.** 
-Ottieni competenza nell'abilità _Percezione_.
-**Armi Naturali.** 
-Possiedi artigli retrattili che puoi usare in combattimento. I tuoi colpi senz'armi infliggono danni taglienti pari a 1d4 + il tuo modificatore di Forza, invece dei normali danni contundenti.
-**Atterraggio Agile.** 
-Hai resistenza ai danni da caduta e sei sempre considerato competente nelle prove di Destrezza (Acrobazia) per ridurre l'impatto di una caduta.
-**Linguaggi.** 
-Parli, leggi e scrivi in Comune e Pahtra (una lingua melodica che include fusa e ringhi per trasmettere emozioni sottili).
+
+| Aumento punteggio caratteristico | Dex +2                                                                                                                                                                                                                                                                    |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taglia                           | M  Sono snelli e atletici, con un'altezza media che varia da 1,60 a 1,90 metri.                                                                                                                                                                                           |
+| Velocità                         | 9m                                                                                                                                                                                                                                                                        |
+| **Scurovisione.**                | Hai occhi da predatore, abituati a cacciare nella notte o nella giungla fitta. Puoi vedere in luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Non puoi discernere i colori nell'oscurità, solo sfumature di grigio. |
+| Lingue                           | Comune, e  Pahtra (una lingua melodica che include fusa e ringhi per trasmettere emozioni sottili).                                                                                                                                                                       |
+| **Sensi Felini.**                | Ottieni competenza nell'abilità _Percezione_.                                                                                                                                                                                                                             |
+| **Armi Naturali.**               | Possiedi artigli retrattili che puoi usare in combattimento. I tuoi colpi senz'armi infliggono danni taglienti pari a 1d4 + il tuo modificatore di Forza, invece dei normali danni contundenti.                                                                           |
+| **Atterraggio Agile.**           | Hai resistenza ai danni da caduta e sei sempre considerato competente nelle prove di Destrezza (Acrobazia) per ridurre l'impatto di una caduta.                                                                                                                           |
+| **Età.**                         | I Pahtra maturano leggermente più velocemente degli umani, raggiungendo l'età adulta intorno ai 15 anni, e vivono fino a circa 80-90 anni.                                                                                                                                |
+| **Allineamento.**                | Il valore che danno alla libertà personale e la loro recente storia di ribellione li spinge verso allineamenti Caotici. Tendono al Bene o alla Neutralità, difendendo ferocemente la propria autonomia e quella degli altri                                               |
 **Archetipo di Specie.** 
 La società Pahtra si è divisa in due percorsi principali durante la guerra di liberazione: coloro che combattevano nell'ombra e coloro che guidavano con la voce. Scegli uno dei seguenti archetipi:
 
@@ -40,20 +32,16 @@ La società Pahtra si è divisa in due percorsi principali durante la guerra di 
 ![[pahtra silente.png]]
  Questi Pahtra incarnano l'aspetto predatorio della loro specie. Erano i sabotatori e gli assassini durante l'occupazione, capaci di muoversi senza essere visti e colpire con precisione letale. Preferiscono l'azione diretta e le tattiche di guerriglia.
 
-**Aumento dei Punteggi di Caratteristica.** 
-Il tuo punteggio di Costituzione aumenta di 1.
-**Passo Felpato.**
-Ottieni competenza nell'abilità _Furtività_.
-**Scatto del Predatore.** 
-Quando usi l'azione di Scatto (Dash), puoi muoverti attraverso il terreno difficile senza penalità di movimento per quel turno.
+| Aumento punteggio caratteristico | Cos +1                                                                                                                              |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Passo Felpato.**               | Ottieni competenza nell'abilità _Furtività_.                                                                                        |
+| **Scatto del Predatore.**        | Quando usi l'azione di Scatto (Dash), puoi muoverti attraverso il terreno difficile senza penalità di movimento per quel turno.<br> |
 
 ### CANTORE DI GUERRA
 ![[pahtra cantore.png]]
  I Cantori di Guerra sono coloro che hanno scoperto come canalizzare l'energia esper attraverso la musica e la voce. Sono leader carismatici e incantatori da battaglia, che usano il suono come un'arma o uno scudo.
 
-**Aumento dei Punteggi di Caratteristica.**
-Il tuo punteggio di Carisma aumenta di 1.
-**Voce Esper.** 
-Ottieni l'uso del talento _Sonic Burst_ (Esplosione Sonica) come talento Prime (a volontà). La tua caratteristica di canalizzazione per questo talento è il Carisma.
-**Ispirazione Musicale.** 
-Ottieni competenza nell'abilità _Intrattenere_ o in uno strumento musicale a tua scelta.
+| Aumento punteggio caratteristico | Car +1                                                                                                                                                               |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Voce Esper.**                  | Ottieni l'uso del talento _Sonic Burst_ (Esplosione Sonica) come talento Prime (a volontà). La tua caratteristica di canalizzazione per questo talento è il Carisma. |
+| **Ispirazione Musicale.**        | Ottieni competenza nell'abilità _Intrattenere_ o in uno strumento musicale a tua scelta.<br>                                                                         |

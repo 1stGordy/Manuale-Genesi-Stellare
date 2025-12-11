@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_Solariano - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">06_Solariano</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h1>Cavaliere Solare</h1>
+<p>Sei un canale vivente per le forze stellari del cosmo. I poteri della gravità (Gravitone) e della luce (Fotone) rappresentano gli estremi di queste forze primordiali e tu hai imparato a sintonizzarti con esse, danzando sul filo del rasoio tra la singolarità del buco nero e l'esplosione della supernova. Come agente di questo ciclo cosmico, manifesti equipaggiamenti fatti di pura energia stellare e usi la tua connessione per potenziarli. Attraverso la meditazione e la pratica, sblocchi rivelazioni che ti permettono di piegare lo spazio e bruciare i nemici.</p>
+<p>I Cavalieri Solari sono guardiani dell'equilibrio cosmico. Alcuni servono come protettori di sistemi stellari remoti, altri come crociati contro l'oscurità del Vuoto, usando la luce delle stelle come arma e scudo.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Dadi Vita</strong></td>
+<td style="text-align: left;">1d10 per livello da cavaliere solare</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PF al 1° Livello</strong></td>
+<td style="text-align: left;">10 + il tuo modificatore di Costituzione</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PF ai Livelli Successivi</strong></td>
+<td style="text-align: left;">1d10 (o 6) + il tuo modificatore di Costituzione per livello dopo il 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;">Competenze</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armature</strong></td>
+<td style="text-align: left;">Leggere, Medie, Scudi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armi</strong></td>
+<td style="text-align: left;">Armi semplici, Armi marziali</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Strumenti</strong></td>
+<td style="text-align: left;">Nessuno</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tiri Salvezza</strong></td>
+<td style="text-align: left;">Costituzione, Carisma</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abilità</strong></td>
+<td style="text-align: left;">Due a scelta tra: Astrofisica, Atletica, Intimidire, Intuizione, Percezione e Sopravvivenza</td>
+</tr>
+</tbody>
+</table>
+<h4>Equipaggiamento Iniziale</h4>
+<p>Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal background:<br />
+* (a) un'arma marziale o (b) un'arma semplice<br />
+* (a) armatura da truppa media o (b) armatura leggera<br />
+* (a) una pistola leggera e 20 colpi o (b) due lame da lancio<br />
+* (a) uno zaino da esploratore<br />
+* Un cristallo stellare (Focus Esper)</p>
+<hr />
+<h3>Tabella: Il Cavaliere Solare</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Rivelazioni Conosciute</th>
+<th>Grado max</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">-</td>
+<td>0</td>
+<td style="text-align: left;">Manifestazione Solare, Sintonizzazione Stellare</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td style="text-align: left;">Rivelazioni Stellari</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td style="text-align: left;">Ordine Siderale</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2</td>
+<td>2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3</td>
+<td>2</td>
+<td style="text-align: left;">Attacco Extra</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3</td>
+<td>3</td>
+<td style="text-align: left;">Rivelazione Stellare, Privilegio Ordine</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td>3</td>
+<td style="text-align: left;">Equilibrio Cosmico</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td>4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td>4</td>
+<td style="text-align: left;">Manifestazione Solare, Sintonizzazione Stellare (aumento di 1d)</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td>5</td>
+<td style="text-align: left;">Privilegio Ordine</td>
+</tr>
+<tr>
+<td style="text-align: center;">11°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">6</td>
+<td>6</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">12°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">6</td>
+<td>6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">13°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">7</td>
+<td>7</td>
+<td style="text-align: left;">Manifestazione Solare, Sintonizzazione Stellare (aumento di 2d)</td>
+</tr>
+<tr>
+<td style="text-align: center;">14°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">7</td>
+<td>7</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">8</td>
+<td>7</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">16°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">8</td>
+<td>8</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">17°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">8</td>
+<td>8</td>
+<td style="text-align: left;">Manifestazione Solare, Sintonizzazione Stellare (aumento di 3d)</td>
+</tr>
+<tr>
+<td style="text-align: center;">18°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">9</td>
+<td>8</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">19°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">9</td>
+<td>9</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">20°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">10</td>
+<td>9</td>
+<td style="text-align: left;">Poteri Zenit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Manifestazione Solare</strong></td>
+<td style="text-align: left;">Scegli una forma fisica per la tua energia:<br>• <strong>Arma Solare:</strong> Azione bonus per creare arma marziale (1d8/1d10, radiante o forza). Magica dal 6° liv.<br>• <strong>Armatura Solare:</strong> Azione bonus per alone protettivo. CA = 13 + Des. Resistenza freddo/fuoco. Luce 3m.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Sintonizzazione Stellare</strong></td>
+<td style="text-align: left;">Attivi un modo (durata 1 min):<br>• <strong>Modo Fotone:</strong> +1d4 danni fuoco in mischia (aumenta a 1d6 al 5°, 1d8 al 10°, 1d10 al 15°).<br>• <strong>Modo Gravitone:</strong> +1 CA e terreno difficile entro 1,5m per i nemici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Rivelazioni Stellari</strong></td>
+<td style="text-align: left;">Impari a usare poteri cosmici (vedi Lista Rivelazioni).<br><strong>CD Tiro Salvezza:</strong> 8 + Bonus Comp. + Mod. Carisma.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Ordine Siderale</strong></td>
+<td style="text-align: left;">Scegli un Ordine filosofico: <strong>Ordine dell'Eclissi</strong> o <strong>Ordine della Corona</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4°</strong></td>
+<td style="text-align: left;"><strong>Aumento Caratteristica</strong></td>
+<td style="text-align: left;">Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Attacco Extra</strong></td>
+<td style="text-align: left;">Puoi attaccare due volte invece di una quando usi l'azione Attacco.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Equilibrio Cosmico</strong></td>
+<td style="text-align: left;">Quando cambi Sintonizzazione (Fotone ↔ Gravitone) in combattimento, recuperi <strong>PF = Mod. Carisma + Livello</strong>. Usi: Bonus Competenza per riposo lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8°</strong></td>
+<td style="text-align: left;"><strong>Aumento Caratteristica</strong></td>
+<td style="text-align: left;">Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>12°</strong></td>
+<td style="text-align: left;"><strong>Aumento Caratteristica</strong></td>
+<td style="text-align: left;">Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>16°</strong></td>
+<td style="text-align: left;"><strong>Aumento Caratteristica</strong></td>
+<td style="text-align: left;">Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>19°</strong></td>
+<td style="text-align: left;"><strong>Aumento Caratteristica</strong></td>
+<td style="text-align: left;">Aumenti una caratteristica di 2 o due di 1 (o scegli un Talento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>20°</strong></td>
+<td style="text-align: left;"><strong>Poteri Zenit</strong></td>
+<td style="text-align: left;">Se mantieni la stessa sintonizzazione per <strong>3 round</strong>, puoi usare una <strong>Rivelazione Zenit</strong> (Grado 9) come azione bonus. Dopo l'uso, la sintonizzazione termina.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Ordini Siderali</h2>
+<h3>Ordine della Corona (Order of the Corona)</h3>
+<p><img src="../../../assets/Solariano%20corona.png" alt="Solariano corona.png" loading="lazy" class="content-image"><br />
+I cavalieri di questo ordine abbracciano la furia delle stelle. Sono distruttori luminosi, che bruciano le impurità della galassia.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Arma Radiante</strong></td>
+<td style="text-align: left;">• <strong>Se hai Arma Solare:</strong> Infligge danni da fuoco extra pari al tuo <strong>Mod. Carisma</strong>.<br>• <strong>Se hai Armatura Solare:</strong> Chi ti colpisce in mischia subisce danni da fuoco pari al tuo <strong>Mod. Carisma</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Anima del Sole</strong></td>
+<td style="text-align: left;">Ottieni resistenza ai danni <strong>Radianti</strong> e da <strong>Fuoco</strong>. I tuoi attacchi ignorano la resistenza ai danni da fuoco dei nemici.</td>
+</tr>
+</tbody>
+</table>
+<h3>Ordine dell'Eclissi (Order of the Eclipse)</h3>
+<p><img src="../../../assets/Solariano%20eclissi.png" alt="Solariano eclissi.png" loading="lazy" class="content-image"><br />
+Questi cavalieri studiano il vuoto e l'inevitabilità della gravità. Sono tank inarrestabili e controllori del campo di battaglia.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Peso del Mondo</strong></td>
+<td style="text-align: left;">Mentre sei in <strong>Modo Gravitone</strong>: Se colpisci una creatura con l'Arma Solare (o in mischia se hai l'Armatura), la sua velocità è ridotta di <strong>3 metri</strong> fino al suo prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Guscio di Eventi</strong></td>
+<td style="text-align: left;">Ottieni resistenza ai danni da <strong>Forza</strong> e <strong>Necrotici</strong>. Hai vantaggio ai TS per evitare di essere spostato o gettato prono.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Poteri Esper</h1>
+<table>
+<thead>
+<tr>
+<th><strong>Caratteristica di Lancio:</strong></th>
+<th>Carisma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo di Potere</td>
+<td>Rivelazioni (Canalizzazione Stellare)</td>
+</tr>
+</tbody>
+</table>
+<p>Il Solariano è un guerriero mistico che funge da condotto per le energie fondamentali delle stelle: la luce e il calore (Fotone) e la gravità e il vuoto (Gravitone). Le sue <em>Rivelazioni</em> sono manifestazioni fisiche di queste forze. Alcune Rivelazioni sono più efficaci se il Solariano è in un determinato stato di <strong>Sintonizzazione</strong> (Fotone o Gravitone), ma possono essere usate indipendentemente salvo diversa indicazione.</p>
+<hr />
+<h4>Grado 0 (Rivelazioni Prime)</h4>
+<p><em>Questi poteri possono essere usati a volontà.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Attrazione Minore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un micro-pozzo gravitazionale su un oggetto non indossato o trasportato entro la gittata. L'oggetto vola immediatamente nella tua mano libera. Se usato su una creatura, questa deve superare un TS su Forza o essere tirata di 1,5 metri verso di te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo Stellare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">1,5 metri (Mischia)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Parte dell'attacco)</em> Effettua un attacco in mischia. Se colpisci, il bersaglio subisce gli effetti normali e un alone di gravità lo avvolge: se il bersaglio si muove volontariamente prima dell'inizio del tuo prossimo turno, subisce <strong>1d8 danni da forza</strong> e il potere termina.<br><em>Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fiamma Sacra (Stellare)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Una radianza simile a una fiamma discende su una creatura che puoi vedere entro la gittata. Il bersaglio deve superare un TS su Destrezza o subire <strong>1d8 danni radianti</strong>. Il bersaglio non ottiene benefici dalla copertura per questo tiro salvezza.<br><em>Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Luce Guida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocchi un oggetto. Fino alla fine dell'incantesimo, l'oggetto emette luce intensa in un raggio di 6 metri e luce fioca per altri 6 metri. La luce può essere colorata a tua scelta. Se copri l'oggetto, la luce viene bloccata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Resistenza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Tocchi una creatura consenziente. Una volta prima che l'incantesimo termini, il bersaglio può tirare un d4 e aggiungere il numero ottenuto a un tiro salvezza a sua scelta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stabilità Gravitazionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Aumenti la tua densità personale. Hai vantaggio sulle prove di Forza e sui Tiri Salvezza per evitare di essere spostato, spinto o gettato a terra prono contro la tua volontà.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Armatura di Agathys (Vuoto)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Una forza spettrale di vuoto e gelo ti circonda. Ottieni <strong>5 Punti Ferita Temporanei</strong>. Se una creatura ti colpisce con un attacco in mischia mentre hai questi punti ferita, subisce <strong>5 danni da freddo</strong>.<br><em>A Gradi Superiori: +5 PF e +5 danni per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Assorbire Elementi</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;"><em>(Quando subisci danni elementali)</em> Il tuo campo stellare cattura energia. Hai resistenza al tipo di danno scatenante fino al prossimo turno. Inoltre, il tuo primo attacco in mischia successivo infligge <strong>1d6 danni extra</strong> dello stesso tipo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attrazione del Buco Nero</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Generi un'improvvisa singolarità dietro un nemico. Scegli una creatura entro la gittata. Deve superare un TS su Forza o essere trascinata in linea retta fino a 4,5 metri verso di te. Se termina questo movimento entro 1,5 metri da te, puoi attaccarla in mischia come parte della stessa azione bonus.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dardo Guida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Un lampo di luce stellare si dirige verso una creatura. Attacco a distanza. Colpisce per <strong>4d6 danni radianti</strong> e il prossimo tiro per colpire contro il bersaglio ha vantaggio.<br><em>A Gradi Superiori: +1d6 danni per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Duello Compulsivo</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Costringi una creatura a combattere te. TS Saggezza. Se fallisce, ha svantaggio agli attacchi contro altri e deve fare TS Saggezza per allontanarsi oltre 9 metri da te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Supernova</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (3m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Rilasci un'ondata di energia fotonica. Ogni creatura entro 3 metri da te deve effettuare un TS su Destrezza. Subisce <strong>2d6 danni radianti</strong> (metà se salva).<br><em><strong>Sintonizzazione Fotone:</strong> Il raggio aumenta a 4,5 metri.<br>A Gradi Superiori: +1d6 danni per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mani Brucianti (Solare)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (cono 4,5m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Una sottile lastra di fiamme solari scaturisce dalle mani. Ogni creatura nel cono deve effettuare un TS su Destrezza. Subisce <strong>3d6 danni da fuoco</strong> (metà se salva).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punizione Divina (Solare)</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il tuo prossimo attacco in mischia infligge <strong>2d6 danni radianti</strong> extra. Se il bersaglio è un non morto o un netherant, subisce invece <strong>2d8 danni radianti</strong> extra.<br><em>A Gradi Superiori: +1d6 (o +1d8) danni per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scudo della Fede (Gravità)</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Un campo di gravità distorce lo spazio attorno a una creatura a tua scelta entro gittata. Il bersaglio ottiene un bonus di <strong>+2 alla CA</strong> per la durata.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Arma Magica (Stellare)</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Tocchi un'arma non magica. Fino alla fine dell'incantesimo, quell'arma diventa un'arma magica con un bonus di +1 ai tiri per colpire e ai danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bagliore Accecante</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Quando vieni attaccato)</em> Interponi un flash di luce. L'attaccante deve superare un TS su Costituzione o essere <strong>Accecato</strong> fino alla fine del suo turno, imponendo svantaggio all'attacco.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Blocca Persone (Presa)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">La gravità aumenta attorno a un umanoide. TS Saggezza o viene <strong>Paralizzato</strong>. TS ripetibile ogni turno.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oscurità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Oscurità magica riempie una sfera di 4,5 metri. Blocca scurovisione e luce non magica.<br><em><strong>Sintonizzazione Gravitone:</strong> L'area è terreno difficile.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo Brumoso (Salto)</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti teletrasporti fino a 9 metri in uno spazio libero che puoi vedere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punizione Marchiante</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il tuo prossimo attacco infligge <strong>2d6 danni radianti</strong> extra. Se il bersaglio è invisibile, diventa visibile ed emette luce fioca. Non può diventare invisibile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raggio Rovente</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei tre raggi di fuoco. Attacco a distanza per ognuno. <strong>2d6 danni da fuoco</strong> per colpo.<br><em>A Gradi Superiori: +1 raggio per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scatto Stellare</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Ottieni una velocità di volo di 9 metri fino alla fine del turno. Se non atterri, cadi. Non provoca attacchi di opportunità.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Campo di Densità</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Quando subisci danni)</em> Aumenti la tua densità. Riduci i danni subiti di un ammontare pari al tuo <strong>Livello da Solariano + Modificatore di Carisma</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lama del Sole</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">1,5 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Attacco in mischia. Se colpisci, aggiungi <strong>3d8 danni da fuoco</strong> e il bersaglio prende fuoco (1d6 danni/turno finché non spento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lentezza (Pozzo Grav.)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Alterazione temporale in un cubo di 12m. Fino a 6 creature fanno TS Saggezza. Fallimento: velocità dimezzata, -2 CA/TS Des, no reazioni, solo 1 azione/turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Luce Diurna</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Sfera di luce solare di 18m raggio. Dissolve oscurità magica di grado 3 o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Muro di Vento (Gravità)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Muro di gravità compressa (15m lungh, 4,5m alt). Blocca nebbie, gas, creature volanti e proiettili piccoli.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Palla di Fuoco (Solare)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Esplosione in sfera di 6m. TS Destrezza: <strong>8d6 danni da fuoco</strong> (metà se salva).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punizione Accecante</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il prossimo attacco infligge <strong>3d8 danni radianti</strong> extra. TS Costituzione o bersaglio <strong>Accecato</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Manipoli la gravità attorno a una creatura. Il bersaglio ottiene una velocità di volo di 18 metri per la durata.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Esilio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Invii una creatura in un altro piano o nel vuoto. TS Carisma. Se nativa, va in una semi-dimensione temporanea. Se extra-planare, torna a casa.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gravità Nera</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Area di 6m a terra (terreno difficile). TS Destrezza o <strong>3d6 danni contundenti</strong> e <strong>Trattenuto</strong>. 3d6 danni ogni turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Muro di Fuoco (Solare)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Muro di fuoco opaco. Chi attraversa o sta vicino subisce <strong>5d8 danni da fuoco</strong> (TS Destrezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punizione Vacillante</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il prossimo attacco infligge <strong>4d6 danni psichici</strong> extra. TS Saggezza o svantaggio a colpire/prove e niente reazioni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schiacciamento Gravitazionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Cilindro di gravità (6m raggio). TS Forza. Fallimento: <strong>4d8 danni da forza</strong> e <strong>Prono</strong>. Successo: metà danni. Terreno difficile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scudo di Fuoco (Stellare)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Aura di fiamme (calde o fredde). Emetti luce. Chi ti colpisce in mischia subisce <strong>2d8 danni</strong> (fuoco o freddo).</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cerchio di Potere</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (9m)</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Aura divina. Vantaggio ai TS contro magia per te e alleati. Se un TS dimezza i danni, invece li annulla completamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo Infuocato</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Colonna di fuoco (3m raggio). TS Destrezza: <strong>4d6 danni da fuoco + 4d6 danni radianti</strong> (metà se salva).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Coronale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Sfera di fuoco di 6m. TS Destrezza: <strong>8d6 danni da fuoco</strong>.<br><em><strong>Sintonizzazione Fotone:</strong> Raggio 9m e ignora resistenza al fuoco.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Muro di Forza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Muro invisibile e indistruttibile. Blocca passaggio fisico e magico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punizione Bandente</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il prossimo attacco infligge <strong>5d10 danni da forza</strong> extra. Se il bersaglio scende a 50 PF o meno, viene bandito (come <em>Esilio</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Telecinesi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Usi la gravità per manipolare oggetti (450kg) o trattenere creature (Prova contrapposta).</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Raggio Solare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (Linea 18m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Linea di luce. TS Costituzione: <strong>6d8 danni radianti</strong> e <strong>Accecato</strong>. Puoi ripetere ogni turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Singolarità Solare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Buco nero (9m raggio). Oscurità e terreno difficile. TS Forza all'inizio del turno o <strong>10d6 danni da forza</strong> e trascinamento al centro.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 7</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Forma di Luce Pura</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Diventi energia fotonica. Resistenza danni non magici, volo 18m, attraversi oggetti. Chi ti tocca subisce <strong>2d8 radianti</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tempesta di Fuoco</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Dieci cubi di fuoco da 3m. TS Destrezza: <strong>7d10 danni da fuoco</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 8</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Solare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Luce brillante (18m raggio). TS Costituzione: <strong>12d6 danni radianti</strong> e <strong>Accecato</strong> per 1 minuto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Orizzonte degli Eventi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (18m)</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Aura gravitazionale. Nessuno può entrare/uscire o teletrasportarsi senza TS Carisma. Nemici hanno velocità dimezzata.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 9</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sciame di Meteore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">1,5 km</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Quattro sfere (12m raggio). TS Destrezza: <strong>20d6 fuoco + 20d6 contundenti</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Supernova Totale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (30m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Richiede 3 turni di carica Fotone)</em> Esplosione cataclismica. TS Destrezza: <strong>20d6 fuoco + 20d6 radianti</strong>. Subisci indebolimento dopo l'uso.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

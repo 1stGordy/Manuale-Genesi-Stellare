@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_Melder - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">02_Melder</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h2>Melder</h2>
+<p>Maestri della manipolazione di materia ed energia, i melder si sintonizzano con l'incredibile potere grezzo all'interno dei misteriosi Crogioli. Attingendo energia dentro di sé, possono usarla per alterare la realtà stessa combinando, modellando e incanalando quelle energie intorno a loro. Anche le culture più istruite devono ancora comprendere appieno l'abilità innata di un melder.</p>
+<p>Alcuni esper esercitano i loro poteri attraverso l'uso di dispositivi o impianti di sorium. I melder non conoscono tali limitazioni. La loro intera essenza è infusa con il potere generato dai Crogioli, permettendo loro di attingere materia ed energia da ciò che li circonda e modellarla nella forma desiderata prima di rilasciarla.</p>
+<h3>Tessitori del Cosmo</h3>
+<p>I melder comunicano con i Crogioli usando un sistema di codici e formule intessuti in forme controllate di energia. È un linguaggio a sé stante, che richiede una psiche forte per focalizzarsi e tradurre mentre un melder "parla" alle forze intorno a sé. Una volta che tale codice è padroneggiato, diventa parte del repertorio di talenti del Melder.</p>
+<h3>Discepoli dell'Infinito</h3>
+<p>A causa della loro visione unica della connessione tra tutte le cose, molti melder cercano di guardare oltre il velo, sforzandosi di imparare di più sulla natura sia del loro universo che del multiverso che esiste oltre. Alcuni credono che i Crogioli siano semplicemente una manifestazione di realtà e concetti che devono ancora essere decifrati.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Dadi Vita</td>
+<td style="text-align: left;">1d6 per livello da melder</td>
+</tr>
+<tr>
+<td style="text-align: left;">PF al 1° Livello</td>
+<td style="text-align: left;">6 + il tuo modificatore di Costituzione</td>
+</tr>
+<tr>
+<td style="text-align: left;">PF ai Livelli Successivi</td>
+<td style="text-align: left;">1d6 (o 4) + il tuo modificatore di Costituzione per livello dopo il 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Competenze</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Armature</td>
+<td style="text-align: left;">Nessuna</td>
+</tr>
+<tr>
+<td style="text-align: left;">Armi</td>
+<td style="text-align: left;">Coltello da combattimento, lame da lancio, bastone pieghevole, manganello metallico, pistola leggera</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tiri Salvezza</td>
+<td style="text-align: left;">Intelligenza, Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;">Abilità</td>
+<td style="text-align: left;">Due a scelta tra Astrofisica, Intuizione, Investigazione, Cultura, Medicina e Xenobiologia</td>
+</tr>
+</tbody>
+</table>
+<h4>Equipaggiamento Iniziale</h4>
+<ul>
+<li>(a) un bastone pieghevole o (b) un coltello da combattimento</li>
+<li>(a) un manganello metallico o (b) 6 lame da lancio</li>
+<li>(a) uno zaino da scienziato o (b) uno zaino da esploratore</li>
+<li>(a) un dispositivo scudo portatile (PSD)</li>
+</ul>
+<hr />
+<h3>Tabella: Il Melder</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Talenti Prime</th>
+<th style="text-align: center;">Punti Talento</th>
+<th style="text-align: center;">Grado Max Talento</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Canalizzazione, Recupero Esper</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Disciplina Melder</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Privilegio Disciplina Melder</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Privilegio Disciplina Melder</td>
+</tr>
+<tr>
+<td style="text-align: center;">11°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">73</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">12°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">13°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">83</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">14°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">88</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">94</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">16°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">17°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">107</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">18°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">114</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Aumento Prime</td>
+</tr>
+<tr>
+<td style="text-align: center;">19°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">123</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">20°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">133</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Talenti Caratteristici</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<h4>Canalizzazione (<em>Channeling</em>)</h4>
+<p>Come esperto nell'arte della fusione (melding), hai una collezione di abilità innate che costituiscono il tuo arsenale di talenti.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Dettaglio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Caratteristica Chiave</strong></td>
+<td style="text-align: left;"><strong>Intelligenza</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CD Tiro Salvezza</strong></td>
+<td style="text-align: left;">8 + Bonus di Competenza + Modificatore di Intelligenza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modificatore Attacco</strong></td>
+<td style="text-align: left;">Bonus di Competenza + Modificatore di Intelligenza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Risorsa</strong></td>
+<td style="text-align: left;"><strong>Punti Talento</strong> (Recupero: Riposo Lungo)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Talenti Conosciuti</strong></td>
+<td style="text-align: left;"><strong>Livello 1:</strong> 3 Prime + 6 Talenti.<br><strong>Avanzamento:</strong> +2 Talenti ogni volta che sali di livello.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Convenzionale</strong></td>
+<td style="text-align: left;">Puoi usare un talento col tag "convenzionale" senza spendere punti se lo conosci (rituale).</td>
+</tr>
+<tr>
+<td style="text-align: left;">### Tabella dei Privilegi</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Canalizzazione</strong></td>
+<td style="text-align: left;">Ottieni l'accesso ai Talenti Esper e ai Talenti Prime. Usi l'Intelligenza per attivarli spendendo Punti Talento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Recupero Esper</strong></td>
+<td style="text-align: left;">Una volta al giorno, dopo un <strong>Riposo Breve</strong>, recuperi Punti Talento pari a: <strong>2 + (Livello Melder / 2)</strong> (arrotondato per difetto).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Disciplina del Melder</strong></td>
+<td style="text-align: left;">Scegli una specializzazione: <strong>Metacinetico</strong> o <strong>Psicogenico</strong>.<br>Ottieni privilegi specifici al 2°, 6° e 10° livello.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>18°</strong></td>
+<td style="text-align: left;"><strong>Aumento Prime</strong></td>
+<td style="text-align: left;">Hai raggiunto una padronanza mentale assoluta. Puoi lanciare i tuoi talenti conosciuti di <strong>Grado 1 e Grado 2</strong> come se fossero di Grado Prime (ovvero a volontà, senza costo in punti).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>20°</strong></td>
+<td style="text-align: left;"><strong>Talenti Caratteristici</strong></td>
+<td style="text-align: left;">Scegli due talenti conosciuti di <strong>Grado 3</strong>. Puoi attivarli ciascuno una volta al Grado 3 senza spendere Punti Talento.<br><strong>Recupero:</strong> Riposo Breve o Lungo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Discipline del Melder</h3>
+<h4>Metacinetico</h4>
+<p><img src="../../../assets/Melder%20metacinetico.png" alt="Melder metacinetico.png" loading="lazy" class="content-image"><br />
+Ti specializzi nel modellare le forze naturali e gli elementi fondamentali dell'universo (fuoco, vento, luce, gravità).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Precisione del Talento</strong></td>
+<td style="text-align: left;">Quando usi un talento elementale o di cinesi che colpisce un'area, puoi scegliere un numero di creature pari a <strong>1 + il grado del talento</strong>. Le creature scelte superano automaticamente il TS e non subiscono danni (anche se normalmente ne subirebbero la metà).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Potenziamento Prime</strong></td>
+<td style="text-align: left;">I tuoi talenti Prime che infliggono danni influenzano comunque le creature che superano il TS: subiscono <strong>metà danni</strong> (ma nessun effetto aggiuntivo).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Metacinetico Potenziato</strong></td>
+<td style="text-align: left;">Aggiungi il tuo <strong>modificatore di Intelligenza</strong> a un tiro di danno di qualsiasi talento elementale o di cinesi.</td>
+</tr>
+</tbody>
+</table>
+<h4>Psicogenico</h4>
+<p><img src="../../../assets/melder%20psicogenico.png" alt="melder psicogenico.png" loading="lazy" class="content-image"><br />
+Ti sforzi di padroneggiare i poteri che influenzano e interagiscono con le menti degli altri. Telepati, Chiaroveggenti e Incantatori seguono questa via.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Mesmerizzare</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Un bersaglio entro 1,5m che può vederti/sentirti deve superare un TS Saggezza. Fallimento: <strong>Immobilizzato, Stordito (<em>Dazed</em>) e Inabile</strong> fino alla fine del tuo prossimo turno. Puoi mantenere l'effetto spendendo un'azione nei turni successivi. Termina se il bersaglio subisce danni o si allontana.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Stordire e Disorientare</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Un bersaglio entro 9m effettua un TS Saggezza. Fallimento: <strong>Disorientato</strong> (non può usare reazioni) e ha <strong>Svantaggio</strong> al prossimo attacco. Successo: Il bersaglio è immune a questo potere per un riposo lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Mente Secondaria</strong></td>
+<td style="text-align: left;">Quando usi un potere psicogenico di <strong>Grado 1 o superiore</strong> che influenza un bersaglio singolo, puoi scegliere un <strong>secondo bersaglio</strong> entro la gittata per lo stesso potere.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Melder: Lista Completa dei Talenti</h1>
+<table>
+<thead>
+<tr>
+<th><strong>Caratteristica di Lancio:</strong></th>
+<th>Intelligenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tipo di Potere:</strong></td>
+<td>Talenti (Canalizzazione) (Questi talenti sono talenti esper, diversi dai talenti normali descritti in un'altra appendice)</td>
+</tr>
+</tbody>
+</table>
+<p>Il Melder è il maestro della manipolazione della realtà, capace di piegare lo spazio, il tempo, l'energia elementale e la mente stessa.</p>
+<hr />
+<h4>Grado 0</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Analizzare Dispositivo</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scopri tutti i comandi, i meccanismi e le funzioni elettroniche o meccaniche di un automa, costrutto, dispositivo, macchina o veicolo toccato. Ottieni una conoscenza di base su come attivare e far funzionare il dispositivo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attivare Dispositivo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Puoi fornire energia o attivare un dispositivo semplice (non più grande di un cubo di 1,5m) a distanza, come un pannello luci, una ventola o uno schermo. Se l'oggetto non ha alimentazione, gli fornisci energia per la durata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Condotto Oscuro</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Crei una zona oscura di energia distruttiva attorno al bersaglio. Effettua un attacco a distanza di canalizzazione contro una creatura entro la gittata. Se colpisci, il bersaglio subisce <strong>1d8 danni necrotici</strong> e non può recuperare punti ferita fino all'inizio del tuo prossimo turno.<br><em>Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dardo di Forza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Un raggio di energia scaturisce dalle tue mani. Effettua un attacco a distanza di canalizzazione. Se colpisce, il bersaglio subisce <strong>1d10 danni da forza</strong>.<br><em>Il danno aumenta di 1d10 al 5° (2d10), 11° (3d10) e 17° livello (4d10).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dita Agili</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Sei in grado di generare un effetto telecinetico minore. Per la durata, puoi usare la tua azione per manipolare un oggetto, aprire una porta o un contenitore non chiusi a chiave, raccogliere un oggetto o versare il contenuto di una giara. Non puoi attaccare o attivare oggetti magici con questo potere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Egida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Crei una barriera cinetica intorno a te. Fino alla fine del tuo prossimo turno, hai resistenza ai danni contundenti, perforanti e taglienti inflitti da attacchi con armi. Ricevi anche un bonus di +2 ai Tiri Salvezza su Destrezza contro effetti ad area (Burst Save).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lama Protonica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Una piccola lama di pura energia si forma intorno alla tua mano. La lama emette luce fioca per 3 metri. Per la durata, puoi usare la tua azione per effettuare un attacco in mischia di canalizzazione. Se colpisci, infliggi <strong>1d6 danni da forza</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaggio Mentale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Scegli una creatura entro la gittata e sussurri un messaggio. Il bersaglio (e solo il bersaglio) sente il messaggio e può rispondere con un sussurro che solo tu puoi sentire. Puoi lanciare questo potere attraverso oggetti solidi se conosci il bersaglio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mira Intuitiva</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 round</td>
+<td style="text-align: left;">Focalizzi la tua attenzione verso un bersaglio entro la gittata. Ottieni vantaggio al tuo primo tiro per colpire contro il bersaglio nel tuo prossimo turno, fintanto che questo potere rimane attivo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Morsa di Gelo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">L'aria diventa un'aura di gelo attorno a una creatura. Effettua un attacco a distanza di canalizzazione. Se colpisci, il bersaglio subisce <strong>1d8 danni da freddo</strong> e la sua velocità è ridotta di 3 metri fino all'inizio del tuo prossimo turno.<br><em>Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punto di Esplosione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Estendi la mano verso una creatura entro la gittata e causi un'esplosione di fiamme nella sua posizione. La creatura deve superare un TS su Costituzione o subire <strong>1d12 danni da fuoco</strong>.<br><em>Il danno aumenta di 1d12 al 5° (2d12), 11° (3d12) e 17° livello (4d12).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punto Illusorio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Crei una distorsione spaziale che emette un suono (da un sussurro a un urlo) o l'immagine statica di un oggetto (non più grande di un cubo di 1,5m) entro la gittata che dura per la durata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rinnovare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Questo potere ripara una singola rottura o strappo in un oggetto che tocchi, come una maglia rotta, un tubo corroso o un cavo tagliato, purché la rottura non sia più grande di 30 cm.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schermo Virtuale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Puoi vedere i contenuti di qualsiasi display digitale entro la gittata come se fosse davanti a te. L'immagine appare traslucida solo per te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera Fulminante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scagli una sfera di energia elettrica. Scegli una creatura entro la gittata, o due creature entro la gittata che si trovino entro 1,5 metri l'una dall'altra. Un bersaglio deve superare un TS su Destrezza o subire <strong>1d6 danni da fulmine</strong>.<br><em>Il danno aumenta di 1d6 al 5° (2d6), 11° (3d6) e 17° livello (4d6).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spinta</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Un'onda gravitazionale scatta dalla tua mano. Effettua un attacco a distanza di canalizzazione. Se colpisci, il bersaglio subisce <strong>1d8 danni da forza</strong> e deve effettuare un TS su Forza o essere spinto 3 metri via da te.<br><em>Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spinta Direzionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un'onda di forza opposta. Il bersaglio deve superare un TS su Forza o essere spinto fino a 1,5 metri via da te. Puoi anche muovere oggetti liberi fino a 22kg di 3 metri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">#### Grado 1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Nome</td>
+<td style="text-align: left;">Tempo di attivazione</td>
+<td style="text-align: left;">Gittata</td>
+<td style="text-align: left;">Durata</td>
+<td style="text-align: left;">Descrizione</td>
+</tr>
+<tr>
+<td style="text-align: left;">:---</td>
+<td style="text-align: left;">:---</td>
+<td style="text-align: left;">:---</td>
+<td style="text-align: left;">:---</td>
+<td style="text-align: left;">:---</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alterare Aspetto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Pieghi le particelle nello spettro visibile per far apparire te stesso diverso (inclusi vestiti ed equipaggiamento). Puoi sembrare 30cm più alto o basso, grasso o magro, ma la struttura corporea di base deve rimanere la stessa.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aprire Canale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">150 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Per la durata, puoi trasmettere la tua voce e la tua immagine a un dispositivo di comunicazione elettronico entro la gittata che hai visto o toccato nelle ultime 24 ore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bastione</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Quando vieni colpito da un attacco)</em> Una barriera invisibile di forza appare e ti protegge. Fino all'inizio del tuo prossimo turno, hai un bonus di <strong>+5 alla CA</strong>, incluso contro l'attacco scatenante. Funziona anche come PSD contro armi cinetiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Caduta Lenta</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;"><em>(Quando tu o una creatura entro 18m cade)</em> Scegli fino a cinque creature che cadono. La loro velocità di discesa rallenta a 18 metri per round, annullando i danni da caduta se atterrano prima che l'incantesimo termini.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo di Protezione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Generi un campo di forza minore dal tuo corpo. La tua CA base diventa <strong>13 + il tuo modificatore di Destrezza</strong>. Termina se indossi armatura.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compagno Legato</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Imbui del materiale solido di sorium per creare un compagno legato (famiglio) che prende la forma di una creatura piccola o minuscola a tua scelta. Agisce indipendentemente ma obbedisce ai tuoi comandi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contraccolpo Psichico</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(In risposta all'essere danneggiato da una creatura entro 18m che puoi vedere)</em> Piazzi un marchio psichico sulla creatura che ti ha colpito. Il bersaglio deve effettuare un TS su Destrezza. Subisce <strong>2d10 danni psichici</strong> se fallisce, o la metà se riesce.<br><em>A Gradi Superiori: +1d10 danni per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Decifrare Linguaggi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Per la durata, comprendi il significato letterale di qualsiasi lingua parlata che ascolti e qualsiasi lingua scritta che vedi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dischi Guida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei piccoli dischi gravitazionali che orbitano attorno a una creatura. Il bersaglio ha un bonus di <strong>+2 a tutti i TS su Destrezza e Costituzione</strong> e ottiene una velocità di scalata pari alla velocità di camminata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Distorsione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Deformi l'aria intorno a te in una sfera e la scagli. Effettua un attacco a distanza di canalizzazione. Se colpisce, la sfera esplode in una micro-singolarità e la creatura subisce <strong>3d8 danni da forza</strong>.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disturbatore Bersaglio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Piazzi un dispositivo su una creatura. Diventa un'immagine sfocata per i sensori di automi e costrutti. Tali creature hanno svantaggio ai tiri per colpire contro il bersaglio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forma Illusoria</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei l'immagine di un oggetto o creatura non più grande di un cubo di 4,5 metri. L'immagine è puramente visiva (niente suoni o odori).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forza Concussiva</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Esplosione di energia in un quadrato di 3 metri. Ogni creatura nell'area deve superare un TS su Destrezza o essere gettata <strong>Prona</strong>. Le creature adiacenti a chi ha fallito devono a loro volta fare il TS o cadere prone.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frusta Artica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (Cono 4,5m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scateni un arco di vento sottozero. Ogni creatura nel cono deve effettuare un TS su Destrezza. Subisce <strong>3d6 danni da freddo</strong> se fallisce, o la metà se riesce.<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frusta di Fulmini</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Una striscia di elettricità scatta verso una creatura. Attacco a distanza di canalizzazione. Colpisce per <strong>1d10 danni da fulmine</strong> e si aggancia. Puoi usare la tua azione nei turni successivi per infliggere automaticamente 1d10 danni.<br><em>A Gradi Superiori: +1d10 danni iniziali per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Innervare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Galvanizzi la tua forma fisica. Ottieni <strong>1d4+4 Punti Ferita Temporanei</strong>.<br><em>A Gradi Superiori: +5 PF temporanei per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lancia di Fuoco</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Un raggio di fiamme colpisce una creatura. Attacco a distanza di canalizzazione. Colpisce per <strong>2d8 danni da fuoco</strong> e il bersaglio deve superare un TS Costituzione o avere svantaggio al prossimo attacco o TS.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Malia (Beguile)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tenti di affascinare un umanoide. TS su Saggezza o diventa <strong>Affascinato</strong> e ti considera un amico amichevole.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Moto Rapido</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">La tua velocità aumenta incredibilmente. Per la durata, puoi usare l'azione di Scatto come azione bonus in ogni tuo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo di Fase</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Pieghi lo spazio. Ti teletrasporti di 3 metri in uno spazio libero che puoi vedere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo Rapido</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">La velocità del bersaglio aumenta di 3 metri.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paura Primordiale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Un bersaglio diventa terrorizzato. TS su Saggezza o cade prono, diventa inabile e non può alzarsi per la durata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rinculo Sinaptico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ondata di feedback psichico. TS su Saggezza. Fallimento: <strong>3d6 danni psichici</strong> e deve usare la reazione per muoversi lontano da te. Successo: metà danni.<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Salto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">La distanza di salto della creatura toccata è triplicata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sensi Esper</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Percepisci la presenza di poteri esper o aure magiche entro 9 metri da te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stordire (Daze)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Creature entro 6 metri da un punto devono superare un TS su Saggezza o essere confuse e considerate <strong>Trattenute</strong> fino alla fine del loro prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tiro Propulso</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scagli un oggetto di 2-5 kg in linea retta per 27 metri. Se colpisce una creatura, essa deve fare un TS su Destrezza o subire <strong>3d8 danni contundenti</strong>.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Visione Condivisa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Condividi un ricordo sensoriale con fino a 4 creature, permettendo loro di vedere/sentire ciò che hai vissuto. Conferisce vantaggio alle prove di Percezione pertinenti.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Agitazione Molecolare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Scegli un oggetto manufatto metallico. Lo rendi rovente. Chi lo tocca o indossa subisce <strong>2d8 danni da fuoco</strong>. Se indossato, il possessore ha svantaggio a tiri per colpire e prove abilità.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alterare Forma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Assumi una forma diversa: Adattamento Acquatico (branchie, nuoto), Cambio Aspetto (disguise self fisico), Adattamento Bassa Gravità (volo in zero-g), o Armi Naturali (1d6 danni, magiche +1).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo di Stasi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Scegli un umanoide. Deve superare un TS su Saggezza o essere <strong>Paralizzato</strong>. Può ripetere il TS alla fine di ogni turno.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cappello Nero</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Analizzi dati elettronici. Vantaggio su prove Intelligenza con kit hacker. Puoi hackerare talenti di interdizione di grado 2 o inferiore.<br><em>A Gradi Superiori: Puoi hackerare poteri di grado superiore.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cecità/Sordità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Una creatura deve superare un TS Costituzione o essere accecata o assordata. TS ripetibile ogni turno.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dischi Fiammeggianti</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Crei tre dischi di fuoco. Puoi lanciarli (attacco a distanza, 120ft gittata) infliggendo <strong>2d6 danni da fuoco</strong> ciascuno.<br><em>A Gradi Superiori: +1 disco per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Eclissi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Sfera di oscurità magica di 4,5 metri di raggio. Blocca la scurovisione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fantasma Dati</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Crei una maschera digitale per te e fino a 6 compagni. Penalità di -10 alle prove per localizzarvi nei sistemi informatici e le tracce vengono cancellate alla fine.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Inclinazione Estesa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Una creatura ottiene velocità di scalata e può muoversi su pareti e soffitti con le mani libere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Individuare Pensieri</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Leggi pensieri superficiali di creature entro 9m. Puoi sondare più a fondo (TS Saggezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Individuare Verità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Crei una zona di verità (sfera 4,5m). Chi entra deve superare un TS Carisma o non può mentire deliberatamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Influenza Imponente</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Un umanoide deve superare TS Saggezza o essere affascinato. Puoi usare la tua azione per fargli attaccare un altro bersaglio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Levitazione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Sollevi una creatura o oggetto (fino a 225kg) di 6 metri verticalmente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Offuscare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Rendi una creatura invisibile. Termina se attacca o lancia un potere.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Onda Disgregante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Attacco a distanza. <strong>4d4 danni necrotici</strong> subito e <strong>2d4</strong> alla fine del turno successivo.<br><em>A Gradi Superiori: +1d4 a entrambi i danni per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Onda Psichica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (Cono 4,5m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ondata mentale. Creature nel cono fanno TS Saggezza. Fallimento: <strong>3d6 danni psichici</strong>.<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pacificare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sopprimi emozioni forti in una sfera di 6m. TS Carisma. Rimuove paura/charme o rende indifferenti creature ostili.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pacchetto Cloni</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tre duplicati illusori appaiono nel tuo spazio. Quando vieni attaccato, tira 1d20 per vedere se colpiscono un duplicato (distruggendolo) invece di te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raggio di Luce</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri (linea 9m x 1,5m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Linea di energia. Creature nell'area fanno TS Destrezza. Fallimento: <strong>3d8 danni radianti</strong>.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scassinare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Sblocchi a distanza una serratura meccanica, elettronica o un Sigillo Magnetico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera Gravitazionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Sfera di 6m di raggio. Terreno difficile e oscurata. Chi entra fa TS Destrezza o è <strong>Trattenuto</strong>. Può usare un'azione per liberarsi (TS Forza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfocatura</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">La tua immagine si sposta. I nemici hanno svantaggio ai tiri per colpire contro di te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sigillo Magnetico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a dissoluzione</td>
+<td style="text-align: left;">Chiudi magicamente una porta o contenitore. La CD per forzarla aumenta di 10.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spira Gelida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Cubo di 3m di ghiaccio. Creature fanno TS Costituzione. Fallimento: <strong>3d8 danni da freddo</strong> e non possono usare reazioni.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spostamento di Fase</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti teletrasporti fino a 9 metri in uno spazio libero visibile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Suggestione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 8 ore</td>
+<td style="text-align: left;">Suggerisci un corso d'azione a una creatura (TS Saggezza nega). Deve sembrare ragionevole.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Taglio Spaziale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Crei pieghe nello spazio in un cubo di 1,5m. Invisibili (TS Saggezza per notare). Chi entra subisce <strong>2d8 danni taglienti</strong>.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tasca Dimensionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Crei un ingresso invisibile per uno spazio extradimensionale che contiene fino a 8 creature.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona Pulita</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Sfera di 3m centrata su di te. Filtra gas, estingue fiamme e rimuove la condizione di avvelenato.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Adattamento Atmosferico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Conferisce a 10 creature la capacità di respirare in qualsiasi ambiente (sott'acqua, vuoto).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Anti-Individuazione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Il bersaglio non può essere individuato da poteri di divinazione o sensori magici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Assorbimento</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Conferisci a una creatura resistenza a un tipo di danno (Acido, Freddo, Fuoco, Fulmine, Tuono).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Blocco Sistema</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a dissoluzione</td>
+<td style="text-align: left;">Blocchi l'accesso a un dispositivo elettronico. Richiede password o hacking per usare.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Celerità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Velocità raddoppiata, +2 CA, vantaggio su TS Destrezza, azione aggiuntiva limitata (attacco, scatto, etc). Letargia alla fine.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Condensatore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Sfera di luce di 18m di raggio. Dissolve oscurità di grado 3 o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contro-Forma</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Interrompi il lancio di un potere esper avversario. Automatico se grado 3 o meno, altrimenti prova caratteristica.<br><em>A Gradi Superiori: Interrompe automaticamente poteri di grado superiore.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Corrompere Modello</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Attacco in mischia. Maledici il bersaglio (svantaggio caratteristica, attacchi, o danni necrotici extra).<br><em>A Gradi Superiori: Durata aumenta e non richiede concentrazione.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disegno Illusorio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei l'immagine di un oggetto o creatura (cubo 6m) con suoni e odori. Può muoversi.<br><em>A Gradi Superiori: Diventa permanente (senza concentrazione) a grado 6.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disegno Ipnotico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Pattern di colori in un cubo di 9m. Creature affascinate, inabili e velocità 0 (TS Saggezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Energia Vampirica (Energy Sink)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sfera di 6m di antimateria/oscurità. Acceca, blocca elettronica. Danni necrotici all'inizio del turno (2d6) e se si esce dall'area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esplosione di Fiamme</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (Linea 30m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Linea di fuoco larga 1,5m. <strong>8d6 danni da fuoco</strong> (TS Destrezza).<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 3°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estensione Sensoriale</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">8 km</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un sensore invisibile in un luogo noto o ovvio per vedere e sentire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forgiare Veicolo</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 8 ore</td>
+<td style="text-align: left;">Crei un veicolo terrestre (moto o auto). Hai competenza e bonus doppio alla guida.<br><em>A Gradi Superiori: Veicoli più grandi o volanti/acquatici.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Innesco Programmato</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a attivazione</td>
+<td style="text-align: left;">Piazzi un glifo su superficie o oggetto. Esplode (5d8 danni elementali) o lancia un potere immagazzinato quando attivato.<br><em>A Gradi Superiori: +1d8 danni.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pozzo Energetico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Attacco a distanza. <strong>3d6 danni necrotici</strong> e ti curi della metà del danno inflitto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Presa Avvizzente</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Dardo di antimateria. Attacco a distanza. <strong>4d8 danni necrotici</strong> e bersaglio spaventato fino al prossimo turno.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 3°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sbrogliare Effetto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Termini effetti di poteri su una creatura o oggetto. Automatico per grado 3 o meno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera Paralizzante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sfera psichica di 6m. Creature devono superare TS Costituzione o essere <strong>Inabili</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sifone</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Attacco in mischia canalizzazione. <strong>3d6 necrotici</strong> e ti curi metà. Ripetibile ogni turno.<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 3°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Singolarità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Globo gravitazionale esplode (raggio 6m). <strong>8d6 danni da forza</strong> (TS Destrezza). Danneggia strutture.<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 3°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Traduttore Universale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">La creatura toccata capisce qualsiasi lingua parlata e viene compresa da chiunque.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Il bersaglio ottiene velocità di volo 18m.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 3°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volto Orripilante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (Cono 9m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Proietti paura. Creature nel cono devono superare TS Saggezza o fuggire spaventate.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Anello di Fulmini</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">90 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Anello di elettricità a terra (raggio 6m). <strong>5d8 danni da fulmine</strong> (TS Destrezza).<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 4°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aspetto del Terrore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il bersaglio vede la sua paura peggiore. Spaventato. Fine turno TS Saggezza o <strong>4d10 danni psichici</strong>.<br><em>A Gradi Superiori: +1d10 danni per ogni grado sopra il 4°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo Reattivo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Aura di fuoco o freddo. Resistenza all'elemento opposto. Chi ti colpisce in mischia subisce 2d8 danni dell'elemento scelto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contenitore Dimensionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Nascondi una cassa (e contenuto) nel piano etereo. Richiamabile con un token.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Devastare Modello</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Distruzione cellulare. TS Costituzione. <strong>8d8 danni necrotici</strong> (metà se salvo). Danni massimi su piante.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 4°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drenare Potere</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Contro Costrutti: Attacco a distanza, <strong>5d6 forza</strong>, ti curi pari al danno.<br>Contro Dispositivi: TS del dispositivo o si spegne e ti cura.<br><em>A Gradi Superiori: +1d6 danni/cure per ogni grado sopra il 4°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Egida Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Resistenza a danni contundenti, perforanti e taglienti. +3 ai TS su Raffica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fabbricare</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Converti materiali grezzi in prodotti finiti (es. ponte di metallo da rottami).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lancio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Attacco a distanza. <strong>6d6 danni forza</strong> al bersaglio (TS Costituzione). Se fallisce, puoi lanciarlo contro un muro o un'altra creatura (danni impatto extra e prono).<br><em>A Gradi Superiori: +1d6 danni per ogni grado sopra il 4°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nebbia del Caos</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sfera di 3m. Creature devono superare TS Saggezza o agire casualmente (Confusione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Offuscare Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Invisibilità che non termina se attacchi o lanci poteri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Osservatore Velato</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Crei un sensore sferico invisibile che puoi muovere e attraverso cui vedere (scurovisione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Portale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">150 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Teletrasporti te stesso e un passeggero (o oggetti) in un punto visibile o visualizzato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pozzo Gravitazionale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Area di 6m di gravità schiacciante. Terreno difficile. TS Destrezza o <strong>3d6 forza</strong> e trattenuto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera Protettiva</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Racchiudi una creatura o oggetto in una sfera di forza invulnerabile. Niente entra o esce.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trasferimento Condotto</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti teletrasporti tra due dispositivi o cavi elettrici connessi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trasmutare Forma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Trasformi una creatura in una bestia di GS pari o inferiore (Polimorfia).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona Sicura</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Proteggi un'area (cubo fino a 30m) da sensori, teletrasporto e divinazione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona Ustionante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Cupola o muro di fuoco. <strong>5d8 danni da fuoco</strong> a chi attraversa o inizia il turno vicino.<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 4°.</em></td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Alterazione di Massa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Cambi l'aspetto di un numero qualsiasi di creature che puoi vedere (Sembrare).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Barricata d'Acciaio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un muro solido di acciaio (pannelli 3m x 3m). Fornisce copertura e blocca passaggio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo di Forza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un muro o semisfera invisibile e indistruttibile di forza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dominazione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Controlli telepaticamente le azioni di un umanoide (TS Saggezza).<br><em>A Gradi Superiori: Durata aumenta (fino a 8 ore a grado 8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doppio Inganno</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Diventi invisibile e crei un doppio illusorio che agisce al tuo posto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Elica di Curvatura</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (cono 18m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ondata di distorsione spaziale. <strong>8d8 danni da forza</strong> (TS Costituzione).<br><em>A Gradi Superiori: +1d8 danni per ogni grado sopra il 5°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forza Proiettata</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Crei una mano di forza telecinetica. Può colpire (4d8), spingere, afferrare o proteggere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fossa Ribollente</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Trasformi il terreno in fango ribollente. Danni, terreno difficile e trattiene.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guardiano Imponente</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Crei un costrutto guardiano (statistiche da Golem o simile) da materiali presenti.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Legame Telepatico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Colleghi mentalmente fino a 8 creature. Comunicazione istantanea a qualsiasi distanza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modificare Memoria</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Riscrivi fino a 10 minuti di memoria recente di un bersaglio affascinato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nebbia Frigida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Nube di nebbia gelida (raggio 6m). <strong>5d8 danni da freddo</strong> a chi entra o inizia turno. Si muove 3m lontano da te ogni turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passaggio Spaziale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">300 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un cerchio di teletrasporto temporaneo che collega due punti (Cerchio di Teletrasporto).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Percezione Estesa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Ottieni visione del vero (vedere invisibile, trasformazioni, etereo) fino a 36m.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Richiamo Istantaneo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Ottieni memoria eidetica e +10 a prove di Conoscenza per ricordare informazioni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stasi Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Paralizzi una creatura qualsiasi (Blocca Mostro).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Telecinesi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Manipoli creature o oggetti pesanti (fino a 450kg) con la mente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tessere Sogni</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Speciale</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Entri nei sogni di una creatura per messaggi o incubi (danni psichici al risveglio).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tuta di Sopravvivenza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Fino a 8 creature diventano immuni a veleni gassosi, estremi di temperatura e possono respirare ovunque.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Camminare nella Fase</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">150 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei due portali collegati. Usi il teletrasporto per muoverti tra essi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo di Negazione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (raggio 3m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sfera immobile che blocca poteri di grado 5 o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Catena di Fulmini</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Fulmine colpisce un bersaglio (<strong>10d8</strong>) e rimbalza su altri 3 bersagli.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disfunzione Motoria</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Il bersaglio balla o si muove erraticamente. Svantaggio a CA e TS Destrezza, deve usare movimento per ballare.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disintegrare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Raggio verde. <strong>10d6 + 40 danni da forza</strong>. Se riduce a 0 PF, riduce in polvere. Distrugge creazioni di forza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Infrangi Sensi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Un bersaglio deve scegliere: Spaventato e fugge, Nauseato (svantaggio azioni), o Addormentato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Innesco Illusorio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Permanente (fino a attivazione)</td>
+<td style="text-align: left;">Crei un'illusione programmata che si attiva a condizioni specifiche (durata illusione 5 min).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raggio di Fusione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (linea 18m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Raggio solare. <strong>6d8 radianti</strong> e acceca. Puoi creare un nuovo raggio ogni turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera di Curvatura</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Sfera di gravità esplosiva. <strong>8d6 danni da forza</strong> in un raggio di 18m (Sfera Congelante di Otiluke variante).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Struttura Sicura</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Proteggi un edificio (230 mq). Porte bloccate, corridoi confusi, scale scivolose, sensori bloccati.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Suggestione di Massa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Impianti una suggestione in fino a 12 creature.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vera Vista</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Conferisci Visione del Vero (36m) a una creatura.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona di Gelo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Muro di ghiaccio solido. Può essere distrutto o usato per intrappolare.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 7</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Controllo Gravità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">30 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Inverti la gravità in un cilindro di 15m. Creature e oggetti cadono verso l'alto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Copia Cloni</strong></td>
+<td style="text-align: left;">12 ore</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Permanente</td>
+<td style="text-align: left;">Crei un simulacro di una bestia o umanoide (metà PF, non recupera risorse).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Devastazione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Infliggi dolore atroce. <strong>7d8 + 30 danni necrotici</strong>. Se uccide, crea uno zombi (o simile) sotto tuo controllo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Divergenza Temporale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Metti un bersaglio in stasi temporale (Sequestro). Invisibile e immune a divinazione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forma Intangibile</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Diventi etereo. Puoi muoverti attraverso oggetti e creature.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lama di Fenditura</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Spada di forza planare. Attacca per 3d10 danni da forza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Piega Spaziale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Teletrasporti te e fino a 8 creature in qualsiasi luogo conosciuto sullo stesso piano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Predare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Parola del Potere: Dolore. Se &lt;100 PF, il bersaglio subisce dolore atroce (svantaggi, velocità ridotta).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prigione di Forza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">30 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Crei una gabbia o scatola di forza indistruttibile e invisibile. Nessun TS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vortice Elementale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Palla di energia elementale che esplode (12d6 danni del tipo scelto).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vortice Stritolante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">90 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Tornado di gravità. Danni (10d6) e trattiene creature.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 8</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Antipatia/Simpatia</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">10 giorni</td>
+<td style="text-align: left;">Oggetto o area attrae o respinge specifici tipi di creature.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dominazione Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Controlli totalmente un mostro o creatura (TS Saggezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frattura Mentale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Distruggi l'intelletto di una creatura (Int e Car diventano 1).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Negazione Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (raggio 3m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Campo Anti-Magia. Sopprime tutti i poteri ed effetti esper/magici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sovraccarico Psichico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Parola del Potere: Stordire. Se &lt;150 PF, bersaglio stordito.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Telepatia</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Illimitata</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Legame mentale con una creatura ovunque nel piano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tempesta Contorta</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">150 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Terremoto localizzato o tempesta elettrica. Danni strutture, prono, danni fulmine.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vortice Oscuro</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Esplosione solare necrotica. <strong>12d6 necrotici</strong> e cecità permanente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vuoto Mentale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Immunità a danni psichici, lettura pensiero e divinazione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona Fantasma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Bandi una creatura in un labirinto demiplanare (TS Intelligenza per uscire).</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 9</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Armatura Indistruttibile</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Diventi immune a tutti i danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mutaforma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Assumi la forma di qualsiasi creatura (come <em>Polimorfia</em> ma mantieni statistiche mentali).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Preveggenza</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Vantaggio a tiri per colpire, prove abilità, TS. I nemici hanno svantaggio a colpirti.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prigione Cosmica</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Permanente</td>
+<td style="text-align: left;">Sigilli una creatura in una forma di stasi o prigione dimensionale (Imprigionare).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stasi Temporale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Fermi il tempo per 1d4+1 turni consecutivi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tempesta di Curvatura</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">1,5 km</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">4 sfere di distruzione (12m raggio). <strong>20d6 forza + 20d6 freddo</strong> ciascuna.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Terminare Funzione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Parola del Potere: Uccidere. Se &lt;100 PF, il bersaglio muore istantaneamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trama Cosmica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Desiderio. Alteri la realtà per duplicare poteri o creare effetti unici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trasmutazione Totale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Trasformi una creatura in un'altra creatura o oggetto (Polimorfia Reale).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona di Terrore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Urlo Psichico. Fino a 10 creature entro 27m. <strong>14d6 psichici</strong> e stordito.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_Specialista - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">03_Specialista</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h2>Specialista</h2>
+<p>Anche nel gioiello splendente dell'Accordo del Sorium, esistono le ombre. Gli specialisti lavorano la loro arte tra le società giudiziarie del Nucleo e le ombre del sottobosco galattico. Uno specialista si affida alla propria abilità esperta e all'istinto per superare gli ostacoli. Possono essere trovati a lavorare ovunque, dal trasportare merci tra loschi covi di contrabbando all'essere un agente segreto in difesa del proprio governo.</p>
+<h3>Veloci e Precisi</h3>
+<p>Piuttosto che concentrarsi sulla forza bruta, gli specialisti combattono usando velocità, abilità e precisione per eliminare i loro nemici. Usano spesso armi piccole e facilmente occultabili e gadget controllati da impianti che permettono loro di sfruttare le debolezze del nemico.</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Dadi Vita</td>
+<td style="text-align: left;">1d8 per livello da specialista</td>
+</tr>
+<tr>
+<td style="text-align: left;">PF al 1° Livello</td>
+<td style="text-align: left;">8 + il tuo modificatore di Costituzione</td>
+</tr>
+<tr>
+<td style="text-align: left;">PF ai Livelli Successivi</td>
+<td style="text-align: left;">1d8 (o 5) + il tuo modificatore di Costituzione per livello dopo il 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;">Competenze</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Armature</td>
+<td style="text-align: left;">Leggere</td>
+</tr>
+<tr>
+<td style="text-align: left;">Armi</td>
+<td style="text-align: left;">Semplici, autopistola, lama lunga, lama corta, sciabola</td>
+</tr>
+<tr>
+<td style="text-align: left;">Strumenti</td>
+<td style="text-align: left;">Strumenti da Infiltrazione</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tiri Salvezza</td>
+<td style="text-align: left;">Destrezza, Intelligenza</td>
+</tr>
+<tr>
+<td style="text-align: left;">Abilità</td>
+<td style="text-align: left;">Quattro a scelta tra Acrobazia, Atletica, Computer, Inganno, Intuizione, Intimidire, Investigazione, Percezione, Persuasione, Rapidità di Mano e Furtività</td>
+</tr>
+</tbody>
+</table>
+<h4>Equipaggiamento Iniziale</h4>
+<ul>
+<li>(a) una sciabola o (b) una pistola leggera con 15 colpi</li>
+<li>(a) una pistola leggera con 15 colpi o (b) una lama corta</li>
+<li>(a) uno zaino da agente o (b) uno zaino da esploratore</li>
+<li>(a) Giacca Corazzata, due coltelli da combattimento e strumenti da infiltrazione</li>
+</ul>
+<hr />
+<h3>Tabella: Lo Specialista</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: center;">Colpo Destro</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">1d6</td>
+<td style="text-align: left;">Attitudine Naturale, Colpo Destro, ID Shadownet</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">1d6</td>
+<td style="text-align: left;">Azione Scaltra</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2d6</td>
+<td style="text-align: left;">Specializzazione dello Specialista</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: center;">2d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3d6</td>
+<td style="text-align: left;">Schivata Prodigiosa</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">3d6</td>
+<td style="text-align: left;">Attitudine Naturale (miglioramento)</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4d6</td>
+<td style="text-align: left;">Elusione</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: center;">4d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5d6</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">5d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">11°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">6d6</td>
+<td style="text-align: left;">Talento Affidabile</td>
+</tr>
+<tr>
+<td style="text-align: center;">12°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: center;">6d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">13°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">7d6</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">14°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">7d6</td>
+<td style="text-align: left;">Senso Cieco</td>
+</tr>
+<tr>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">8d6</td>
+<td style="text-align: left;">Mente Sfuggente</td>
+</tr>
+<tr>
+<td style="text-align: center;">16°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: center;">8d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">17°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">9d6</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">18°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">9d6</td>
+<td style="text-align: left;">Elusivo</td>
+</tr>
+<tr>
+<td style="text-align: center;">19°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">10d6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">20°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: center;">10d6</td>
+<td style="text-align: left;">Colpo di Fortuna</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Attitudine Naturale</strong></td>
+<td style="text-align: left;">Scegli due competenze nelle abilità o strumenti. Il tuo bonus di competenza è raddoppiato per le prove che usano quelle competenze. Al <strong>6° livello</strong>, ne scegli altre due.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Colpo Destro</strong></td>
+<td style="text-align: left;">Una volta per turno, infliggi <strong>1d6 danni extra</strong> a una creatura colpita se hai vantaggio al tiro per colpire. L'attacco deve usare un'arma accurata (<em>finesse</em>) o a distanza. Non serve vantaggio se un nemico del bersaglio è entro 1,5m da esso e tu non hai svantaggio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>ID Shadownet</strong></td>
+<td style="text-align: left;">Hai un avatar online nello Shadownet (Matrice Intergalattica segreta). Puoi decodificare messaggi segreti, commerciare segreti e accedere al mercato nero.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Azione Scaltra</strong></td>
+<td style="text-align: left;">Puoi usare un'<strong>azione bonus</strong> in ogni tuo turno per Scattare, Disimpegnarsi o Nascondersi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Specializzazione</strong></td>
+<td style="text-align: left;">Scegli una Specializzazione tra <strong>Infiltrato</strong>, <strong>Operativo</strong> o <strong>Artificio</strong> (conferisce privilegi aggiuntivi specifici).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Schivata Prodigiosa</strong></td>
+<td style="text-align: left;">Quando un attaccante che puoi vedere ti colpisce, puoi usare la tua <strong>reazione</strong> per dimezzare i danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Elusione</strong></td>
+<td style="text-align: left;">Quando sei soggetto a un effetto che permette un TS su Destrezza per dimezzare i danni, non subisci danni se superi il TS e solo la metà se fallisci.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>11°</strong></td>
+<td style="text-align: left;"><strong>Talento Affidabile</strong></td>
+<td style="text-align: left;">Hai affinato le tue abilità scelte. Ogni volta che effettui una prova di abilità che ti permette di aggiungere il tuo bonus di competenza, puoi considerare un tiro di d20 di <strong>9 o inferiore come un 10</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>14°</strong></td>
+<td style="text-align: left;"><strong>Senso Cieco</strong></td>
+<td style="text-align: left;">Se sei in grado di sentire, sei consapevole della posizione di qualsiasi creatura nascosta o invisibile entro <strong>3 metri</strong> (10 piedi) da te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15°</strong></td>
+<td style="text-align: left;"><strong>Mente Sfuggente</strong></td>
+<td style="text-align: left;">Hai acquisito una maggiore forza mentale. Ottieni competenza nei <strong>Tiri Salvezza su Saggezza</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>18°</strong></td>
+<td style="text-align: left;"><strong>Elusivo</strong></td>
+<td style="text-align: left;">Sei così sfuggente che gli attaccanti raramente ottengono un vantaggio contro di te. Nessun tiro per colpire ha vantaggio contro di te mentre non sei incapacitato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>20°</strong></td>
+<td style="text-align: left;"><strong>Colpo di Fortuna</strong></td>
+<td style="text-align: left;">Se il tuo attacco manca un bersaglio entro il raggio, puoi trasformare il mancato colpo in un successo. In alternativa, se fallisci una prova di abilità, puoi considerare il tiro di d20 come un <strong>20</strong>. Recupero: Riposo Breve o Lungo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Archetipi dello Specialista</h2>
+<h3>Infiltrato</h3>
+<p><img src="../../../assets/specialista%20infiltrato.png" alt="specialista infiltrato.png" loading="lazy" class="content-image"><br />
+Focalizzato su infiltrazione, investigazione e acquisizione sottile.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Mani Veloci</strong></td>
+<td style="text-align: left;">Puoi usare l'azione bonus di <strong>Azione Scaltra</strong> per effettuare prove di <strong>Rapidità di Mano</strong>, usare <strong>strumenti da infiltrazione</strong> o compiere l'azione <strong>Usare un Oggetto</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Leggero come una Piuma</strong></td>
+<td style="text-align: left;">Scalare non costa movimento extra. Puoi usare <strong>Acrobazia</strong> (invece di Atletica) per scalare. I tuoi salti sono basati sulla <strong>Destrezza</strong> (invece che sulla Forza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Maestria Furtiva</strong></td>
+<td style="text-align: left;">Hai <strong>vantaggio</strong> alle prove di <strong>Destrezza (Furtività)</strong> se nel tuo turno ti muovi di non più della metà della tua velocità.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>13°</strong></td>
+<td style="text-align: left;"><strong>Esperto di Elettronica</strong></td>
+<td style="text-align: left;">Hai vantaggio su prove di <strong>Intelligenza (Computer)</strong> per identificare/usare console e dati. Ignori le restrizioni linguistiche per l'attivazione di tali dispositivi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>17°</strong></td>
+<td style="text-align: left;"><strong>Riflessi Supremi</strong></td>
+<td style="text-align: left;">Puoi effettuare <strong>due turni durante il primo round</strong> di combattimento (uno alla tua iniziativa, uno a iniziativa -10). Non utilizzabile se sei sorpreso.</td>
+</tr>
+<tr>
+<td style="text-align: left;">### Operativo</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="../../../assets/Specialista%20operativo.png" alt="Specialista operativo.png" loading="lazy" class="content-image"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Addestrato nell'arte della sorpresa, dello spionaggio e dell'assassinio.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Addestrato nell'Arte</strong></td>
+<td style="text-align: left;">Ottieni competenza nel <strong>Kit da Camuffamento</strong> e in un altro kit (falsario, hacker o gioco).<br>Impari un <strong>Talento Prime</strong> a scelta tra: <em>Analizzare Dispositivo, Messaggio Mentale, Lama Protonica</em> o <em>Dispositivo di Attivazione</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Colpo Vitale</strong></td>
+<td style="text-align: left;">Hai <strong>vantaggio</strong> ai tiri per colpire contro creature che non hanno ancora agito nel combattimento. Se colpisci una creatura <strong>sorpresa</strong>, il colpo è automaticamente un <strong>Critico</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Identità Falsificata</strong></td>
+<td style="text-align: left;">Puoi creare false identità perfette spendendo tempo e denaro (include documenti, storici e credenziali).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>13°</strong></td>
+<td style="text-align: left;"><strong>Impersonazione</strong></td>
+<td style="text-align: left;">Dopo 3 ore di studio, puoi imitare perfettamente la voce e i modi di un individuo. Hai <strong>vantaggio</strong> col kit da travestimento per replicarlo e <strong>vantaggio</strong> su <strong>Carisma (Inganno)</strong> per non essere scoperto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>17°</strong></td>
+<td style="text-align: left;"><strong>Assassinio</strong></td>
+<td style="text-align: left;">Quando colpisci una creatura <strong>sorpresa</strong>, questa deve superare un <strong>TS Costituzione</strong> (CD 8 + Comp + Des). Se fallisce, subisce il <strong>doppio dei danni</strong> dall'attacco.</td>
+</tr>
+</tbody>
+</table>
+<h3>Artificio (<em>Artifice</em>)</h3>
+<p><img src="../../../assets/Specialista%20artificio.png" alt="Specialista artificio.png" loading="lazy" class="content-image"><br />
+Specializzato nell'uso di impianti e dispositivi sorium per generare effetti esper.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Talenti Esper</strong></td>
+<td style="text-align: left;">Impari talenti dalla lista <strong>Melder</strong> (Chiaroveggenza, Metafase, Psicogenico).<br><strong>Caratteristica:</strong> Intelligenza.<br><strong>Risorse:</strong> Usi i Punti Talento (vedi tabella progressione Artificio).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Difesa Sensoriale</strong></td>
+<td style="text-align: left;">Se colpisci una creatura con un attacco in mischia, quel bersaglio non può effettuare <strong>attacchi di opportunità</strong> contro di te per il resto del turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Smorzatore Gravitazionale</strong></td>
+<td style="text-align: left;">Ti muovi di 1,5m extra su terreno difficile. Hai <strong>vantaggio</strong> ai Tiri Salvezza per evitare di cadere prono.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>13°</strong></td>
+<td style="text-align: left;"><strong>Occultamento Attivo</strong></td>
+<td style="text-align: left;">Quando usi l'azione <strong>Nascondersi</strong> (tramite Azione Scaltra), diventi <strong>Invisibile</strong> (effetto <em>Offuscare</em>). Dura 1 minuto, finché mantieni concentrazione, o finché non attacchi/usi poteri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>17°</strong></td>
+<td style="text-align: left;"><strong>Riprogrammazione del Modulo</strong></td>
+<td style="text-align: left;">Impari il talento <em>Svelare</em> (extra). Inoltre, puoi <strong>sostituire due</strong> dei tuoi talenti conosciuti con qualsiasi talento/tecnica di <strong>qualsiasi altra classe</strong>. Questi contano come talenti Artificio.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Specialista: Compendio Tecnico Operativo Esteso</h1>
+<table>
+<thead>
+<tr>
+<th><strong>Caratteristica di Attivazione:</strong></th>
+<th>Intelligenza o Destrezza (a seconda della build)Forza o Destrezza (a seconda dell'arma usata)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Tipo di Potere</td>
+<td>Tecniche (Gadget, Manovre Tattiche, Hacking e Chimica)</td>
+</tr>
+</tbody>
+</table>
+<p>Lo Specialista non manipola la realtà con la mente, ma la piega al suo volere attraverso un arsenale di gadget all'avanguardia, composti chimici instabili e una preparazione tattica senza eguali.</p>
+<hr />
+<h4>Grado 0 (Tecniche Prime)</h4>
+<p><em>Gadget tascabili ad uso rapido e manovre istintive.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Analisi Rapida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">I tuoi sensori ottici o la tua intuizione individuano i punti deboli. Ottieni informazioni sulle resistenze, immunità o vulnerabilità ai danni di una creatura o oggetto visibile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calcolo Balistico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 round</td>
+<td style="text-align: left;">Il tuo HUD calcola la traiettoria perfetta. Ottieni vantaggio al tuo primo tiro per colpire contro un bersaglio specifico nel tuo prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Diversivo Sonoro</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Lanci un micro-emettitore che aderisce a una superficie. Puoi attivarlo come reazione per produrre un suono specifico (passi, voci, spari) per distrarre le guardie o attirare l'attenzione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hackeraggio Flash</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Sovraccarichi una serratura elettronica semplice o un pannello luci non protetto, aprendolo o spegnendolo/accendendolo istantaneamente senza prove di abilità.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lama Nascosta</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Con un movimento impercettibile, estrai o crei un'arma improvvisata (o un pugnale nascosto) ed effettui un attacco. Se colpisci, l'arma viene riposta istantaneamente, lasciando il nemico confuso sulla fonte del danno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaggio Fantasma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a cancellazione</td>
+<td style="text-align: left;">Lasci un messaggio olografico o digitale criptato su un oggetto o una superficie. È invisibile a occhio nudo e può essere letto solo tramite un visore specifico o un codice che tu stabilisci.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rampino Tattico</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Spara un cavo retrattile dal polso. Ti trascini verso una superficie o un oggetto solido, o attiri un oggetto non fissato (max 5 kg) nella tua mano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riparazione d'Emergenza</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ripari istantaneamente un singolo strappo o rottura in un oggetto (come una tuta o un'arma), purché la rottura non sia più grande di 30 cm.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Segnale Criptato</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Invii un messaggio silenzioso a un alleato tramite conduzione ossea. L'alleato può rispondere. Se usato in combattimento, concede vantaggio al prossimo attacco dell'alleato contro un bersaglio entro 1,5m da te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spray Marcatore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Spruzzi un bersaglio con isotopi tracciabili invisibili. Hai vantaggio a qualsiasi prova di Saggezza (Sopravvivenza) o Percezione per tracciare o individuare il bersaglio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Torcia Chimica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Attivi uno stick chimico o un drone luminoso che aderisce a un oggetto. Emette luce intensa per 6 metri e luce fioca per altri 6 metri. Il colore è a tua scelta.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Caduta Frenata (Grav-Chute)</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;"><em>(Quando cadi)</em> Attivi dei micro-propulsori o un paracadute olografico. La tua velocità di discesa rallenta a 18 metri per round e non subisci danni da caduta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo Stordente</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Contatto (Mischia)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Colpisci un nemico con un taser o un punto di pressione. Effettua un attacco in mischia. Se colpisce, infliggi <strong>1d8 danni da fulmine</strong> e il bersaglio non può usare reazioni fino all'inizio del suo prossimo turno.<br><em>A Gradi Superiori: +1d8 danni per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Deflettore Cinetico</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Attivi uno scudo di energia rigida al momento dell'impatto. Aumenti la tua CA di +5 fino all'inizio del tuo prossimo turno, bloccando anche i Dardi di Forza (Magic Missile).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Granata Fumogena</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Lanci un dispositivo che crea una nube di fumo denso in un raggio di 6 metri. L'area è pesantemente oscurata. Il fumo persiste finché non si disperde o viene soffiato via.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Identificare Tech</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Colleghi il tuo datapad a un oggetto tecnologico o artefatto. Apprendi le sue proprietà, come usarlo, quante cariche ha e se è maledetto o tracciato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maschera Olografica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Un proiettore portatile altera il tuo aspetto (inclusi vestiti e armi). Sembri un'altra creatura della tua stessa taglia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Olio Tattico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Lanci una fiala di lubrificante sintetico a frizione zero. Copre un quadrato di 3 metri. È terreno difficile e chi vi entra deve superare un TS su Destrezza o cadere prono.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo Silenzioso</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Attivi smorzatori sonori negli stivali. Ottieni vantaggio alle prove di Destrezza (Furtività) per muoverti silenziosamente e non lasci tracce termiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rete Tattica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Colleghi i sistemi di puntamento di fino a 3 alleati. Quando un alleato attacca un bersaglio che hai attaccato tu in questo turno, ottiene +1d4 al tiro per colpire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scatto di Adrenalina</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti inietti uno stimolante rapido. Puoi effettuare l'azione di Disimpegno o Scatto immediatamente, e la tua distanza di salto raddoppia per questo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sensori di Prossimità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Piazzi fino a 3 micro-sensori. Se una creatura Minuscola o più grande entra nel raggio di 3 metri da un sensore, ricevi un segnale silenzioso sul tuo HUD.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Traduttore Universale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Il tuo auricolare traduce in tempo reale qualsiasi lingua parlata e traduce la tua voce nella lingua desiderata.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Arrampicata del Ragno</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Guanti e stivali magnetici o a micro-ventose ti permettono di muoverti su pareti verticali e soffitti a velocità normale, lasciando le mani libere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dardo Soporifero</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Spara un dardo o una siringa. Il bersaglio deve superare un TS Costituzione o cadere addormentato (privo di sensi). Si sveglia se subisce danni o viene scosso.<br><em>A Gradi Superiori: Puoi bersagliare una creatura aggiuntiva per ogni grado extra.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Decoy Olografici</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Proietti tre copie illusorie di te stesso che si muovono con te. Quando vieni attaccato, l'attaccante deve tirare un d20 per vedere se colpisce una copia. Le copie hanno CA 10 + Des e vengono distrutte se colpite.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Occultamento Ottico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Attivi un campo di mimetizzazione che ti rende invisibile. Termina se attacchi o lanci una tecnica offensiva.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rete di Contenimento</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Spara una rete in fibra di carbonio o schiuma adesiva. Riempie un cubo di 6 metri. È terreno difficile e chi inizia il turno lì deve superare un TS Destrezza o essere <strong>Trattenuto</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rilevatore di Trappole</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Il tuo scanner evidenzia la presenza di trappole meccaniche, elettroniche o naturali nella tua linea di vista. Non ne rivela la posizione esatta, ma la natura del pericolo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scassinatore Digitale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Un dispositivo universale apre una serratura elettronica o meccanica (CD 20 o inferiore) istantaneamente. Se la CD è superiore, ti garantisce vantaggio alla prova.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Silenzio Assoluto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Lanci un dispositivo che genera un campo di annullamento sonoro (sfera di 6m). Nessun suono può essere emesso o passare attraverso la sfera. Ottimo per infiltrazioni stealth o per neutralizzare incantatori verbali.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Visione Termica</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Ottieni scurovisione e la capacità di vedere le fonti di calore attraverso pareti sottili (fino a 30 cm di spessore) entro 18 metri.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Drone Esploratore</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Illimitata (stesso piano)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Crei un sensore invisibile (o un micro-drone grande quanto un insetto) che vola e trasmette video/audio. Puoi vederci attraverso come azione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fantasma nella Macchina</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Inserisci un virus in un terminale. Puoi controllare torrette, telecamere o porte collegate a quella rete come se fossi nella sala di controllo, fino a 1 km di distanza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Granata Stordente (Flashbang)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Esplosione di luce e suono in un raggio di 6 metri. Le creature devono superare un TS Costituzione o essere Accecate e Assordate fino alla fine del tuo prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Haste (Sovraccarico Metabolico)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (o Tocco)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Iniezione di stimolanti. La velocità raddoppia, +2 alla CA, vantaggio ai TS su Destrezza e un'azione aggiuntiva per turno (Attacco singolo, Scatto, Disimpegno, Nascondersi). Quando finisce, l'utente perde un turno per letargia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Jammer di Frequenza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (raggio 3m)</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Tu e il tuo equipaggiamento diventate immuni a qualsiasi magia o tecnologia di divinazione e localizzazione. I sensori non possono rilevarti.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Jetpack (Volo)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Attivi propulsori dorsali o stivali gravitazionali. Ottieni una velocità di volo di 18 metri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nube Tossica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Rilasci un gas nervino in una sfera di 6 metri. Le creature all'interno devono superare un TS Costituzione o subire <strong>3d6 danni da veleno</strong> e non possono recuperare punti ferita. Metà danni se superano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Proiettore Olografico Maggiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un'illusione visiva, sonora e olfattiva complessa (grande fino a un cubo di 6 metri). Sembra reale finché non viene interagita fisicamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rebreather (Respiro Acquatico)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (+10 alleati)</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Distribuisci maschere o pillole ossigenanti. I bersagli possono respirare sott'acqua (o nel vuoto, a seconda del setting) per la durata.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Campo Cinetico (Pelle di Pietra)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Un campo di forza aderente assorbe gli impatti. Hai resistenza ai danni contundenti, perforanti e taglienti non magici. (Costa 100 crediti di polvere di diamante o sorium per attivazione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Confusione Neurale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Emetti un segnale che interferisce con le sinapsi. Le creature in una sfera di 3 metri devono superare un TS Saggezza o agire casualmente (attaccare a vuoto, muoversi a caso, stare fermi) ogni turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Libertà di Movimento</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Il tuo equipaggiamento rilascia oli speciali o campi di fase. Non puoi essere paralizzato o trattenuto, ignori terreno difficile e puoi spendere 1,5m di movimento per sfuggire automaticamente a prese non magiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Localizzatore Perfetto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Illimitata (stesso piano)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Se possiedi un oggetto personale di una creatura o l'hai colpita con uno Spray Marcatore, conosci la sua posizione esatta e direzione di movimento, purché sia sullo stesso piano di esistenza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Occhio Arcano (Drone Spia)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Un micro-drone invisibile vola ed esplora. Ha scurovisione e trasmette dati in tempo reale. Può passare attraverso fessure minuscole.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passaggio Dimensionale (Blink)</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">150 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Attivi un prototipo di teletrasporto portatile. Ti sposti istantaneamente in un punto visibile portando con te equipaggiamento e una creatura consenziente.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

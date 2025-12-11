@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_Guerriero - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">04_Guerriero</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h2>Guerriero</h2>
+<p>Durabilità e maestria nelle armi sono i punti salienti delle abilità del guerriero. Mentre chiunque può sparare con una pistola o brandire una lama, solo i guerrieri possono praticare efficacemente le basi di tutte le forme di combattimento. La loro versatilità e il loro addestramento estensivo li rendono una forza da non sottovalutare.</p>
+<h3>Privilegi di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Dadi Vita</strong></td>
+<td style="text-align: left;">1d10 per livello da guerriero</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PF al 1° Livello</strong></td>
+<td style="text-align: left;">10 + il tuo modificatore di Costituzione</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PF ai Livelli Successivi</strong></td>
+<td style="text-align: left;">1d10 (o 6) + il tuo modificatore di Costituzione per livello dopo il 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;">Competenze</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armature</strong></td>
+<td style="text-align: left;">Tutte le armature, scudi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armi</strong></td>
+<td style="text-align: left;">Armi semplici, armi marziali</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Strumenti</strong></td>
+<td style="text-align: left;">Nessuno</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tiri Salvezza</strong></td>
+<td style="text-align: left;">Forza, Costituzione</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abilità</strong></td>
+<td style="text-align: left;">Due a scelta tra: Acrobazia, Atletica, Intuizione, Intimidire, Cultura, Percezione, Persuasione e Sopravvivenza</td>
+</tr>
+</tbody>
+</table>
+<h4>Equipaggiamento Iniziale</h4>
+<ul>
+<li>(a) armatura da truppa pesante o (b) giacca corazzata e autopistola</li>
+<li>(a) un'arma marziale e scudo o (b) due armi marziali</li>
+<li>(a) un'arma semplice a distanza o (b) un'arma semplice da mischia</li>
+<li>(a) uno zaino da esploratore</li>
+</ul>
+<hr />
+<h3>Tabella: Il Guerriero</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: left;">Privilegi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Stile di Combattimento, Recuperare Energie</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Azione Impetuosa (1 uso)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Specializzazione Marziale</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Attacco Extra</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Indomito (1 uso)</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">11°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Attacco Extra (2)</td>
+</tr>
+<tr>
+<td style="text-align: center;">12°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">13°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">Indomito (2 uso)</td>
+</tr>
+<tr>
+<td style="text-align: center;">14°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">16°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">17°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Indomito (3 uso),Azione Impetuosa (2 uso)</td>
+</tr>
+<tr>
+<td style="text-align: center;">18°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Privilegio Specializzazione</td>
+</tr>
+<tr>
+<td style="text-align: center;">19°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+</tr>
+<tr>
+<td style="text-align: center;">20°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Attacco Extra (3)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Stile di Combattimento</strong></td>
+<td style="text-align: left;">Scegli uno stile (vedi dettagli sotto).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Recuperare Energie</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus:</strong> Recuperi <strong>1d10 + Livello Guerriero</strong> PF, oppure rimuovi un livello di esaurimento. Recupero: Riposo Breve/Lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Azione Impetuosa</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Compi un'azione addizionale nel tuo turno. Recupero: Riposo Breve/Lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Archetipo Marziale</strong></td>
+<td style="text-align: left;">Scegli un archetipo: <strong>Paragon</strong>, <strong>Commando</strong> o <strong>Guardia della Tempesta</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Attacco Extra</strong></td>
+<td style="text-align: left;">Puoi attaccare due volte invece di una quando usi l'azione Attacco.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Indomito</strong></td>
+<td style="text-align: left;">Puoi ritirare un Tiro Salvezza fallito. Una volta per riposo lungo.</td>
+</tr>
+</tbody>
+</table>
+<h4>Stili di Combattimento (Dettaglio)</h4>
+<ul>
+<li><strong>Difesa:</strong> +1 alla CA quando indossi armatura.</li>
+<li><strong>Duellare:</strong> +2 ai danni con arma da mischia in una mano (nessun'altra arma).</li>
+<li><strong>Combattere con Armi Grandi:</strong> Ritira 1 o 2 ai danni con armi a due mani.</li>
+<li><strong>Artiglieria (Gunnery):</strong> Riduci il rinculo (<em>recoil</em>) delle armi da fuoco di 1.</li>
+<li><strong>Protezione:</strong> Reazione per dare svantaggio a un attacco contro un alleato entro 1,5m (richiede scudo).</li>
+<li><strong>Deterrenza a Distanza:</strong> Reazione per fare attacco di opportunità se un nemico entro 1,5m fa un attacco a distanza.</li>
+<li><strong>Tiro Ravvicinato (Point Shooting):</strong> Non hai svantaggio agli attacchi a distanza entro 1,5m da un nemico.</li>
+<li><strong>Tiro di Precisione:</strong> +2 ai tiri per colpire con armi a distanza.</li>
+<li><strong>Combattere con Due Armi:</strong> Aggiungi mod. caratteristica ai danni del secondo attacco.</li>
+</ul>
+<hr />
+<h2>Archetipi Marziali</h2>
+<h3>Paragone (<em>Paragon</em>)</h3>
+<p><img src="../../../assets/Guerriero%20paragon.png" alt="Guerriero paragon.png" loading="lazy" class="content-image"><br />
+Maestro d'armi che unisce abilità e addestramento rigoroso.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Colpo Infuso</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus:</strong> Ottieni vantaggio ai tiri per colpire. Fino a fine turno, aggiungi il tuo <strong>Mod. Costituzione</strong> ai danni dell'arma. 3 usi per riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Spinta Atletica</strong></td>
+<td style="text-align: left;">Aggiungi metà bonus competenza alle prove di Forza, Destrezza o Costituzione che non lo usano già. Salti in lungo aumentati.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Stile Aggiuntivo</strong></td>
+<td style="text-align: left;">Scegli un secondo Stile di Combattimento dalla lista base.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15°</strong></td>
+<td style="text-align: left;"><strong>Colpo Rapido</strong></td>
+<td style="text-align: left;">Quando hai <strong>vantaggio</strong> su un attacco con arma, puoi rinunciarvi per effettuare un <strong>attacco addizionale</strong> contro lo stesso bersaglio. (Max 1 volta per turno).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>18°</strong></td>
+<td style="text-align: left;"><strong>Sopravvissuto</strong></td>
+<td style="text-align: left;">All'inizio del turno, se hai meno della metà dei PF ma più di 0, recuperi <strong>5 + Mod. Costituzione</strong> PF.</td>
+</tr>
+<tr>
+<td style="text-align: left;">### Commando</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="../../../assets/Guerriero%20commando.png" alt="Guerriero commando.png" loading="lazy" class="content-image"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Esperti in tattiche ed equipaggiamento speciale.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Addestramento Tattico</strong></td>
+<td style="text-align: left;">Competenza in uno strumento/veicolo o abilità (Computer, Intuizione, Percezione, Furtività, ecc.).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Prodezze (Stunts)</strong></td>
+<td style="text-align: left;">Ottieni <strong>Dadi Prodezza</strong> (<strong>d8</strong>). Spendi per manovre (vedi tabella sotto). Recupero: Riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Demolitore</strong></td>
+<td style="text-align: left;">Ottieni competenza in granate e strumenti da demolizione.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Prodezze Ampliate</strong></td>
+<td style="text-align: left;">I dadi diventano <strong>d10</strong>. Ottieni l'accesso a manovre avanzate (<em>Carica di Comando, Vento Coraggioso, Carica Esplosiva</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15°</strong></td>
+<td style="text-align: left;"><strong>Determinazione</strong></td>
+<td style="text-align: left;">Se tiri iniziativa senza dadi prodezza, ne recuperi uno.</td>
+</tr>
+<tr>
+<td style="text-align: left;">##### Tabella Prodezze (Combat Stunts)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Spendi un Dado Prodezza per attivare:</em></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prodezza</th>
+<th style="text-align: left;">Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Contrattacco</strong></td>
+<td style="text-align: left;"><strong>Reazione</strong> (se mancato in mischia): Attacchi il nemico. Aggiungi il dado ai danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doppio Colpo</strong></td>
+<td style="text-align: left;">(Se colpisci): Danneggi un secondo nemico entro 1,5m dal primo. Danno = Dado Prodezza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spinta Extra</strong></td>
+<td style="text-align: left;">Aggiungi il dado a una prova di Forza o Destrezza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Lampo</strong></td>
+<td style="text-align: left;">(Se colpisci): Aggiungi dado ai danni. Bersaglio fa TS Des o è <strong>Accecato</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Marchio del Guardiano</strong></td>
+<td style="text-align: left;">Marchi un nemico vicino. Se attacca altri, puoi usare <strong>Reazione</strong> per attaccarlo (aggiungi dado a colpire).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Parata</strong></td>
+<td style="text-align: left;"><strong>Reazione</strong> (se colpito): Aggiungi dado alla CA. Se colpisce ancora, dimezzi i danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo di Precisione</strong></td>
+<td style="text-align: left;">Aggiungi il dado al Tiro per Colpire (prima o dopo il tiro).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo Rapido</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus</strong>: Colpisci con colpo senz'armi/improvvisato. Danno = Dado. Bersaglio non può fare AdO.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fuoco di Ritorno</strong></td>
+<td style="text-align: left;"><strong>Reazione</strong> (se mancato a distanza): Attacchi a distanza il nemico. Aggiungi dado a colpire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attacco di Spinta</strong></td>
+<td style="text-align: left;">(Se colpisci in mischia): Aggiungi dado ai danni. Nemico (Grande o meno) TS Forza o spinto 3m e <strong>Prono</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passo Sicuro</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus</strong>: Aggiungi dado ai TS Forza/Des contro movimento forzato/prono fino al prossimo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lancio Mirato</strong></td>
+<td style="text-align: left;">Aggiungi dado a prova di Atletica per granate o tiro per colpire con lanciagranate.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo di Squadra</strong></td>
+<td style="text-align: left;">(Se colpisci): Rinunci al danno per far attaccare un alleato (<strong>Reazione</strong>), che aggiunge il dado al suo tiro per colpire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Manovra Acrobatica</strong></td>
+<td style="text-align: left;">(In movimento): Aggiungi il dado alla tua CA finché ti muovi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carica di Comando</strong> (Liv 10+)</td>
+<td style="text-align: left;">(Con Azione Impetuosa): Invece dell'azione extra, 2 alleati usano Azione Bonus per attaccare.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vento Coraggioso</strong> (Liv 10+)</td>
+<td style="text-align: left;">(Con Recuperare Energie): 3 alleati recuperano PF pari al tiro del Dado Prodezza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carica Esplosiva</strong> (Liv 10+)</td>
+<td style="text-align: left;">Attacchi un esplosivo. Al prossimo turno nemico: danni fuoco = Dado Prodezza e TS Cost o <strong>Stordito</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Guardia della Tempesta (<em>Storm Guard</em>)</h3>
+<p><img src="../../../assets/Guerriero%20guardia.png" alt="Guerriero guardia.png" loading="lazy" class="content-image"><br />
+Protettori d'élite con impianti sorium.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Legame con l'Arma</strong></td>
+<td style="text-align: left;">Puoi legarti a un'arma e richiamarla istantaneamente in mano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Impulso dell'Arma</strong></td>
+<td style="text-align: left;">(Una volta per turno, se colpisci): Attivi un effetto extra (es. danni fuoco, acido, elettricità, o buttare prono) oltre al danno normale. <strong>2 usi</strong> per riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Impulso Residuo</strong></td>
+<td style="text-align: left;">Quando usi l'Impulso, l'arma cambia tipo di danno per corrispondere all'effetto fino al prossimo turno e supera le resistenze.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Colpo di Precisione</strong></td>
+<td style="text-align: left;">Se manchi con l'arma legata, puoi spendere un <em>Impulso</em> per ritirare il tiro. Se colpisci, applichi l'effetto dell'impulso. Se manchi, l'uso è perso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15°</strong></td>
+<td style="text-align: left;"><strong>Ondata Senza Confini</strong></td>
+<td style="text-align: left;">Se tiri iniziativa senza <em>Impulsi</em> rimanenti, ne recuperi uno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>18°</strong></td>
+<td style="text-align: left;"><strong>Affinità Energetica</strong></td>
+<td style="text-align: left;">Quando usi <em>Impulso Residuo</em>, ottieni <strong>Resistenza</strong> al tipo di danno dell'arma.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

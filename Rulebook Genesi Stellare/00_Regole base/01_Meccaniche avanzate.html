@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Meccaniche avanzate - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">01_Meccaniche avanzate</h1>
+                <div class="markdown-content">
+                    <p>Anche con tutti i diversi elementi e opzioni disponibili per costruire e far avanzare il tuo personaggio, ci sono regole opzionali aggiuntive che possono arricchire ulteriormente l'esperienza. Iintegriamo le regole per <strong>Multiclasse</strong> e <strong>Talenti</strong>, adattandole alle nuove classi e specie introdotte.</p>
+<hr />
+<h2>Multiclasse</h2>
+<p>Il multiclasse ti permette di guadagnare livelli in più classi. Farlo ti permette di mescolare le abilità di quelle classi per realizzare un concetto di personaggio che potrebbe non essere riflesso in una delle opzioni di classe standard</p>
+<p>Con questa regola, hai l'opzione di guadagnare un livello in una nuova classe ogni volta che avanzi di livello, invece di guadagnare un livello nella tua classe attuale. I tuoi livelli in tutte le tue classi sono sommati insieme per determinare il tuo livello del personaggio. Ad esempio, se hai tre livelli in Melder e due in Guerriero, sei un personaggio di 5° livello </p>
+<h3>Prerequisiti</h3>
+<p>Per qualificarti per una nuova classe, devi soddisfare i prerequisiti di punteggio di caratteristica sia per la tua classe attuale che per quella nuova</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Classe</th>
+<th style="text-align: left;">Punteggio di Caratteristica Minimo (13)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ingegnere</strong></td>
+<td style="text-align: left;">Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Melder</strong></td>
+<td style="text-align: left;">Intelligenza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Specialista</strong></td>
+<td style="text-align: left;">Destrezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guerriero</strong></td>
+<td style="text-align: left;">Forza o Destrezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mistico</strong></td>
+<td style="text-align: left;">Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cavaliere Solare</strong></td>
+<td style="text-align: left;">Forza o Destrezza E Carisma</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paradosso</strong></td>
+<td style="text-align: left;">Carisma</td>
+</tr>
+</tbody>
+</table>
+<h3>Punti Esperienza</h3>
+<p>Il costo in punti esperienza per guadagnare un livello è sempre basato sul tuo livello totale del personaggio, non sul tuo livello in una particolare classe</p>
+<h3>Punti Ferita e Dadi Vita</h3>
+<p>Guadagni i punti ferita dalla tua nuova classe come descritto per i livelli successivi al 1°. Guadagni i punti ferita di 1° livello per una classe solo quando sei un personaggio di 1° livello <br />
+Sommi insieme i Dadi Vita concessi da tutte le tue classi per formare la tua riserva di Dadi Vita. Se i Dadi Vita sono dello stesso tipo, puoi semplicemente raggrupparli. Se sono diversi, tienine traccia separatamente </p>
+<h3>Bonus di Competenza</h3>
+<p>Il tuo bonus di competenza è sempre basato sul tuo livello totale del personaggio</p>
+<h3>Competenze del Multiclasse</h3>
+<p>Quando guadagni il tuo primo livello in una classe diversa dalla tua classe iniziale, guadagni solo alcune delle competenze iniziali della nuova classe</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Classe</th>
+<th style="text-align: left;">Competenze Guadagnate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ingegnere</strong></td>
+<td style="text-align: left;">Armature leggere, armature medie, armi semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Melder</strong></td>
+<td style="text-align: left;">Nessuna</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Specialista</strong></td>
+<td style="text-align: left;">Armature leggere, una abilità dalla lista di classe, strumenti da infiltrazione</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guerriero</strong></td>
+<td style="text-align: left;">Armature leggere, armature medie, scudi, armi semplici, armi marziali</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mistico</strong></td>
+<td style="text-align: left;">Armature leggere, scudi, armi semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cavaliere Solare</strong></td>
+<td style="text-align: left;">Armature leggere, armature medie, scudi, armi semplici, armi marziali</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paradosso</strong></td>
+<td style="text-align: left;">Armature leggere, armi semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;">### Regole Speciali per i Privilegi</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Canalizzazione/Forgiatura:</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Poteri Conosciuti:</strong> Calcolati individualmente per ogni classe.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Punti Talento:</strong> Somma livelli Mistico + Melder + (1/3 Specialista/Guerriero con archetipi magici).</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Slot Tecnica:</strong> Somma livelli Ingegnere + (1/2 Cacciatore/Sentinella).</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Attacco Extra:</strong> Non si somma (ottieni il privilegio una sola volta).</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Espansione del Rig:</strong> Ottieni nuovi effetti ma non usi aggiuntivi (salvo specificato dalla classe).</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">* <strong>Difesa Senza Armatura:</strong> Non cumulabile.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">---</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Talenti</h2>
+<p>Un talento rappresenta una capacità o un'area di competenza che conferisce a un personaggio capacità speciali. Incarna addestramento, esperienza e abilità oltre a ciò che fornisce una classe </p>
+<p>A certi livelli, la tua classe ti dà il privilegio <strong>Aumento dei Punteggi di Caratteristica</strong>. Usando la regola opzionale dei talenti, puoi rinunciare a prendere quel privilegio per prendere invece un talento a tua scelta </p>
+<blockquote>
+<p>[!tip] Integrazione Specie e Classi<br />
+Di seguito sono riportati nuovi talenti progettati per interagire con le specie aliene e le classi introdotte, per espandere le opzioni del manuale base.</p>
+</blockquote>
+<h3>Lista Talenti Generali</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Talento</th>
+<th style="text-align: left;">Requisiti</th>
+<th style="text-align: left;">Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Acrobata</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Des. Usi Des per prove di Atletica (saltare/scalare). Doppio bonus Des ai TS contro Raffica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Adattabile</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 a una Caratteristica a scelta. Competenza nei TS di quella caratteristica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allerta</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+5 Iniziativa. Non puoi essere sorpreso. Nemici nascosti non hanno vantaggio contro di te.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Atletico</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For o Des. Rialzarsi costa meno movimento. Vantaggio (1/riposo breve) su prove fisiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lottatore</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For o Cos. Colpi senz'armi d4. Competenza armi improvvisate. Azione bonus per afferrare dopo colpo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esperto nella Carica</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Azione bonus per Attaccare o Spingere dopo Scatto (Dash). Bonus danni/spinta in linea retta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esper da Combattimento</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Vantaggio Costituzione per concentrazione. Lanci con mani occupate. Reazione per talento su AdO.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pilota da Combattimento</strong></td>
+<td style="text-align: left;">Veicoli</td>
+<td style="text-align: left;">+1 Des o Sag. Aumenta Difesa Manovra. Reazione per aumentare CA nave.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sapiente Cosmico</strong></td>
+<td style="text-align: left;">Esper</td>
+<td style="text-align: left;">Scegli Forza, Necrotico o Radioso. Vantaggio ai TS contro quel tipo. I tuoi poteri impongono -2 ai TS nemici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Demolitore</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For o Sag. Competenza granate. Piazzi esplosivi come Azione Bonus.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Combattente a Due Armi</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 CA con due armi. Usi armi non leggere. Estrai due armi insieme.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Elementalista</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Scegli tipo danno elementale. Ignori resistenza. Ritiri danni (1/riposo breve).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cacciatore di Esper</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Reazione per attaccare chi usa poteri (impone svantaggio conc.). Vantaggio attacchi vs caster.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Piè Veloce</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Velocità +3m. Ignori terreno difficile scattando. +1 CA se ti muovi molto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fortuito</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">3 Dadi Fortuna (d6) per migliorare i tuoi tiri o peggiorare quelli nemici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Afferratore</strong></td>
+<td style="text-align: left;">For 13</td>
+<td style="text-align: left;">Vantaggio attacchi vs creatura afferrata. Puoi tentare di immobilizzare (pin).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro Armi Pesanti</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Azione bonus attacco su critico/kill. Penalità -5 colpire per +10 danni (armi pesanti).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Armaiolo</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Des. Niente inceppamenti su 1 naturale. Ricarica rapida.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Robusto</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Cos. Rimuovi veleno/malattia una volta per riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Equipaggiato Pesante</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For. Competenza Armature Pesanti.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro Armature Pesanti</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For. Riduzione danni non magici di 3. Resistenza esplosivi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Artigliere Pesante</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For. Riduci rinculo armi raffica. Azione bonus per attacco extra con raffica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Leader Ispiratore</strong></td>
+<td style="text-align: left;">Car 13</td>
+<td style="text-align: left;">Conferisci PF temporanei agli alleati dopo riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mente Acuta</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Int o Sag. Memoria eidetica. Prove di gruppo per certe abilità.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Equipaggiato Leggero</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For o Des. Competenza Armature Leggere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esperto Linguista</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Int. Tre lingue extra. Vantaggio su codici.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Equipaggiato Medio</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For o Des. Competenza Armature Medie e Scudi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro Hacker</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Competenza kit hacker. Vantaggio hacking. Svantaggio TS nemici contro spoofing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro Infiltrato</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Vantaggio passaggi segreti/trappole. Bonus disattivare dispositivi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro Armature Medie</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Nessun svantaggio furtività. Bonus Des alla CA max +3 (invece di +2).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Medico</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Stabilizzare cura 1 PF. Kit medico come riposo breve. Bonus cure durante riposo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro Armi su Asta</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Attacco bonus con estremità opposta. AdO quando entrano nella portata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maestro degli Scudi</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Azione bonus spingere con scudo. Bonus scudo ai TS Des. Reazione eludere danni (come Elusione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tattico Navale</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Des o Sag. Nessun svantaggio attacchi nave durante evasione. Azione bonus mirare con nave.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abile</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Competenza in 3 abilità a scelta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cecchino</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Nessun svantaggio gittata lunga. Ignori copertura parziale. -5 colpire / +10 danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pilota Spaziale</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Des. Competenza veicoli spaziali.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tiro Rapido</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Ignori ricarica. Nessun svantaggio in mischia con armi distanza. Attacco bonus pistola secondaria.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Furtivo</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Nascondersi se leggermente oscurati. Rimani nascosto se manchi. Visione migliorata al buio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guidatore Acrobatico</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Attacco da veicolo senza svantaggio. Bonus manovre. Reazione per CA veicolo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esperto Tecnico</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Sag. Vantaggio riparazioni. Kit riparazione cura costrutti.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attore</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Car. Vantaggio per impersonare e ingannare.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Duro</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">PF extra (2 per livello).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vigile</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 Int o Sag. Bonus a Percezione/Indagine passiva. Lettura labiale.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Specialista in Armi</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">+1 For o Des. Competenza in 5 armi a scelta.</td>
+</tr>
+</tbody>
+</table>
+<h3>Talenti Razziali e di Classe Specifici</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Talento</th>
+<th style="text-align: left;">Requisito</th>
+<th style="text-align: left;">Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Carica Corazzata</strong></td>
+<td style="text-align: left;">Vesk</td>
+<td style="text-align: left;">+1 For o Cos. Scatto -&gt; Azione bonus attacco mischia (se colpisce, prono).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mente Logica Avanzata</strong></td>
+<td style="text-align: left;">Androide/Ingegnere</td>
+<td style="text-align: left;">+1 Int. Vantaggio TS Int. 1/riposo aggiungi Mod Int a colpire o TS Des.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Agilità a Quattro Braccia</strong></td>
+<td style="text-align: left;">Talandri</td>
+<td style="text-align: left;">+1 Des. Ricarica/scambio armi gratuito. Vantaggio Atletica (scalare) e Rapidità di Mano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Eredità della Resistenza</strong></td>
+<td style="text-align: left;">Pahtra/Ysoki</td>
+<td style="text-align: left;">+1 Cos. Ritira Dado Vita (uso nuovo). Vantaggio TS malattie/veleni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Protocollo di Sintonizzazione</strong></td>
+<td style="text-align: left;">Cav. Solare/Melder</td>
+<td style="text-align: left;">Impari 1 Talento Prime extra. Solariano: Cambia sintonizzazione come reazione (danni). Melder: +2 Punti Talento Max.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ancora Temporale</strong></td>
+<td style="text-align: left;">Paradosso</td>
+<td style="text-align: left;">+1 Car. Non puoi essere sorpreso. Reazione per riuscire TS contro spostamento forzato/teletrasporto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sintonia dello Sciame</strong></td>
+<td style="text-align: left;">Mistico (Empatico)</td>
+<td style="text-align: left;">Raggio telepatia +9m. Reazione per dimezzare danni psichici a legato (condividi metà danni).</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../v4/sheet_v4.css">
+    <script src="../../v4/rules_data_v4.js"></script>
+    <script src="../../v4/sheet_template.js"></script>
+    <script src="../../v4/character_logic_v4.js"></script>
+    <script src="../../v4/supabase_client.js"></script>
+
+    <script src="../../search_data.js?v=4"></script>
+    <script src="../../app.js?v=4"></script>
+</body>
+
+</html>

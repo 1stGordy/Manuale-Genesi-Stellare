@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_Oggetti potenziati - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">06_Oggetti potenziati</h1>
+                <div class="markdown-content">
+                    <h1>Oggetti Potenziati</h1>
+<p>Oltre all'equipaggiamento standard, i personaggi possono trovare oggetti specializzati creati con tecnologia sorium avanzata. Alcuni migliorano l'efficacia, altri concedono capacità straordinarie.</p>
+<hr />
+<h2>Usare Oggetti Potenziati</h2>
+<h3>Categorie</h3>
+<ul>
+<li><strong>Armatura:</strong> Deve essere indossata.</li>
+<li><strong>Composto (<em>Compound</em>):</strong> Liquidi, iniezioni o pillole. Sono oggetti <strong>consumabili</strong>. Usare un composto richiede un'azione.</li>
+<li><strong>Focus:</strong> Oggetti di sorium usati dagli esper (Melder, Mistici, ecc.) per amplificare i poteri.</li>
+<li><strong>Mod:</strong> Modifiche o accessori da applicare a un'attrezzatura esistente (Armi o Armature).</li>
+<li><strong>Utilità:</strong> Gadget e dispositivi indipendenti. Alcuni hanno cariche limitate.</li>
+<li><strong>Arma:</strong> Armi potenziate o in grado di superare resistenze mondane.</li>
+</ul>
+<h3>Affinità (<em>Affinity</em>)</h3>
+<p>Alcuni oggetti richiedono che una creatura si "sintonizzi" con essi prima di poterli usare. Questo legame è chiamato <strong>Affinità</strong> (equivalente alla Sintonizzazione/Attunement fantasy).</p>
+<ul>
+<li><strong>Prerequisiti:</strong> Se un oggetto richiede una classe specifica (es. "Canalizzatore"), valgono le seguenti corrispondenze:<ul>
+<li><strong>Canalizzatore:</strong> Melder, Mistico, Paradosso, Cavaliere Solare.</li>
+<li><strong>Forgiatore:</strong> Ingegnere.</li>
+</ul>
+</li>
+<li><strong>Ottenere Affinità:</strong> Richiede un <strong>Riposo Breve</strong> a contatto con l'oggetto.</li>
+<li><strong>Limite:</strong> Puoi avere affinità con un numero di oggetti pari al tuo <strong>Bonus di Competenza</strong>.</li>
+<li><strong>Perdita:</strong> L'affinità si perde se l'oggetto è lontano più di 16 km (10 miglia) per 24 ore, o se un'altra creatura ottiene affinità con esso.</li>
+</ul>
+<hr />
+<h2>Descrizione dei Potenziamenti</h2>
+<p>Ecco una selezione degli oggetti più comuni e utili.</p>
+<h3>Armature e Modifiche</h3>
+<p><strong>Emettitore di Campo di Assorbimento</strong><br />
+<em>Mod (Armatura o PSD), Raro (Richiede Affinità)</em><br />
+Mentre indossi l'armatura con questa mod, hai <strong>Resistenza</strong> a un tipo di danno (determinato dal GM o casualmente: Acido, Freddo, Fuoco, Forza, Fulmine, ecc.). Il dispositivo si integra nell'armatura.</p>
+<p><strong>Inibitore Gravitazionale</strong><br />
+<em>Mod (Armatura), Non Comune (Richiede Affinità)</em><br />
+La tua velocità di camminata diventa 9 m (se inferiore) e non viene ridotta se sei ingombrato o indossi armatura pesante. Inoltre, la tua distanza di salto è triplicata.</p>
+<blockquote>
+<p><em>Popolare tra i Vesk in armatura pesante.</em></p>
+</blockquote>
+<p><strong>Armatura di Protezione</strong><br />
+<em>Armatura (Qualsiasi), Variabile (Richiede Affinità)</em><br />
+Fornisce un bonus di <strong>+1 ai Tiri Salvezza</strong>. La versione Rara fornisce anche +1 alla CA.</p>
+<h3>Armi e Modifiche</h3>
+<p><strong>Arma a Impatto</strong><br />
+<em>Arma (Qualsiasi), Variabile</em><br />
+Hai un bonus di <strong>+1</strong> ai tiri per colpire e ai danni. (Versione Rara: +2). Conta come magica/forgiata.</p>
+<p><strong>Emettitore di Raggio</strong><br />
+<em>Mod (Arma a distanza), Non Comune</em><br />
+Una volta per riposo lungo, come azione di attacco, puoi sparare un raggio laser: linea di 36m x 1,5m. Danni: <strong>4d6 radianti</strong> (TS Destrezza CD 13 dimezza).</p>
+<h3>Focus Esper</h3>
+<p><strong>Focus di Potere</strong><br />
+<em>Focus, Variabile (Richiede Affinità da un Canalizzatore)</em><br />
+Mentre lo impugni, ottieni <strong>+1</strong> ai tiri per colpire con i poteri esper (Talenti o Tecniche). Ignori la mezza copertura con i poteri. (Versione Rara: +2).</p>
+<blockquote>
+<p><em>Utilizzabile da: Melder, Mistico, Paradosso, Cavaliere Solare.</em></p>
+</blockquote>
+<h3>Utilità e Gadget</h3>
+<p><strong>Pietra del Nucleo (<em>Core Stone</em>)</strong><br />
+<em>Utilità (Limitata), Variabile</em><br />
+Un frammento di sorium monouso che contiene un potere esper. Chiunque può attivarlo se il potere è nella sua lista di classe. Se il potere è di grado superiore a quello che puoi usare, devi superare una prova di caratteristica esper (CD 10 + Grado).<br />
+* <strong>Gradi:</strong> Prime/1 (Comune), 2/3 (Non Comune), 4/5 (Raro).</p>
+<p><strong>Zaino Dimensionale</strong><br />
+<em>Utilità, Non Comune</em><br />
+Uno zaino che contiene uno spazio extradimensionale. Può contenere fino a 225 kg (500 libbre) ma pesa sempre 7 kg. Se perforato, il contenuto si perde nel Vuoto.</p>
+<p><strong>Tasca Ambientale</strong><br />
+<em>Utilità, Raro (Richiede Affinità)</em><br />
+Dispositivo da cintura. 3 cariche. Azione per attivare: crea un'atmosfera personale per 1 ora (respirare nel vuoto/sott'acqua, immunità a temperature estreme). Recupera 1d3 cariche all'alba.</p>
+<p><strong>Clonatore di Interfaccia</strong><br />
+<em>Utilità, Non Comune</em><br />
+Dispositivo palmare con 7 cariche. Usalo per attivare il potere <em>Remote Connection</em> (Connessione Remota) su computer e serrature. Ottimo per <strong>Specialisti</strong> e <strong>Ysoki</strong>.</p>
+<p><strong>Occhiali Low-Light</strong><br />
+<em>Utilità, Non Comune</em><br />
+Concedono <strong>Scurovisione</strong> fino a 18 metri. Se l'hai già (es. Vesk, Pahtra), estendono il raggio di altri 18 metri.</p>
+<h3>Composti</h3>
+<p><strong>Fiala Curativa</strong><br />
+<em>Composto, Comune/Raro</em><br />
+Azione per bere/iniettare.<br />
+* <strong>Guarigione:</strong> 2d4 + 2 PF.<br />
+* <strong>Super Guarigione:</strong> 4d4 + 4 PF.<br />
+* <strong>Iper Guarigione:</strong> 8d4 + 8 PF.</p>
+<p><strong>Bio-Gel</strong><br />
+<em>Utilità (Limitata), Non Comune</em><br />
+Contenitore con 1d4+1 dosi. Una dose (azione) cura 2d8+2 PF e rimuove veleno/malattie.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../v4/sheet_v4.css">
+    <script src="../../v4/rules_data_v4.js"></script>
+    <script src="../../v4/sheet_template.js"></script>
+    <script src="../../v4/character_logic_v4.js"></script>
+    <script src="../../v4/supabase_client.js"></script>
+
+    <script src="../../search_data.js?v=4"></script>
+    <script src="../../app.js?v=4"></script>
+</body>
+
+</html>

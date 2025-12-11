@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Ingegnere - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">01_Ingegnere</h1>
+                <div class="markdown-content">
+                    <p>Nella grande distesa, ci sono coloro che guardano oltre il mondano, disposti a sfidare le incognite dell'universo e affrontare minacce cosmiche che la maggior parte degli altri oserebbe solo sognare. Tu sei uno di questi eroi galattici, destinato a fare scelte che plasmano la via di tutte le cose a venire<br />
+La classe del tuo personaggio definisce il tipo di eroe galattico che è il tuo personaggio e tutto ciò per cui è stato addestrato. Sebbene ognuna possa essere considerata una professione, sono anche uno stile di vita, che influenza il modo in cui uno vedrebbe, penserebbe, reagirebbe e interagirebbe con il mondo che lo circonda</p>
+<hr />
+<h2>Ingegnere</h2>
+<p>Gli ingegneri sono esper che fanno uso di invenzioni moderne, robotica, computer e chimica. Combinate con l'uso del sorium, le loro abilità tecniche sono aperte a un regno infinito di possibilità. Il loro rig personalizzato traduce i loro pensieri in flussi di dati che si intrecciano in comandi di sistema. Non importa il loro percorso, migliorano costantemente concentrandosi sul loro addestramento, strumenti e competenza tecnica per sfidare le probabilità</p>
+<h3>Maestri della Scienza</h3>
+<p>Gli ingegneri si dedicano a un particolare percorso di studio, spesso vedendo l'universo e le creature viventi all'interno attraverso una lente metaforicamente tecnica. La loro intuizione risvegliata permette loro di vedere i modelli strutturali e le connessioni tra tutte le cose, come se l'universo fosse una grande macchina i cui meccanismi interni solo loro possono vedere</p>
+<h3>Una Fusione di Forze</h3>
+<p>Gli ingegneri hanno accesso a una vasta gamma di materiali, tutti forgiati o alimentati dal sorium, la misteriosa energia raccolta dai Crogioli. Un impianto interno di sorium, spesso posizionato vicino al cervello, garantisce loro sia un collegamento fisico che neurale al loro arsenale di strumenti. Attraverso l'uso di poteri esper noti come <strong>forgiatura</strong> (<em>forging</em>), un ingegnere è in grado di manipolare queste risorse, creando istantaneamente nanobot, droni d'assalto e medici, e armi al plasma</p>
+<hr />
+<h3>Privilegi di Classe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Dadi Vita</td>
+<td style="text-align: left;">1d8 per livello da ingegnere</td>
+</tr>
+<tr>
+<td style="text-align: left;">PF ai Livelli Successivi</td>
+<td style="text-align: left;">1d8 (o 5) + il tuo modificatore di Costituzione per livello dopo il 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Competenze</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Armature</td>
+<td style="text-align: left;">Leggere, Medie</td>
+</tr>
+<tr>
+<td style="text-align: left;">Armi</td>
+<td style="text-align: left;">Semplici</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tiri Salvezza</td>
+<td style="text-align: left;">Costituzione, Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;">Abilità</td>
+<td style="text-align: left;">Scegline due tra: Astrofisica, Computer, Intuizione, Cultura, Meccanica, Medicina, Persuasione e Xenobiologia</td>
+</tr>
+</tbody>
+</table>
+<h4>Equipaggiamento Iniziale</h4>
+<p>Inizi con il seguente equipaggiamento, in aggiunta a quello concesso dal background<br />
+* (a) una lama corta o (b) lame da polso, o (c) un bastone energetico <br />
+* (a) armatura da truppa leggera, (b) armatura da truppa media, o (c) armatura da truppa pesante (se competente)<br />
+* (a) una pistola leggera e 15 colpi, o (b) qualsiasi arma semplice<br />
+* (a) uno zaino da scienziato o (b) uno zaino da esploratore<br />
+* un <strong>Rig da Ingegnere</strong> </p>
+<hr />
+<h3>Tabella: L'Ingegnere</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Livello</th>
+<th style="text-align: center;">Bonus Comp.</th>
+<th style="text-align: left;">Privilegi</th>
+<th style="text-align: center;">Tecniche Prime</th>
+<th style="text-align: center;">Slot 1°</th>
+<th style="text-align: center;">Slot 2°</th>
+<th style="text-align: center;">Slot 3°</th>
+<th style="text-align: center;">Slot 4°</th>
+<th style="text-align: center;">Slot 5°</th>
+<th>Slot 6°</th>
+<th>Slot 7°</th>
+<th>Slot 8°</th>
+<th>Slot 9°</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Forgiatura, Specialità Tecnica</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">2°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Privilegio Specialità, Espansione del Rig (1/riposo)</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">3°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">4°</td>
+<td style="text-align: center;">+2</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">5°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Devastazione Meccanica (GS 1/2)</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">6°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Privilegio Specialità, Espansione del Rig (2/riposo)</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">7°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">8°</td>
+<td style="text-align: center;">+3</td>
+<td style="text-align: left;">Aumento Punteggi, Devastazione Meccanica (GS 1), Privilegio Specialità</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">9°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Riparazione di Fortuna (<em>The Jury Rig</em>)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">11°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Devastazione Meccanica (GS2)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">12°</td>
+<td style="text-align: center;">+4</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">13°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">14°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">Devastazione Meccanica (GS3)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">16°</td>
+<td style="text-align: center;">+5</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: center;">17°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Devastazione Meccanica (GS4), Specialità Tecnica</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align: center;">18°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Espansione del Rig (3/riposo)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align: center;">19°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;">Aumento Punteggi Caratteristica</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align: center;">20°</td>
+<td style="text-align: center;">+6</td>
+<td style="text-align: left;"><em>The Jury Rig</em></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Caratteristiche di Classe</h3>
+<h4>Statistiche di Forgiatura</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Dettaglio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Caratteristica Chiave</strong></td>
+<td style="text-align: left;"><strong>Saggezza</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CD Tiro Salvezza</strong></td>
+<td style="text-align: left;">8 + Bonus di Competenza + Modificatore di Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modificatore Attacco</strong></td>
+<td style="text-align: left;">Bonus di Competenza + Modificatore di Saggezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Preparazione</strong></td>
+<td style="text-align: left;">Lista di tecniche = Mod. Saggezza + Livello da Ingegnere.<br>Recupero slot: Riposo Lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Focus</strong></td>
+<td style="text-align: left;"><strong>Rig dell'Ingegnere</strong>: Set di strumenti, sorium e micro-droni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Convenzionale</strong></td>
+<td style="text-align: left;">Puoi lanciare tecniche col tag "convenzionale" senza spendere slot (richiede 10 min extra).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>Tabella dei Privilegi</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Forgiatura</strong></td>
+<td style="text-align: left;">Ottieni l'accesso alle Tecniche. Conosci <strong>3 Tecniche Prime</strong> e puoi preparare tecniche di grado 1.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Specialità Tecnica</strong></td>
+<td style="text-align: left;">Scegli un archetipo: <strong>Macchinista</strong>, <strong>Medico</strong> o <strong>Armeggiatore</strong>.<br>Ottieni privilegi specifici al 1°, 2°, 6° e 8° livello.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Richiamare il Rig</strong></td>
+<td style="text-align: left;"><strong>Reazione:</strong> Percepisci la posizione del Rig entro 800km.<br><strong>Azione Bonus:</strong> Spendi 1 slot per teletrasportare il Rig nella tua mano.<br><em>(Dal 5° livello il teletrasporto è gratuito).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Espansione del Rig</strong></td>
+<td style="text-align: left;"><strong>Recupero:</strong> Riposo Breve o Lungo.<br>Canalizzi energia per effetti speciali. Inizi con:<br><strong>Impulso Elettromagnetico (Azione):</strong> Costrutti/automi entro 9m fanno TS Intelligenza. Fallimento: <strong>Menomati</strong> fino a fine tuo prossimo turno o danno subito.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Devastazione Meccanica (I)</strong></td>
+<td style="text-align: left;">Il tuo <em>Impulso Elettromagnetico</em> distrugge istantaneamente automi che falliscono il TS se sono di <strong>GS 1/2 o inferiore</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8°</strong></td>
+<td style="text-align: left;"><strong>Devastazione Meccanica (II)</strong></td>
+<td style="text-align: left;">La soglia di distruzione istantanea sale a <strong>GS 1 o inferiore</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10°</strong></td>
+<td style="text-align: left;"><strong>Riparazione di Fortuna</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Tira 1d100. Se il risultato è <strong>≤ al tuo livello</strong>, ottieni un effetto speciale deciso dal GM (es. tecnica potente).<br><strong>Ricarica:</strong> 7 giorni (solo se ha successo).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Max</strong></td>
+<td style="text-align: left;"><strong>The Jury Rig</strong></td>
+<td style="text-align: left;">Il tuo rig agisce in simbiosi perfetta. Non hai più bisogno di lanciare dadi per fargli compiere le sue azioni standard o di routine (successo automatico).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Specialità Tecniche</h2>
+<h3>Macchinista</h3>
+<p><img src="../../../assets/Ingegnere%20macchinista.png" alt="Ingegnere macchinista.png" loading="lazy" class="content-image"><br />
+Si concentrano su potenziamenti, controllo macchine e droni da combattimento</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Competenze Bonus</strong></td>
+<td style="text-align: left;">Ottieni competenza in <strong>Armi Marziali</strong> e <strong>Scudi</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Attacco Coordinato</strong></td>
+<td style="text-align: left;">Quando usi l'azione Attacco, puoi usare un'<strong>Azione Bonus</strong> per far attaccare il tuo drone. Danni: <strong>1d6 + Sag radianti</strong>. Usi pari al Mod. Saggezza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Esplosione Laser, Potenziamento Sensoriale</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Rig Expansion: Fiore di Fuoco</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Cono di fiamme di 9m. Danni: <strong>2d10 + Livello Ingegnere</strong> (TS Des dimezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Drone d'Assalto, Arma Potenziata</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Assorbimento, Schema d'Attacco</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Attacco Sincronizzato</strong></td>
+<td style="text-align: left;">L'<em>Attacco Coordinato</em> infligge ora <strong>2d6 danni</strong> e il bersaglio deve superare un <strong>TS Costituzione</strong> o perdere le reazioni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Sfera al Plasma, Sentinella Furtiva</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8°</strong></td>
+<td style="text-align: left;"><strong>Repulsore</strong></td>
+<td style="text-align: left;"><strong>Azione Bonus</strong> (mano secondaria): Attacco a distanza. Danni: <strong>1d8 forza</strong> + bersaglio <strong>Prono</strong> (TS Cost).<br><em>(Aumenta a 2d8 al 14° livello).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Contagio, Incenerimento</em></td>
+</tr>
+</tbody>
+</table>
+<h3>Medico</h3>
+<p><img src="../../../assets/Ingegnere%20medico.png" alt="Ingegnere medico.png" loading="lazy" class="content-image"><br />
+Si concentrano sul preservare la vita e guarire malati e feriti</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Competenza Bonus</strong></td>
+<td style="text-align: left;">Ottieni competenza negli <strong>Scudi</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Dottore in Medicina</strong></td>
+<td style="text-align: left;">Quando curi con una tecnica (Grado 1+), curi PF extra pari a <strong>2 + grado della tecnica</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Riparare, Trauma</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Rig Expansion: Rigenerazione</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Riserva di cura pari a <strong>5 × Livello Ingegnere</strong>, distribuibile tra creature entro 9m (max metà PF del bersaglio per cura).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Sostenere, Rimedio Minore</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Ottimizzare, Resuscitare</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Sapiente della Guarigione</strong></td>
+<td style="text-align: left;">Quando curi un'altra creatura con una tecnica, ti curi anche tu di <strong>2 + grado della tecnica</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Suscettibilità Energetica, Microstabilizzatore</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8°</strong></td>
+<td style="text-align: left;"><strong>Attacco Caricato</strong></td>
+<td style="text-align: left;">Una volta per turno, aggiungi <strong>1d8 danni necrotici</strong> a un attacco con arma.<br><em>(Aumenta a 2d8 al 14° livello).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Riparare di Massa (Guarigione di massa?), Rianimare</em></td>
+</tr>
+</tbody>
+</table>
+<h3>Armeggiatore (<em>Tinker</em>)</h3>
+<p><img src="../../../assets/ingegnere%20armeggiatore.png" alt="ingegnere armeggiatore.png" loading="lazy" class="content-image"><br />
+Specialisti in modifiche rapide di equipaggiamento, armi e armature</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Livello</th>
+<th style="text-align: left;">Privilegio</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Competenze Bonus</strong></td>
+<td style="text-align: left;">Ottieni competenza in <strong>Armature Pesanti</strong> e <strong>Veicoli (Planetari)</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Potenziamento Equipaggiamento</strong></td>
+<td style="text-align: left;">Una volta per riposo lungo, conferisci per 12 ore:<br>• <strong>+1 CA</strong> a un'armatura, <em>oppure</em><br>• <strong>+1 Attacco/Danni</strong> a un'arma.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Impedenza, Disturbatore Sensoriale</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2°</strong></td>
+<td style="text-align: left;"><strong>Rig Expansion: Sabotare Equip.</strong></td>
+<td style="text-align: left;"><strong>Azione:</strong> Bersaglio entro 9m effettua TS Intelligenza. Fallimento (scegli uno):<br>• Svantaggio all'attacco<br>• Prossimo attacco contro di lui ha vantaggio<br>• Perde resistenze fisiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Collegamento Corticale, Paralizzatore</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Costruzione Rapida (Costrutto?), Effetto Disfacimento</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6°</strong></td>
+<td style="text-align: left;"><strong>Aggiornamento Difesa</strong></td>
+<td style="text-align: left;">Ottieni <strong>+1 CA</strong> (con armature medie/pesanti) e <strong>Resistenza</strong> a un tipo di danno (Fuoco, Freddo, Fulmine, Forza). Puoi cambiare resistenza con un riposo lungo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Microstabilizzatore, Sfera di Plasma</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8°</strong></td>
+<td style="text-align: left;"><strong>Impulso Amplificato</strong></td>
+<td style="text-align: left;">Il tuo <em>Impulso Elettromagnetico</em> (privilegio base Ing.) infligge ora anche <strong>2d10 + Livello Ingegnere</strong> danni da fulmine.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9°</strong></td>
+<td style="text-align: left;"><strong>Tecniche Bonus</strong></td>
+<td style="text-align: left;"><em>Incenerimento, Rimedio Maggiore</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Ingegnere: Compendio Tecnico Completo</h1>
+<table>
+<thead>
+<tr>
+<th>Caratteristica di Lancio:</th>
+<th>Saggezza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo di Potere: Tecniche</td>
+<td>Forgiatura</td>
+</tr>
+</tbody>
+</table>
+<p>L'Ingegnere non "lancia incantesimi" nel senso mistico, ma attiva dispositivi, assembla droni al volo, mescola composti chimici instabili e manipola l'energia tramite il suo <strong>Rig</strong>.</p>
+<hr />
+<h4>Grado 0 (Tecniche Prime)</h4>
+<p><em>Queste tecniche possono essere utilizzate a volontà.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Amplificare Abilità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Inietti un booster in una creatura consenziente. Una volta durante la durata, il bersaglio può tirare un d4 e aggiungere il numero ottenuto a una prova di caratteristica a sua scelta. Può tirare il dado prima o dopo aver effettuato la prova. L'effetto termina dopo l'uso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analizzare Dispositivo</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scopri tutti i comandi, i meccanismi e le funzioni elettroniche o meccaniche di un automa, costrutto, dispositivo, macchina o veicolo toccato. Ottieni una conoscenza di base su come attivare e far funzionare il dispositivo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attivare Dispositivo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Puoi fornire energia o attivare un dispositivo semplice (non più grande di un cubo di 1,5m) a distanza, come un pannello luci, una ventola o uno schermo. Se l'oggetto non ha alimentazione, gli fornisci energia per la durata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cerchio Statico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (1,5m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Estendi le braccia emettendo brevi flussi di energia elettrostatica. Ogni creatura a tua scelta entro 1,5 metri da te deve superare un TS su Costituzione o subire <strong>1d6 danni da fulmine</strong>.<br><em>Il danno aumenta di 1d6 al 5° (2d6), 11° (3d6) e 17° livello (4d6).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Deflettere Elementi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Piazzi un piccolo generatore di campo su una creatura consenziente. Una volta prima della fine della durata, quella creatura riceve un bonus di +2 al prossimo Tiro Salvezza contro qualsiasi tipo di danno elementale (fuoco, freddo, fulmine, tuono, acido). L'effetto termina dopo l'uso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scarica Elettrica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Lanci uno spuntone di elettricità verso un bersaglio entro gittata. Effettua un attacco a distanza di forgiatura. Il bersaglio non beneficia di copertura per questo attacco. Se colpisci, il bersaglio subisce <strong>1d8 danni da fulmine</strong> e perde la sua copertura fino all'inizio del tuo prossimo turno.<br><em>Il danno aumenta di 1d8 al 5° (2d8), 11° (3d8) e 17° livello (4d8).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scarica Sonica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (1,5m)</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Emetti un'esplosione di energia sonica centrata su di te. Ogni creatura entro un raggio di 1,5 metri (escluso te) deve effettuare un TS su Costituzione o subire <strong>1d6 danni da tuono</strong>. La tecnica emette un boato udibile fino a 45 metri.<br><em>Il danno aumenta di 1d6 al 5° (2d6), 11° (3d6) e 17° livello (4d6).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schermo Virtuale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Puoi visualizzare i contenuti su schermo di qualsiasi display di dati digitale che puoi vedere entro la gittata. Le informazioni appaiono davanti a te in un'immagine traslucida che solo tu puoi vedere.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spruzzo Acido</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Spruzzi un rapido getto di acido verso una creatura entro la gittata. La creatura deve superare un TS su Destrezza o subire <strong>1d10 danni da acido</strong>.<br><em>Il danno aumenta di 1d10 al 5° (2d10), 11° (3d10) e 17° livello (4d10).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stabilizzare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Quando attivi questo potere su una creatura vivente a 0 punti ferita, quella creatura diventa stabile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Visione Gamma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Il tuo impianto altera la tua capacità di vedere spettri di luce potenziati. Ottieni scurovisione con un raggio di 12 metri. Disattivare questa abilità richiede un'azione. Mentre sei alla luce del sole o luce molto intensa, hai svantaggio ai tiri per colpire e alle prove di Saggezza (Percezione) basate sulla vista.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Balsamo da Campo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Invii micro-droni per somministrare cure ai tuoi alleati. Tre creature a tua scelta che puoi vedere entro la gittata recuperano punti ferita pari a <strong>1d4 + il tuo modificatore di forgiatura</strong>. Questa abilità non ha effetto su costrutti o automi.<br><em>A Gradi Superiori: La guarigione aumenta di 1d4 per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Barriera</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Un campo di forza appare e circonda una creatura a tua scelta entro la gittata, garantendole un bonus di +2 alla CA per la durata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Braccio di Carico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Forgi un accessorio cibernetico sopra l'arto di una creatura consenziente. Per la durata, il bersaglio ha vantaggio alle prove di Forza (Atletica) effettuate per muovere, sollevare o trasportare oggetti e lo fa come se fosse di una taglia più grande.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carica Voltaica</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Imbui le tue armi con energia elettrica caricata. Fino al termine dell'effetto, i tuoi attacchi con l'arma infliggono <strong>1d4 danni da fulmine extra</strong> quando colpiscono.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Connessione Remota</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Puoi usare un dispositivo vicino come se fosse proprio di fronte a te. Scegli qualsiasi dispositivo elettronico entro la gittata che puoi vedere. Appare un set di controlli virtuali davanti a te, permettendoti di usare il dispositivo come se lo stessi toccando fisicamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Difensore a Spirale</strong></td>
+<td style="text-align: left;">1 reazione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;"><em>(Quando vieni bersagliato da un attacco)</em> Attivi un gruppo di piccoli scudi energetici che spirala verso l'alto intorno al tuo corpo per deflettere un attacco in arrivo da un bersaglio che scegli. L'attacco del bersaglio ha svantaggio al tiro per colpire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Direttiva Intercettazione</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sei in grado di leggere e comprendere i pattern di comando elettronici all'interno o scambiati tra automi e costrutti. Fino al termine dell'effetto, hai vantaggio ai Tiri Salvezza su Destrezza e Saggezza contro gli attacchi da qualsiasi minaccia di questo tipo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disturbatore Sensoriale</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Crei un effetto di mascheramento sensoriale intorno a una creatura entro la gittata. Fino al termine dell'effetto, qualsiasi creatura che bersaglia la creatura influenzata con un attacco o un potere dannoso deve prima effettuare un TS su Saggezza. Se fallisce, deve scegliere un nuovo bersaglio o perdere l'attacco. Termina se la creatura protetta attacca.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Laser</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Spara un raggio laser ad alta potenza verso una creatura a tua scelta entro la gittata. Effettua un attacco a distanza di forgiatura. Se colpisce, il bersaglio subisce <strong>4d6 danni radianti</strong>. Inoltre, il prossimo tiro per colpire effettuato contro questo bersaglio prima della fine del tuo prossimo turno ha vantaggio.<br><em>A Gradi Superiori: Il danno aumenta di 1d6 per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Impedenza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Un pacchetto di micro-droni disturba e distrae fino a tre creature a tua scelta entro la gittata che puoi vedere. Ogni creatura deve effettuare un TS su Saggezza. Per la durata, ogni bersaglio che fallisce subisce una penalità di 1d4 a tutti i tiri per colpire e tiri salvezza.<br><em>A Gradi Superiori: +1 bersaglio aggiuntivo per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Potenziamento Sensoriale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Fornisci un aggiornamento sensoriale a un massimo di tre creature a tua scelta entro la gittata. Ogni creatura ottiene un bonus di +1d4 ai tiri per colpire e ai tiri salvezza prima della fine della durata.<br><em>A Gradi Superiori: +1 bersaglio aggiuntivo per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rimescolatore Bersaglio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Piazzi un dispositivo su una creatura consenziente. Fino al termine dell'effetto, diventa una macchia per i sensori di mira dell'IA di automi e costrutti. Le creature di quei tipi hanno svantaggio ai tiri per colpire contro il bersaglio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riparare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Una creatura (o un costrutto/automa/oggetto) che tocchi recupera punti ferita pari a <strong>1d8 + il tuo modificatore di forgiatura</strong>.<br><em>A Gradi Superiori: La guarigione aumenta di 1d8 per ogni grado sopra il 1°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sensi Esper</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Per la durata, percepisci la presenza di qualsiasi potere esper attivo entro 9 metri da te. Se percepisci un potere, puoi usare la tua azione per vedere una debole aura attorno a qualsiasi creatura o oggetto visibile che porta l'effetto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trauma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Causi una rottura nel corpo della creatura. Effettua un attacco in mischia di forgiatura. Se colpisce, il bersaglio subisce <strong>3d10 danni necrotici</strong>.<br><em>A Gradi Superiori: Il danno aumenta di 1d10 per ogni grado sopra il 1°.</em></td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Arma Potenziata</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Tocchi un'arma mondana, caricandola con l'energia del tuo rig. Fino al termine dell'effetto, quell'arma diventa un'arma forgiata (magica) con un bonus di +1 ai tiri per colpire e ai danni.<br><em>A Gradi Superiori: Il bonus diventa +2 al Grado 4 e +3 al Grado 6.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rimedio Minore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Somministri un trattamento a una creatura e poni fine a una malattia o a una condizione che la affligge (cecità, sordità, paralisi, avvelenamento).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cappello Nero</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sei in grado di analizzare rapidamente dati elettronici. Ottieni vantaggio su tutte le prove di Intelligenza fatte usando un kit da hacker per rompere la crittografia o la sicurezza di un sistema. Permette anche di hackerare talenti di interdizione di grado 2 o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cecità/Sordità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Puoi accecare o assordare un nemico. Scegli una creatura che puoi vedere, deve fare un TS su Costituzione o essere accecata o assordata. Può ripetere il TS alla fine di ogni suo turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Collegamento Corticale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Piazzi un dispositivo su una creatura consenziente che si lega al tuo impianto. Mentre il bersaglio è entro 18 metri da te, ottiene un bonus di +1 alla CA e ai Tiri Salvezza, e ha resistenza a tutti i danni. Tuttavia, ogni volta che subisce danni, tu subisci lo stesso ammontare di danni.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Comando Falso</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Tenti di ingannare il protocollo di sicurezza di un automa o costrutto che puoi vedere. Il bersaglio deve effettuare un TS su Intelligenza. Se fallisce, ti considera un conoscente amichevole per la durata. L'effetto termina se tu o i tuoi compagni lo attaccate.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Disintossicare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Fornisci a una creatura un'antitossina speciale. Neutralizzi un veleno attivo. Per la durata, il bersaglio ha vantaggio ai TS contro veleno e resistenza ai danni da veleno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drone d'Assalto</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">15 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Lanci un piccolo drone da taglio al plasma che controlli. Quando lo attivi, fai un attacco in mischia di forgiatura contro una creatura entro 1,5m dal drone. Danni: <strong>1d8 + mod. forgiatura radianti</strong>. Come azione bonus nei turni successivi, puoi muovere il drone di 6 metri e ripetere l'attacco.<br><em>A Gradi Superiori: +1d8 danni ogni due gradi sopra il 2° (Grado 4, 6, ecc.).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fantasma Dati</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Crei una maschera digitale per nascondere la presenza tua e di fino a 6 compagni su qualsiasi sistema informatico o rete. Penalità di -10 alle prove per localizzarvi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Individuare Verità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Crei una zona di onde psichiche che proibisce l'inganno in una sfera di 4,5 metri. Chi fallisce un TS Carisma non può mentire deliberatamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Infravisione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Tocchi una creatura consenziente per garantirle la capacità di vedere lo spettro infrarosso. Ottiene infravisione fino a 18 metri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lama al Plasma</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Generi una piccola lama da taglio al plasma. Puoi usare la tua azione per fare un attacco in mischia di forgiatura. Se colpisci, infliggi <strong>3d6 danni radianti</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paralizzatore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Generi una rete stordente elettrica su un bersaglio. Deve superare un TS su Costituzione o essere Paralizzato. Può ripetere il TS alla fine di ogni suo turno.<br><em>A Gradi Superiori: +1 bersaglio per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Potenziare Abilità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Tocchi una creatura e le concedi un miglioramento fisico o mentale (vantaggio alle prove di una caratteristica a scelta, o PF temporanei per Costituzione, o capacità di carico per Forza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riparazione Rapida</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ripari un automa, costrutto, dispositivo meccanico o veicolo che puoi toccare. Recupera <strong>1d8 + il tuo modificatore di forgiatura</strong> Punti Ferita (o Punti Scafo).<br><em>A Gradi Superiori: +1d8 guarigione per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scanner di Sicurezza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Percepisci la presenza di qualsiasi trappola entro la gittata che sia in linea di vista. Non ne apprendi la posizione esatta, ma la natura del pericolo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sostenere</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Inietti uno stimolante di potenziamento. Scegli fino a tre creature. I loro Punti Ferita massimi e attuali aumentano di 5 per la durata.<br><em>A Gradi Superiori: +5 PF per ogni grado sopra il 2°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trattamento di Massa</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Tratti medicalmente fino a sei creature a tua scelta. Ognuna recupera <strong>2d8 + mod. forgiatura PF</strong>. Non ha effetto su costrutti.<br><em>A Gradi Superiori: +1d8 guarigione per ogni grado sopra il 2°.</em></td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Adattamento Atmosferico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Conferisce a 10 creature la capacità di respirare in ambienti privi di aria (vuoto, sott'acqua).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Assorbimento</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Tocchi una creatura e crei un sottile campo di energia. La creatura ha resistenza a un tipo di danno elementale a tua scelta (acido, freddo, fuoco, fulmine, tuono).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Balsamo da Campo Maggiore</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Invii micro-droni per cure d'emergenza. Fino a sei creature recuperano <strong>1d4 + mod. forgiatura PF</strong>.<br><em>A Gradi Superiori: +1d4 guarigione per ogni grado sopra il 3°.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Blocco Sistema</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a dissoluzione</td>
+<td style="text-align: left;">Piazzi una restrizione di sicurezza su un dispositivo dati elettronico, bloccandone l'accesso a chiunque tranne te e le creature designate.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Condensatore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Una sfera di luce intensa (raggio 18m) si diffonde da un punto o oggetto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Corrompere Modello</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Piazzi un marcatore su una creatura (attacco in mischia). TS Saggezza o subisce uno svantaggio a scelta o danni necrotici extra dai tuoi attacchi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Costrutto Rapido</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un costrutto robotico (statistiche da "Forged Construct") che ti obbedisce. Controllo per 24 ore.<br><em>A Gradi Superiori: Crei più costrutti o di grado più alto.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estensione Sensoriale</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">8 km</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un sensore invisibile in un luogo noto o ovvio per vedere e sentire a distanza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forgiare Veicolo</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 8 ore</td>
+<td style="text-align: left;">Assembli un veicolo terrestre temporaneo (moto o auto) che può trasportare fino a 4 creature medie. Hai competenza raddoppiata per guidarlo.<br><em>A Gradi Superiori: Veicoli più grandi, volanti o acquatici.</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Innesco Programmato</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a attivazione</td>
+<td style="text-align: left;">Piazzi un micro-dispositivo o glifo. Esplode (5d8 danni) o lancia un potere immagazzinato quando attivato da condizioni specifiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ottimizzatore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Somministri un vitalizzante. I bersagli hanno vantaggio ai TS su Saggezza e Morte, e recuperano il massimo dei PF da qualsiasi cura.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raggio a Impulsi</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Linea 18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Spara un raggio ionico. Ogni creatura nella linea deve superare un TS Destrezza. I costrutti subiscono <strong>5d6 danni da fulmine</strong> e sono Storditi. Le creature organiche subiscono danni ma non stordimento. Disabilita l'elettronica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Resuscitare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Tratti una creatura morta entro l'ultimo minuto. Ritorna in vita con 1 punto ferita.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riparazione da Campo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Invii droni a riparare fino a tre costrutti o veicoli. Recuperano <strong>1d4 + mod. forgiatura PF/Scafo</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ripristinare Modello</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Rimuovi tutti i marcatori soprannaturali e le maledizioni da una creatura o oggetto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sbrogliare Effetto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scegli una creatura, oggetto o effetto magico/esper. Termini qualsiasi potere di grado 3 o inferiore su di esso. Per gradi superiori, serve una prova di caratteristica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schema d'Attacco</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Uno sciame di droni spara su un'area (cubo 6m x 3m). Le creature subiscono <strong>3d8 danni da fuoco e forza</strong> (TS Destrezza dimezza). Puoi ripetere l'attacco come azione nei turni successivi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sentinella Personale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (4,5m)</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei piccoli droni stealth che orbitano intorno a te. I nemici che entrano nell'area o iniziano il turno lì devono superare un TS Saggezza o subire <strong>3d8 danni radianti</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Traduttore Universale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Conferisci la capacità di comprendere qualsiasi lingua parlata.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona d'Impatto</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Lanci un dispositivo che esplode con forza concussiva in un cubo di 4,5 metri. <strong>3d10 danni da forza</strong> e i bersagli cadono proni (TS Destrezza).</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Anello di Fulmini</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">90 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un anello di elettricità a terra (raggio 6m). Chi è nell'area subisce <strong>5d8 danni da fulmine</strong> (TS Destrezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo Reattivo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Ti circondi di un'aura di calore o freddo. Resistenza all'elemento opposto e 2d8 danni a chi ti colpisce in mischia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Costrutto Base</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Forgi costrutti temporanei (fino a GS 2) che obbediscono ai tuoi comandi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drenare Potere</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Contro Costrutti: Attacco a distanza, <strong>5d6 forza</strong>, ti curi pari al danno.<br>Contro Dispositivi: TS del dispositivo o si spegne e ti cura in base alla grandezza.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Egida Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Resistenza a danni contundenti, perforanti e taglienti. +3 ai TS su Raffica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Micro Stabilizzatore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Attacchi un dispositivo a una creatura. La prima volta che scenderebbe a 0 PF, scende invece a 1 PF e l'effetto termina.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raggio Traente</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Appare un drone. Puoi dirigerlo per tirare una creatura di 6 metri verso il drone (TS Destrezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sentinella Furtiva</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Lanci un micro-drone invisibile che staziona in un punto. Spara un raggio (20 danni radianti, TS Destrezza dimezza) a chi si avvicina ostilmente. Si disattiva dopo aver inflitto 60 danni totali.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sfera al Plasma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Lanci un drone che crea una sfera di energia di 6 metri. Chi entra subisce <strong>2d6 danni radianti</strong> (TS Costituzione). Puoi usare un'azione bonus per sparare un fulmine (4d6) dalla sfera.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Suscettibilità Energetica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Applichi una debilitazione a una creatura (TS Costituzione). Perde resistenza a un elemento scelto e subisce <strong>2d6 danni extra</strong> di quel tipo la prima volta che viene colpita ogni turno.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Svincolare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Il bersaglio ignora terreno difficile, non può essere paralizzato o trattenuto e può liberarsi da manette/prese spendendo movimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trasferimento Condotto</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ti teletrasporti tra due dispositivi o cavi elettrici connessi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trasmutare Forma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Trasformi una creatura in una bestia di GS pari o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zona Ustionante</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei una cupola di energia infuocata. Chi è all'interno o entro 3m dall'esterno subisce <strong>5d8 danni da fuoco</strong> (TS Destrezza).</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Barricata d'Acciaio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">36 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Crei un muro solido di acciaio (pannelli 3m x 3m, spessore 15cm). Fornisce copertura totale e ha PF propri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contagio</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">7 giorni</td>
+<td style="text-align: left;">Infetti una creatura con una malattia debilitante tramite attacco in mischia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Esplosione Tossica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">90 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Lanci un drone che rilascia gas tossico in una sfera di 6 metri. <strong>4d10 danni da veleno</strong> (TS Costituzione).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guarigione di Massa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Energia positiva cura fino a 6 creature in un punto scelto. Recuperano <strong>3d8 + mod. PF</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guardiano Imponente</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Forgi un protettore meccanico (GS 5 o inferiore) da metallo/plastica presente nell'area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incenerire</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Attacco aereo orbitale o da drone pesante. Un cilindro di raggio 3m e alto 12m viene colpito. TS Destrezza: <strong>4d6 danni fuoco + 4d6 danni radianti</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Interdizione Cosmica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Crei un'area protetta (raggio 18m). Blocca entità energetiche e puoi aggiungere un effetto extra (luce, silenzio, paura, blocco teletrasporto).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Matrice di Controllo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Tenti di assumere il controllo di un automa o costrutto. TS Intelligenza o obbedisce ai tuoi comandi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Percezione Estesa</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Estendi i sensi per vedere e sentire un bersaglio ovunque nel sistema solare (TS Saggezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rianimare</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Riporti in vita una creatura morta da non più di 10 giorni con 1 PF. Cura veleni e malattie non magiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Richiamo Istantaneo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Ottieni memoria eidetica e +10 a prove di Intelligenza per ricordare info.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rimedio Maggiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Rimuovi un livello di esaurimento, o effetti di charme, pietrificazione, maledizioni o riduzione PF/statistiche.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riparazione da Campo Maggiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Invii droni a riparare fino a 4 costrutti. Recuperano <strong>1d8 + mod. PF</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stasi Meccanica</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Paralizzi un automa o costrutto (TS Saggezza ripetibile).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tuta di Sopravvivenza</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Crei campi di forza ambientali per 8 creature. Respirano ovunque, immuni a gas velenosi e temperature estreme.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Barriera di Lame</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">27 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">Muro di lame vorticose in acciaio forgiato. Fornisce copertura e infligge <strong>6d10 danni taglienti</strong> a chi attraversa (TS Destrezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campo di Negazione</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (3m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sfera che blocca poteri esper di grado 5 o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cerotto Stimolante</strong></td>
+<td style="text-align: left;">10 minuti</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Somministri un booster a 12 creature. Cura malattie/veleni, immunità a paura/veleno, vantaggio TS Saggezza, +2d10 PF max. Effetto 24 ore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colpo Diretto</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">Personale (9m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Crei un link tattico. Come azione bonus nei turni successivi, comandi a un alleato di usare la reazione per attaccare un bersaglio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forgiare Automa</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">3 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Assembli parti meccaniche per creare un costrutto fedele (Alphalite) che rimane attivo per 24 ore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Navigatore Virtuale</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 24 ore</td>
+<td style="text-align: left;">Crei un display che mostra la rotta più breve e diretta verso una destinazione nota nel sistema solare.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passaggio Dinamico</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">1 round</td>
+<td style="text-align: left;">Crei un link tra un dispositivo grande vicino e uno lontano (stesso sistema). Permette il teletrasporto tra i due.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Punto di Ritorno</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Teletrasporti te e 5 creature in un "rifugio" designato precedentemente (luogo familiare).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rifugio Interdetto</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">15 metri</td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Proteggi un'area (4000 mq). Blocca teletrasporto in entrata. Danneggia specifici tipi di creature (es. costrutti, netherant) che entrano (<strong>5d10 danni radianti o necrotici</strong>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rinnovamento Cellulare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Curi 70 PF a una creatura e rimuovi cecità, sordità e malattie.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vera Vista</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Conferisci visione del vero (36m).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Virus</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Scateni una malattia virale. TS Costituzione. <strong>14d6 danni necrotici</strong> (o metà). Riduce PF massimi.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 7</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Controllo Gravità</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">30 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Aumenti, annulli o inverti la gravità in un cilindro di 15 metri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Copia Cloni</strong></td>
+<td style="text-align: left;">12 ore</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Permanente</td>
+<td style="text-align: left;">Crei un simulacro illusorio ma semi-reale di una bestia o umanoide. Ha metà PF e non recupera slot.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Design Duraturo</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">24 ore</td>
+<td style="text-align: left;">Ottimizzi un costrutto o veicolo. Immunità a corrosione meteo, muove normale su terreno difficile, immunità stordito/inabile. Recupera max PF con riparazioni rapide.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forma Intangibile</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Diventi etereo e intangibile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Innesco Funesto</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Fino a attivazione</td>
+<td style="text-align: left;">Piazzi un glifo letale. All'attivazione, infligge effetti devastanti (es. 10d10 necrotici, follia, dolore atroce) in un raggio di 18m.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rianimazione Totale</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Riporta in vita una creatura morta da non più di un secolo con tutti i PF.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rigenerare</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Il bersaglio recupera 4d8+15 PF e rigenera 1 PF ogni turno. Arti persi ricrescono.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rottura dell'Anima</strong></td>
+<td style="text-align: left;">1 azione bonus</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Onda sonica distruttiva. Creature con &lt;50 PF assordate, &lt;40 cieche/sorde, &lt;30 stordite, &lt;20 uccise istantaneamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Smantellare</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Invii naniti contro un costrutto/veicolo. TS Costituzione. Fallimento: <strong>6d8 forza + 6d8 fulmine</strong> e paralizzato. Successo: metà danni e menomato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tempesta di Fuoco</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">45 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Dieci cubi di fuoco da 3m. <strong>7d10 danni da fuoco</strong> (TS Destrezza).</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 8</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Aura Reattiva</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Sfera di 9m. Alleati hanno vantaggio ai TS. Nemici che colpiscono un alleato subiscono <strong>6d10 danni radianti</strong> (TS Destrezza dimezza).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Costrutto d'Elite</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Forgi un costrutto avanzato (Prime Alpha Mecharoid) che ti obbedisce. Controllo per 24 ore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Negazione Superiore</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale (3m)</td>
+<td style="text-align: left;">Concentrazione, fino a 1 minuto</td>
+<td style="text-align: left;">Blocca poteri, oggetti forgiati, evocazioni e teletrasporto nell'area.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passeggiata Spaziale</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">9 metri</td>
+<td style="text-align: left;">Concentrazione, fino a 10 minuti</td>
+<td style="text-align: left;">10 creature possono sopravvivere nel vuoto, volare (90m) e sono immuni a danni elementali mondani.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ricostruzione Totale</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Ripari completamente un costrutto, veicolo o dispositivo distrutto (non più di 100 anni), ripristinando tutti i PF/Scafo e integrità.</td>
+</tr>
+</tbody>
+</table>
+<h4>Grado 9</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Tempo di attivazione</th>
+<th style="text-align: left;">Gittata</th>
+<th style="text-align: left;">Durata</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Mutaforma</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">Personale</td>
+<td style="text-align: left;">Concentrazione, fino a 1 ora</td>
+<td style="text-align: left;">Assumi la forma di qualsiasi creatura con GS pari al tuo livello o inferiore.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Preveggenza</strong></td>
+<td style="text-align: left;">1 minuto</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">8 ore</td>
+<td style="text-align: left;">Il bersaglio non può essere sorpreso e ha vantaggio a tiri per colpire, prove e TS. I nemici hanno svantaggio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rinnovamento di Massa</strong></td>
+<td style="text-align: left;">1 azione</td>
+<td style="text-align: left;">18 metri</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Curi fino a 700 PF divisi tra creature a scelta. Rimuovi malattie, cecità, sordità.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ripristino Totale</strong></td>
+<td style="text-align: left;">1 ora</td>
+<td style="text-align: left;">Tocco</td>
+<td style="text-align: left;">Istantanea</td>
+<td style="text-align: left;">Riporti in vita una creatura morta da non più di 300 anni con tutti i PF, rimuovendo ogni male. Può rigenerare un corpo intero se distrutto.</td>
+</tr>
+</tbody>
+</table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../../v4/sheet_v4.css">
+    <script src="../../../v4/rules_data_v4.js"></script>
+    <script src="../../../v4/sheet_template.js"></script>
+    <script src="../../../v4/character_logic_v4.js"></script>
+    <script src="../../../v4/supabase_client.js"></script>
+
+    <script src="../../../search_data.js?v=4"></script>
+    <script src="../../../app.js?v=4"></script>
+</body>
+
+</html>

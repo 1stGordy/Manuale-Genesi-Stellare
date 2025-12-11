@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00_Le caratteristiche - Arcanum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=4">
+</head>
+
+<body>
+    <div id="app-container">
+        <button id="mobile-menu-btn" aria-label="Menu">☰</button>
+        <div id="mobile-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Arcanum</h1>
+            </div>
+            <div class="search-container-sidebar">
+                <input type="text" id="sidebar-search" placeholder="Cerca...">
+            </div>
+            <div id="nav-tree">
+                <!-- Sidebar content injected via JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dice Roller UI -->
+        <button id="dice-toggle-btn" aria-label="Lancia Dadi">🎲</button>
+        <div id="dice-panel">
+            <div class="dice-header">
+                <h3>Sala dei Dadi</h3>
+                <button id="close-dice-btn">×</button>
+            </div>
+            <div class="dice-controls">
+                <button class="dice-btn" data-sides="4">d4</button>
+                <button class="dice-btn" data-sides="6">d6</button>
+                <button class="dice-btn" data-sides="8">d8</button>
+                <button class="dice-btn" data-sides="10">d10</button>
+                <button class="dice-btn" data-sides="12">d12</button>
+                <button class="dice-btn" data-sides="20">d20</button>
+                <button class="dice-btn" data-sides="100">d100</button>
+            </div>
+            <div id="dice-result-area">
+                <div id="dice-animation">🎲</div>
+                <div id="dice-value">-</div>
+            </div>
+            <div class="dice-history">
+                <h4>Cronologia</h4>
+                <ul id="dice-log"></ul>
+            </div>
+        </div>
+
+        <main id="main-content">
+            <div id="content-area">
+                <h1 class="page-title">00_Le caratteristiche</h1>
+                <div class="markdown-content">
+                    <h1>Usare i Punteggi di Caratteristica</h1>
+<p>Sei abilità forniscono una rapida descrizione delle caratteristiche fisiche e mentali di ogni creatura:</p>
+<ul>
+<li><strong>Forza:</strong> Misura la potenza fisica.</li>
+<li><strong>Destrezza:</strong> Misura l'agilità.</li>
+<li><strong>Costituzione:</strong> Misura la resistenza.</li>
+<li><strong>Intelligenza:</strong> Misura il ragionamento e la memoria.</li>
+<li><strong>Saggezza:</strong> Misura la percezione e l'intuizione.</li>
+<li><strong>Carisma:</strong> Misura la forza della personalità.</li>
+</ul>
+<p>Un personaggio è muscoloso e perspicace? Brillante e affascinante? Agile e robusto? I punteggi di caratteristica definiscono queste qualità—le risorse di una creatura così come le sue debolezze.</p>
+<hr />
+<h2>Punteggi di Caratteristica e Modificatori</h2>
+<p>Ogni caratteristica ha un punteggio, un numero che definisce l'entità di quella capacità. Un punteggio di 10 o 11 è la media umana normale, ma gli avventurieri (e molti mostri) sono un gradino sopra la media nella maggior parte delle abilità. Un punteggio di 18 è il massimo che una persona raggiunge solitamente.</p>
+<p>Ogni caratteristica ha anche un <strong>modificatore</strong>, derivato dal punteggio e che varia da -5 (per un punteggio di 1) a +10 (per un punteggio di 30).</p>
+<blockquote>
+<p>[!info] Tabella: Punteggi e Modificatori<br />
+| Punteggio | Modificatore | Punteggio | Modificatore |<br />
+| :---: | :---: | :---: | :---: |<br />
+| 1 | -5 | 16-17 | +3 |<br />
+| 2-3 | -4 | 18-19 | +4 |<br />
+| 4-5 | -3 | 20-21 | +5 |<br />
+| 6-7 | -2 | 22-23 | +6 |<br />
+| 8-9 | -1 | 24-25 | +7 |<br />
+| 10-11 | 0 | 26-27 | +8 |<br />
+| 12-13 | +1 | 28-29 | +9 |<br />
+| 14-15 | +2 | 30 | +10 |</p>
+</blockquote>
+<hr />
+<h2>Vantaggio e Svantaggio</h2>
+<p>A volte un'abilità speciale o un potere ti dice che hai <strong>vantaggio</strong> o <strong>svantaggio</strong> su una prova di caratteristica, un tiro salvezza o un tiro per colpire.</p>
+<ul>
+<li><strong>La Regola:</strong> Tira un secondo d20. Usa il più alto dei due tiri se hai vantaggio, e usa il tiro più basso se hai svantaggio.</li>
+<li><strong>Cumulo:</strong> Se molteplici situazioni influenzano un tiro e ognuna concede vantaggio (o impone svantaggio), tiri comunque solo un d20 addizionale.</li>
+<li><strong>Cancellazione:</strong> Se le circostanze causano sia vantaggio che svantaggio, si annullano a vicenda e tiri un solo d20.</li>
+</ul>
+<hr />
+<h2>Bonus di Competenza</h2>
+<p>I personaggi hanno un bonus di competenza determinato dal livello. Questo bonus è usato nelle regole su prove di caratteristica, tiri salvezza e tiri per colpire.</p>
+<p>Il tuo bonus di competenza non può essere aggiunto a un singolo tiro di dado o altro numero più di una volta. Tuttavia, occasionalmente, il tuo bonus di competenza potrebbe essere moltiplicato o diviso (raddoppiato o dimezzato, per esempio) prima di applicarlo (es. <em>Attitudine Naturale</em> dello Specialista).</p>
+<hr />
+<h2>Prove di Caratteristica</h2>
+<p>Una prova di caratteristica testa il talento innato e l'addestramento di un personaggio o di una minaccia nel tentativo di superare una sfida. Il GM richiede una prova di caratteristica quando un personaggio tenta un'azione (diversa da un attacco) che ha una possibilità di fallimento.</p>
+<p><strong>Il Tiro:</strong> 1d20 + Modificatore di Caratteristica + Bonus Competenza (se applicabile).</p>
+<h3>Classi Difficoltà (CD)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Difficoltà</th>
+<th style="text-align: left;">CD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Molto Facile</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Facile</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">15</td>
+</tr>
+<tr>
+<td style="text-align: left;">Difficile</td>
+<td style="text-align: left;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;">Molto Difficile</td>
+<td style="text-align: left;">25</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quasi Impossibile</td>
+<td style="text-align: left;">30</td>
+</tr>
+</tbody>
+</table>
+<h3>Gare (Contests)</h3>
+<p>A volte gli sforzi di un personaggio sono direttamente opposti a quelli di un altro. In situazioni come queste, l'esito è determinato da una forma speciale di prova di caratteristica, chiamata gara. Entrambi i partecipanti effettuano prove di caratteristica appropriate ai loro sforzi. Il partecipante con il totale più alto vince. Se c'è un pareggio, la situazione rimane la stessa di prima della gara.</p>
+<h3>Abilità (Skills)</h3>
+<p>Ogni caratteristica copre un'ampia gamma di capacità, incluse abilità in cui un personaggio può essere competente.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;">Abilità Associate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Forza</strong></td>
+<td style="text-align: left;">Atletica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Destrezza</strong></td>
+<td style="text-align: left;">Acrobazia, Furtività, Rapidità di Mano</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Intelligenza</strong></td>
+<td style="text-align: left;">Astrofisica, Computer, Investigazione, Cultura (<em>Lore</em>), Xenobiologia</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Saggezza</strong></td>
+<td style="text-align: left;">Intuizione, Meccanica, Medicina, Percezione, Sopravvivenza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carisma</strong></td>
+<td style="text-align: left;">Inganno, Intimidire, Intrattenere (<em>Performance</em>), Persuasione</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!tip] Variante: Abilità con Caratteristiche Diverse<br />
+Normalmente, la tua competenza in un'abilità si applica solo a uno specifico tipo di prova. In alcuni casi, però, il GM potrebbe chiedere una combinazione insolita. Per esempio, nuotare per lunghe distanze potrebbe richiedere una prova di <strong>Costituzione (Atletica)</strong>.</p>
+</blockquote>
+<h3>Prove Passive</h3>
+<p>Una prova passiva è un tipo speciale di prova di caratteristica che non coinvolge tiri di dado. Può rappresentare il risultato medio per un compito svolto ripetutamente o essere usata quando il GM vuole determinare segretamente se i personaggi riescono in qualcosa senza tirare i dadi.</p>
+<p><strong>Totale Passivo = 10 + tutti i modificatori che si applicano normalmente</strong><br />
+<em>(Se il personaggio ha vantaggio, aggiungi 5. Per svantaggio, sottrai 5).</em></p>
+<h3>Lavoro di Gruppo</h3>
+<ul>
+<li><strong>Aiutare:</strong> Il personaggio che guida lo sforzo può fare una prova con vantaggio se un altro personaggio lo aiuta.</li>
+<li><strong>Prove di Gruppo:</strong> Tutti nel gruppo fanno la prova. Se almeno la metà del gruppo ha successo, l'intero gruppo ha successo.</li>
+</ul>
+<hr />
+<h2>Usare Ogni Caratteristica</h2>
+<h3>Forza</h3>
+<p>Misura la potenza corporea, l'allenamento atletico e la forza bruta.<br />
+* <strong>Atletica:</strong> Scalare scogliere scivolose, saltare lunghe distanze, nuotare in correnti pericolose.<br />
+* <strong>Sollevare e Trasportare:</strong><br />
+    * <strong>Capacità di Trasporto:</strong> Punteggio di Forza x 15 libbre (x 7,5 kg circa).<br />
+    * <strong>Spingere, Trascinare o Sollevare:</strong> Fino a due volte la capacità di trasporto (o 30 volte il punteggio di Forza). La velocità scende a 1,5m (5 piedi).<br />
+    * <strong>Taglia:</strong> Raddoppia per ogni categoria sopra Media, dimezza per Minuscola.</p>
+<h3>Destrezza</h3>
+<p>Misura l'agilità, i riflessi e l'equilibrio.<br />
+* <strong>Acrobazia:</strong> Rimanere in piedi su ghiaccio, bilanciarsi su una corda, acrobazie.<br />
+* <strong>Rapidità di Mano:</strong> Giochi di prestigio, borseggiare, nascondere oggetti.<br />
+* <strong>Furtività:</strong> Nascondersi, muoversi silenziosamente.<br />
+* <strong>Iniziativa:</strong> All'inizio del combattimento, si tira una prova di Destrezza.</p>
+<blockquote>
+<p>[!example] Nascondersi<br />
+Il GM confronta la tua prova di Destrezza (Furtività) con il punteggio di Saggezza (Percezione) passiva delle creature che potrebbero notarti. Non puoi nasconderti da una creatura che può vederti chiaramente.</p>
+</blockquote>
+<h3>Costituzione</h3>
+<p>Misura la salute, la resistenza e la forza vitale.<br />
+Non ci sono abilità legate alla Costituzione. Viene usata per:<br />
+* <strong>Concentrazione:</strong> Mantenere un potere esper attivo mentre si subiscono danni.<br />
+* <strong>Trattenere il fiato:</strong> Minuti pari a 1 + Modificatore di Costituzione (minimo 30 secondi).<br />
+* <strong>Marcia forzata:</strong> Resistere alla fatica.</p>
+<h3>Intelligenza</h3>
+<p>Misura l'acutezza mentale, l'accuratezza del ricordo e la capacità di ragionare.<br />
+* <strong>Astrofisica:</strong> Conoscenza di viaggi spaziali, fisica, navigazione stellare.<br />
+* <strong>Computer:</strong> Operare sistemi non familiari, hackerare, recuperare dati.<br />
+* <strong>Investigazione:</strong> Dedurre posizioni di oggetti nascosti, discernere indizi.<br />
+* <strong>Cultura (Lore):</strong> Storia, pratiche aliene, origini di antichi manufatti.<br />
+* <strong>Xenobiologia:</strong> Conoscenza di forme di vita aliene, terreni planetari, climi.<br />
+* <strong>Caratteristica Esper:</strong> I <strong>Melder</strong> usano l'Intelligenza come caratteristica di canalizzazione.</p>
+<h3>Saggezza</h3>
+<p>Riflette quanto sei sintonizzato con il mondo intorno a te e rappresenta percettività e intuizione.<br />
+* <strong>Intuizione:</strong> Determinare le vere intenzioni di una creatura, rilevare bugie.<br />
+* <strong>Meccanica:</strong> Conoscenza e riparazione di macchine, elettronica, veicoli.<br />
+* <strong>Medicina:</strong> Stabilizzare un compagno morente, diagnosticare malattie.<br />
+* <strong>Percezione:</strong> Vedere, sentire o rilevare la presenza di qualcosa (sensi).<br />
+* <strong>Sopravvivenza:</strong> Seguire tracce, cacciare, guidare il gruppo in terre desolate.<br />
+* <strong>Caratteristica Esper:</strong> Gli <strong>Ingegneri</strong> (e i Mistici) usano la Saggezza come caratteristica di forgiatura/canalizzazione.</p>
+<h3>Carisma</h3>
+<p>Misura la tua capacità di interagire efficacemente con gli altri.<br />
+* <strong>Inganno:</strong> Nascondere la verità, mentire, usare travestimenti.<br />
+* <strong>Intimidire:</strong> Influenzare qualcuno con minacce o violenza fisica.<br />
+* <strong>Intrattenere (Performance):</strong> Deliziare un pubblico con musica, danza o recitazione.<br />
+* <strong>Persuasione:</strong> Influenzare qualcuno con tatto, grazie sociali o buona natura.<br />
+* <strong>Caratteristica Esper:</strong> Alcune classi (come il <strong>Paradosso</strong> o il <strong>Cavaliere Solare</strong>) usano il Carisma per i loro poteri.</p>
+<hr />
+<h2>Tiri Salvezza</h2>
+<p>Un tiro salvezza—o semplicemente "salvezza"—rappresenta un tentativo di resistere a un potere esper, una trappola, un veleno, una malattia o una minaccia simile.</p>
+<p><strong>Il Tiro:</strong> 1d20 + Modificatore di Caratteristica appropriato + Bonus Competenza (se competente).</p>
+<p>La Classe Difficoltà (CD) per un tiro salvezza è determinata dall'effetto che lo causa. Ad esempio, la CD per resistere a un potere di un esper è determinata dalla caratteristica di canalizzazione dell'esper e dal suo bonus di competenza.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Inject sidebar data from build process
+        window.SIDEBAR_DATA = {"__files__": [{"name": "RoadMap+Fondamenta", "path": "RoadMap+Fondamenta.html"}], "Rulebook Genesi Stellare": {"__files__": [], "00_Regole base": {"__files__": [{"name": "00_Regole base", "path": "Rulebook Genesi Stellare/00_Regole base/00_Regole base.html"}, {"name": "01_Meccaniche avanzate", "path": "Rulebook Genesi Stellare/00_Regole base/01_Meccaniche avanzate.html"}, {"name": "02_Spedizioni", "path": "Rulebook Genesi Stellare/00_Regole base/02_Spedizioni.html"}, {"name": "03_Combattimento", "path": "Rulebook Genesi Stellare/00_Regole base/03_Combattimento.html"}, {"name": "04_Navi spaziali e Viaggi spaziali", "path": "Rulebook Genesi Stellare/00_Regole base/04_Navi spaziali e Viaggi spaziali.html"}]}, "01_Creazione personaggio": {"__files__": [], "00_Creazione note base": {"__files__": [{"name": "00_Creazione Personaggio", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/00_Creazione note base/00_Creazione Personaggio.html"}]}, "01_Specie": {"__files__": [{"name": "00_Specie introduzione", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/00_Specie introduzione.html"}, {"name": "01_Ashenforged", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/01_Ashenforged.html"}, {"name": "02_Eldori", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/02_Eldori.html"}, {"name": "03_Umani", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/03_Umani.html"}, {"name": "04_Kesh", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/04_Kesh.html"}, {"name": "05_Promethean", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/05_Promethean.html"}, {"name": "06_Androidi", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/06_Androidi.html"}, {"name": "07_Talandri", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/07_Talandri.html"}, {"name": "08_Pahtra", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/08_Pahtra.html"}, {"name": "09_Vesk", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/09_Vesk.html"}, {"name": "10_Ysoki", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/01_Specie/10_Ysoki.html"}]}, "02_classi": {"__files__": [{"name": "01_Ingegnere", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/01_Ingegnere.html"}, {"name": "02_Melder", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/02_Melder.html"}, {"name": "03_Specialista", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/03_Specialista.html"}, {"name": "04_Guerriero", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/04_Guerriero.html"}, {"name": "05_Mistico", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/05_Mistico.html"}, {"name": "06_Solariano", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/06_Solariano.html"}, {"name": "07_Paradosso", "path": "Rulebook Genesi Stellare/01_Creazione personaggio/02_classi/07_Paradosso.html"}]}}, "02_Equipaggiamento": {"__files__": [{"name": "00_Equipaggiamento", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/00_Equipaggiamento.html"}, {"name": "01_Armature", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/01_Armature.html"}, {"name": "02_Armi", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/02_Armi.html"}, {"name": "03_Attrezzatura Varia", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/03_Attrezzatura Varia.html"}, {"name": "04_Strumenti", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/04_Strumenti.html"}, {"name": "05_Veicoli", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/05_Veicoli.html"}, {"name": "06_Oggetti potenziati", "path": "Rulebook Genesi Stellare/02_Equipaggiamento/06_Oggetti potenziati.html"}]}, "03_Usare le abilit\u00e0": {"__files__": [{"name": "00_Le caratteristiche", "path": "Rulebook Genesi Stellare/03_Usare le abilit\u00e0/00_Le caratteristiche.html"}]}, "04_Esper power": {"__files__": [{"name": "00_Poteri", "path": "Rulebook Genesi Stellare/04_Esper power/00_Poteri.html"}]}}};
+        window.SITE_ROOT = "../../";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- V4: Character Sheet Modules -->
+    <link rel="stylesheet" href="../../v4/sheet_v4.css">
+    <script src="../../v4/rules_data_v4.js"></script>
+    <script src="../../v4/sheet_template.js"></script>
+    <script src="../../v4/character_logic_v4.js"></script>
+    <script src="../../v4/supabase_client.js"></script>
+
+    <script src="../../search_data.js?v=4"></script>
+    <script src="../../app.js?v=4"></script>
+</body>
+
+</html>
