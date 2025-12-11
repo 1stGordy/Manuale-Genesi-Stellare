@@ -1,4 +1,4 @@
-/* --- CORE STYLES --- */
+﻿/* --- CORE STYLES --- */
 :root {
     --bg-color: #0b0d17;
     --card-bg: rgba(20, 24, 35, 0.9);
@@ -1058,7 +1058,7 @@ body:has(.cs-v3-container) #content-area {
     gap: 4px;
 }
 
-/* Hover Effect - Indica Cliccabilità */
+/* Hover Effect - Indica CliccabilitÃ  */
 .esper-card:hover {
     background: rgba(0, 243, 255, 0.1);
     border-color: var(--accent-color);
@@ -1310,6 +1310,7 @@ body:has(.cs-v3-container) #content-area {
     pointer-events: none;
     border-color: #444;
 }
+
 /* --- MELDER / ESPER TP STYLES --- */
 .tp-container {
     position: relative;
@@ -1317,7 +1318,7 @@ body:has(.cs-v3-container) #content-area {
     background: #222;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1327,4 +1328,597 @@ body:has(.cs-v3-container) #content-area {
     width: 0%;
     transition: width 0.3s ease-out;
     box-shadow: 0 0 10px var(--secondary-accent);
+}
+
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Max Width 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* 1. SBLOCCO HEADER (Cruciale: Rimuove fixed positioning) */
+    .cs-v3-header-fixed {
+        position: relative !important;
+        /* Smette di galleggiare */
+        top: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        z-index: 10;
+        background: var(--bg-color);
+        border-bottom: 2px solid var(--accent-color);
+    }
+
+    /* Rimuove padding inutile dal body container */
+    .cs-v3-container {
+        height: auto !important;
+        overflow-y: visible !important;
+        display: block;
+        /* Rimuove flex che blocca lo scroll */
+        padding-top: 0 !important;
+    }
+
+    .cs-v3-body-scroll {
+        padding-top: 10px;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* 2. IMPILA LE COLONNE (Ritratto sopra, Info sotto) */
+    .cs-v3-header-fixed>div:first-child {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px;
+    }
+
+    /* Ritratto ridimensionato per non occupare tutto lo schermo */
+    .cs-v3-portrait {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    /* Info (Nome, Dropdown) larghezza 100% */
+    .cs-v3-header-fixed>div>div:nth-child(2) {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cs-v3-name {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    /* Vitali (HP/XP) sotto */
+    .cs-v3-header-fixed>div>div:nth-child(3) {
+        width: 100% !important;
+        margin-top: 5px;
+    }
+
+    /* 3. ATTRIBUTI (Griglia 3x2) */
+    .cs-v3-attributes-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .attr-box-sm {
+        width: 30%;
+        /* 3 per riga */
+        min-width: 70px;
+        margin-bottom: 5px;
+    }
+
+    /* Nascondi divisori verticali su mobile */
+    .cs-v3-attributes-header>div[style*="width: 1px"] {
+        display: none;
+    }
+
+    /* 4. NAVIGAZIONE TAB (Scorrevole orizzontale) */
+    .cs-v3-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cs-v3-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cs-v3-tab {
+        flex: 0 0 auto;
+        padding: 10px 15px;
+        background: rgba(0, 0, 0, 0.3);
+        margin-right: 5px;
+        border-radius: 4px;
+    }
+
+    /* 5. TABELLA ARMI/EQUIP (Scroll orizzontale per non rompere il layout) */
+    .cs-v3-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* 6. MODALI FULLSCREEN (Per usare bene le dita) */
+    .custom-modal-box,
+    #esper-modal .custom-modal-box,
+    #feat-modal>div {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        border-radius: 0;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    #esper-selection-list,
+    #feat-selection-list {
+        flex-grow: 1;
+        max-height: none !important;
+    }
+
+    /* 7. INPUT PIÃ™ GRANDI (Evita zoom su iOS) */
+    .cs-v3-input,
+    .cs-v3-select {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Max Width 768px)
+   ============================================================ */
+
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Max Width 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* --- 1. LAYOUT GENERALE & HEADER --- */
+
+    /* Sblocca l'header fisso per recuperare spazio */
+    .cs-v3-header-fixed {
+        position: relative !important;
+        top: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        z-index: 10;
+        background: var(--bg-color);
+        border-bottom: 2px solid var(--accent-color);
+    }
+
+    /* Rimuove i blocchi allo scorrimento del corpo */
+    .cs-v3-container {
+        height: auto !important;
+        overflow-y: visible !important;
+        display: block;
+        padding-top: 0 !important;
+    }
+
+    .cs-v3-body-scroll {
+        padding-top: 10px;
+        height: auto;
+        overflow: visible;
+        padding-bottom: 100px;
+        /* Spazio extra in fondo per i tooltip */
+    }
+
+    /* --- HEADER COMPATTO --- */
+
+    /* 1. Ritratto, Nome, Pulsanti */
+    .cs-v3-header-fixed>div:first-child {
+        display: flex;
+        flex-direction: column;
+        /* Impila verticalmente */
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* --- FIX RITRATTO (Geometria Bloccata) --- */
+    .cs-v3-portrait {
+        width: 120px !important;
+        height: 120px !important;
+        min-width: 120px !important;
+        min-height: 120px !important;
+        border-radius: 50% !important;
+        aspect-ratio: 1 / 1 !important;
+        margin: 0 auto 15px auto;
+        flex-shrink: 0;
+        overflow: hidden;
+        border: 2px solid var(--accent-color);
+        background: #000;
+    }
+
+    .cs-v3-portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Taglia l'eccedenza, non deforma */
+        object-position: center top;
+    }
+
+    /* Contenitore Info (Nome + Pulsanti) */
+    .cs-v3-header-fixed>div>div:nth-child(2) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .cs-v3-name {
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        /* Leggermente piÃ¹ piccolo per evitare a capo */
+        margin-bottom: 0;
+    }
+
+    /* Riga Pulsanti Salvataggio/Carica */
+    .cs-v3-header-fixed .cs-v3-name+div {
+        display: flex;
+        flex-wrap: wrap;
+        /* Se sono troppi, vanno a capo */
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    /* Forza i container interni al 100% larghezza */
+    .cs-v3-header-fixed>div>div {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    /* 2. ATTRIBUTI (4 per riga invece di 3) */
+    .cs-v3-attributes-header {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 Colonne fisse */
+        gap: 5px;
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    .attr-box-sm {
+        width: auto;
+        /* Si adatta alla griglia */
+        min-width: 0;
+        /* Permette di restringersi */
+        padding: 4px 0;
+    }
+
+    .attr-box-sm .lbl {
+        font-size: 0.6rem;
+    }
+
+    .attr-box-sm .mod {
+        font-size: 1.1rem;
+    }
+
+    /* Numeri piÃ¹ piccoli */
+    .attr-box-sm input {
+        font-size: 0.7rem;
+    }
+
+    /* Nasconde le linee divisorie verticali */
+    .cs-v3-attributes-header>div[style*="width: 1px"] {
+        display: none;
+    }
+
+    /* --- 3. PRIVILEGI & TOOLTIP (FIX SOVRAPPOSIZIONE) --- */
+
+    /* Dispone le colonne privilegi una sotto l'altra */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* TRUCCO PER I TOOLTIP: Invece di apparire "dentro", appaiono fissi in basso */
+    .feature-chip:hover .feature-tooltip,
+    .feature-chip:focus .feature-tooltip,
+    .feature-chip:active .feature-tooltip {
+        position: fixed;
+        /* Esce dal flusso della pagina */
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border-radius: 15px 15px 0 0;
+        /* Arrotondato solo sopra */
+        z-index: 9999;
+        /* Sopra a TUTTO */
+        background: #1a1a2e;
+        border-top: 2px solid var(--accent-color);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        font-size: 1rem;
+        /* Testo piÃ¹ grande e leggibile */
+        white-space: normal;
+        /* A capo normale */
+        transform: none;
+        /* Reset trasformazioni */
+    }
+
+    /* Freccina del tooltip nascosta su mobile */
+    .feature-tooltip::after {
+        display: none;
+    }
+
+    /* --- 4. TRASFORMAZIONE TABELLE IN CARD (Mobile Only) --- */
+
+    /* --- FIX TABELLE CARD (Layout & Etichette) --- */
+
+    /* Reset Tabelle Mobile */
+    .cs-v3-table thead {
+        display: none;
+    }
+
+    .cs-v3-table tbody,
+    .cs-v3-table tr,
+    .cs-v3-table td {
+        display: block;
+        width: 100%;
+    }
+
+    /* Stile Card (Il contenitore della riga) */
+    .cs-v3-table tr {
+        margin-bottom: 15px;
+        background: rgba(20, 24, 35, 0.9);
+        border: 1px solid var(--border-color);
+        border-left: 4px solid var(--accent-color);
+        border-radius: 8px;
+        padding: 12px;
+        position: relative;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Riga Vuota / Messaggi (Es: "Nessuna arma") */
+    .cs-v3-table tr:has(td[colspan]),
+    .cs-v3-table tr:only-child td {
+        text-align: center !important;
+        border: none;
+        padding: 20px;
+        font-style: italic;
+        color: var(--text-muted);
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* Cella NOME (Titolo Card) */
+    .cs-v3-table td:first-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+    }
+
+    .cs-v3-table td:first-child input {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        width: 85%;
+        /* Lascia spazio alla X */
+    }
+
+    /* Celle DATI (Layout Flex Rigido) */
+    .cs-v3-table td:not(:first-child):not(:last-child) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.9rem;
+    }
+
+    /* Stile Etichette (Pseudo-elementi) */
+    .cs-v3-table td::before {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* --- ETICHETTE SPECIFICHE PER TIPO --- */
+
+    /* 1. ARMI (.table-weapons) */
+    /* Cella 2: Gittata, 3: Danni, 4: Tipo, 5: Munizioni */
+    .table-weapons td:nth-child(2)::before {
+        content: "Gittata:";
+    }
+
+    .table-weapons td:nth-child(3)::before {
+        content: "Danni:";
+    }
+
+    .table-weapons td:nth-child(4)::before {
+        content: "Tipo:";
+    }
+
+    .table-weapons td:nth-child(5)::before {
+        content: "Munizioni:";
+    }
+
+    /* 2. ARMATURE (.table-armor) */
+    /* Cella 2: CA, 3: For.Req, 4: Furtività */
+    .table-armor td:nth-child(2)::before {
+        content: "CA:";
+    }
+
+    .table-armor td:nth-child(3)::before {
+        content: "Forza Req.:";
+    }
+
+    .table-armor td:nth-child(4)::before {
+        content: "Furtività:";
+    }
+
+    /* 3. ZAINO (.table-backpack) */
+    /* Cella 2: Quantità, 3: Note */
+    .table-backpack td:nth-child(2)::before {
+        content: "Quantità:";
+    }
+
+    .table-backpack td:nth-child(3)::before {
+        content: "Note:";
+    }
+
+    /* 4. VEICOLI (.table-vehicles) */
+    /* Cella 2: Tipo, 3: Velocità, 4: Note */
+    .table-vehicles td:nth-child(2)::before {
+        content: "Tipo:";
+    }
+
+    .table-vehicles td:nth-child(3)::before {
+        content: "Velocità:";
+    }
+
+    .table-vehicles td:nth-child(4)::before {
+        content: "Note:";
+    }
+
+    /* Input Allineati a Destra */
+    .cs-v3-table input {
+        text-align: right;
+        background: transparent;
+        color: #fff;
+    }
+
+    /* Cella NOTE (Generica) */
+    .cs-v3-table td input[placeholder*="Note"],
+    .cs-v3-table td input[value*="Note"] {
+        text-align: left;
+        font-style: italic;
+        color: #aaa;
+    }
+
+    /* Tasto CANCELLA (X) - Posizionato in alto a destra della card */
+    .cs-v3-table td:last-child {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: auto;
+        padding: 0;
+        border: none;
+    }
+
+    .cs-v3-table button {
+        background: rgba(255, 0, 0, 0.2);
+        border: 1px solid #ff4444;
+        color: #ff4444;
+        border-radius: 4px;
+        width: 30px;
+        height: 30px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* --- ESPER GRID (2 Colonne su Mobile) --- */
+    .esper-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr !important;
+        /* Due colonne forzate */
+        gap: 8px;
+    }
+
+    .esper-card {
+        width: 100%;
+        padding: 8px;
+        /* Meno padding interno */
+        min-height: 100px;
+        /* Altezza minima uniforme */
+    }
+
+    /* Testo piÃ¹ piccolo nelle card per farcelo stare */
+    .esper-card .ec-header {
+        flex-direction: column;
+        /* Nome sopra, Costo sotto */
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .esper-card .ec-name {
+        font-size: 0.85rem;
+        line-height: 1.2;
+    }
+
+    .esper-card .ec-desc {
+        font-size: 0.75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        /* Taglia dopo 4 righe */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        /* Evita card chilometriche */
+    }
+
+    /* --- 5. NAVIGAZIONE E INPUT --- */
+
+    .cs-v3-tabs {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cs-v3-tab {
+        padding: 12px 20px;
+        /* Tasti piÃ¹ facili da toccare */
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        margin-right: 5px;
+        border-radius: 6px;
+    }
+
+    .cs-v3-input,
+    .cs-v3-select {
+        font-size: 16px;
+        /* Evita zoom automatico su iPhone */
+        padding: 12px;
+        margin-bottom: 5px;
+    }
+
+    /* Modali a tutto schermo */
+    .custom-modal-box,
+    #esper-modal .custom-modal-box,
+    #feat-modal>div {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        border-radius: 0;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+
+    #esper-selection-list,
+    #feat-selection-list {
+        max-height: none !important;
+        flex-grow: 1;
+    }
 }

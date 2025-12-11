@@ -1505,7 +1505,7 @@ function toggleSkill(skillName) {
 function renderWeapons() {
     if (!ELEMENTS.tabWeapons) return;
     let html = `<h3>Armi</h3>
-    <table class="cs-v3-table">
+    <table class="cs-v3-table table-weapons">
         <thead>
             <tr>
                 <th>Arma</th>
@@ -1568,7 +1568,7 @@ function renderEquipment() {
 
     // TABELLA 1: INDOSSATO
     let html = `<h3>Indossato (Armature & Scudi)</h3>
-    <table class="cs-v3-table">
+    <table class="cs-v3-table table-armor">
         <thead>
             <tr>
                 <th>Oggetto</th>
@@ -1603,7 +1603,7 @@ function renderEquipment() {
 
     // TABELLA 2: ZAINO
     html += `<h3>Zaino</h3>
-    <table class="cs-v3-table">
+    <table class="cs-v3-table table-backpack">
         <thead>
             <tr>
                 <th>Oggetto</th>
@@ -1670,7 +1670,7 @@ function updateBackpack(index, field, value) {
 function renderVehicles() {
     if (!ELEMENTS.tabVehicles) return;
     let html = `<h3>Veicoli</h3>
-    <table class="cs-v3-table">
+    <table class="cs-v3-table table-vehicles">
         <thead>
             <tr>
                 <th>Veicolo</th>
