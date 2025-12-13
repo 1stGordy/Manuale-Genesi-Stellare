@@ -327,52 +327,133 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let supabase = null;
 
-        // Inject Login Modal HTML
+        // --- AUTH UI: EMAIL & PASSWORD CON TOGGLE ---
+
         const modalHTML = `
             <div id="login-modal">
                 <div class="login-box">
                     <h3>ACCESSO ARCANUM</h3>
-                    <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted)">Inserisci la tua email per ricevere il Magic Link.</p>
-                    <input type="email" id="login-email" placeholder="nome@esempio.com">
-                    <div id="login-status" style="margin-bottom: 10px; font-size: 0.8rem; color: var(--accent-color); min-height: 1.2em;"></div>
-                    <div style="display: flex; justify-content: center;">
-                        <button class="login-btn-confirm" id="login-confirm">INVIA LINK</button>
-                        <button class="login-btn-cancel" id="login-cancel">ANNULLA</button>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted)">Accedi o crea un nuovo account.</p>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <input type="email" id="login-email" placeholder="Email" class="cs-v3-input" style="width:100%;">
                     </div>
+
+                    <div style="position: relative; margin-bottom: 15px;">
+                        <input type="password" id="login-password" placeholder="Password" class="cs-v3-input" style="width:100%; padding-right: 40px;">
+                        <span id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-85%); cursor: pointer; font-size: 1.2rem; user-select: none;">
+                            👁️
+                        </span>
+                    </div>
+                    
+                    <div id="login-status" style="margin-bottom: 10px; font-size: 0.8rem; color: var(--accent-color); min-height: 1.2em;"></div>
+                    
+                    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                        <button class="login-btn-confirm" id="btn-do-login" style="flex: 1;">LOGIN</button>
+                        <button class="login-btn-confirm" id="btn-do-signup" style="flex: 1; background: var(--secondary-accent);">REGISTRATI</button>
+                    </div>
+                    <button class="login-btn-cancel" id="login-cancel" style="margin-top: 10px; width: 100%;">ANNULLA</button>
                 </div>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
 
         const loginModal = document.getElementById('login-modal');
-        const loginEmailInput = document.getElementById('login-email');
-        const loginConfirmBtn = document.getElementById('login-confirm');
-        const loginCancelBtn = document.getElementById('login-cancel');
+        const emailInput = document.getElementById('login-email');
+        const passInput = document.getElementById('login-password');
+        const togglePassBtn = document.getElementById('toggle-password');
+        const statusDiv = document.getElementById('login-status');
 
-        if (loginCancelBtn) {
-            loginCancelBtn.addEventListener('click', () => {
-                loginModal.classList.remove('open');
+        // LOGICA TOGGLE PASSWORD
+        togglePassBtn.addEventListener('click', () => {
+            const type = passInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passInput.setAttribute('type', type);
+            // Cambia icona (opzionale, o usa emoji diverse)
+            togglePassBtn.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        // Close Logic
+        document.getElementById('login-cancel').addEventListener('click', () => {
+            loginModal.classList.remove('open');
+            statusDiv.textContent = "";
+        });
+
+        // 2. LOGICA LOGIN
+        document.getElementById('btn-do-login').addEventListener('click', async () => {
+            const email = emailInput.value;
+            const password = passInput.value;
+
+            if (!email || !password) {
+                statusDiv.textContent = "Inserisci email e password.";
+                statusDiv.style.color = "#ff4444";
+                return;
+            }
+
+            statusDiv.textContent = "Accesso in corso...";
+            statusDiv.style.color = "var(--accent-color)";
+
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password
             });
-        }
 
-        if (loginConfirmBtn) {
-            loginConfirmBtn.addEventListener('click', () => {
-                const email = loginEmailInput.value;
-                if (email) {
-                    handleLogin(email);
+            if (error) {
+                statusDiv.textContent = "Errore: " + error.message;
+                statusDiv.style.color = "#ff4444";
+            } else {
+                statusDiv.textContent = "Login effettuato!";
+                statusDiv.style.color = "#00ff00";
+                setTimeout(() => {
+                    loginModal.classList.remove('open');
+                    window.location.reload();
+                }, 800);
+            }
+        });
+
+        // 3. LOGICA REGISTRAZIONE
+        document.getElementById('btn-do-signup').addEventListener('click', async () => {
+            const email = emailInput.value;
+            const password = passInput.value;
+
+            if (!email || !password) {
+                statusDiv.textContent = "Inserisci email e password.";
+                statusDiv.style.color = "#ff4444";
+                return;
+            }
+
+            statusDiv.textContent = "Creazione account...";
+            statusDiv.style.color = "var(--secondary-accent)";
+
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                statusDiv.textContent = "Errore: " + error.message;
+                statusDiv.style.color = "#ff4444";
+            } else {
+                // Check if email confirmation is required
+                if (data.user && data.user.identities && data.user.identities.length === 0) {
+                    statusDiv.textContent = "Utente già esistente.";
+                    statusDiv.style.color = "#ff4444";
+                } else {
+                    statusDiv.textContent = "Registrazione OK! Controlla la mail (se richiesto).";
+                    statusDiv.style.color = "#00ff00";
+                    // Se l'auto-confirm è attivo, il login è automatico, altrimenti devono confermare
                 }
-            });
-        }
+            }
+        });
 
+        // --- SUPABASE INIT (Invariato ma incluso per sicurezza del contesto) ---
         if (window.supabase) {
             supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-            window.supabaseClient = supabase; // Shared Instance
+            window.supabaseClient = supabase;
             console.log("Supabase initialized");
 
-            // Check session immediately on load
             supabase.auth.getSession().then(({ data: { session } }) => {
                 if (session) {
-                    console.log("Session found on load:", session);
+                    console.log("Session found:", session);
                     fetchUserRole(session);
                 } else {
                     console.log("No session on load");
@@ -380,49 +461,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Listen for Auth Changes
             supabase.auth.onAuthStateChange((event, session) => {
-                console.log("Auth Event:", event, session);
                 if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
                     if (session) fetchUserRole(session);
                 } else if (event === 'SIGNED_OUT') {
                     updateAuthUI(null);
                 }
             });
-
         } else {
             console.warn("Supabase SDK not loaded");
-            const footer = document.querySelector('.sidebar-footer');
-            if (footer) {
-                const authBtn = document.createElement('button');
-                authBtn.textContent = '⚠️ No Cloud';
-                footer.appendChild(authBtn);
-            }
         }
 
         async function fetchUserRole(session) {
-            // Optimistic UI update (show email immediately while fetching role)
             updateAuthUI(session, true);
-
             try {
-                const { data: profile, error } = await supabase
+                const { data: profile } = await supabase
                     .from('profiles')
                     .select('role')
                     .eq('id', session.user.id)
                     .single();
 
-                if (profile) {
-                    console.log("Role fetched:", profile.role);
-                    session.user.role = profile.role;
-                } else {
-                    console.warn("Profile not found, defaulting to player");
-                    session.user.role = 'player';
-                }
+                session.user.role = profile ? profile.role : 'player';
             } catch (err) {
-                console.error("Error fetching role:", err);
                 session.user.role = 'player';
             }
-            // Final UI update with role
             updateAuthUI(session, false);
         }
 
@@ -448,18 +510,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 userContainer.style.lineHeight = '1.2';
 
                 const emailSpan = document.createElement('span');
-                emailSpan.textContent = session.user.email;
+                emailSpan.textContent = session.user.email.split('@')[0]; // Nome breve
                 emailSpan.style.color = 'var(--text-color)';
                 emailSpan.style.fontWeight = 'bold';
 
                 const roleSpan = document.createElement('span');
-                if (loading) {
-                    roleSpan.textContent = 'Caricamento...';
-                    roleSpan.style.color = 'var(--text-muted)';
-                } else {
-                    roleSpan.textContent = session.user.role === 'gm' ? '👑 GM' : '👤 Player';
-                    roleSpan.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
-                }
+                roleSpan.textContent = loading ? '...' : (session.user.role === 'gm' ? '👑 GM' : '👤 Player');
+                roleSpan.style.color = session.user.role === 'gm' ? 'gold' : 'var(--text-muted)';
 
                 userContainer.appendChild(emailSpan);
                 userContainer.appendChild(roleSpan);
@@ -477,14 +534,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 logoutBtn.onclick = async () => {
                     await supabase.auth.signOut();
-                    window.location.reload(); // Force reload to clear state
+                    window.location.reload();
                 };
 
                 authWrapper.appendChild(userContainer);
                 authWrapper.appendChild(logoutBtn);
             } else {
                 const loginBtn = document.createElement('button');
-                loginBtn.textContent = '🔑 Login';
+                loginBtn.textContent = '🔑 Accedi';
                 loginBtn.style.background = 'var(--accent-color)';
                 loginBtn.style.color = 'var(--bg-color)';
                 loginBtn.style.border = 'none';
@@ -494,70 +551,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 loginBtn.style.fontWeight = 'bold';
 
                 loginBtn.onclick = () => {
-                    loginModal.classList.add('open');
+                    document.getElementById('login-modal').classList.add('open');
                 };
                 authWrapper.appendChild(loginBtn);
             }
             footer.appendChild(authWrapper);
         }
 
-        async function handleLogin(email) {
-            const btn = document.getElementById('login-confirm');
-            const statusDiv = document.getElementById('login-status');
-            const originalText = btn.textContent;
-
-            btn.textContent = '...';
-            btn.disabled = true;
-            statusDiv.textContent = "Inizializzazione...";
-
-            try {
-                // Use current origin + pathname
-                const redirectUrl = window.location.origin + window.location.pathname;
-                statusDiv.textContent = "Connessione a Supabase...";
-
-                // Create a timeout promise
-                const timeout = new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error("Timeout richiesta (10s)")), 10000)
-                );
-
-                // Race between login and timeout
-                const { error } = await Promise.race([
-                    supabase.auth.signInWithOtp({
-                        email,
-                        options: { emailRedirectTo: redirectUrl }
-                    }),
-                    timeout
-                ]);
-
-                if (error) throw error;
-
-                statusDiv.textContent = "Fatto!";
-
-                // Replace modal content with success message
-                const loginBox = document.querySelector('.login-box');
-                loginBox.innerHTML = `
-                    <h3 style="color: #4CAF50;">Link Inviato! 🚀</h3>
-                    <p style="margin: 20px 0; color: var(--text-color);">Controlla la tua email (e lo spam).</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Clicca sul Magic Link per entrare.</p>
-                    <button class="login-btn-confirm" id="close-after-login" style="width: 100%; margin-top: 10px;">CHIUDI</button>
-                `;
-
-                document.getElementById('close-after-login').addEventListener('click', () => {
-                    document.getElementById('login-modal').classList.remove('open');
-                    setTimeout(() => window.location.reload(), 500);
-                });
-
-            } catch (err) {
-                console.error(err);
-                statusDiv.textContent = "Errore: " + err.message;
-                statusDiv.style.color = "red";
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
-        }
-
     } catch (error) {
-        alert("Errore Critico JS: " + error.message);
-        console.error(error);
+        console.error("Critical Error:", error);
     }
 });

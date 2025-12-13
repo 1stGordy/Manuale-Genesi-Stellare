@@ -311,8 +311,13 @@ function populateClassDropdown() {
 }
 
 // --- LISTENERS ---
-// --- LISTENERS ---
 function setupListeners() {
+    if (window.sheetListenersInitialized) {
+        console.warn("Listeners already initialized. Skipping.");
+        return;
+    }
+    window.sheetListenersInitialized = true;
+
     if (ELEMENTS.btnLock) {
         ELEMENTS.btnLock.addEventListener('click', () => {
             toggleEditMode(!state.editLocked);

@@ -1,220 +1,153 @@
-window.CHARACTER_SHEET_HTML = `
-    <div class="cs-v3-container">
+/* --- SHEET TEMPLATE V4 (Modularized) --- */
 
-        <!-- FIXED HEADER -->
-        <div class="cs-v3-header-fixed">
-            <!-- TOP ROW: Portrait + Identity + Vitals -->
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
+const CS_HEADER = `
+    <!-- FIXED HEADER -->
+    <div class="cs-v3-header-fixed">
+        <!-- TOP ROW: Portrait + Identity + Vitals -->
+        <div style="display: flex; gap: 20px; align-items: flex-start;">
 
-                <!-- PORTRAIT -->
-                <div class="cs-v3-portrait">
-                    <img id="char_portrait_img" src="" style="display:none;">
-                    <span id="char_portrait_placeholder">+</span>
-                    <input type="file" id="portrait_upload" style="display:none;" accept="image/*">
-                </div>
+            <!-- PORTRAIT -->
+            <div class="cs-v3-portrait">
+                <img id="char_portrait_img" src="" style="display:none;">
+                <span id="char_portrait_placeholder">+</span>
+                <input type="file" id="portrait_upload" style="display:none;" accept="image/*">
+            </div>
 
-                <!-- INFO COLUMN -->
-                <div style="flex: 1;">
-                    <!-- Name & Level -->
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <input type="text" class="cs-v3-name" id="char_name" value="NOME EROE"
-                            placeholder="Nome Personaggio">
-                        <div style="display:flex; gap:5px; align-items:center;">
-                            <button id="btn_save" class="cs-v3-btn-sm" title="Salva (Locale)">💾</button>
-                            <button id="btn_load" class="cs-v3-btn-sm" title="Carica (Locale)">📂</button>
-                            <button id="btn_cloud_save" class="cs-v3-btn-sm" title="Salva in Cloud"
-                                style="display:none; background-color:#3ecf8e;">☁️</button>
-                            <button id="btn_login" class="cs-v3-btn-sm" title="Login / Registrati">👤</button>
-                            <input type="file" id="file_input" style="display:none;" accept=".json">
-                            <div class="cs-v3-level-box">
-                                <span class="cs-v3-label-sm">LIV</span>
-                                <span id="char_level_display"
-                                    style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">1</span>
-                            </div>
+            <!-- INFO COLUMN -->
+            <div style="flex: 1;">
+                <!-- Name & Level -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <input type="text" class="cs-v3-name" id="char_name" value="NOME EROE" placeholder="Nome Personaggio">
+                    <div style="display:flex; gap:5px; align-items:center;">
+                        <button id="btn_save" class="cs-v3-btn-sm" title="Salva (Locale)">💾</button>
+                        <button id="btn_load" class="cs-v3-btn-sm" title="Carica (Locale)">📂</button>
+                        <button id="btn_cloud_save" class="cs-v3-btn-sm" title="Salva in Cloud" style="display:none; background-color:#3ecf8e;">☁️</button>
+                        <button id="btn_login" class="cs-v3-btn-sm" title="Login / Registrati">👤</button>
+                        <input type="file" id="file_input" style="display:none;" accept=".json">
+                        <div class="cs-v3-level-box">
+                            <span class="cs-v3-label-sm">LIV</span>
+                            <span id="char_level_display" style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">1</span>
                         </div>
-                    </div>
-
-                    <!-- Dropdowns Row -->
-                    <div class="cs-v3-sub">
-                        <select id="char_race" class="cs-v3-select">
-                            <option value="">Razza</option>
-                        </select>
-                        <select id="char_archetype" class="cs-v3-select" disabled>
-                            <option value="">Archetipo</option>
-                        </select>
-                        <select id="char_class" class="cs-v3-select">
-                            <option value="">Classe</option>
-                        </select>
-                        <select id="char_spec" class="cs-v3-select" disabled>
-                            <option value="">Specializzazione</option>
-                        </select>
-                    </div>
-
-                    <!-- Details Row -->
-                    <div class="cs-v3-sub">
-                        <select id="char_gender" class="cs-v3-select" style="width: 70px;">
-                            <option value="">Gen</option>
-                            <option value="M">M</option>
-                            <option value="F">F</option>
-                            <option value="T">T</option>
-                            <option value="TT">TT</option>
-                        </select>
-                        <select id="char_size" class="cs-v3-select" style="width: 90px;">
-                            <option value="S">Piccola</option>
-                            <option value="M" selected>Media</option>
-                            <option value="L">Grande</option>
-                            <option value="XL">Enorme</option>
-                        </select>
-                        <select id="char_align" class="cs-v3-select">
-                            <option value="">Allineamento</option>
-                            <option value="LB">Legale Buono</option>
-                            <option value="NB">Neutrale Buono</option>
-                            <option value="CB">Caotico Buono</option>
-                            <option value="LN">Legale Neutrale</option>
-                            <option value="N">Neutrale</option>
-                            <option value="CN">Caotico Neutrale</option>
-                            <option value="LM">Legale Malvagio</option>
-                            <option value="NM">Neutrale Malvagio</option>
-                            <option value="CM">Caotico Malvagio</option>
-                        </select>
-                        <input type="number" id="char_age" class="cs-v3-input" placeholder="Età" style="width: 60px;">
                     </div>
                 </div>
 
-                <!-- VITALS COLUMN (XP & HP) -->
-                <div style="width: 300px;">
-                    <!-- XP -->
-                    <div class="cs-v3-xp-container">
-                        <div class="cs-v3-bar-label">
-                            <span>ESPERIENZA</span>
-                            <span id="xp_display">0 / 300</span>
-                        </div>
-                        <div class="cs-v3-bar-track">
-                            <div class="cs-v3-bar-fill xp-fill" id="xp_bar" style="width: 0%;"></div>
-                        </div>
-                        <div style="text-align: right; margin-top: 2px;">
-                            <button id="btn_add_xp" class="cs-v3-btn-sm">+ XP</button>
-                        </div>
-                    </div>
+                <!-- Dropdowns Row -->
+                <div class="cs-v3-sub">
+                    <select id="char_race" class="cs-v3-select"><option value="">Razza</option></select>
+                    <select id="char_archetype" class="cs-v3-select" disabled><option value="">Archetipo</option></select>
+                    <select id="char_class" class="cs-v3-select"><option value="">Classe</option></select>
+                    <select id="char_spec" class="cs-v3-select" disabled><option value="">Specializzazione</option></select>
+                </div>
 
-                    <!-- HP -->
-                    <div class="cs-v3-xp-container" style="margin-top: 10px;">
-                        <div class="cs-v3-bar-label">
-                            <span>PUNTI FERITA</span>
-                            <span id="hp_display">0 / 0</span>
-                        </div>
-                        <div class="cs-v3-bar-track">
-                            <div class="cs-v3-bar-fill hp-fill" id="hp_bar" style="width: 0%;"></div>
-                            <div class="cs-v3-bar-fill temp-hp-fill" id="hp_temp_bar" style="width: 0%;"></div>
-                        </div>
-                        <div class="cs-v3-vitals-inputs">
-                            <input type="number" id="hp_current" class="cs-v3-input-sm" placeholder="Curr">
-                            <span>/</span>
-                            <input type="number" id="hp_max" class="cs-v3-input-sm" placeholder="Max">
-                            <input type="number" id="hp_temp" class="cs-v3-input-sm" placeholder="Temp"
-                                style="border-color: #d900ff; color: #d900ff;">
-                        </div>
-                    </div>
+                <!-- Details Row -->
+                <div class="cs-v3-sub">
+                    <select id="char_gender" class="cs-v3-select" style="width: 70px;">
+                        <option value="">Gen</option><option value="M">M</option><option value="F">F</option><option value="T">T</option><option value="TT">TT</option>
+                    </select>
+                    <select id="char_size" class="cs-v3-select" style="width: 90px;">
+                        <option value="S">Piccola</option><option value="M" selected>Media</option><option value="L">Grande</option><option value="XL">Enorme</option>
+                    </select>
+                    <select id="char_align" class="cs-v3-select">
+                        <option value="">Allineamento</option>
+                        <option value="LB">Legale Buono</option><option value="NB">Neutrale Buono</option><option value="CB">Caotico Buono</option>
+                        <option value="LN">Legale Neutrale</option><option value="N">Neutrale</option><option value="CN">Caotico Neutrale</option>
+                        <option value="LM">Legale Malvagio</option><option value="NM">Neutrale Malvagio</option><option value="CM">Caotico Malvagio</option>
+                    </select>
+                    <input type="number" id="char_age" class="cs-v3-input" placeholder="Età" style="width: 60px;">
                 </div>
             </div>
 
-            <!-- COMPACT ATTRIBUTES HEADER -->
-            <div class="cs-v3-attributes-header">
-                <div class="attr-box-sm"><span class="lbl">FOR</span><input type="number" id="attr_str" value="10" oninput="updateBaseStat('str', this.value)"><span class="mod" id="mod_str">+0</span></div>
-                <div class="attr-box-sm"><span class="lbl">DES</span><input type="number" id="attr_dex" value="10" oninput="updateBaseStat('dex', this.value)"><span class="mod" id="mod_dex">+0</span></div>
-                <div class="attr-box-sm"><span class="lbl">COS</span><input type="number" id="attr_con" value="10" oninput="updateBaseStat('con', this.value)"><span class="mod" id="mod_con">+0</span></div>
-                <div class="attr-box-sm"><span class="lbl">INT</span><input type="number" id="attr_int" value="10" oninput="updateBaseStat('int', this.value)"><span class="mod" id="mod_int">+0</span></div>
-                <div class="attr-box-sm"><span class="lbl">SAG</span><input type="number" id="attr_wis" value="10" oninput="updateBaseStat('wis', this.value)"><span class="mod" id="mod_wis">+0</span></div>
-                <div class="attr-box-sm"><span class="lbl">CAR</span><input type="number" id="attr_cha" value="10" oninput="updateBaseStat('cha', this.value)"><span class="mod" id="mod_cha">+0</span></div>
+            <!-- VITALS COLUMN (XP & HP) -->
+            <div style="width: 300px;">
+                <!-- XP -->
+                <div class="cs-v3-xp-container">
+                    <div class="cs-v3-bar-label">
+                        <span>ESPERIENZA</span>
+                        <span id="xp_display">0 / 300</span>
+                    </div>
+                    <div class="cs-v3-bar-track">
+                        <div class="cs-v3-bar-fill xp-fill" id="xp_bar" style="width: 0%;"></div>
+                    </div>
+                    <div style="text-align: right; margin-top: 2px;">
+                        <button id="btn_add_xp" class="cs-v3-btn-sm">+ XP</button>
+                    </div>
+                </div>
 
-                <div style="width: 1px; background: rgba(255,255,255,0.1); margin: 0 10px;"></div>
-
-                <div class="attr-box-sm" style="width: 60px;">
-                    <span class="lbl">CA</span>
-                    <span class="value-lg" id="stat_ac">10</span>
-                </div>
-                <div class="attr-box-sm" style="width: 60px;">
-                    <span class="lbl">INIT</span>
-                    <span class="value-lg" id="stat_init">+0</span>
-                </div>
-                <div class="attr-box-sm" style="width: 60px;">
-                    <span class="lbl">COMP</span>
-                    <span class="value-lg" id="stat_prof">+2</span>
-                </div>
-                <div class="attr-box-sm" style="width: 60px;">
-                    <span class="lbl">VEL</span>
-                    <span class="value-lg" id="stat_speed">9m</span>
+                <!-- HP -->
+                <div class="cs-v3-xp-container" style="margin-top: 10px;">
+                    <div class="cs-v3-bar-label">
+                        <span>PUNTI FERITA</span>
+                        <span id="hp_display">0 / 0</span>
+                    </div>
+                    <div class="cs-v3-bar-track">
+                        <div class="cs-v3-bar-fill hp-fill" id="hp_bar" style="width: 0%;"></div>
+                        <div class="cs-v3-bar-fill temp-hp-fill" id="hp_temp_bar" style="width: 0%;"></div>
+                    </div>
+                    <div class="cs-v3-vitals-inputs">
+                        <input type="number" id="hp_current" class="cs-v3-input-sm" placeholder="Curr">
+                        <span>/</span>
+                        <input type="number" id="hp_max" class="cs-v3-input-sm" placeholder="Max" autocomplete="off">
+                        <input type="number" id="hp_temp" class="cs-v3-input-sm" placeholder="Temp" style="border-color: #d900ff; color: #d900ff;">
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SCROLLABLE BODY -->
-        <div class="cs-v3-body-scroll">
+        <!-- COMPACT ATTRIBUTES HEADER -->
+        <div class="cs-v3-attributes-header">
+            <div class="attr-box-sm"><span class="lbl">FOR</span><input type="number" id="attr_str" value="10" autocomplete="off" oninput="updateBaseStat('str', this.value)"><span class="mod" id="mod_str">+0</span></div>
+            <div class="attr-box-sm"><span class="lbl">DES</span><input type="number" id="attr_dex" value="10" autocomplete="off" oninput="updateBaseStat('dex', this.value)"><span class="mod" id="mod_dex">+0</span></div>
+            <div class="attr-box-sm"><span class="lbl">COS</span><input type="number" id="attr_con" value="10" autocomplete="off" oninput="updateBaseStat('con', this.value)"><span class="mod" id="mod_con">+0</span></div>
+            <div class="attr-box-sm"><span class="lbl">INT</span><input type="number" id="attr_int" value="10" autocomplete="off" oninput="updateBaseStat('int', this.value)"><span class="mod" id="mod_int">+0</span></div>
+            <div class="attr-box-sm"><span class="lbl">SAG</span><input type="number" id="attr_wis" value="10" autocomplete="off" oninput="updateBaseStat('wis', this.value)"><span class="mod" id="mod_wis">+0</span></div>
+            <div class="attr-box-sm"><span class="lbl">CAR</span><input type="number" id="attr_cha" value="10" autocomplete="off" oninput="updateBaseStat('cha', this.value)"><span class="mod" id="mod_cha">+0</span></div>
 
-            <!-- TABS NAVIGATION -->
-            <div class="cs-v3-tabs">
-                <button class="cs-v3-tab active" data-tab="features">PRIVILEGI</button>
-                <button class="cs-v3-tab" data-tab="skills">ABILITÀ</button>
-                <button class="cs-v3-tab" data-tab="feats">TALENTI</button>
-                <button class="cs-v3-tab" data-tab="esper">ESPER</button>
-                <button class="cs-v3-tab" data-tab="weapons">ARMI</button>
-                <button class="cs-v3-tab" data-tab="equipment">EQUIP</button>
-                <button class="cs-v3-tab" data-tab="vehicles">VEICOLI</button>
-                <button class="cs-v3-tab" data-tab="notes">NOTE</button>
-            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.1); margin: 0 10px;"></div>
 
-            <!-- TABS CONTENT -->
-            <div id="tab-features" class="tab-pane active">
-                <div id="features-list">
-                    <!-- Dynamic Content -->
-                </div>
-            </div>
-
-            <div id="tab-skills" class="tab-pane">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div id="tab-feats" class="tab-pane">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div id="tab-esper" class="tab-pane">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div id="tab-weapons" class="tab-pane">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div id="tab-equipment" class="tab-pane">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div id="tab-vehicles" class="tab-pane">
-                <!-- Dynamic Content -->
-            </div>
-
-            <div id="tab-notes" class="tab-pane">
-                <textarea
-                    style="width: 100%; height: 300px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: #fff; padding: 10px; font-family: var(--font-body);"
-                    placeholder="Note del giocatore..."></textarea>
-            </div>
-
+            <div class="attr-box-sm" style="width: 60px;"><span class="lbl">CA</span><span class="value-lg" id="stat_ac">10</span></div>
+            <div class="attr-box-sm" style="width: 60px;"><span class="lbl">INIT</span><span class="value-lg" id="stat_init">+0</span></div>
+            <div class="attr-box-sm" style="width: 60px;"><span class="lbl">COMP</span><span class="value-lg" id="stat_prof">+2</span></div>
+            <div class="attr-box-sm" style="width: 60px;"><span class="lbl">VEL</span><span class="value-lg" id="stat_speed">9m</span></div>
         </div>
-
     </div>
+`;
 
+const CS_BODY = `
+    <!-- SCROLLABLE BODY -->
+    <div class="cs-v3-body-scroll">
+
+        <!-- TABS NAVIGATION -->
+        <div class="cs-v3-tabs">
+            <button class="cs-v3-tab active" data-tab="features">PRIVILEGI</button>
+            <button class="cs-v3-tab" data-tab="skills">ABILITÀ</button>
+            <button class="cs-v3-tab" data-tab="feats">TALENTI</button>
+            <button class="cs-v3-tab" data-tab="esper">ESPER</button>
+            <button class="cs-v3-tab" data-tab="weapons">ARMI</button>
+            <button class="cs-v3-tab" data-tab="equipment">EQUIP</button>
+            <button class="cs-v3-tab" data-tab="vehicles">VEICOLI</button>
+            <button class="cs-v3-tab" data-tab="notes">NOTE</button>
+        </div>
+
+        <!-- TABS CONTENT -->
+        <div id="tab-features" class="tab-pane active"><div id="features-list"></div></div>
+        <div id="tab-skills" class="tab-pane"></div>
+        <div id="tab-feats" class="tab-pane"></div>
+        <div id="tab-esper" class="tab-pane"></div>
+        <div id="tab-weapons" class="tab-pane"></div>
+        <div id="tab-equipment" class="tab-pane"></div>
+        <div id="tab-vehicles" class="tab-pane"></div>
+        <div id="tab-notes" class="tab-pane">
+            <textarea style="width: 100%; height: 300px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: #fff; padding: 10px; font-family: var(--font-body);" placeholder="Note del giocatore..."></textarea>
+        </div>
+    </div>
+`;
+
+const CS_MODALS = `
     <!-- FEAT SELECTION MODAL -->
-    <div id="feat-modal"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
-        <div
-            style="background:var(--bg-color); width:90%; max-width:600px; padding:20px; border:1px solid var(--accent-color); border-radius:8px; max-height:80vh; display:flex; flex-direction:column; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
-            <h3 style="margin-top:0; border-bottom:1px solid var(--border-color); padding-bottom:10px;">Seleziona
-                Talento</h3>
-            <div id="feat-selection-list" style="overflow-y:auto; flex-grow:1; margin-bottom:10px; padding-right:5px;">
-                <!-- Populated by JS -->
-            </div>
+    <div id="feat-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+        <div style="background:var(--bg-color); width:90%; max-width:600px; padding:20px; border:1px solid var(--accent-color); border-radius:8px; max-height:80vh; display:flex; flex-direction:column; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
+            <h3 style="margin-top:0; border-bottom:1px solid var(--border-color); padding-bottom:10px;">Seleziona Talento</h3>
+            <div id="feat-selection-list" style="overflow-y:auto; flex-grow:1; margin-bottom:10px; padding-right:5px;"></div>
             <div style="display:flex; justify-content:flex-end;">
                 <button class="cs-v3-btn-sm" onclick="closeFeatModal()">Chiudi</button>
             </div>
@@ -222,42 +155,36 @@ window.CHARACTER_SHEET_HTML = `
     </div>
 
     <!-- ESPER SELECTION MODAL -->
-    <div id="esper-modal"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
-        <div
-            style="background:var(--bg-color); width:90%; max-width:800px; padding:20px; border:1px solid var(--accent-color); border-radius:8px; max-height:85vh; display:flex; flex-direction:column; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
+    <div id="esper-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+        <div style="background:var(--bg-color); width:90%; max-width:800px; padding:20px; border:1px solid var(--accent-color); border-radius:8px; max-height:85vh; display:flex; flex-direction:column; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:10px; margin-bottom:10px;">
                 <h3 style="margin:0;">Seleziona Potere Esper</h3>
             </div>
             <div style="display:flex; gap:10px; margin-bottom:10px;">
-                <select id="esper-modal-filter" onchange="updateEsperModalList()"
-                    style="flex:1; padding:5px; background:var(--input-bg); color:var(--text-color); border:1px solid var(--border-color);">
+                <select id="esper-modal-filter" onchange="updateEsperModalList()" style="flex:1; padding:5px; background:var(--input-bg); color:var(--text-color); border:1px solid var(--border-color);">
                     <option value="all">Tutti i Gradi</option>
-                    <option value="0">Grado 0 (Prime)</option>
-                    <option value="1">Grado 1</option>
-                    <option value="2">Grado 2</option>
-                    <option value="3">Grado 3</option>
-                    <option value="4">Grado 4</option>
-                    <option value="5">Grado 5</option>
-                    <option value="6">Grado 6</option>
-                    <option value="7">Grado 7</option>
-                    <option value="8">Grado 8</option>
-                    <option value="9">Grado 9</option>
+                    <option value="0">Grado 0 (Prime)</option><option value="1">Grado 1</option><option value="2">Grado 2</option>
+                    <option value="3">Grado 3</option><option value="4">Grado 4</option><option value="5">Grado 5</option>
+                    <option value="6">Grado 6</option><option value="7">Grado 7</option><option value="8">Grado 8</option><option value="9">Grado 9</option>
                 </select>
-                <input type="text" id="esper-search-input" placeholder="🔍 Cerca tecnica..." 
-                       onkeyup="updateEsperModalList()" 
+                <input type="text" id="esper-search-input" placeholder="🔍 Cerca tecnica..." onkeyup="updateEsperModalList()" 
                        style="flex:2; background:var(--input-bg); border:1px solid var(--border-color); color:var(--text-color); padding:5px; border-radius:4px;">
             </div>
-            <div id="esper-selection-list"
-                style="overflow-y:auto; flex-grow:1; margin-bottom:10px; padding-right:5px;">
-                <!-- Populated by JS -->
-            </div>
+            <div id="esper-selection-list" style="overflow-y:auto; flex-grow:1; margin-bottom:10px; padding-right:5px;"></div>
             <div style="display:flex; justify-content:space-between; border-top:1px solid var(--border-color); padding-top:10px;">
                 <button class="cs-v3-btn-sm" style="background:#ff4444; border-color:#ff0000;" onclick="resetEsperPreparations()">⚠ Reset Scelte</button>
                 <button class="cs-v3-btn-sm" onclick="closeEsperModal()">Chiudi</button>
             </div>
         </div>
     </div>
+`;
+
+window.CHARACTER_SHEET_HTML = `
+    <div class="cs-v3-container">
+        ${CS_HEADER}
+        ${CS_BODY}
+    </div>
+    ${CS_MODALS}
 `;
 
 /* --- LOGICA MODALE ESPER (Spostata nel Template) --- */
@@ -467,7 +394,6 @@ function updateEsperModalList() {
 
         const filtered = powers.filter(p => p.name.toLowerCase().includes(searchTerm));
         if (filtered.length === 0 && searchTerm !== "") continue;
-        if (filtered.length === 0 && searchTerm !== "") continue;
         if (powers.length === 0) continue;
 
         const isGradeLocked = (g > 0 && g > maxCastable);
@@ -560,6 +486,3 @@ function updateEsperModalList() {
     html += `</div>`;
     container.innerHTML = html;
 }
-
-
-
