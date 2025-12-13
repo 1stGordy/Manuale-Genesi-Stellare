@@ -221,7 +221,12 @@ function mapElements() {
 function initializeStateFromInputs() {
     ['str', 'dex', 'con', 'int', 'wis', 'cha'].forEach(stat => {
         const input = ELEMENTS[`attr_${stat}`];
-        if (input) state.baseStats[stat] = parseInt(input.value) || 10;
+        if (input) {
+            // FIX: Input value shows (Base + Bonus). We must save only Base.
+            const total = parseInt(input.value) || 10;
+            const bonus = getStatBonus(stat);
+            state.baseStats[stat] = total - bonus;
+        }
     });
 
     if (ELEMENTS.gender) state.gender = ELEMENTS.gender.value;
