@@ -19,11 +19,8 @@ const CS_HEADER = `
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <input type="text" class="cs-v3-name" id="char_name" value="NOME EROE" placeholder="Nome Personaggio">
                     <div style="display:flex; gap:5px; align-items:center;">
-                        <button id="btn_save" class="cs-v3-btn-sm" title="Salva (Locale)">💾</button>
-                        <button id="btn_load" class="cs-v3-btn-sm" title="Carica (Locale)">📂</button>
                         <button id="btn_cloud_save" class="cs-v3-btn-sm" title="Salva in Cloud" style="display:none; background-color:#3ecf8e;">☁️</button>
                         <button id="btn_login" class="cs-v3-btn-sm" title="Login / Registrati">👤</button>
-                        <input type="file" id="file_input" style="display:none;" accept=".json">
                         <div class="cs-v3-level-box">
                             <span class="cs-v3-label-sm">LIV</span>
                             <span id="char_level_display" style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">1</span>

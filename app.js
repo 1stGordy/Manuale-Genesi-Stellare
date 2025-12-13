@@ -558,6 +558,107 @@ document.addEventListener('DOMContentLoaded', () => {
             footer.appendChild(authWrapper);
         }
 
+        // --- JSON EXPORT/IMPORT (TRANSFER OWNERSHIP) ---
+        // GESTIONE FILE LOCALE (JSON)
+
+        const btnExport = document.getElementById('btn-export-json');
+        const btnImport = document.getElementById('btn-import-json');
+        const fileImport = document.getElementById('file-import-input');
+
+        // DOWNLOAD (Export)
+        if (btnExport) {
+            btnExport.addEventListener('click', () => {
+                if (!window.state) return;
+
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(window.state, null, 2));
+                const downloadAnchorNode = document.createElement('a');
+                downloadAnchorNode.setAttribute("href", dataStr);
+                downloadAnchorNode.setAttribute("download", (window.state.name || "personaggio") + ".json");
+                document.body.appendChild(downloadAnchorNode);
+                downloadAnchorNode.click();
+                downloadAnchorNode.remove();
+
+                // Feedback visuale
+                showCustomModal("File Scaricato", "Il file JSON è stato salvato nel tuo dispositivo.\nPuoi inviarlo a un amico o tenerlo come backup.");
+            });
+        }
+
+        // UPLOAD (Import Trigger)
+        if (btnImport && fileImport) {
+            btnImport.addEventListener('click', () => {
+                fileImport.click();
+            });
+
+            fileImport.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    try {
+                        const json = JSON.parse(e.target.result);
+
+                        // IMPORTANTE: Rimuovi info proprietario per "Trasferire" il PG
+                        delete json.id;
+                        delete json.user_id;
+                        delete json.created_at;
+
+                        // Aggiorna lo stato globale
+                        if (window.state) {
+                            Object.assign(window.state, json);
+                            window.state.id = null;
+                            window.state.user_id = null;
+                        }
+
+                        // Ridisegna tutto
+                        if (typeof window.renderSheet === 'function') {
+                            window.renderSheet();
+                        } else if (typeof window.restoreUIFromState === 'function') {
+                            window.restoreUIFromState();
+                            if (typeof window.recalculate === 'function') window.recalculate();
+                            if (typeof window.renderSecondaryTabs === 'function') window.renderSecondaryTabs();
+                        }
+
+                        showCustomModal("Importazione Riuscita", "Il personaggio è stato caricato correttamente dal file.\n\n⚠️ ATTENZIONE: Questo personaggio non è ancora salvato nel Cloud. Clicca sull'icona 'Salva Cloud' se vuoi memorizzarlo nel tuo account.");
+
+                    } catch (err) {
+                        console.error(err);
+                        showCustomModal("Errore Importazione", "Impossibile leggere il file. Assicurati che sia un JSON valido generato da questo sito.");
+                    }
+                    // Reset input
+                    event.target.value = '';
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        // Helper per Modali (se non esiste già in app.js, aggiungila)
+        function showCustomModal(title, message) {
+            // Verifica se esiste già la modale nel DOM
+            let modalOverlay = document.getElementById('generic-message-modal');
+
+            // Se non esiste, creala al volo (Fallback)
+            if (!modalOverlay) {
+                const html = `
+                <div class="custom-modal-overlay" id="generic-message-modal" style="display:none; flex-direction:column;">
+                    <div class="custom-modal-box">
+                        <div class="custom-modal-title">TITOLO</div>
+                        <div class="custom-modal-body">MESSAGGIO</div>
+                        <div class="custom-modal-actions">
+                            <button class="cs-v3-btn-sm" onclick="document.getElementById('generic-message-modal').style.display='none'">OK</button>
+                        </div>
+                    </div>
+                </div>`;
+                document.body.insertAdjacentHTML('beforeend', html);
+                modalOverlay = document.getElementById('generic-message-modal');
+            }
+
+            // Popola e Mostra
+            modalOverlay.querySelector('.custom-modal-title').textContent = title;
+            modalOverlay.querySelector('.custom-modal-body').innerText = message; // innerText preserva i \n
+            modalOverlay.style.display = 'flex';
+        }
+
     } catch (error) {
         console.error("Critical Error:", error);
     }
