@@ -1,48 +1,64 @@
 // SUPABASE CLIENT INTEGRATION
 
-const SUPABASE_URL = 'https://tmqfxsjjffvdkwzpkysn.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtcWZ4c2pqZmZ2ZGt3enBreXNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2OTM3MDEsImV4cCI6MjA4MDI2OTcwMX0.Bb559AxjxIpTp-Aj4Div3j0LBcAdNGsoZjZ-AcZvOOg';
+var SUPABASE_URL = 'https://tmqfxsjjffvdkwzpkysn.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtcWZ4c2pqZmZ2ZGt3enBreXNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2OTM3MDEsImV4cCI6MjA4MDI2OTcwMX0.Bb559AxjxIpTp-Aj4Div3j0LBcAdNGsoZjZ-AcZvOOg';
 
-let supabase = null;
-let currentUser = null;
+// Renamed to avoid checking global window.supabase (the SDK)
+var supabaseInstance = null;
+var currentUser = null;
 
 function initSupabase() {
     // Check if client is ALREADY initialized globally (by app.js)
     if (window.supabaseClient) {
-        supabase = window.supabaseClient;
+        supabaseInstance = window.supabaseClient;
         // console.log("Supabase Client Reused from Global.");
-    } else if (typeof supabase === 'object' && supabase === null && window.supabase && window.supabase.createClient) {
+    } else if (typeof supabaseInstance === 'object' && supabaseInstance === null && window.supabase && window.supabase.createClient) {
         // Init client myself if not done
         try {
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            supabaseInstance = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("Supabase Client Initialized Locally.");
+            // Align global if needed
+            window.supabaseClient = supabaseInstance;
         } catch (e) {
             console.error("Supabase Init Error:", e);
             return;
         }
-    } else if (supabase) {
-        // Already initialized
-        return;
+    } else if (supabaseInstance) {
+        // Already initialized, but we MUST refresh UI for the new page content
     } else {
         console.error("Supabase Library not found.");
         return;
     }
 
-    // Session Recovery & Auth Listener (Only if init was successful)
-    if (supabase) {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            if (session) {
-                handleUserSession(session.user);
-            }
-        });
+    // --- UI SYNC LOGIC ---
 
-        supabase.auth.onAuthStateChange((event, session) => {
+    // 1. Fast Update: Use cached user if available
+    if (currentUser) {
+        handleUserSession(currentUser);
+    }
+
+    // 2. Truth Update: Check session from Supabase (Async)
+    if (supabaseInstance) {
+        supabaseInstance.auth.getSession().then(({ data: { session } }) => {
             if (session) {
                 handleUserSession(session.user);
             } else {
-                handleUserLogout();
+                // Only logout if we are NOT in a valid session state
+                if (currentUser) handleUserLogout();
             }
         });
+
+        // 3. Setup Listener (Once)
+        if (!window.supabaseListenerAttached) {
+            supabaseInstance.auth.onAuthStateChange((event, session) => {
+                if (session) {
+                    handleUserSession(session.user);
+                } else {
+                    handleUserLogout();
+                }
+            });
+            window.supabaseListenerAttached = true;
+        }
     }
 }
 
@@ -58,10 +74,15 @@ function handleUserSession(user) {
         btnLogin.innerHTML = '🟢';
         btnLogin.title = `Login: ${user.email}`;
         btnLogin.onclick = showLogoutModal;
+    } else {
+        console.warn("DEBUG: btnLogin not found during handleUserSession");
     }
+
     if (btnCloudSave) {
         btnCloudSave.style.display = 'inline-block';
         btnCloudSave.onclick = saveToCloud;
+    } else {
+        console.warn("DEBUG: btnCloudSave not found during handleUserSession");
     }
 }
 
@@ -83,7 +104,7 @@ function handleUserLogout() {
 // --- AUTH UI ---
 
 function showAuthModal() {
-    if (!supabase) return alert("Errore connessione DB.");
+    if (!supabaseInstance) return alert("Errore connessione DB.");
 
     const overlay = document.createElement('div');
     overlay.className = 'custom-modal-overlay';
@@ -107,7 +128,7 @@ function showAuthModal() {
     document.getElementById('btn_do_login').addEventListener('click', async () => {
         const email = document.getElementById('auth_email').value;
         const pass = document.getElementById('auth_pass').value;
-        const { error } = await supabase.auth.signInWithPassword({ email, password: pass });
+        const { error } = await supabaseInstance.auth.signInWithPassword({ email, password: pass });
         if (error) alert("Login Failed: " + error.message);
         else overlay.remove();
     });
@@ -115,7 +136,7 @@ function showAuthModal() {
     document.getElementById('btn_do_signup').addEventListener('click', async () => {
         const email = document.getElementById('auth_email').value;
         const pass = document.getElementById('auth_pass').value;
-        const { error } = await supabase.auth.signUp({ email, password: pass });
+        const { error } = await supabaseInstance.auth.signUp({ email, password: pass });
         if (error) alert("Signup Failed: " + error.message);
         else {
             alert("Registrazione ok! Controlla la mail.");
@@ -144,7 +165,7 @@ function showLogoutModal() {
     document.body.appendChild(overlay);
 
     document.getElementById('btn_do_logout').addEventListener('click', async () => {
-        await supabase.auth.signOut();
+        await supabaseInstance.auth.signOut();
         overlay.remove();
     });
 
@@ -182,7 +203,7 @@ async function saveToCloud() {
         payload.id = window.state.db_id;
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseInstance
         .from('characters')
         .upsert(payload)
         .select()
@@ -206,7 +227,7 @@ async function openCloudLoadList() {
     // Fetch list (id, name only)
     const DM_EMAIL = 'emanuele.capuzzo13@gmail.com';
 
-    let query = supabase
+    let query = supabaseInstance
         .from('characters')
         .select('id, name, user_id, profiles(email)'); // Join profiles if possible, otherwise just get user_id (NOTE: Profiles requires foreign key or public view)
     // If profile join fails (no FK), just select id, name, user_id. Assuming profiles table linked via auth.
@@ -277,7 +298,7 @@ async function openCloudLoadList() {
     window.deleteCharacter = async (id) => {
         if (!confirm("Sei sicuro di voler eliminare questo personaggio? Questa azione è irreversibile.")) return;
 
-        const { error } = await supabase
+        const { error } = await supabaseInstance
             .from('characters')
             .delete()
             .eq('id', id);
@@ -293,7 +314,7 @@ async function openCloudLoadList() {
 }
 
 async function performLoad(id) {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseInstance
         .from('characters')
         .select('data, id') // Select ID too just in case
         .eq('id', id)
@@ -324,6 +345,11 @@ async function performLoad(id) {
 document.addEventListener('DOMContentLoaded', () => {
     // Only init if not triggered by main app (fallback)
     setTimeout(() => {
-        if (!supabase) initSupabase();
+        if (!supabaseInstance) initSupabase();
     }, 1000);
 });
+
+// Helper for Manual Refresh
+window.refreshAuthUI = function () {
+    initSupabase();
+}
