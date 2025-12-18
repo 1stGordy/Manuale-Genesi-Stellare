@@ -426,7 +426,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const { data, error } = await supabase.auth.signUp({
                 email: email,
-                password: password
+                password: password,
+                options: {
+                    emailRedirectTo: window.location.href
+                }
             });
 
             if (error) {
@@ -451,14 +454,20 @@ document.addEventListener('DOMContentLoaded', () => {
             window.supabaseClient = supabase;
             console.log("Supabase initialized");
 
-            supabase.auth.getSession().then(({ data: { session } }) => {
-                if (session) {
-                    console.log("Session found:", session);
+            supabase.auth.getSession().then(({ data: { session }, error }) => {
+                if (error) {
+                    console.warn("Session error:", error.message);
+                    updateAuthUI(null);
+                } else if (session) {
+                    console.log("Session found:", session.user.email);
                     fetchUserRole(session);
                 } else {
                     console.log("No session on load");
                     updateAuthUI(null);
                 }
+            }).catch(err => {
+                console.warn("Session fetch failed:", err);
+                updateAuthUI(null);
             });
 
             supabase.auth.onAuthStateChange((event, session) => {

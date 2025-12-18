@@ -39,13 +39,19 @@ function initSupabase() {
 
     // 2. Truth Update: Check session from Supabase (Async)
     if (supabaseInstance) {
-        supabaseInstance.auth.getSession().then(({ data: { session } }) => {
-            if (session) {
+        supabaseInstance.auth.getSession().then(({ data: { session }, error }) => {
+            if (error) {
+                console.warn("Session check error (likely expired):", error.message);
+                handleUserLogout();
+            } else if (session) {
                 handleUserSession(session.user);
             } else {
                 // Only logout if we are NOT in a valid session state
                 if (currentUser) handleUserLogout();
             }
+        }).catch(err => {
+            console.warn("Supabase Session Error:", err);
+            handleUserLogout();
         });
 
         // 3. Setup Listener (Once)
@@ -136,7 +142,13 @@ function showAuthModal() {
     document.getElementById('btn_do_signup').addEventListener('click', async () => {
         const email = document.getElementById('auth_email').value;
         const pass = document.getElementById('auth_pass').value;
-        const { error } = await supabaseInstance.auth.signUp({ email, password: pass });
+        const { error } = await supabaseInstance.auth.signUp({
+            email,
+            password: pass,
+            options: {
+                emailRedirectTo: window.location.origin // Use origin to keep it clean, or href for full path
+            }
+        });
         if (error) alert("Signup Failed: " + error.message);
         else {
             alert("Registrazione ok! Controlla la mail.");
